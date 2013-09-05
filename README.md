@@ -1,3 +1,5 @@
 # Couple
 
-When 'U' meet 'I', we become a 'Couple'.
+> When I meet U, we become a Couple.
+
+这是一个 UI 框架。
