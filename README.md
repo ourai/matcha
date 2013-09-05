@@ -1,4 +1,3 @@
-Couple
-======
+# Couple
 
-An UI framework
+When 'U' meet 'I', become a 'Couple'.
