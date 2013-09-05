@@ -1,3 +1,3 @@
 # Couple
 
-When 'U' meet 'I', become a 'Couple'.
+When 'U' meet 'I', we become a 'Couple'.
