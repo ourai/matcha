@@ -1,5 +1,3 @@
-# Couple
-
-> When I meet U, we become a Couple.
+# Matcha: A Flexible, Responsive UI Framework
 
 这是一个 UI 框架。
