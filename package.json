@@ -1,0 +1,31 @@
+{
+  "name": "water",
+  "version": "0.1.1-alpha",
+  "description": "A Flexible, Responsive UI Framework",
+  "homepage": "http://ourai.github.io/water/",
+  "keywords": [
+    "flexible",
+    "responsive",
+    "ui",
+    "framework"
+  ],
+  "author": "Ourai Lin <ourairyu@hotmail.com> (http://ourai.ws/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ourai/water.git"
+  },
+  "bugs": "https://github.com/ourai/water/issues",
+  "engines": "node >= 0.8.0",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-compass": "~0.7.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-coffee": "~0.10.0",
+    "grunt-contrib-yuidoc": "~0.5.0",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-cssmin": "~0.9.0"
+  },
+  "dependencies": {
+    "normalize.css": "0.0.1"
+  }
+}
