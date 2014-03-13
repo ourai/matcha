@@ -1,3 +1,3 @@
-# Matcha: A Flexible, Responsive UI Framework
+# Matcha
 
 这是一个 UI 框架。
