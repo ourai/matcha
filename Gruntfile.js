@@ -5,33 +5,18 @@ module.exports = function( grunt ) {
       src: "src",
       dest: "dest/<%= pkg.version %>"
     },
-    coffee: {
-      options: {
-        separator: "\x20"
-      },
-      build: {
-        src: "<%= dirs.dest %>/<%= pkg.name %>.coffee",
-        dest: "<%= dirs.dest %>/<%= pkg.name %>.js"
-      }
-    },
-    uglify: {
-      options: {
-        banner: "/*! <%= pkg.name %> <%= grunt.template.today('yyyy-mm-dd') %> */\n"
-      },
-      build: {
-        src: "<%= dirs.dest %>/<%= pkg.name %>.js",
-        dest: "<%= dirs.dest %>/<%= pkg.name %>.min.js"
+    cssmin: {
+      minify: {
+        files: {
+          "./lib/normalize.min.css": ["./vendor/normalize.css/normalize.css"]
+        }
       }
     }
   });
 
-  // grunt.loadNpmTasks("grunt-contrib-concat");
-  // grunt.loadNpmTasks("grunt-contrib-coffee");
-  // grunt.loadNpmTasks("grunt-contrib-uglify");
+  grunt.loadNpmTasks("grunt-contrib-cssmin");
 
-  // grunt.registerTask("combine", "Concatenate CoffeeScript files.", ["concat"]);
-  // grunt.registerTask("compile", "Compiles JavaScript files.", ["coffee"]);
-  // grunt.registerTask("compress", "Uglify JavaScript files.", ["uglify"]);
+  grunt.registerTask("minify", "Minifies StyleSheet files.", ["cssmin"]);
 
-  // grunt.registerTask("default", ["combine", "compile", "compress"]);
+  grunt.registerTask("default", ["minify"]);
 };
