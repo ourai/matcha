@@ -13,7 +13,6 @@
   font: 0px/0 a;
 }
 
-@mixin avatar( $size: 16px ) {
-  width: $size;
-  height: $size;
+@mixin square( $size: 16px ) {
+  width: $size; height: $size;
 }

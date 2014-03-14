@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import "application.css.scss";
+@import "sass.css.scss";
 
 
 
@@ -97,7 +97,7 @@ button.comp_button.disabled { background-color: #DBDAD9; border-color: #C8C6C4; 
 .comp_select.dir-t dd { bottom: 100%; }
 .comp_select.dir-r dd { right: 0; }
 .comp_select ul { max-width: 200px; max-height: 240px; overflow: auto; @include no_gap; }
-.comp_select li { @include no_item; padding: 3px 8px; overflow-x: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.comp_select li { @include no_item; padding: 3px 8px; overflow-x: hidden; text-overflow: ellipsis; /*white-space: nowrap;*/ }
 .comp_select li:hover { background-color: #79B0F2; color: #FFF; }
 .comp_select li a { display: block; }
 .comp_select [data-selected="true"] { background-color: #DDD; }
