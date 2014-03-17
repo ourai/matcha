@@ -5,18 +5,23 @@ module.exports = function( grunt ) {
       src: "src",
       dest: "dest/<%= pkg.version %>"
     },
-    cssmin: {
-      minify: {
+    jade: {
+      compile: {
+        options: {
+          pretty: true,
+          data: {
+            debug: false
+          }
+        },
         files: {
-          "./lib/normalize.min.css": ["./vendor/normalize.css/normalize.css"]
+          "dest/layout.html": "<%= dirs.src %>/layouts/layout.jade"
         }
       }
     }
   });
 
-  grunt.loadNpmTasks("grunt-contrib-cssmin");
+  // grunt.loadNpmTasks("grunt-contrib-cssmin");
+  grunt.loadNpmTasks("grunt-contrib-jade");
 
-  grunt.registerTask("minify", "Minifies StyleSheet files.", ["cssmin"]);
-
-  grunt.registerTask("default", ["minify"]);
+  grunt.registerTask("default", ["jade"]);
 };
