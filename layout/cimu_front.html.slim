@@ -1,0 +1,142 @@
+DOCTYPE html
+html lang=I18n.locale.to_s dir="ltr"
+  head
+    meta charset="UTF-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta name="renderer" content="webkit"
+    meta name="apple-mobile-web-app-capable" content="yes"
+    = csrf_meta_tags
+    title= content_for?(:title) ? yield(:title) : t(:title)
+
+    = favicon_link_tag "common/favicon.ico", rel: "shortcut icon"
+
+    / Prints CSS file(s)
+    = stylesheet_link_tag "front", media: "all"
+
+    / Pre-loading JavaScript files
+    - if (request.env['HTTP_USER_AGENT'] || "").downcase.index("msie")
+      /! Le HTML5 shim, for IE6-8 support of HTML elements
+      /[if lt IE 9]
+      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
+
+    / Required scripts for project
+    = javascript_include_tag "application"
+    = javascript_include_tag "locales/" + I18n.locale.to_s
+
+    javascript:
+      var lemontree_app_key = "#{ENV["LEMONTREE_APP_KEY"]}"
+
+  body data-page="#{controller_name}-#{action_name}"
+    - if alert.blank? == false
+      #notification.error
+        = alert
+    - elsif notice.blank? == false
+      #notification.success
+        = notice
+    header#header.layout-header
+      .layout-inner
+        = image_tag "common/logo.png", :id => "logo"
+        / 顶部导航
+        ul.header-nav.nav
+          - if not current_user.is_guardian?
+            li
+              a href="#{home_path}"
+                | #{t('.home')}
+            li
+              a href="#{courses_path}"
+                | #{t('.course')}
+            li
+              a href="#{library_encyclopedias_path}"
+                | #{t('.library')}
+            li
+              a href="#{library_questions_path}"
+                | #{t('.q_a')}
+            li
+              a href="/friends"
+                | #{t(".friends")}
+          - else
+            li
+              a href="#{guardian_root_path}"
+                | #{t('.home')}
+        / 用户帐号
+        ul.header-nav.toolbar
+          - if not current_user.is_guardian?
+            li
+              = link_to((image_tag("common/icons/bell.png", :alt => "notification") + "<span class=\"counter\"></span>".html_safe), notifications_path, :id => "noticeBell", :title => "#{t('.message_center')}", controller:'notifications')
+            li
+              a#account href="#{user_path(current_user)}"
+                img.avatar id="my_avatar_img" src="#{current_user.logo.url(:tiny)}"
+                span.name #{current_user.name}
+                i.tri
+              ul.subnav
+                li.tri.tri_bg
+                li.tri.tri_fg
+                li
+                  a class="my_courses" href="#{my_courses_path}"
+                    i
+                    | #{t('.my_courses')}
+                li
+                  a class="my_tasks" href="#{user_tasks_path}"
+                    i
+                    | #{t('.tasks')}
+                li
+                  a class="my_exercises" href="#{error_set_users_path}"
+                    i
+                    | #{t('.error_set')}
+                li
+                  a class="my_friends" href="/friends"
+                    i
+                    | #{t('.my_friends')}
+                li.sn_separator
+                  a.my_schools href="/schools"
+                    i
+                    | #{t('.my_orgnizations')}
+                li.sn_separator
+                  = link_to(('<i></i>' + t(".logout")).html_safe, logout_youyu_auth_path, method: :delete, :id => "logout", :class => "sn_signout")
+          - else
+            li
+              a#account href="#{profile_guardian_users_path(current_user)}" title="#{t('.info')}"
+                img.avatar id="my_avatar_img" src="#{current_user.logo.url(:tiny)}"
+                span.name #{current_user.name}
+            li
+              = link_to(image_tag("common/icons/signout.png", :alt => t(".logout")), logout_youyu_auth_path, method: :delete, :id => "logout")
+        - if not current_user.is_guardian?
+          = render_widget 'notification_remind_icon', :display
+
+    #container.layout-container.layout-inner
+      / 面包屑导航
+      #breadcrumb.layout-breadcrumb.layout-inner
+        = render_breadcrumbs :separator => "<span class=\"separator\">&rsaquo;</span>", :builder => Abuilder
+      #content.layout-content.layout-inner.clr
+        / 模版片段
+        = yield
+    footer.layout-footer
+      .layout-inner
+        = render_cell 'locale', :display, :is_login => true
+        span#copyright
+         | &copy; #{t('.company')}
+
+    / Prints JavaScript file(s)
+    = javascript_include_tag "front"
+    = javascript_include_tag "http://cdn.staticfile.org/mathjax/2.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML-full"
+    = javascript_include_tag "plugins/mathjax_config"
+    = javascript_include_tag "#{faye_js}"
+    = javascript_include_tag "ckeditor/init"
+
+    javascript:
+      CM.data("cimu", {
+        user: {
+          id: #{current_user.id},
+          slug: "#{current_user.slug}",
+          name: "#{current_user.name}",
+          avatar: "#{current_user.logo.url(:tiny)}",
+          email: "#{current_user.real_email}",
+          organization: #{current_user.school.id}
+        },
+        faye: {
+          client: "#{faye_uri}",
+          subscribe: "/messages/#{current_user.my_faye_token}"
+        }
+      });
+
+      CM.sandbox(CM.data("YouYu"));
