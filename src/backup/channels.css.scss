@@ -1,0 +1,330 @@
+.call_out{
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 8px 20px;
+  color: #fff;
+  background-color: #51DFB9;
+  border-radius: 2px;
+  -moz-border-radius:2px;
+}
+
+.top_scaffolde{
+  margin: 30px auto 0 auto;
+  width: 958px;
+  height: 360px;
+  background-color: #FFFFFF;
+  border: 1px #ccc solid;
+  border-radius: 2px;
+  -moz-border-radius:2px;
+}
+
+.top_left{
+  height: 340px;
+  width: 459px;
+  padding: 10px;
+  float: left;
+}
+
+.top_right{
+  height: 340px;
+  width: 459px;
+  padding: 10px;
+  float: left;
+}
+
+.channel_description
+{
+  margin-top: 8px;
+  display: inline-block;
+  height: 124px;
+  width: 100%;
+  overflow: hidden;
+  letter-spacing: 0.1em;
+  line-height: 1.2em;
+  text-align: justify;
+  text-justify:inter-ideograph;
+  text-indent: 2em;
+}
+
+.top_right h1{
+  text-decoration: none;
+  font-size: 27px;
+  font-weight: normal
+}
+
+.course_list{
+  margin: 30px auto 0 auto;
+  width: 958px;
+  height: auto;
+  background-color: #FFFFFF;
+  border: 1px #ccc solid;
+  border-radius: 2px;
+  -moz-border-radius:2px;
+}
+
+.course_item{
+  height: 220px;
+  width: 920px;
+  margin: 0 19px;
+  border-bottom:1px #cccccc solid;
+}
+
+.course_item img{
+  margin: 30px 0;
+  width: 220px;
+  height: 160px;
+  float: left;
+}
+
+.course_item div{
+  float: left;
+  margin: 10px 0 10px 30px;
+}
+
+.course_name{
+  font-size: 20px;
+  color: #222222;
+}
+
+.teacher_name{
+  font-size: 15px;
+  margin-top: -5px;
+  line-height: 0;
+}
+
+.course_item span{
+  display: inline-block;
+  font-size: 15px;
+  margin-top: -15px;
+  width: 650px;
+  height: 78px;
+  text-align: justify;
+  text-justify:inter-ideograph;
+  overflow: hidden;
+}
+
+#whole_shadow{
+  display: none;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  opacity: 0.3;
+  filter:alpha(opacity=30);
+  z-index: 10;
+}
+
+.shade{
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -300px;
+  margin-left: -300px;
+  height: 600px;
+  width: 700px;
+  background-color: #ffffff;
+  z-index: 50;
+}
+
+.button
+{
+  float: left;
+  clear: both;
+  margin-top: 10px;
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #FFF;
+  background-color: #FE855B;
+  line-height: 40px;
+  height: 40px;
+  width: 120px;
+  text-align: center;
+  overflow: hidden;
+  text-decoration: none;
+  border: 1px solid #EC6B3F;
+  border-bottom: 1px solid #FB784B;
+  cursor: pointer;
+  border-radius:2px;
+  -moz-border-radius:2px; /* 老的 Firefox */
+  transition: background 0.2s;
+  -moz-transition: background 0.2s;	/* Firefox 4 */
+  -webkit-transition: background 0.2s;/* Safari 和 Chrome */
+  -o-transition: background 0.2s;	/* Opera */
+}
+.button:hover
+{
+  background-color: #FF936E;
+  border-bottom: 1px solid #FB865E;
+}
+
+.button:active
+{
+  box-shadow: none;
+}
+
+.button_blue
+{
+  float: right;
+  height: 60px;
+  width: 180px;
+  font-size: 20px;
+  line-height: 60px;
+  font-weight: bold;
+  margin: -40px 30px 0 0;
+  font-size: 18px;
+  color: #FFF;
+  background-color: #5DC3E2;
+  text-align: center;
+  overflow: hidden;
+  text-decoration: none;
+  border: 1px solid #4BAECC;
+  border-bottom: 1px solid #4DBBDCC;
+  cursor: pointer;
+  border-radius:2px;
+  -moz-border-radius:2px; /* 老的 Firefox */
+  transition: background 0.2s;
+  -moz-transition:  background 0.2s;	/* Firefox 4 */
+  -webkit-transition: background 0.2s;/* Safari 和 Chrome */
+  -o-transition:  background 0.2s;	/* Opera */
+}
+
+.button_blue:hover
+{
+  background-color: #6FCDE9;
+  border-bottom: 1px solid #60C5E3;
+}
+
+.button_blue:active
+{
+  box-shadow: none;
+}
+/* episodes_show_widget */
+
+.shade_title{
+  height: 10%;
+  width: 100%;
+  background-color: #ededed;
+}
+
+.shade_title span{
+  font-size: 22px;
+  line-height: 60px;
+  padding-left: 20px
+}
+
+.shade_list{
+  height: 540px;
+  overflow-x: hidden;
+  overflow-y: scroll
+}
+
+.shade_list > div{
+  margin: 10px auto;
+  width: 640px;
+  height: auto;
+}
+
+.episode_item{
+  display: inline-block;
+  float: left;
+  clear: both;
+  width: 640px;
+  height: 60px;
+  border: 1px #cccccc solid;
+  border-bottom: none;
+}
+
+.episode_name{
+  display: inline-block;
+  padding: 20px;
+  max-height: 20px;
+  width: 600px;
+  font-size: 15px;
+}
+
+.episode_name a{
+  float: right;
+  margin-top: -7px;
+  padding: 7px 10px;
+  font-size:15px;
+  font-weight:bold;
+  color: #fff;
+  background-color: #FFA24B;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2px;
+  -moz-border-radius:2px;
+}
+
+.episode_flag_orange{
+  float:left ;
+  padding: 1px 6px;
+  background-color: #FFA24B;
+  border-radius: 2px;
+  -moz-border-radius:2px;
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.episode_flag{
+  float:left;
+  padding: 1px 6px;
+  background-color: #cccccc;
+  border-radius: 2px;
+  -moz-border-radius:2px;
+}
+
+/* month_input */
+
+.month_input{
+  clear: both;
+  float: left;
+  margin: 0 10px 10px 0;
+}
+
+.month_input p{
+  line-height: 0px;
+  float: left;
+}
+
+.month_input a{
+  float: left;
+  height: 30px;
+  width: 30px;
+  background-color: #ededed;
+  text-align: center;
+  font-size: 22px;
+  line-height: 26px;
+  border: 1px #cccccc solid;
+  cursor: pointer;
+}
+
+.month_input a:active{
+  margin: 1px;
+  border: none;
+}
+
+.month_input input{
+  margin: 0 2px;
+  padding: 0;
+  float: left;
+  height: 30px;
+  width: 50px;
+  text-align: center;
+  border: 1px #cccccc solid;
+}
+
+.price{
+  clear: both;
+  float: left;
+  margin: 0 10px 20px 0;
+}
+
+.price span{
+  float: left;
+}

@@ -1,0 +1,49 @@
+@charset "UTF-8";
+@import "sass.css.scss";
+
+
+
+/* --- jQuery UI --- */
+
+.ui-dialog { background-color: #FFF; padding: 0; border: 1px solid #D9D9D9; border-radius: 0; }
+.ui-dialog-titlebar,
+.ui-dialog-buttonpane { background: #F7F7F7; border: 0px solid #D9D9D9; border-radius: 0; }
+.ui-dialog-titlebar { border-bottom-width: 1px; height: 30px; font-size: 16px; line-height: 30px; color: #888; }
+.ui-dialog .ui-dialog-titlebar-close { border-radius: 0; border-style: none; background: none; right: .8em; }
+.ui-dialog .ui-dialog-buttonpane { border-top-width: 1px; height: 65px; padding: 0; position: relative; }
+.ui-dialog .ui-dialog-buttonset { position: absolute; right: .8em; top: 50%; margin-top: -17px; }
+.ui-dialog .ui-dialog-buttonset button { border: 1px solid #B1B1B1; border-radius: 0; background: #F0F0ED; margin: 0 0 0 .5em; color: #888; }
+.ui-dialog .ui-dialog-buttonset button:hover { background-color: #FFF; }
+.ui-dialog .ui-dialog-buttonset button:first-child { margin-left: 0; }
+.ui-dialog .ui-dialog-buttonset .ui-button-ok,
+.ui-dialog .ui-dialog-buttonset .ui-button-yes { border-color: #388CC7; background-color: #57A3D9; color: #FFF; }
+.ui-dialog .ui-dialog-buttonset .ui-button-ok:hover,
+.ui-dialog .ui-dialog-buttonset .ui-button-yes:hover { background-color: #83C4F2; }
+.ui-dialog .ui-dialog-buttonset .ui-button-text { line-height: 1.2; }
+
+.ui-widget,
+.ui-widget button, .ui-widget input, .ui-widget textarea {
+  font: normal normal 14px/1.5 "Microsoft Yahei", "Hiragino Sans GB", Tahoma, Verdana, "BitStream vera Sans", Arial, Helvetica, Sans-serif;
+  color: #888;
+}
+
+.ui-menu { border-color: #DDD; border-radius: 0; top: -1px !important; @include no_gap; @include no_item; }
+.ui-menu-item > a { padding: .3em 0 .3em .8em; display: block; border-radius: 0; }
+.ui-menu-item > a.ui-state-focus { cursor: pointer; background: #F7F7F7 none; border-style: none; text-decoration: none; }
+
+.ui-helper-hidden-accessible { display: none; }
+
+
+
+/* --- jQuery dotdotdot --- */
+
+.ellipsis-wrapper { overflow: hidden; }
+.ellipsis-wrapper p { margin-bottom: 0; }
+.ellipsis-read-more:link, .ellipsis-read-more:visited { color: #3F90BA; }
+.ellipsis-read-more:hover { text-decoration: underline; }
+
+
+
+/* --- pdf.js --- */
+
+#mainContainer .toolbar { position: static; height: auto; }

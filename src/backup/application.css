@@ -1,0 +1,26 @@
+/**
+ * ----------
+ * jQuery UI
+ * ----------
+ *= require jquery.ui.core
+ *= require jquery.ui.theme
+ *= require jquery.ui.resizable
+ *= require jquery.ui.selectable
+ *= require jquery.ui.datepicker
+ *= require jquery.ui.dialog
+ *
+ * ----------
+ * Site
+ * ----------
+ *= require base
+ *= require keyframes
+ *= require plugin
+ *= require components
+ *= require layout
+ *= require CIMU_form
+ *
+ * ----------
+ * Cross-page
+ * ----------
+ *= require question
+ */

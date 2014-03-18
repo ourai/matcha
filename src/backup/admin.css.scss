@@ -1,0 +1,34 @@
+/**
+ * ----------
+ * Site
+ * ----------
+ *= require application
+ *= require plugins/jquery_based/chosen
+ *= require CIMU_UI
+ *= require themes/cyan
+ *
+ * ----------
+ * Cross-page
+ * ----------
+ *= require plugins/jquery_based/jquery-tokeninput/facebook
+ *
+ * ----------
+ * Page-specific
+ * ----------
+ *= require pages/admin/accounts
+ *= require pages/admin/dashboard
+ *= require pages/admin/courses
+ *= require pages/admin/episodes
+ *= require pages/admin/tasks
+ *= require pages/admin/tasks_new
+ *= require pages/admin/tasks_show
+ *= require pages/admin/account_students
+ *= require pages/admin/account_parents
+ *= require pages/admin/grades
+ *= require pages/admin/questions
+ *= require pages/admin/medal
+ *= require pages/admin/statistics
+ *= require pages/admin/statistics_common
+ *= require pages/admin/course_statistics
+ *= require pages/admin/student_statistics
+ */
