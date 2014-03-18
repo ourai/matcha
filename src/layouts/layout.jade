@@ -2,10 +2,31 @@ doctype html
 html(lang="zh")
   head
     meta(charset="UTF-8")
+    link(rel="stylesheet", href="../vendor/normalize.css/normalize.css")
   body
     header.layout-header
       .layout-inner
-      nav
-        ul.header-nav.nav
+        a.logo(href="#")
+          img(src="#", alt="logo")
+          | LOGO
+        nav.header-nav
+          ul
+            li
+              a(href="#")
+                | Home
+            li
+              a(href="#")
+                | Articles
+            li
+              a(href="#")
+                | Demos
+        ul.header-nav
+          li
+            a(href="#")
+              | Register
+          li
+            a(href="#")
+              | Sign in
     .layout-container.layout-inner
+      | as
     footer.layout-footer
