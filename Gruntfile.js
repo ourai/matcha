@@ -1,9 +1,9 @@
 module.exports = function( grunt ) {
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
-    dirs: {
+    meta: {
       src: "src",
-      dest: "dest/<%= pkg.version %>"
+      dest: "dest"
     },
     jade: {
       compile: {
@@ -14,14 +14,34 @@ module.exports = function( grunt ) {
           }
         },
         files: {
-          "dest/layout.html": "<%= dirs.src %>/layouts/layout.jade"
+          "<%= meta.src %>/layout.html": "<%= meta.src %>/layouts/layout.jade"
         }
+      }
+    },
+    compass: {
+      compile: {
+        options: {
+          sassDir: "src/stylesheets",
+          cssDir: "src/stylesheets",
+          outputStyle: "compressed"
+        }
+      }
+    },
+    watch: {
+      css: {
+        files: ["src/stylesheets/**/*.scss"],
+        tasks: ["compass"]
+      },
+      html: {
+        files: ["src/layouts/**/*.jade"],
+        tasks: ["jade"]
       }
     }
   });
 
-  // grunt.loadNpmTasks("grunt-contrib-cssmin");
   grunt.loadNpmTasks("grunt-contrib-jade");
+  grunt.loadNpmTasks("grunt-contrib-compass");
+  grunt.loadNpmTasks("grunt-contrib-watch");
 
-  grunt.registerTask("default", ["jade"]);
+  grunt.registerTask("default", ["watch"]);
 };
