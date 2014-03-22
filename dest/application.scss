@@ -1,0 +1,113 @@
+$page_width: 960px;
+
+$layout-main: 640px;
+$layout-sub: 300px;
+$layout-header-height: 60px;
+$layout-footer-height: 50px;
+
+$module_padding: 15px;
+
+// Font
+$font_family: "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+$font_family-hei: "Microsoft Yahei", "Hiragino Sans GB", Tahoma, Verdana, "BitStream vera Sans", Arial, Helvetica, Sans-serif;
+$font_size: 100%;
+$line_height: 1.5;
+$font: normal normal $font_size/$line_height $font_family;
+
+// Text
+$title_color: #444;
+$text_color: #666;
+$text_color-light: #888;
+$link_color: #3F6D77;
+$link_color-hover: #518C99;
+
+// Border
+$border_color: #B8C4C8;
+
+@mixin header_height( $border_width: 0px ) {
+  height: $layout-header-height;
+  margin-bottom: -($layout-header-height + $border_width);
+}
+
+@mixin footer_height( $border_width: 0px ) {
+  height: $layout-footer-height;
+  margin-top: -($layout-footer-height + $border_width);
+}
+
+@mixin square( $size: 0 ) {
+  width: $size;
+  height: $size;
+}
+
+@mixin card_style {
+  border: 1px solid #E0E0E0;
+  border-bottom-width: 2px;
+  border-radius: 2px;
+}
+
+@mixin hide_word {
+  font: 0px/0 a;
+}
+
+@mixin no_gap {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin no_item {
+  list-style: none outside none;
+}
+
+// 文本省略
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+
+html, body { height: 100%; }
+
+
+.layout-main {
+  width: $layout-main;
+  float: left;
+}
+.layout-sub {
+  width: $layout-sub;
+  float: right;
+}
+.layout-inner {
+  width: $page_width;
+  margin: 0 auto;
+}
+
+.layout-header {
+  position: relative;
+  z-index: 10;
+  @include header_height(2px);
+  background-color: #FFF;
+  border-bottom: 2px solid #C5CFD2;
+}
+@media all and (min-width: 0) {
+  .layout-header {
+    border-bottom: none;
+    box-shadow: 0 2px 0.5em -0.2em #666;
+  }
+}
+.layout-footer {
+  @include footer_height(1px);
+  border-top: 1px solid #B8C4C8;
+  background-color: #B8C4C8;
+  color: #FFF;
+}
+.layout-container { min-height: 100%; }
+.layout-container:after {
+  content: "\20";
+  display: block;
+  height: 81px;
+  position: relative;
+  z-index: -999999999;
+  background: transparent none !important;
+  visibility: hidden;
+}

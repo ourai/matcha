@@ -1,0 +1,64 @@
+/* line 69, application.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 72, application.scss */
+.layout-main {
+  width: 640px;
+  float: left;
+}
+
+/* line 76, application.scss */
+.layout-sub {
+  width: 300px;
+  float: right;
+}
+
+/* line 80, application.scss */
+.layout-inner {
+  width: 960px;
+  margin: 0 auto;
+}
+
+/* line 85, application.scss */
+.layout-header {
+  position: relative;
+  z-index: 10;
+  height: 60px;
+  margin-bottom: -62px;
+  background-color: #FFF;
+  border-bottom: 2px solid #C5CFD2;
+}
+
+@media all and (min-width: 0) {
+  /* line 93, application.scss */
+  .layout-header {
+    border-bottom: none;
+    box-shadow: 0 2px 0.5em -0.2em #666;
+  }
+}
+/* line 98, application.scss */
+.layout-footer {
+  height: 50px;
+  margin-top: -51px;
+  border-top: 1px solid #B8C4C8;
+  background-color: #B8C4C8;
+  color: #FFF;
+}
+
+/* line 104, application.scss */
+.layout-container {
+  min-height: 100%;
+}
+
+/* line 105, application.scss */
+.layout-container:after {
+  content: "\20";
+  display: block;
+  height: 81px;
+  position: relative;
+  z-index: -999999999;
+  background: transparent none !important;
+  visibility: hidden;
+}
