@@ -1,0 +1,30 @@
+@mixin square( $size: 0 ) {
+  width: $size;
+  height: $size;
+}
+
+@mixin card_style {
+  border: 1px solid #E0E0E0;
+  border-bottom-width: 2px;
+  border-radius: 2px;
+}
+
+@mixin hide_word {
+  font: 0px/0 a;
+}
+
+@mixin no_gap {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin no_item {
+  list-style: none outside none;
+}
+
+// 文本省略
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}

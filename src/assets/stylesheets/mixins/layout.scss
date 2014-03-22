@@ -1,0 +1,9 @@
+@mixin header_height( $border_width: 0px ) {
+  height: $layout-header-height;
+  margin-bottom: -($layout-header-height + $border_width);
+}
+
+@mixin footer_height( $border_width: 0px ) {
+  height: $layout-footer-height;
+  margin-top: -($layout-footer-height + $border_width);
+}
