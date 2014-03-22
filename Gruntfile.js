@@ -18,7 +18,9 @@ module.exports = function( grunt ) {
     meta: {
       src: "src",
       dest: "dest",
-      style: "src/assets/stylesheets"
+      style: "<%= meta.src %>/assets/stylesheets",
+      style_var: "<%= meta.style %>/variables",
+      style_mixin: "<%= meta.style %>/mixins"
     },
     concat: {
       options: {
@@ -29,9 +31,10 @@ module.exports = function( grunt ) {
         }
       },
       build: {
-        src: ["<%= meta.style %>/variables/reset.scss",
-              "<%= meta.style %>/variables/layout.scss",
-              "<%= meta.style %>/base.scss"],
+        src: ["<%= meta.style_var %>/*.scss",
+              "<%= meta.style_mixin %>/*.scss",
+              "<%= meta.style %>/base.scss",
+              "<%= meta.style %>/layout.scss"],
         dest: "<%= meta.dest %>/application.scss"
       }
     },
@@ -52,8 +55,8 @@ module.exports = function( grunt ) {
       compile: {
         options: {
           sassDir: "<%= meta.dest %>",
-          cssDir: "<%= meta.dest %>",
-          outputStyle: "compressed"
+          cssDir: "<%= meta.dest %>"/*,
+          outputStyle: "compressed"*/
         }
       }
     },
