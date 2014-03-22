@@ -8,11 +8,3 @@
   text-decoration: none !important;
   @include ellipsis;
 }
-
-@mixin hide_word {
-  font: 0px/0 a;
-}
-
-@mixin square( $size: 16px ) {
-  width: $size; height: $size;
-}
