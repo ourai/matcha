@@ -8,6 +8,7 @@ module.exports = function( grunt ) {
       "grunt-contrib-concat",
       "grunt-contrib-jade",
       "grunt-contrib-compass",
+      "grunt-contrib-cssmin",
       "grunt-contrib-watch"
     ];
   var index = 0;
@@ -22,22 +23,6 @@ module.exports = function( grunt ) {
       style_var: "<%= meta.style %>/variables",
       style_mixin: "<%= meta.style %>/mixins"
     },
-    concat: {
-      options: {
-        process: function( src, filepath ) {
-          return src.replace(/@(NAME|VERSION)/g, function( text, key ) {
-            return info[key.toLowerCase()];
-          });
-        }
-      },
-      build: {
-        src: ["<%= meta.style_var %>/*.scss",
-              "<%= meta.style_mixin %>/*.scss",
-              "<%= meta.style %>/base.scss",
-              "<%= meta.style %>/layout.scss"],
-        dest: "<%= meta.dest %>/application.scss"
-      }
-    },
     jade: {
       compile: {
         options: {
@@ -51,12 +36,35 @@ module.exports = function( grunt ) {
         }
       }
     },
+    concat: {
+      options: {
+        process: function( src, filepath ) {
+          return src.replace(/@(NAME|VERSION)/g, function( text, key ) {
+            return info[key.toLowerCase()];
+          });
+        }
+      },
+      build: {
+        src: ["<%= meta.style_var %>/*.scss",
+              "<%= meta.style_mixin %>/*.scss",
+              "<%= meta.style %>/base.scss",
+              "<%= meta.style %>/layout.scss"],
+        dest: "<%= meta.dest %>/<%= pkg.name %>.scss"
+      }
+    },
     compass: {
       compile: {
         options: {
           sassDir: "<%= meta.dest %>",
           cssDir: "<%= meta.dest %>"/*,
           outputStyle: "compressed"*/
+        }
+      }
+    },
+    cssmin: {
+      minify: {
+        files: {
+          "<%= meta.dest %>/<%= pkg.name %>.min.css": "<%= meta.dest %>/<%= pkg.name %>.css"
         }
       }
     },
@@ -76,5 +84,5 @@ module.exports = function( grunt ) {
     grunt.loadNpmTasks(npmTasks[index]);
   }
 
-  grunt.registerTask("default", ["concat", "compass", "jade"]);
+  grunt.registerTask("default", ["concat", "compass", "cssmin", "jade"]);
 };
