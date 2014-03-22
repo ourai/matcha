@@ -3,6 +3,7 @@ html(lang="zh")
   head
     meta(charset="UTF-8")
     link(rel="stylesheet", href="../vendor/normalize.css/normalize.css")
+    link(rel="stylesheet", href="./application.css")
   body
     header.layout-header
       .layout-inner
@@ -28,5 +29,14 @@ html(lang="zh")
             a(href="#")
               | Sign in
     .layout-container.layout-inner
-      | as
+      input(type="button", value="test_button_1")
+      button(type="button")
+        | test_button_2
+      input(type="submit", value="test_submit_1")
+      form
+        input(type="button", value="test_button_3")
+        button(type="button")
+          | test_button_4
+        input(type="submit", value="test_submit_2")
+
     footer.layout-footer
