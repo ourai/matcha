@@ -17,8 +17,8 @@ module.exports = function( grunt ) {
   grunt.initConfig({
     pkg: pkg,
     meta: {
-      src: "src",
-      dest: "dest",
+      src: ".",
+      dest: "build",
       style: "<%= meta.src %>/assets/stylesheets",
       style_var: "<%= meta.style %>/variables",
       style_mixin: "<%= meta.style %>/mixins"

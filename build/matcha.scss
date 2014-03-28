@@ -65,6 +65,17 @@ $border_color: #B8C4C8;
   text-overflow: ellipsis;
 }
 
+@mixin tag_unit {
+  @include inline-block;
+  max-width: 120px;
+  margin-right: 5px; padding: 0 8px;
+  border-radius: 2px;
+  background-color: #DCE4E6;
+  color: $text !important;
+  text-decoration: none !important;
+  @include ellipsis;
+}
+
 
 html, body { height: 100%; }
 

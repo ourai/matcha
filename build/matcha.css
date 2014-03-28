@@ -1,27 +1,27 @@
-/* line 69, matcha.scss */
+/* line 80, matcha.scss */
 html, body {
   height: 100%;
 }
 
-/* line 72, matcha.scss */
+/* line 83, matcha.scss */
 .layout-main {
   width: 640px;
   float: left;
 }
 
-/* line 76, matcha.scss */
+/* line 87, matcha.scss */
 .layout-sub {
   width: 300px;
   float: right;
 }
 
-/* line 80, matcha.scss */
+/* line 91, matcha.scss */
 .layout-inner {
   width: 960px;
   margin: 0 auto;
 }
 
-/* line 85, matcha.scss */
+/* line 96, matcha.scss */
 .layout-header {
   position: relative;
   z-index: 10;
@@ -32,13 +32,13 @@ html, body {
 }
 
 @media all and (min-width: 0) {
-  /* line 93, matcha.scss */
+  /* line 104, matcha.scss */
   .layout-header {
     border-bottom: none;
     box-shadow: 0 2px 0.5em -0.2em #666;
   }
 }
-/* line 98, matcha.scss */
+/* line 109, matcha.scss */
 .layout-footer {
   height: 50px;
   margin-top: -51px;
@@ -47,12 +47,12 @@ html, body {
   color: #FFF;
 }
 
-/* line 104, matcha.scss */
+/* line 115, matcha.scss */
 .layout-container {
   min-height: 100%;
 }
 
-/* line 105, matcha.scss */
+/* line 116, matcha.scss */
 .layout-container:after {
   content: "\20";
   display: block;
