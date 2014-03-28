@@ -1,3 +1,52 @@
+html, body { height: 100%; }
+
 body[data-layout="sandwich"] {
+  .layout-main {
+    width: $layout-main;
+    float: left;
+  }
   
+  .layout-sub {
+    width: $layout-sub;
+    float: right;
+  }
+
+  .layout-inner {
+    width: $page_width;
+    margin: 0 auto;
+  }
+
+  .layout-header {
+    position: relative;
+    z-index: 10;
+    @include header_height(2px);
+    background-color: #FFF;
+    border-bottom: 2px solid #C5CFD2;
+
+    @media all and (min-width: 0) {
+      border-bottom: none;
+      box-shadow: 0 2px 0.5em -0.2em #666;
+    }
+  }
+
+  .layout-footer {
+    @include footer_height(1px);
+    border-top: 1px solid #B8C4C8;
+    background-color: #B8C4C8;
+    color: #FFF;
+  }
+
+  .layout-container {
+    min-height: 100%;
+
+    &:after {
+      content: "\20";
+      display: block;
+      height: 81px;
+      position: relative;
+      z-index: -999999999;
+      background: transparent none !important;
+      visibility: hidden;
+    }
+  }
 }
