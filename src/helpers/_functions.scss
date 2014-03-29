@@ -1,0 +1,3 @@
+@function percent( $divisor, $dividend ) {
+  @return $divisor / $dividend * 100%;
+}
