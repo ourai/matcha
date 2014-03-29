@@ -5,7 +5,6 @@ module.exports = function( grunt ) {
       version: pkg.version
     };
   var npmTasks = [
-      "grunt-contrib-concat",
       "grunt-contrib-jade",
       "grunt-contrib-compass",
       "grunt-contrib-cssmin",
@@ -17,13 +16,14 @@ module.exports = function( grunt ) {
   grunt.initConfig({
     pkg: pkg,
     meta: {
-      src: ".",
-      dest: "build",
-      style: "<%= meta.src %>/assets/stylesheets",
-      style_var: "<%= meta.style %>/variables",
-      style_mixin: "<%= meta.style %>/mixins"
+      src: "src",
+      build: "build",
+      tests: "<%= meta.build %>/tests",
+      tasks: "<%= meta.build %>/tasks",
+      layouts: "<%= meta.tests %>/layouts",
+      cmpts: "<%= meta.tests %>/components"
     },
-    jade: {
+    /*jade: {
       compile: {
         options: {
           pretty: true,
@@ -35,28 +35,12 @@ module.exports = function( grunt ) {
           "<%= meta.dest %>/layout.html": "<%= meta.src %>/views/layouts/layout.jade"
         }
       }
-    },
-    concat: {
-      options: {
-        process: function( src, filepath ) {
-          return src.replace(/@(NAME|VERSION)/g, function( text, key ) {
-            return info[key.toLowerCase()];
-          });
-        }
-      },
-      build: {
-        src: ["<%= meta.style_var %>/*.scss",
-              "<%= meta.style_mixin %>/*.scss",
-              "<%= meta.style %>/base.scss",
-              "<%= meta.style %>/layout.scss"],
-        dest: "<%= meta.dest %>/<%= pkg.name %>.scss"
-      }
-    },
+    }*/
     compass: {
       compile: {
         options: {
-          sassDir: "<%= meta.dest %>",
-          cssDir: "<%= meta.dest %>"/*,
+          sassDir: "<%= meta.src %>",
+          cssDir: "<%= meta.src %>"/*,
           outputStyle: "compressed"*/
         }
       }
@@ -84,5 +68,5 @@ module.exports = function( grunt ) {
     grunt.loadNpmTasks(npmTasks[index]);
   }
 
-  grunt.registerTask("default", ["concat", "compass", "cssmin", "jade"]);
+  grunt.registerTask("default", ["compass"]);
 };
