@@ -6,5 +6,5 @@ Matcha is a library based on [Compass](http://compass-style.org/), so you should
 
 ## Dependencies
 
-[Normalize.css](http://necolas.github.io/normalize.css/) = 3.0.0
-Compass = 0.12.3 ([Sass](http://sass-lang.com/) = 3.2.14)
+- [Normalize.css](http://necolas.github.io/normalize.css/) = 3.0.0
+- Compass = 0.12.3 ([Sass](http://sass-lang.com/) = 3.2.14)
