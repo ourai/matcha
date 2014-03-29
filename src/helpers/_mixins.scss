@@ -1,3 +1,10 @@
+// IE6 only
+@mixin hack-ie6 {
+  * html {
+    @content;
+  }
+}
+
 @mixin square( $size: 0 ) {
   width: $size;
   height: $size;

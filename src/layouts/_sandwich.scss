@@ -124,7 +124,10 @@ $layout-sub-width: percent(300px, 960px);
   html[xmlns] .layout-content {
     display: block;
   }
-  * html .layout-content {
-    height: 1%;
+
+  @include hack-ie6 {
+    .layout-content {
+      height: 1%;
+    }
   }
 }
