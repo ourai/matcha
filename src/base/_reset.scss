@@ -1,0 +1,21 @@
+@import "../vendors/normalize";
+@import "../helpers/variables"
+
+
+body,
+button,
+input,
+textarea {
+  font: $font;
+  color: $text;
+  background-color: #FFF;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  background-color: transparent;
+}
+
+img {
+  max-width: 100%;
+}
