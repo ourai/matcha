@@ -1,12 +1,13 @@
 @import "../helpers/functions";
 @import "../helpers/mixins";
 
-$page-width: 100%;
-
-$layout-header-height: 60px;
-$layout-footer-height: 50px;
-$layout-main-width: percent(640px, 960px);
-$layout-sub-width: percent(300px, 960px);
+$default: (
+    page-width: 100%,
+    layout-header-height: 50px,
+    layout-footer-height: 60px,
+    layout-main-width: percent(640px, 960px),
+    layout-sub-width:  percent(300px, 960px)
+  );
 
 
 
@@ -35,13 +36,7 @@ $layout-sub-width: percent(300px, 960px);
 </body>
 */
 
-@mixin layout-sandwich(
-    $page-width: $page-width,
-    $layout-header-height: $layout-header-height,
-    $layout-footer-height: $layout-footer-height,
-    $layout-main-width: $layout-main-width,
-    $layout-sub-width: $layout-sub-width
-  ) {
+@mixin layout-sandwich( $params: $default ) {
   body[data-layout="sandwich"] {
     @at-root {
       html,
@@ -54,8 +49,8 @@ $layout-sub-width: percent(300px, 960px);
     .layout-header {
       position: relative;
       z-index: 10;
-      height: $layout-header-height;
-      margin-bottom: -($layout-header-height + 2px);
+      height: map-get($params, "layout-header-height");
+      margin-bottom: -(map-get($params, "layout-header-height") + 2px);
       background-color: #FFF;
       border-bottom: 2px solid #C5CFD2;
 
@@ -67,8 +62,8 @@ $layout-sub-width: percent(300px, 960px);
 
     // Footer of page
     .layout-footer {
-      height: $layout-footer-height;
-      margin-top: -($layout-footer-height + 1px);
+      height: map-get($params, "layout-footer-height");
+      margin-top: -(map-get($params, "layout-footer-height") + 1px);
       border-top: 1px solid #B8C4C8;
       background-color: #B8C4C8;
       color: #FFF;
@@ -104,20 +99,20 @@ $layout-sub-width: percent(300px, 960px);
 
     // Main content
     .layout-main {
-      width: $layout-main-width;
+      width: map-get($params, "layout-main-width");
       float: left;
     }
     
     // Sub content
     .layout-sub {
-      width: $layout-sub-width;
+      width: map-get($params, "layout-sub-width");
       float: right;
     }
 
     // To limit the width of content
     // and make content center
     .layout-inner {
-      width: $page-width;
+      width: map-get($params, "page-width");
       margin: 0 auto;
     }
   }
