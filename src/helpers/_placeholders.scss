@@ -10,3 +10,28 @@
 
   line-height: $line_height;
 }
+
+%line-feed {
+  word-wrap: break-word;
+  word-wrap: normal\0;
+  word-break: break-all;
+  white-space: normal;
+}
+
+%text-ellipsis {
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+%text-hide {
+  color: transparent;
+  border: 0 none;
+  font: 0px/0 a;
+  text-shadow: none;
+  /*
+    Use a transparent image to set as the background of it to fix bug under IE7.
+    E.g.
+      background: transparent image-url("common/bg-transparent.gif") repeat;
+    */
+}

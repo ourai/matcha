@@ -1,3 +1,5 @@
+@import "placeholders";
+
 // IE6 only
 @mixin hack-ie6 {
   * html {
@@ -8,6 +10,19 @@
 @mixin square( $size: 0 ) {
   width: $size;
   height: $size;
+}
+
+@mixin triangle( $params: (
+    dir: top,
+    width: 5px,
+    color: #000
+  ) ) {
+  @extend %text-hide;
+  position: absolute;
+  width: 0 !important;
+  height: 0 !important;
+  border: map-get($params, "width") solid transparent;
+  border-#{map-get($params, "dir")}-color: map-get($params, "color");
 }
 
 @mixin card_style {
