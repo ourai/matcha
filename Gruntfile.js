@@ -5,6 +5,7 @@ module.exports = function( grunt ) {
       version: pkg.version
     };
   var npmTasks = [
+      "grunt-contrib-concat",
       "grunt-contrib-jade",
       "grunt-contrib-sass"
     ];
@@ -15,11 +16,18 @@ module.exports = function( grunt ) {
     pkg: pkg,
     meta: {
       src: "src",
+      sass: "src/scss",
       build: "build",
       tests: "<%= meta.build %>/tests",
       tasks: "<%= meta.build %>/tasks",
       layouts: "<%= meta.tests %>/layouts",
       cmpts: "<%= meta.tests %>/components"
+    },
+    concat: {
+      vendors: {
+        src: ["vendors/normalize.css/normalize.css"],
+        dest: "<%= meta.sass %>/_vendors.scss"
+      }
     },
     sass: {
       compile: {
