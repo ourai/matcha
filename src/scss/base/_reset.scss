@@ -2,7 +2,7 @@ body,
 button,
 input,
 textarea {
-  @extend %base-font;
+  @include base-font;
   color: $color-text;
   background-color: #FFF;
 }
