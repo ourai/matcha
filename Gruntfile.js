@@ -6,9 +6,7 @@ module.exports = function( grunt ) {
     };
   var npmTasks = [
       "grunt-contrib-jade",
-      "grunt-contrib-compass",
-      "grunt-contrib-cssmin",
-      "grunt-contrib-watch"
+      "grunt-contrib-sass"
     ];
   var index = 0;
   var length = npmTasks.length;
@@ -23,6 +21,17 @@ module.exports = function( grunt ) {
       layouts: "<%= meta.tests %>/layouts",
       cmpts: "<%= meta.tests %>/components"
     },
+    sass: {
+      compile: {
+        files: [{
+          expand: true,
+          cwd: "<%= meta.src %>",
+          src: ["*.scss"],
+          dest: "<%= meta.src %>",
+          ext: ".css"
+        }]
+      }
+    },
     /*jade: {
       compile: {
         options: {
@@ -35,13 +44,12 @@ module.exports = function( grunt ) {
           "<%= meta.dest %>/layout.html": "<%= meta.src %>/views/layouts/layout.jade"
         }
       }
-    }*/
+    }
     compass: {
       compile: {
         options: {
           sassDir: "<%= meta.src %>",
-          cssDir: "<%= meta.src %>"/*,
-          outputStyle: "compressed"*/
+          cssDir: "<%= meta.src %>"
         }
       }
     },
@@ -51,7 +59,7 @@ module.exports = function( grunt ) {
           "<%= meta.dest %>/<%= pkg.name %>.min.css": "<%= meta.dest %>/<%= pkg.name %>.css"
         }
       }
-    },
+    },*/
     watch: {
       css: {
         files: ["<%= meta.dest %>/**/*.scss"],
@@ -68,5 +76,5 @@ module.exports = function( grunt ) {
     grunt.loadNpmTasks(npmTasks[index]);
   }
 
-  grunt.registerTask("default", ["compass"]);
+  grunt.registerTask("default", ["sass"]);
 };
