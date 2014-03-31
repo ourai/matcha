@@ -1,13 +1,9 @@
 .tabs {
-  @extend %base-font;
-  
-  @at-root {
-    &__triggers {
-      overflow: hidden;
-    }
+  .tabs__triggers {
+    overflow: hidden;
+  }
 
-    &__trigger {
-      @extend %inline-block;
-    }
+  .tabs__trigger {
+    @include inline-block;
   }
 }

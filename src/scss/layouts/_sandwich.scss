@@ -1,10 +1,8 @@
-$default: (
-    page-width: 100%,
-    layout-header-height: 50px,
-    layout-footer-height: 60px,
-    layout-main-width: percent(640px, 960px),
-    layout-sub-width:  percent(300px, 960px)
-  );
+$page-width: 100%;
+$layout-header-height: 50px;
+$layout-footer-height: 60px;
+$layout-main-width: percent(640px, 960px);
+$layout-sub-width:  percent(300px, 960px);
 
 
 
@@ -33,21 +31,19 @@ $default: (
 </body>
 */
 
+html,
+body {
+  height: 100%;
+}
+
 @mixin layout-sandwich( $params: $default ) {
   body[data-layout="sandwich"] {
-    @at-root {
-      html,
-      body {
-        height: 100%;
-      }
-    }
-
     // Header of page
     .layout-header {
       position: relative;
       z-index: 10;
-      height: map-get($params, "layout-header-height");
-      margin-bottom: -(map-get($params, "layout-header-height") + 2px);
+      height: $layout-header-height;
+      margin-bottom: -($layout-header-height + 2px);
       background-color: #FFF;
       border-bottom: 2px solid #C5CFD2;
 
@@ -59,8 +55,8 @@ $default: (
 
     // Footer of page
     .layout-footer {
-      height: map-get($params, "layout-footer-height");
-      margin-top: -(map-get($params, "layout-footer-height") + 1px);
+      height: $layout-footer-height;
+      margin-top: -($layout-footer-height + 1px);
       border-top: 1px solid #B8C4C8;
       background-color: #B8C4C8;
       color: #FFF;
@@ -96,20 +92,20 @@ $default: (
 
     // Main content
     .layout-main {
-      width: map-get($params, "layout-main-width");
+      width: $layout-main-width;
       float: left;
     }
     
     // Sub content
     .layout-sub {
-      width: map-get($params, "layout-sub-width");
+      width: $layout-sub-width;
       float: right;
     }
 
     // To limit the width of content
     // and make content center
     .layout-inner {
-      width: map-get($params, "page-width");
+      width: $page-width;
       margin: 0 auto;
     }
   }
