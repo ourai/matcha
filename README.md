@@ -2,7 +2,7 @@
 
 This is a Flexible, Responsive and Powerful UI framework, what I want it to be. ;-)
 
-Matcha is a library based on ~~[Compass](http://compass-style.org/)~~[Sass](http://sass-lang.com/), so you should install [Ruby](https://www.ruby-lang.org/) and ~~Compass~~Sass before use.
+Matcha is a library based on [Sass](http://sass-lang.com/), so you should install [Ruby](https://www.ruby-lang.org/) and Sass before use.
 
 ## Dependencies
 
