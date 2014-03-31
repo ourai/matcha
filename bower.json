@@ -1,18 +1,25 @@
 {
   "name": "matcha",
   "version": "0.1.1-alpha",
+  "main": "dest/matcha.min.css",
+  "license": "MIT",
   "ignore": [
     "build/",
     "backup/",
     ".gitignore",
     ".bowerrc",
-    "bower.json",
-    "package.json",
-    "Gruntfile.js",
-    "README.md",
-    "VERSIONS.md"
+    "*.json",
+    "*.md",
+    "Gruntfile.js"
   ],
-  "dependencies": {
+  "devDependencies": {
     "normalize.css": "https://github.com/necolas/normalize.css.git#3.0.0"
-  }
+  },
+  "keywords": [
+    "css",
+    "sass",
+    "compass",
+    "ui",
+    "framework"
+  ]
 }
