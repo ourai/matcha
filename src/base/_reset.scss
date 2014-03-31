@@ -1,13 +1,14 @@
 @import "../vendors/normalize";
-@import "../helpers/variables"
+@import "../helpers/variables";
+@import "../helpers/placeholders";
 
 
 body,
 button,
 input,
 textarea {
-  font: $font;
-  color: $text;
+  @extend %base-font;
+  color: $color-text;
   background-color: #FFF;
 }
 

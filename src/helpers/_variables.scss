@@ -3,14 +3,13 @@ $font_family: "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-serif;
 $font_family-hei: "Microsoft Yahei", "Hiragino Sans GB", Tahoma, Verdana, "BitStream vera Sans", Arial, Helvetica, Sans-serif;
 $font_size: 100%;
 $line_height: 1.5;
-$font: normal normal $font_size/$line_height $font_family;
 
 // Text
-$title_color: #444;
-$text_color: #666;
-$text_color-light: #888;
-$link_color: #3F6D77;
-$link_color-hover: #518C99;
+$color-title: #444;
+$color-text: #666;
+$color-text-light: #888;
+$color-link: #3F6D77;
+$color-link-hover: #518C99;
 
 // Border
 $border_color: #B8C4C8;

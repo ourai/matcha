@@ -9,18 +9,6 @@ body, div, pre, form, blockquote,
 dl, dt, dd,
 h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; }
 
-body,
-button,
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="hidden"],
-input[type="file"],
-input[type="button"],
-input[type="submit"],
-input[type="number"],
-textarea { font: $font; color: $text; background-color: #FFF; }
-
 body { background-color: #EEE; }
 
 table { border-collapse: collapse; }

@@ -1,4 +1,5 @@
 @import "../helpers/functions";
+@import "../helpers/mixins";
 
 $page-width: 100%;
 
@@ -41,12 +42,14 @@ $layout-sub-width: percent(300px, 960px);
     $layout-main-width: $layout-main-width,
     $layout-sub-width: $layout-sub-width
   ) {
-  html,
-  body {
-    height: 100%;
-  }
-
   body[data-layout="sandwich"] {
+    @at-root {
+      html,
+      body {
+        height: 100%;
+      }
+    }
+
     // Header of page
     .layout-header {
       position: relative;

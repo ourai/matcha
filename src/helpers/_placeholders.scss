@@ -1,0 +1,12 @@
+@import "variables";
+
+%base-font {
+  font: {
+    style: normal;
+    weight: normal;
+    family: $font_family;
+    size: $font_size;
+  }
+
+  line-height: $line_height;
+}
