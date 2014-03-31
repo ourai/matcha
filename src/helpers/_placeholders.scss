@@ -1,5 +1,3 @@
-@import "variables";
-
 %base-font {
   font: {
     style: normal;
@@ -39,4 +37,10 @@
 %no_gap {
   margin: 0;
   padding: 0;
+}
+
+%inline-block {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
 }
