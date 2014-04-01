@@ -457,23 +457,11 @@ img {
   max-width: 100%;
 }
 
-/* =====
-  - HTML Example -
-
-  <div class="Tabs">
-    <div class="Tabs-triggers">
-      <a href="#" class="Tabs-trigger is-selected" data-flag="tab_1">Tab's trigger 1</a>
-      <a href="#" class="Tabs-trigger" data-flag="tab_2">Tab's trigger 2</a>
-    </div>
-    <div class="Tabs-content is-selected" data-flag="tab_1">Tab's content 1</div>
-    <div class="Tabs-content" data-flag="tab_2">Tab's content 2</div>
-  </div>
-   ===== */
-/* line 32, _rules.scss */
+/* line 20, _rules.scss */
 .Tabs .Tabs-triggers {
   overflow: hidden;
 }
-/* line 36, _rules.scss */
+/* line 24, _rules.scss */
 .Tabs .Tabs-trigger {
   display: -moz-inline-stack;
   display: inline-block;
@@ -483,26 +471,26 @@ img {
   padding: 0 2em;
   cursor: pointer;
 }
-/* line 41, _rules.scss */
+/* line 29, _rules.scss */
 .Tabs .Tabs-trigger.is-selected {
   background-color: #FFF;
   font-weight: bold;
   cursor: default;
 }
-/* line 48, _rules.scss */
+/* line 36, _rules.scss */
 .Tabs a.Tabs-trigger {
   text-decoration: none !important;
 }
-/* line 52, _rules.scss */
+/* line 40, _rules.scss */
 .Tabs .Tabs-content {
   display: none;
 }
-/* line 55, _rules.scss */
+/* line 43, _rules.scss */
 .Tabs .Tabs-content.is-selected {
   display: block;
 }
 
-/* line 62, _rules.scss */
+/* line 50, _rules.scss */
 html[lang^="en"] tbody th {
   text-transform: uppercase;
 }
