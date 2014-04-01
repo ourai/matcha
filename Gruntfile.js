@@ -80,7 +80,9 @@ module.exports = function( grunt ) {
       compile: {
         options: {
           sassDir: "<%= meta.dest %>",
-          cssDir: "<%= meta.dest %>"
+          cssDir: "<%= meta.dest %>",
+          javascriptsDir: "<%= meta.dest %>",
+          imagesDir: "<%= meta.dest %>"
         }
       }
     },
