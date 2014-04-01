@@ -1,9 +1,3 @@
-@mixin inline-block {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-}
-
 // Font
 $font_family: "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-serif;
 $font_family-hei: "Microsoft Yahei", "Hiragino Sans GB", Tahoma, Verdana, "BitStream vera Sans", Arial, Helvetica, Sans-serif;
@@ -56,7 +50,7 @@ $border_color: #B8C4C8;
 }
 
 @mixin tag_unit {
-  @include inline-block;
+  @include inline-block(none);
   max-width: 120px;
   margin-right: 5px; padding: 0 8px;
   border-radius: 2px;

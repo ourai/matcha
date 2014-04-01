@@ -463,9 +463,11 @@ img {
 }
 /* line 24, _rules.scss */
 .tabs .tabs__trigger {
+  display: -moz-inline-stack;
   display: inline-block;
+  *vertical-align: auto;
+  zoom: 1;
   *display: inline;
-  *zoom: 1;
 }
 
 /* line 30, _rules.scss */

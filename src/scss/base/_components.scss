@@ -4,6 +4,6 @@
   }
 
   .tabs__trigger {
-    @include inline-block;
+    @include inline-block(none);
   }
 }

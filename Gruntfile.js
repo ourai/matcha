@@ -31,8 +31,7 @@ module.exports = function( grunt ) {
     },
     concat: {
       helpers: {
-        src: ["<%= meta.helpers %>/_css3.scss",
-              "<%= meta.helpers %>/_variables.scss",
+        src: ["<%= meta.helpers %>/_variables.scss",
               "<%= meta.helpers %>/_functions.scss",
               "<%= meta.helpers %>/_mixins.scss"],
         dest: "<%= meta.dest %>/_helpers.scss"

@@ -30,7 +30,7 @@
 }
 
 @mixin tag_unit {
-  @include inline-block;
+  @include inline-block(none);
   max-width: 120px;
   margin-right: 5px; padding: 0 8px;
   border-radius: 2px;
