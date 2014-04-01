@@ -1,9 +1,29 @@
-.tabs {
-  .tabs__triggers {
+.Tabs {
+  .Tabs-triggers {
     overflow: hidden;
   }
 
-  .tabs__trigger {
-    @include inline-block;
+  .Tabs-trigger {
+    @include inline-block(none);
+    padding: 0 2em;
+    cursor: pointer;
+
+    &.is-selected {
+      background-color: #FFF;
+      font-weight: bold;
+      cursor: default;
+    }
+  }
+
+  a.Tabs-trigger {
+    text-decoration: none !important;
+  }
+
+  .Tabs-content {
+    display: none;
+
+    &.is-selected {
+      display: block;
+    }
   }
 }

@@ -106,12 +106,6 @@ button.comp_button.disabled { background-color: #DBDAD9; border-color: #C8C6C4; 
 
 /* --- Layout: tab --- */
 
-.comp_tab_group { overflow: hidden; }
-.comp_tab_trigger { float: left; text-decoration: none !important; padding: 0 2em; cursor: pointer; }
-.comp_tab_trigger.current { background-color: #FFF !important; font-weight: bold; cursor: default; }
-.comp_tab_content { display: none; }
-.comp_tab_content.current { display: block; }
-
 .comp_tab_blockset { overflow: hidden; margin-right: 50px; }
 .comp_tab_blockset .comp_tab_group { overflow: visible; white-space: nowrap; margin-right: 0 !important; }
 .comp_tab_blockset .comp_tab_trigger { float: none; @include inline-block; }

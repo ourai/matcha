@@ -5,11 +5,13 @@ module.exports = function( grunt ) {
       version: pkg.version
     };
   var npmTasks = [
-      "grunt-contrib-concat",
-      "grunt-contrib-jade",
       "grunt-contrib-compass",
-      "grunt-contrib-copy",
       "grunt-contrib-cssmin",
+      "grunt-contrib-coffee",
+      "grunt-contrib-uglify",
+      "grunt-contrib-jade",
+      "grunt-contrib-concat",
+      "grunt-contrib-copy",
       "grunt-contrib-clean"
     ];
   var index = 0;
@@ -22,6 +24,8 @@ module.exports = function( grunt ) {
       sass: "src/scss",
       helpers: "<%= meta.sass %>/helpers",
       base: "<%= meta.sass %>/base",
+      coffee: "src/coffee",
+      js: "src/js",
       dest: "dest",
       build: "build",
       tests: "<%= meta.build %>/tests",
@@ -31,8 +35,7 @@ module.exports = function( grunt ) {
     },
     concat: {
       helpers: {
-        src: ["<%= meta.helpers %>/_css3.scss",
-              "<%= meta.helpers %>/_variables.scss",
+        src: ["<%= meta.helpers %>/_variables.scss",
               "<%= meta.helpers %>/_functions.scss",
               "<%= meta.helpers %>/_mixins.scss"],
         dest: "<%= meta.dest %>/_helpers.scss"
@@ -50,6 +53,27 @@ module.exports = function( grunt ) {
       core: {
         src: ["<%= meta.sass %>/rules.scss"],
         dest: "<%= meta.dest %>/<%= pkg.name %>.scss"
+      },
+      coffee: {
+        src: ["<%= meta.coffee %>/intro.coffee",
+              "<%= meta.coffee %>/variables.coffee",
+              "<%= meta.coffee %>/functions.coffee",
+              "<%= meta.coffee %>/components.coffee",
+              "<%= meta.coffee %>/outro.coffee"],
+        dest: "<%= meta.dest %>/<%= pkg.name %>.coffee"
+      },
+      js: {
+        options: {
+          process: function( src, filepath ) {
+            return src.replace(/@(NAME|VERSION)/g, function( text, key ) {
+              return info[key.toLowerCase()];
+            });
+          }
+        },
+        src: ["<%= meta.js %>/intro.js",
+              "<%= meta.js %>/<%= pkg.name %>.js",
+              "<%= meta.js %>/outro.js"],
+        dest: "<%= meta.dest %>/<%= pkg.name %>.js"
       }
     },
     compass: {
@@ -58,6 +82,25 @@ module.exports = function( grunt ) {
           sassDir: "<%= meta.dest %>",
           cssDir: "<%= meta.dest %>"
         }
+      }
+    },
+    coffee: {
+      options: {
+        bare: true,
+        separator: "\x20"
+      },
+      build: {
+        src: "<%= meta.dest %>/<%= pkg.name %>.coffee",
+        dest: "<%= meta.js %>/<%= pkg.name %>.js"
+      }
+    },
+    uglify: {
+      options: {
+        banner: "/*! <%= pkg.name %> <%= grunt.template.today('yyyy-mm-dd') %> */\n"
+      },
+      build: {
+        src: "<%= meta.dest %>/<%= pkg.name %>.js",
+        dest: "<%= meta.dest %>/<%= pkg.name %>.min.js"
       }
     },
     copy: {
@@ -71,7 +114,9 @@ module.exports = function( grunt ) {
     },
     clean: {
       compiled: {
-        src: ["dest/*.scss", "!dest/_helpers.scss"]
+        src: ["dest/*.coffee",
+              "dest/*.scss",
+              "!dest/_helpers.scss"]
       }
     },
     /*jade: {
@@ -110,5 +155,21 @@ module.exports = function( grunt ) {
     grunt.loadNpmTasks(npmTasks[index]);
   }
 
-  grunt.registerTask("default", ["concat", "copy", "compass", "cssmin", "clean"]);
+  // Tasks about Sass
+  grunt.registerTask("compile_sass", [
+    "concat:helpers",
+    "concat:vendors",
+    "concat:rules",
+    "concat:core",
+    "copy:sass",
+    "compass",
+    "cssmin"]);
+  // Tasks about CoffeeScript
+  grunt.registerTask("compile_coffee", [
+    "concat:coffee",
+    "coffee",
+    "concat:js",
+    "uglify"]);
+  // Default task
+  grunt.registerTask("default", ["compile_sass", "compile_coffee", "clean"]);
 };
