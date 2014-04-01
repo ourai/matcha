@@ -85,3 +85,17 @@
   padding: 0;
 }
 
+// refer to http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    content: "\0020";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
