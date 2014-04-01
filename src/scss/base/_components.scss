@@ -1,9 +1,41 @@
-.tabs {
-  .tabs__triggers {
+/* =====
+  - HTML Example -
+
+  <div class="Tabs">
+    <div class="Tabs-triggers">
+      <a href="#" class="Tabs-trigger is-selected" data-flag="tab_1">Tab's trigger 1</a>
+      <a href="#" class="Tabs-trigger" data-flag="tab_2">Tab's trigger 2</a>
+    </div>
+    <div class="Tabs-content is-selected" data-flag="tab_1">Tab's content 1</div>
+    <div class="Tabs-content" data-flag="tab_2">Tab's content 2</div>
+  </div>
+   ===== */
+.Tabs {
+  .Tabs-triggers {
     overflow: hidden;
   }
 
-  .tabs__trigger {
+  .Tabs-trigger {
     @include inline-block(none);
+    padding: 0 2em;
+    cursor: pointer;
+
+    &.is-selected {
+      background-color: #FFF;
+      font-weight: bold;
+      cursor: default;
+    }
+  }
+
+  a.Tabs-trigger {
+    text-decoration: none !important;
+  }
+
+  .Tabs-content {
+    display: none;
+
+    &.is-selected {
+      display: block;
+    }
   }
 }
