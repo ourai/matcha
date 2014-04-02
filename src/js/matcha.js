@@ -1,10 +1,12 @@
 "use strict";
-var LIB_CONFIG, getStorageData, hasOwnProp, hook, storage;
+var LIB_CONFIG, getStorageData, hasOwnProp, hook, storage, _H;
 
 LIB_CONFIG = {
   name: "@NAME",
   version: "@VERSION"
 };
+
+_H = {};
 
 storage = {
 
