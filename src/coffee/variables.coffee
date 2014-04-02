@@ -1,3 +1,6 @@
+# Main objects
+_H = {}
+
 # 内部数据载体
 storage =
   ###
