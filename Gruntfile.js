@@ -98,7 +98,9 @@ module.exports = function( grunt ) {
     },
     uglify: {
       options: {
-        banner: "/*! <%= repo.name %> UI Library v<%= repo.version %>\n" +
+        banner: "/*!\n" +
+                " * <%= repo.name %> UI Library v<%= repo.version %>\n" +
+                " * <%= pkg.homepage %>\n" +
                 " *\n" +
                 " * Copyright 2013, <%= grunt.template.today('yyyy') %> Ourairyu, http://ourai.ws/\n" +
                 " *\n" +
@@ -149,7 +151,9 @@ module.exports = function( grunt ) {
     cssmin: {
       minify: {
         options: {
-          banner: "/*! <%= repo.name %> UI Library v<%= repo.version %>\n" +
+          banner: "/*!\n" +
+                  " * <%= repo.name %> UI Library v<%= repo.version %>\n" +
+                  " * <%= pkg.homepage %>\n" +
                   " *\n" +
                   " * Includes Normalize.css\n" +
                   " * http://necolas.github.io/normalize.css/\n" +
