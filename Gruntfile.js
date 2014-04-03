@@ -18,41 +18,41 @@ module.exports = function( grunt ) {
   var length = npmTasks.length;
 
   grunt.initConfig({
+    repo: info,
     pkg: pkg,
     meta: {
       src: "src",
-      sass: "src/scss",
-      helpers: "<%= meta.sass %>/helpers",
-      base: "<%= meta.sass %>/base",
-      coffee: "src/coffee",
-      js: "src/js",
       dest: "dest",
-      build: "build",
-      tests: "<%= meta.build %>/tests",
-      tasks: "<%= meta.build %>/tasks",
-      layouts: "<%= meta.tests %>/layouts",
-      cmpts: "<%= meta.tests %>/components"
+      style: "<%= meta.src %>/stylesheets",
+      helpers: "<%= meta.style %>/helpers",
+      base: "<%= meta.style %>/base",
+      script: "<%= meta.src %>/javascripts",
+      coffee: "<%= meta.script %>/coffee",
+      image: "<%= meta.src %>/images",
+      dest_style: "<%= meta.dest %>/stylesheets",
+      dest_script: "<%= meta.dest %>/javascripts",
+      dest_image: "<%= meta.dest %>/images"
     },
     concat: {
       helpers: {
         src: ["<%= meta.helpers %>/_variables.scss",
               "<%= meta.helpers %>/_functions.scss",
               "<%= meta.helpers %>/_mixins.scss"],
-        dest: "<%= meta.dest %>/_helpers.scss"
+        dest: "<%= meta.dest_style %>/_helpers.scss"
       },
       vendors: {
         src: ["vendors/normalize.css/normalize.css"],
-        dest: "<%= meta.dest %>/_vendors.scss"
+        dest: "<%= meta.dest_style %>/_vendors.scss"
       },
       rules: {
         src: ["<%= meta.base %>/_reset.scss",
               "<%= meta.base %>/_components.scss",
               "<%= meta.base %>/_g11n.scss"],
-        dest: "<%= meta.dest %>/_rules.scss"
+        dest: "<%= meta.dest_style %>/_rules.scss"
       },
       core: {
-        src: ["<%= meta.sass %>/rules.scss"],
-        dest: "<%= meta.dest %>/<%= pkg.name %>.scss"
+        src: ["<%= meta.style %>/rules.scss"],
+        dest: "<%= meta.dest_style %>/<%= pkg.name %>.scss"
       },
       coffee: {
         src: ["<%= meta.coffee %>/intro.coffee",
@@ -60,7 +60,7 @@ module.exports = function( grunt ) {
               "<%= meta.coffee %>/functions.coffee",
               "<%= meta.coffee %>/components.coffee",
               "<%= meta.coffee %>/outro.coffee"],
-        dest: "<%= meta.dest %>/<%= pkg.name %>.coffee"
+        dest: "<%= meta.dest_script %>/<%= pkg.name %>.coffee"
       },
       js: {
         options: {
@@ -70,19 +70,19 @@ module.exports = function( grunt ) {
             });
           }
         },
-        src: ["<%= meta.js %>/intro.js",
-              "<%= meta.js %>/<%= pkg.name %>.js",
-              "<%= meta.js %>/outro.js"],
-        dest: "<%= meta.dest %>/<%= pkg.name %>.js"
+        src: ["<%= meta.script %>/intro.js",
+              "<%= meta.script %>/<%= pkg.name %>.js",
+              "<%= meta.script %>/outro.js"],
+        dest: "<%= meta.dest_script %>/<%= pkg.name %>.js"
       }
     },
     compass: {
       compile: {
         options: {
-          sassDir: "<%= meta.dest %>",
-          cssDir: "<%= meta.dest %>",
-          javascriptsDir: "<%= meta.dest %>",
-          imagesDir: "<%= meta.dest %>"
+          sassDir: "<%= meta.dest_style %>",
+          cssDir: "<%= meta.dest_style %>",
+          javascriptsDir: "<%= meta.dest_script %>",
+          imagesDir: "<%= meta.dest_image %>"
         }
       }
     },
@@ -92,33 +92,45 @@ module.exports = function( grunt ) {
         separator: "\x20"
       },
       build: {
-        src: "<%= meta.dest %>/<%= pkg.name %>.coffee",
-        dest: "<%= meta.js %>/<%= pkg.name %>.js"
+        src: "<%= meta.dest_script %>/<%= pkg.name %>.coffee",
+        dest: "<%= meta.script %>/<%= pkg.name %>.js"
       }
     },
     uglify: {
       options: {
-        banner: "/*! <%= pkg.name %> <%= grunt.template.today('yyyy-mm-dd') %> */\n"
+        banner: "/*! <%= repo.name %> UI Library v<%= repo.version %>\n" +
+                " *\n" +
+                " * Copyright 2013, <%= grunt.template.today('yyyy') %> Ourairyu, http://ourai.ws/\n" +
+                " *\n" +
+                " * Date: <%= grunt.template.today('yyyy-mm-dd') %>\n" +
+                " */\n",
+        sourceMap: true
       },
       build: {
-        src: "<%= meta.dest %>/<%= pkg.name %>.js",
-        dest: "<%= meta.dest %>/<%= pkg.name %>.min.js"
+        src: "<%= meta.dest_script %>/<%= pkg.name %>.js",
+        dest: "<%= meta.dest_script %>/<%= pkg.name %>.min.js"
       }
     },
     copy: {
       sass: {
         expand: true,
-        cwd: "<%= meta.sass %>",
+        cwd: "<%= meta.style %>",
         src: ["layouts/*"],
-        dest: "dest",
+        dest: "<%= meta.dest_style %>",
         filter: "isFile"
+      },
+      image: {
+        expand: true,
+        cwd: "<%= meta.image %>",
+        src: ["**"],
+        dest: "<%= meta.dest_image %>"
       }
     },
     clean: {
       compiled: {
-        src: ["dest/*.coffee",
-              "dest/*.scss",
-              "!dest/_helpers.scss"]
+        src: ["<%= meta.dest_script %>/*.coffee",
+              "<%= meta.dest_style %>/*.scss",
+              "!<%= meta.dest_style %>/_helpers.scss"]
       }
     },
     /*jade: {
@@ -136,19 +148,21 @@ module.exports = function( grunt ) {
     }*/
     cssmin: {
       minify: {
+        options: {
+          banner: "/*! <%= repo.name %> UI Library v<%= repo.version %>\n" +
+                  " *\n" +
+                  " * Includes Normalize.css\n" +
+                  " * http://necolas.github.io/normalize.css/\n" +
+                  " *\n" +
+                  " * Copyright 2013, <%= grunt.template.today('yyyy') %> Ourairyu, http://ourai.ws/\n" +
+                  " *\n" +
+                  " * Date: <%= grunt.template.today('yyyy-mm-dd') %>\n" +
+                  " */\n",
+          keepSpecialComments: 0
+        },
         files: {
-          "<%= meta.dest %>/<%= pkg.name %>.min.css": "<%= meta.dest %>/<%= pkg.name %>.css"
+          "<%= meta.dest_style %>/<%= pkg.name %>.min.css": "<%= meta.dest_style %>/<%= pkg.name %>.css"
         }
-      }
-    },
-    watch: {
-      css: {
-        files: ["<%= meta.dest %>/**/*.scss"],
-        tasks: ["compass"]
-      },
-      html: {
-        files: ["src/layouts/**/*.jade"],
-        tasks: ["jade"]
       }
     }
   });
@@ -173,5 +187,5 @@ module.exports = function( grunt ) {
     "concat:js",
     "uglify"]);
   // Default task
-  grunt.registerTask("default", ["compile_sass", "compile_coffee", "clean"]);
+  grunt.registerTask("default", ["compile_sass", "compile_coffee", "copy:image", "clean"]);
 };
