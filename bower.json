@@ -1,7 +1,9 @@
 {
   "name": "matcha",
   "version": "0.1.1",
-  "main": ["dest/matcha.min.js", "dest/matcha.min.css"],
+  "main": [
+    "dest/javascripts/matcha.min.js",
+    "dest/stylesheets/matcha.min.css"],
   "license": "MIT",
   "ignore": ["**/*", "!dest/**/*"],
   "dependencies": {
