@@ -1,9 +1,12 @@
-body,
-button,
-input,
-textarea {
-  @include base-font;
+body {
   color: $color-text;
+  background-color: #F7F7F7;
+}
+
+input,
+button,
+textarea {
+  color: $color-text-medium;
   background-color: #FFF;
 }
 
