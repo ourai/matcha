@@ -46,7 +46,7 @@
   margin-right: 5px; padding: 0 8px;
   border-radius: 2px;
   background-color: #DCE4E6;
-  color: $text !important;
+  color: $color-text-medium !important;
   text-decoration: none !important;
   @include text-ellipsis;
 }
