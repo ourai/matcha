@@ -1,6 +1,7 @@
 # Directories
-vendors/
-node_modules/
-.sass-cache/
+/build
+/vendors
+/node_modules
+/.sass-cache
 
 # Files
