@@ -510,13 +510,13 @@ img {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/dest/images/transparent.gif?1397189235') repeat;
+  background: transparent url('/dest/images/transparent.gif?1397643386') repeat;
 }
 
 /* line 70, _rules.scss */
 .Score,
 .Score .Score-level {
-  background-image: url('/dest/images/star.png?1397640299');
+  background-image: url('/dest/images/star.png?1397643386');
 }
 
 /* line 74, _rules.scss */
@@ -529,7 +529,7 @@ img {
 /* line 81, _rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/dest/images/ministar.png?1397640299');
+  background-image: url('/dest/images/ministar.png?1397643386');
 }
 
 /* line 85, _rules.scss */

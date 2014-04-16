@@ -76,7 +76,7 @@ module.exports = ( grunt ) ->
           sassDir: "<%= meta.dest_style %>"
           cssDir: "<%= meta.dest_style %>"
           javascriptsDir: "<%= meta.dest_script %>"
-          imagesDir: "<%= meta.dest %>"
+          imagesDir: "<%= meta.dest_image %>"
     coffee:
       options:
         bare: true
