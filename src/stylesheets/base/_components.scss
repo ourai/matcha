@@ -27,3 +27,42 @@
     }
   }
 }
+
+.Score,
+.Score--small {
+  display: block;
+  position: relative;
+  background-repeat: repeat-x;
+
+  .Score-level {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    height: 100%;
+    background-repeat: repeat-x;
+    @include text-hide;
+  }
+}
+
+.Score,
+.Score .Score-level {
+  background-image: image-url("star.png");
+}
+
+.Score {
+  width: 80px;
+  height: 16px;
+  background-position: 0 -16px;
+}
+
+.Score--small,
+.Score--small .Score-level {
+  background-image: image-url("ministar.png");
+}
+
+.Score--small {
+  width: 55px;
+  height: 10px;
+  background-position: 0 -10px;
+}
