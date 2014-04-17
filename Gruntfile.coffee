@@ -29,6 +29,8 @@ module.exports = ( grunt ) ->
       dest_style: "<%= meta.dest %>/stylesheets"
       dest_script: "<%= meta.dest %>/javascripts"
       dest_image: "<%= meta.dest %>/images"
+      build: "build"
+      tests: "<%= meta.build %>/tests"
     concat:
       helpers:
         src: [
@@ -77,6 +79,12 @@ module.exports = ( grunt ) ->
           cssDir: "<%= meta.dest_style %>"
           javascriptsDir: "<%= meta.dest_script %>"
           imagesDir: "<%= meta.dest_image %>"
+      test:
+        options:
+          sassDir: "<%= meta.dest_style %>"
+          cssDir: "<%= meta.tests %>/stylesheets"
+          javascriptsDir: "<%= meta.tests %>/javascripts"
+          imagesDir: "<%= meta.tests %>/images"
     coffee:
       options:
         bare: true
@@ -84,6 +92,9 @@ module.exports = ( grunt ) ->
       build:
         src: "<%= meta.dest_script %>/<%= pkg.name %>.coffee"
         dest: "<%= meta.script %>/<%= pkg.name %>.js"
+      test:
+        src: "<%= meta.tests %>/test.coffee"
+        dest: "<%= meta.tests %>/test.js"
     uglify:
       options:
         banner: "/*!\n" +
@@ -110,6 +121,11 @@ module.exports = ( grunt ) ->
         cwd: "<%= meta.image %>"
         src: ["**"]
         dest: "<%= meta.dest_image %>"
+      test:
+        expand: true
+        cwd: "<%= meta.dest %>"
+        src: ["images/*", "javascripts/*"]
+        dest: "<%= meta.tests %>"
     clean:
       compiled:
         src: [
@@ -154,15 +170,20 @@ module.exports = ( grunt ) ->
       "concat:rules"
       "concat:core"
       "copy:sass"
-      "compass"
+      "compass:compile"
       "cssmin"
     ]
   # Tasks about CoffeeScript
   grunt.registerTask "compile_coffee", [
       "concat:coffee"
-      "coffee"
+      "coffee:build"
       "concat:js"
       "uglify"
     ]
+  grunt.registerTask "test", [
+    "coffee:test"
+    "compass:test"
+    "copy:test"
+  ]
   # Default task
-  grunt.registerTask "default", ["compile_sass", "compile_coffee", "copy:image", "clean"]
+  grunt.registerTask "default", ["compile_sass", "compile_coffee", "copy:image", "test", "clean"]
