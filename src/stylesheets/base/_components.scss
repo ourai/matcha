@@ -28,8 +28,13 @@
   }
 }
 
+// Scores / Levels of evaluation
+// refer to: http://www.zhangxinxu.com/wordpress/2013/08/%E7%BA%AFcss%E6%98%9F%E6%98%9F%E8%AF%84%E5%88%86%E4%BA%A4%E4%BA%92-%E5%85%84%E5%BC%9F%E9%80%89%E6%8B%A9%E5%99%A8/
+$score_size: 16px;
+
 .Score,
-.Score--small {
+.Score--small,
+.Score--checkable {
   display: block;
   position: relative;
   background-repeat: repeat-x;
@@ -46,14 +51,16 @@
 }
 
 .Score,
-.Score .Score-level {
+.Score .Score-level,
+.Score--checkable {
   background-image: image-url("star.png");
 }
 
-.Score {
+.Score,
+.Score--checkable {
   width: 80px;
-  height: 16px;
-  background-position: 0 -16px;
+  height: $score_size;
+  background-position: 0 (-$score_size);
 }
 
 .Score--small,
@@ -65,4 +72,60 @@
   width: 55px;
   height: 10px;
   background-position: 0 -10px;
+}
+
+// Checkable and storage status of selected element
+.Score--checkable {
+  .Score-level {
+    width: $score_size;
+    top: auto;
+    left: auto;
+
+    &:hover {
+      left: 0;
+      z-index: 2;
+    }
+  }
+
+  .Score-level:hover {
+    background: image-url("star.png") repeat-x !important;
+  }
+
+  .Score-storage {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    display: none;
+
+    &:checked + .Score-level,
+    .Score-level--checked {
+      background: image-url("star.png") repeat-x;
+      left: 0;
+      z-index: 1;
+    }
+  }
+
+  @for $i from 1 through 5 {
+    $w: $i * $score_size;
+
+    .Score-level-#{$i} {
+      left: $w - $score_size;
+
+      &:hover {
+        width: $w;
+      }
+    }
+
+    .Score-storage-#{$i}:checked ~ .Score-level-#{$i} {
+      width: $w;
+    }
+  }
+
+  &:hover .Score-level {
+    background-image: none;
+  }
+
+  label {
+    display: block;
+    @include square(100%);
+  }
 }
