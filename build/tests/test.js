@@ -6,14 +6,14 @@ $(function() {
     id = "" + data.name + "-" + score;
     return "<input id=\"" + id + "\" class=\"Score-storage Score-storage-" + score + "\" type=\"radio\" name=\"" + data.name + "\" value=\"" + score + "\">\n <a class=\"Score-level Score-level-" + score + "\" href=\"http://www.baidu.com/\">\n   <label for=\"" + id + "\">" + score + "</label>\n </a>";
   };
-  return $(".Score--checkable").each(function() {
+  return $(".Score--selectable").each(function() {
     var data, highest, lowest, __e;
     __e = $(this);
     highest = Number(__e.data("highest"));
     lowest = 1;
     data = {};
     __e.width(highest * 16);
-    data.name = __e.data("name") || ("Score-" + ($(".Score--checkable").index(__e) + 1));
+    data.name = __e.data("name") || ("Score-" + ($(".Score--selectable").index(__e) + 1));
     if (isNaN(highest)) {
       highest = 0;
     } else {

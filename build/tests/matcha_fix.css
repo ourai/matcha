@@ -1,0 +1,17 @@
+.Score--selectable,
+.Score--selectable .Score-level--checked,
+.Score-level.is-selected {
+  background-image: url("images/star.png");
+}
+
+.Score-storage:checked + .Score-level {
+  background-image: url("images/star.png");
+}
+
+.Score--selectable .Score-level:hover {
+  background-image: url("images/star.png") !important;
+}
+
+.Score--selectable:hover .Score-level {
+  background-image: none;
+}

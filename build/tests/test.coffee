@@ -10,7 +10,7 @@ $ ->
             </a>
            """
 
-  $(".Score--checkable").each ->
+  $(".Score--selectable").each ->
     __e = $(this)
 
     highest = Number __e.data("highest")
@@ -19,7 +19,7 @@ $ ->
 
     __e.width highest * 16
 
-    data.name = __e.data("name") || "Score-#{$(".Score--checkable").index(__e) + 1}"
+    data.name = __e.data("name") || "Score-#{$(".Score--selectable").index(__e) + 1}"
 
     if isNaN highest
       highest = 0

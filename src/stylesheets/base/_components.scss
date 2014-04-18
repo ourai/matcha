@@ -34,7 +34,7 @@ $score_size: 16px;
 
 .Score,
 .Score--small,
-.Score--checkable {
+.Score--selectable {
   display: block;
   position: relative;
   background-repeat: repeat-x;
@@ -52,12 +52,12 @@ $score_size: 16px;
 
 .Score,
 .Score .Score-level,
-.Score--checkable {
+.Score--selectable {
   background-image: image-url("star.png");
 }
 
 .Score,
-.Score--checkable {
+.Score--selectable {
   width: 80px;
   height: $score_size;
   background-position: 0 (-$score_size);
@@ -74,8 +74,8 @@ $score_size: 16px;
   background-position: 0 -10px;
 }
 
-// Checkable and storage status of selected element
-.Score--checkable {
+// Selectable and storage status of selected element
+.Score--selectable {
   .Score-level {
     width: $score_size;
     top: auto;
@@ -123,8 +123,15 @@ $score_size: 16px;
   }
 }
 
-.Score-storage:checked + .Score-level,
-.Score-level--checked {
+// !!! Can't combine with .Score-level.is-selected,
+// !!! because it will can't render correctly in IE9-
+.Score-storage:checked + .Score-level {
+  background: image-url("star.png") repeat-x;
+  left: 0;
+  z-index: 1;
+}
+
+.Score-level.is-selected {
   background: image-url("star.png") repeat-x;
   left: 0;
   z-index: 1;

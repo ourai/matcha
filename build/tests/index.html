@@ -3,22 +3,9 @@
   <meta charset="UTF-8">
   <title>Test</title>
   <link rel="stylesheet" href="./stylesheets/matcha.css">
-  <style>
-    .Score--checkable,
-    .Score--checkable .Score-level--checked,
-    .Score-storage:checked + .Score-level,
-    .Score-level--checked {
-      background-image: url("images/star.png");
-    }
-    .Score--checkable .Score-level:hover {
-      background-image: url("images/star.png") !important;
-    }
-    .Score--checkable:hover .Score-level {
-      background-image: none;
-    }
-  </style>
+  <link rel="stylesheet" href="./matcha_fix.css">
   <script src="./jquery.min.js"></script>
   <script src="./test.js"></script>
-  <div class="Score--checkable" data-highest="5"></div>
-  <div class="Score--checkable" data-highest="4"></div>
+  <div class="Score--selectable" data-highest="5"></div>
+  <div class="Score--selectable" data-highest="4"></div>
 </html>
