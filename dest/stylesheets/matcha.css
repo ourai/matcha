@@ -517,14 +517,14 @@ img {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/dest/images/transparent.gif?1397806109') repeat;
+  background: transparent url('/dest/images/transparent.gif?1397825173') repeat;
 }
 
 /* line 80, _rules.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/dest/images/star.png?1397806109');
+  background-image: url('/dest/images/star.png?1397825173');
 }
 
 /* line 85, _rules.scss */
@@ -538,7 +538,7 @@ img {
 /* line 92, _rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/dest/images/ministar.png?1397806109');
+  background-image: url('/dest/images/ministar.png?1397825173');
 }
 
 /* line 96, _rules.scss */
@@ -561,7 +561,7 @@ img {
 }
 /* line 115, _rules.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/dest/images/star.png?1397806109') repeat-x !important;
+  background: url('/dest/images/star.png?1397825173') repeat-x !important;
 }
 /* line 119, _rules.scss */
 .Score--selectable .Score-storage {
@@ -581,6 +581,10 @@ img {
 .Score--selectable .Score-storage-1:checked ~ .Score-level-1 {
   width: 16px;
 }
+/* line 140, _rules.scss */
+.Score--selectable .Score-level-1.is-selected {
+  width: 16px;
+}
 /* line 128, _rules.scss */
 .Score--selectable .Score-level-2 {
   left: 16px;
@@ -591,6 +595,10 @@ img {
 }
 /* line 136, _rules.scss */
 .Score--selectable .Score-storage-2:checked ~ .Score-level-2 {
+  width: 32px;
+}
+/* line 140, _rules.scss */
+.Score--selectable .Score-level-2.is-selected {
   width: 32px;
 }
 /* line 128, _rules.scss */
@@ -605,6 +613,10 @@ img {
 .Score--selectable .Score-storage-3:checked ~ .Score-level-3 {
   width: 48px;
 }
+/* line 140, _rules.scss */
+.Score--selectable .Score-level-3.is-selected {
+  width: 48px;
+}
 /* line 128, _rules.scss */
 .Score--selectable .Score-level-4 {
   left: 48px;
@@ -615,6 +627,10 @@ img {
 }
 /* line 136, _rules.scss */
 .Score--selectable .Score-storage-4:checked ~ .Score-level-4 {
+  width: 64px;
+}
+/* line 140, _rules.scss */
+.Score--selectable .Score-level-4.is-selected {
   width: 64px;
 }
 /* line 128, _rules.scss */
@@ -629,32 +645,36 @@ img {
 .Score--selectable .Score-storage-5:checked ~ .Score-level-5 {
   width: 80px;
 }
-/* line 141, _rules.scss */
+/* line 140, _rules.scss */
+.Score--selectable .Score-level-5.is-selected {
+  width: 80px;
+}
+/* line 145, _rules.scss */
 .Score--selectable:hover .Score-level {
   background-image: none;
 }
-/* line 145, _rules.scss */
+/* line 149, _rules.scss */
 .Score--selectable label {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-/* line 153, _rules.scss */
+/* line 157, _rules.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/dest/images/star.png?1397806109') repeat-x;
+  background: url('/dest/images/star.png?1397825173') repeat-x;
   left: 0;
   z-index: 1;
 }
 
-/* line 159, _rules.scss */
+/* line 163, _rules.scss */
 .Score-level.is-selected {
-  background: url('/dest/images/star.png?1397806109') repeat-x;
+  background: url('/dest/images/star.png?1397825173') repeat-x;
   left: 0;
   z-index: 1;
 }
 
-/* line 166, _rules.scss */
+/* line 170, _rules.scss */
 html[lang^="en"] tbody th {
   text-transform: uppercase;
 }

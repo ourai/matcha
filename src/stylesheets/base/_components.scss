@@ -111,6 +111,10 @@ $score_size: 16px;
     .Score-storage-#{$i}:checked ~ .Score-level-#{$i} {
       width: $w;
     }
+
+    .Score-level-#{$i}.is-selected {
+      width: $w;
+    }
   }
 
   &:hover .Score-level {

@@ -4,7 +4,7 @@ $(function() {
     var id, score;
     score = data.score;
     id = "" + data.name + "-" + score;
-    return "<input id=\"" + id + "\" class=\"Score-storage Score-storage-" + score + "\" type=\"radio\" name=\"" + data.name + "\" value=\"" + score + "\">\n <a class=\"Score-level Score-level-" + score + "\" href=\"http://www.baidu.com/\">\n   <label for=\"" + id + "\">" + score + "</label>\n </a>";
+    return "<input id=\"" + id + "\" class=\"Score-storage Score-storage-" + score + "\" type=\"radio\" name=\"" + data.name + "\" value=\"" + score + "\">\n<a class=\"Score-level Score-level-" + score + "\" href=\"http://www.baidu.com/\">\n  <label for=\"" + id + "\">" + score + "</label>\n</a>";
   };
   return $(".Score--selectable").each(function() {
     var data, highest, lowest, __e;

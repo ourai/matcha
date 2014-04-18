@@ -4,7 +4,7 @@ $ ->
     id = "#{data.name}-#{score}"
 
     return """
-           <input id="#{id}" class="Score-storage Score-storage-#{score}" type="radio" name="#{data.name}" value="#{score}">
+            <input id="#{id}" class="Score-storage Score-storage-#{score}" type="radio" name="#{data.name}" value="#{score}">
             <a class="Score-level Score-level-#{score}" href="http://www.baidu.com/">
               <label for="#{id}">#{score}</label>
             </a>

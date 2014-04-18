@@ -78,4 +78,20 @@ getStorageData = function(ns_str) {
   return result;
 };
 
+if ($.browser.msie && $.browser.version * 1 < 9) {
+  $(".js-levelTrigger").live("click", function() {
+    var cls, t;
+    t = $(this);
+    cls = "is-selected";
+    t.siblings("." + cls).removeClass(cls);
+    t.addClass(cls);
+    t.siblings("[checked]").attr("checked", false);
+    t.prev(":radio").attr("checked", true);
+    return false;
+  });
+  $(function() {
+    return $(".Score-level").addClass("js-levelTrigger");
+  });
+}
+
 window[LIB_CONFIG.name] = _H;
