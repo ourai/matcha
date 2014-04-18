@@ -95,13 +95,6 @@ $score_size: 16px;
     position: absolute;
     clip: rect(0 0 0 0);
     display: none;
-
-    &:checked + .Score-level,
-    .Score-level--checked {
-      background: image-url("star.png") repeat-x;
-      left: 0;
-      z-index: 1;
-    }
   }
 
   @for $i from 1 through 5 {
@@ -128,4 +121,11 @@ $score_size: 16px;
     display: block;
     @include square(100%);
   }
+}
+
+.Score-storage:checked + .Score-level,
+.Score-level--checked {
+  background: image-url("star.png") repeat-x;
+  left: 0;
+  z-index: 1;
 }

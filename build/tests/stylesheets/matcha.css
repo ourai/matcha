@@ -517,14 +517,14 @@ img {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/build/tests/images/transparent.gif?1397724908') repeat;
+  background: transparent url('/build/tests/images/transparent.gif?1397789767') repeat;
 }
 
 /* line 80, ../../../dest/stylesheets/_rules.scss */
 .Score,
 .Score .Score-level,
 .Score--checkable {
-  background-image: url('/build/tests/images/star.png?1397724908');
+  background-image: url('/build/tests/images/star.png?1397789767');
 }
 
 /* line 85, ../../../dest/stylesheets/_rules.scss */
@@ -538,7 +538,7 @@ img {
 /* line 92, ../../../dest/stylesheets/_rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/build/tests/images/ministar.png?1397724908');
+  background-image: url('/build/tests/images/ministar.png?1397789767');
 }
 
 /* line 96, ../../../dest/stylesheets/_rules.scss */
@@ -561,7 +561,7 @@ img {
 }
 /* line 115, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-level:hover {
-  background: url('/build/tests/images/star.png?1397724908') repeat-x !important;
+  background: url('/build/tests/images/star.png?1397789767') repeat-x !important;
 }
 /* line 119, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-storage {
@@ -569,82 +569,83 @@ img {
   clip: rect(0 0 0 0);
   display: none;
 }
-/* line 125, ../../../dest/stylesheets/_rules.scss */
-.Score--checkable .Score-storage:checked + .Score-level,
-.Score--checkable .Score-storage .Score-level--checked {
-  background: url('/build/tests/images/star.png?1397724908') repeat-x;
-  left: 0;
-  z-index: 1;
-}
-/* line 135, ../../../dest/stylesheets/_rules.scss */
+/* line 128, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-level-1 {
   left: 0px;
 }
-/* line 138, ../../../dest/stylesheets/_rules.scss */
+/* line 131, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-level-1:hover {
   width: 16px;
 }
-/* line 143, ../../../dest/stylesheets/_rules.scss */
+/* line 136, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-storage-1:checked ~ .Score-level-1 {
   width: 16px;
 }
-/* line 135, ../../../dest/stylesheets/_rules.scss */
+/* line 128, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-level-2 {
   left: 16px;
 }
-/* line 138, ../../../dest/stylesheets/_rules.scss */
+/* line 131, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-level-2:hover {
   width: 32px;
 }
-/* line 143, ../../../dest/stylesheets/_rules.scss */
+/* line 136, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-storage-2:checked ~ .Score-level-2 {
   width: 32px;
 }
-/* line 135, ../../../dest/stylesheets/_rules.scss */
+/* line 128, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-level-3 {
   left: 32px;
 }
-/* line 138, ../../../dest/stylesheets/_rules.scss */
+/* line 131, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-level-3:hover {
   width: 48px;
 }
-/* line 143, ../../../dest/stylesheets/_rules.scss */
+/* line 136, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-storage-3:checked ~ .Score-level-3 {
   width: 48px;
 }
-/* line 135, ../../../dest/stylesheets/_rules.scss */
+/* line 128, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-level-4 {
   left: 48px;
 }
-/* line 138, ../../../dest/stylesheets/_rules.scss */
+/* line 131, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-level-4:hover {
   width: 64px;
 }
-/* line 143, ../../../dest/stylesheets/_rules.scss */
+/* line 136, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-storage-4:checked ~ .Score-level-4 {
   width: 64px;
 }
-/* line 135, ../../../dest/stylesheets/_rules.scss */
+/* line 128, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-level-5 {
   left: 64px;
 }
-/* line 138, ../../../dest/stylesheets/_rules.scss */
+/* line 131, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-level-5:hover {
   width: 80px;
 }
-/* line 143, ../../../dest/stylesheets/_rules.scss */
+/* line 136, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable .Score-storage-5:checked ~ .Score-level-5 {
   width: 80px;
 }
-/* line 148, ../../../dest/stylesheets/_rules.scss */
+/* line 141, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable:hover .Score-level {
   background-image: none;
 }
-/* line 152, ../../../dest/stylesheets/_rules.scss */
+/* line 145, ../../../dest/stylesheets/_rules.scss */
 .Score--checkable label {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+/* line 152, ../../../dest/stylesheets/_rules.scss */
+.Score-storage:checked + .Score-level,
+.Score-level--checked {
+  background: url('/build/tests/images/star.png?1397789767') repeat-x;
+  left: 0;
+  z-index: 1;
 }
 
 /* line 159, ../../../dest/stylesheets/_rules.scss */
