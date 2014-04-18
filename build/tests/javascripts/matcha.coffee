@@ -65,21 +65,24 @@ getStorageData = ( ns_str ) ->
 
   return result
 
+$ ->
+  if $.browser.msie 
+    ie_ver = $.browser.version * 1
+
+    # Scores / Levels of evaluation
+    $(".Score--selectable .Score-level").addClass("js-trigger--score") if ie_ver < 9
+
 # Scores / Levels of evaluation
-if $.browser.msie and $.browser.version * 1 < 9
-  $(".js-levelTrigger").live "click", ->
-    t = $(this)
-    cls = "is-selected"
+$(".js-trigger--score").live "click", ->
+  t = $(this)
+  cls = "is-selected"
 
-    t.siblings(".#{cls}").removeClass(cls)
-    t.addClass cls
+  t.siblings(".#{cls}").removeClass(cls)
+  t.addClass cls
 
-    t.siblings("[checked]").attr("checked", false)
-    t.prev(":radio").attr("checked", true)
+  t.siblings("[checked]").attr("checked", false)
+  t.prev(":radio").attr("checked", true)
 
-    return false
-
-  $ ->
-    $(".Score-level").addClass("js-levelTrigger")
+  return false
 
 window[LIB_CONFIG.name] = _H

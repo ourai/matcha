@@ -57,6 +57,7 @@ module.exports = ( grunt ) ->
             "<%= meta.coffee %>/intro.coffee"
             "<%= meta.coffee %>/variables.coffee"
             "<%= meta.coffee %>/functions.coffee"
+            "<%= meta.coffee %>/fix.coffee"
             "<%= meta.coffee %>/components.coffee"
             "<%= meta.coffee %>/outro.coffee"
           ]
