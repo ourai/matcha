@@ -462,11 +462,11 @@ img {
   max-width: 100%;
 }
 
-/* line 27, ../../../dest/stylesheets/_rules.scss */
+/* line 28, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-triggers {
   overflow: hidden;
 }
-/* line 31, ../../../dest/stylesheets/_rules.scss */
+/* line 32, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-trigger {
   display: -moz-inline-stack;
   display: inline-block;
@@ -476,26 +476,26 @@ img {
   padding: 0 2em;
   cursor: pointer;
 }
-/* line 36, ../../../dest/stylesheets/_rules.scss */
+/* line 37, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-trigger.is-selected {
   background-color: #FFF;
   font-weight: bold;
   cursor: default;
 }
-/* line 43, ../../../dest/stylesheets/_rules.scss */
+/* line 44, ../../../dest/stylesheets/_rules.scss */
 .Tabs a.Tabs-trigger {
   text-decoration: none !important;
 }
-/* line 47, ../../../dest/stylesheets/_rules.scss */
+/* line 48, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-content {
   display: none;
 }
-/* line 50, ../../../dest/stylesheets/_rules.scss */
+/* line 51, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-content.is-selected {
   display: block;
 }
 
-/* line 62, ../../../dest/stylesheets/_rules.scss */
+/* line 63, ../../../dest/stylesheets/_rules.scss */
 .Score,
 .Score--small,
 .Score--selectable {
@@ -503,7 +503,7 @@ img {
   position: relative;
   background-repeat: repeat-x;
 }
-/* line 67, ../../../dest/stylesheets/_rules.scss */
+/* line 68, ../../../dest/stylesheets/_rules.scss */
 .Score .Score-level,
 .Score--small .Score-level,
 .Score--selectable .Score-level {
@@ -517,17 +517,17 @@ img {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/build/tests/images/transparent.gif?1397829658') repeat;
+  background: transparent url('/build/tests/images/transparent.gif?1397886441') repeat;
 }
 
-/* line 80, ../../../dest/stylesheets/_rules.scss */
+/* line 81, ../../../dest/stylesheets/_rules.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/build/tests/images/star.png?1397829658');
+  background-image: url('/build/tests/images/star.png?1397886441');
 }
 
-/* line 85, ../../../dest/stylesheets/_rules.scss */
+/* line 86, ../../../dest/stylesheets/_rules.scss */
 .Score,
 .Score--selectable {
   width: 80px;
@@ -535,146 +535,146 @@ img {
   background-position: 0 -16px;
 }
 
-/* line 92, ../../../dest/stylesheets/_rules.scss */
+/* line 93, ../../../dest/stylesheets/_rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/build/tests/images/ministar.png?1397829658');
+  background-image: url('/build/tests/images/ministar.png?1397886441');
 }
 
-/* line 96, ../../../dest/stylesheets/_rules.scss */
+/* line 97, ../../../dest/stylesheets/_rules.scss */
 .Score--small {
   width: 55px;
   height: 10px;
   background-position: 0 -10px;
 }
 
-/* line 104, ../../../dest/stylesheets/_rules.scss */
+/* line 105, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level {
   width: 16px;
   top: auto;
   left: auto;
 }
-/* line 109, ../../../dest/stylesheets/_rules.scss */
+/* line 110, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level:hover {
   left: 0;
   z-index: 2;
 }
-/* line 115, ../../../dest/stylesheets/_rules.scss */
+/* line 116, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/build/tests/images/star.png?1397829658') repeat-x !important;
+  background: url('/build/tests/images/star.png?1397886441') repeat-x !important;
 }
-/* line 119, ../../../dest/stylesheets/_rules.scss */
+/* line 120, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage {
   position: absolute;
   clip: rect(0 0 0 0);
   display: none;
 }
-/* line 128, ../../../dest/stylesheets/_rules.scss */
+/* line 129, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-1 {
   left: 0px;
 }
-/* line 131, ../../../dest/stylesheets/_rules.scss */
+/* line 132, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-1:hover {
   width: 16px;
 }
-/* line 136, ../../../dest/stylesheets/_rules.scss */
+/* line 137, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage-1:checked ~ .Score-level-1 {
   width: 16px;
 }
-/* line 140, ../../../dest/stylesheets/_rules.scss */
+/* line 141, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-1.is-selected {
   width: 16px;
 }
-/* line 128, ../../../dest/stylesheets/_rules.scss */
+/* line 129, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-2 {
   left: 16px;
 }
-/* line 131, ../../../dest/stylesheets/_rules.scss */
+/* line 132, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-2:hover {
   width: 32px;
 }
-/* line 136, ../../../dest/stylesheets/_rules.scss */
+/* line 137, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage-2:checked ~ .Score-level-2 {
   width: 32px;
 }
-/* line 140, ../../../dest/stylesheets/_rules.scss */
+/* line 141, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-2.is-selected {
   width: 32px;
 }
-/* line 128, ../../../dest/stylesheets/_rules.scss */
+/* line 129, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-3 {
   left: 32px;
 }
-/* line 131, ../../../dest/stylesheets/_rules.scss */
+/* line 132, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-3:hover {
   width: 48px;
 }
-/* line 136, ../../../dest/stylesheets/_rules.scss */
+/* line 137, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage-3:checked ~ .Score-level-3 {
   width: 48px;
 }
-/* line 140, ../../../dest/stylesheets/_rules.scss */
+/* line 141, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-3.is-selected {
   width: 48px;
 }
-/* line 128, ../../../dest/stylesheets/_rules.scss */
+/* line 129, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-4 {
   left: 48px;
 }
-/* line 131, ../../../dest/stylesheets/_rules.scss */
+/* line 132, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-4:hover {
   width: 64px;
 }
-/* line 136, ../../../dest/stylesheets/_rules.scss */
+/* line 137, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage-4:checked ~ .Score-level-4 {
   width: 64px;
 }
-/* line 140, ../../../dest/stylesheets/_rules.scss */
+/* line 141, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-4.is-selected {
   width: 64px;
 }
-/* line 128, ../../../dest/stylesheets/_rules.scss */
+/* line 129, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-5 {
   left: 64px;
 }
-/* line 131, ../../../dest/stylesheets/_rules.scss */
+/* line 132, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-5:hover {
   width: 80px;
 }
-/* line 136, ../../../dest/stylesheets/_rules.scss */
+/* line 137, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage-5:checked ~ .Score-level-5 {
   width: 80px;
 }
-/* line 140, ../../../dest/stylesheets/_rules.scss */
+/* line 141, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-5.is-selected {
   width: 80px;
 }
-/* line 145, ../../../dest/stylesheets/_rules.scss */
+/* line 146, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable:hover .Score-level {
   background-image: none;
 }
-/* line 149, ../../../dest/stylesheets/_rules.scss */
+/* line 150, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable label {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-/* line 157, ../../../dest/stylesheets/_rules.scss */
+/* line 158, ../../../dest/stylesheets/_rules.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/build/tests/images/star.png?1397829658') repeat-x;
+  background: url('/build/tests/images/star.png?1397886441') repeat-x;
   left: 0;
   z-index: 1;
 }
 
-/* line 163, ../../../dest/stylesheets/_rules.scss */
+/* line 164, ../../../dest/stylesheets/_rules.scss */
 .Score-level.is-selected {
-  background: url('/build/tests/images/star.png?1397829658') repeat-x;
+  background: url('/build/tests/images/star.png?1397886441') repeat-x;
   left: 0;
   z-index: 1;
 }
 
-/* line 170, ../../../dest/stylesheets/_rules.scss */
+/* line 171, ../../../dest/stylesheets/_rules.scss */
 html[lang^="en"] tbody th {
   text-transform: uppercase;
 }

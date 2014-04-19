@@ -65,15 +65,50 @@ getStorageData = ( ns_str ) ->
 
   return result
 
-$ ->
-  if $.browser.msie 
-    ie_ver = $.browser.version * 1
+###
+# Whether need to fix IE
+#
+# @private
+# @method   needFix
+# @param    version {Integer}
+# @return   {Boolean}
+###
+needFix = ( version ) ->
+  return $.browser.msie and $.browser.version * 1 < version      
 
-    # Scores / Levels of evaluation
-    $(".Score--selectable .Score-level").addClass("js-trigger--score") if ie_ver < 9
+###
+# Construct HTML string for score
+#
+# @private
+# @method   scoreHtml
+# @param    data {Object}
+# @return   {String}
+###
+scoreHtml = ( data ) ->
+  score = data.score
+  id = "#{data.name}-#{score}"
+
+  return  """
+          <input id="#{id}" class="Score-storage Score-storage-#{score}" type="radio" name="#{data.name}" value="#{score}">
+          <a class="Score-level Score-level-#{score}" href="http://www.baidu.com/">
+            <label for="#{id}">#{score}</label>
+          </a>
+          """
+
+# Tabs
+$(document).on "click", ".js-trigger--tab", ->
+  trigger = $(this)
+  tabs = trigger.closest ".Tabs"
+
+  $(".Tabs-trigger.is-selected, .Tabs-content.is-selected", tabs).removeClass "is-selected"
+  $(".Tabs-content[data-flag='#{trigger.data "flag"}']", tabs)
+    .add trigger
+    .addClass "is-selected"
+
+  return false
 
 # Scores / Levels of evaluation
-$(".js-trigger--score").live "click", ->
+$(document).on "click", ".js-trigger--score", ->
   t = $(this)
   cls = "is-selected"
 
@@ -85,4 +120,44 @@ $(".js-trigger--score").live "click", ->
 
   return false
 
+# Set a default tab
+setDefaultTab = ->
+  $(".Tabs[data-setdefault!='false'] > .Tabs-triggers").each ->
+    group = $(this)
+    selector = ".Tabs-trigger"
+
+    if $("#{selector}.is-selected", group).size() is 0
+      $("#{selector}:first", group).trigger "click"
+
+  $(".Tabs-trigger.is-selected").trigger "click"
+
+# Construct levels of evaluation
+scoreLevels = ->
+  $(".Score--selectable[data-highest]").each ->
+    __e = $(this)
+
+    highest = Number __e.data("highest")
+    lowest = 1
+    data = {}
+
+    __e.width highest * 16
+
+    data.name = __e.data("name") || "Score-#{$(".Score--selectable").index(__e) + 1}"
+
+    if isNaN highest
+      highest = 0
+    else
+      highest += 1
+
+    while lowest < highest
+      data.score = lowest++
+      __e.append scoreHtml data
+
+    return true
+
+  $(".Score--selectable .Score-level").addClass("js-trigger--score") if needFix(9)
+
+$ ->
+  setDefaultTab()
+  scoreLevels()
 window[LIB_CONFIG.name] = _H
