@@ -1,5 +1,5 @@
 "use strict";
-var LIB_CONFIG, getStorageData, hasOwnProp, hook, storage, _H;
+var LIB_CONFIG, getStorageData, hasOwnProp, hook, needFix, scoreHtml, scoreLevels, setDefaultTab, storage, _H;
 
 LIB_CONFIG = {
   name: "@NAME",
@@ -78,17 +78,47 @@ getStorageData = function(ns_str) {
   return result;
 };
 
-$(function() {
-  var ie_ver;
-  if ($.browser.msie) {
-    ie_ver = $.browser.version * 1;
-    if (ie_ver < 9) {
-      return $(".Score--selectable .Score-level").addClass("js-trigger--score");
-    }
-  }
+
+/*
+ * Whether need to fix IE
+ *
+ * @private
+ * @method   needFix
+ * @param    version {Integer}
+ * @return   {Boolean}
+ */
+
+needFix = function(version) {
+  return $.browser.msie && $.browser.version * 1 < version;
+};
+
+
+/*
+ * Construct HTML string for score
+ *
+ * @private
+ * @method   scoreHtml
+ * @param    data {Object}
+ * @return   {String}
+ */
+
+scoreHtml = function(data) {
+  var id, score;
+  score = data.score;
+  id = "" + data.name + "-" + score;
+  return "<input id=\"" + id + "\" class=\"Score-storage Score-storage-" + score + "\" type=\"radio\" name=\"" + data.name + "\" value=\"" + score + "\">\n<a class=\"Score-level Score-level-" + score + "\" href=\"http://www.baidu.com/\">\n  <label for=\"" + id + "\">" + score + "</label>\n</a>";
+};
+
+$(document).on("click", ".js-trigger--tab", function() {
+  var tabs, trigger;
+  trigger = $(this);
+  tabs = trigger.closest(".Tabs");
+  $(".Tabs-trigger.is-selected, .Tabs-content.is-selected", tabs).removeClass("is-selected");
+  $(".Tabs-content[data-flag='" + (trigger.data("flag")) + "']", tabs).add(trigger).addClass("is-selected");
+  return false;
 });
 
-$(".js-trigger--score").live("click", function() {
+$(document).on("click", ".js-trigger--score", function() {
   var cls, t;
   t = $(this);
   cls = "is-selected";
@@ -97,6 +127,48 @@ $(".js-trigger--score").live("click", function() {
   t.siblings("[checked]").attr("checked", false);
   t.prev(":radio").attr("checked", true);
   return false;
+});
+
+setDefaultTab = function() {
+  $(".Tabs[data-setdefault!='false'] > .Tabs-triggers").each(function() {
+    var group, selector;
+    group = $(this);
+    selector = ".Tabs-trigger";
+    if ($("" + selector + ".is-selected", group).size() === 0) {
+      return $("" + selector + ":first", group).trigger("click");
+    }
+  });
+  return $(".Tabs-trigger.is-selected").trigger("click");
+};
+
+scoreLevels = function() {
+  $(".Score--selectable[data-highest]").each(function() {
+    var data, highest, lowest, __e;
+    __e = $(this);
+    highest = Number(__e.data("highest"));
+    lowest = 1;
+    data = {};
+    __e.width(highest * 16);
+    data.name = __e.data("name") || ("Score-" + ($(".Score--selectable").index(__e) + 1));
+    if (isNaN(highest)) {
+      highest = 0;
+    } else {
+      highest += 1;
+    }
+    while (lowest < highest) {
+      data.score = lowest++;
+      __e.append(scoreHtml(data));
+    }
+    return true;
+  });
+  if (needFix(9)) {
+    return $(".Score--selectable .Score-level").addClass("js-trigger--score");
+  }
+};
+
+$(function() {
+  setDefaultTab();
+  return scoreLevels();
 });
 
 window[LIB_CONFIG.name] = _H;
