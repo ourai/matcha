@@ -36,8 +36,11 @@ storage = {
   hook: {
     tabs: {
       component: "tabs",
-      trigger: "tabs-trigger",
+      trigger: "trigger--tab",
       content: "tabs-content"
+    },
+    score: {
+      trigger: "trigger--score"
     }
   }
 };
@@ -69,7 +72,7 @@ hasOwnProp = function(obj, prop) {
  */
 
 hook = function(name, no_dot) {
-  return (no_dot === true ? "" : ".") + "js-" + $.camelCase(getStorageData("hook." + name));
+  return (no_dot === true ? "" : ".") + "js-" + getStorageData("hook." + name);
 };
 
 
@@ -126,7 +129,7 @@ scoreHtml = function(data) {
   return "<input id=\"" + id + "\" class=\"Score-storage Score-storage-" + score + "\" type=\"radio\" name=\"" + data.name + "\" value=\"" + score + "\">\n<a class=\"Score-level Score-level-" + score + "\" href=\"http://www.baidu.com/\">\n  <label for=\"" + id + "\">" + score + "</label>\n</a>";
 };
 
-$(document).on("click", ".js-trigger--tab", function() {
+$(document).on("click", hook("tabs.trigger"), function() {
   var tabs, trigger;
   trigger = $(this);
   tabs = trigger.closest(".Tabs");
@@ -135,7 +138,7 @@ $(document).on("click", ".js-trigger--tab", function() {
   return false;
 });
 
-$(document).on("click", ".js-trigger--score", function() {
+$(document).on("click", hook("score.trigger"), function() {
   var cls, t;
   t = $(this);
   cls = "is-selected";
@@ -179,7 +182,7 @@ scoreLevels = function() {
     return true;
   });
   if (needFix(9)) {
-    return $(".Score--selectable .Score-level").addClass("js-trigger--score");
+    return $(".Score--selectable .Score-level").addClass(hook("score.trigger", true));
   }
 };
 

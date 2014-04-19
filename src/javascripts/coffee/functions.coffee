@@ -20,7 +20,7 @@ hasOwnProp = ( obj, prop ) ->
 # @return   {String}
 ###
 hook = ( name, no_dot ) ->
-  return (if no_dot is true then "" else ".") + "js-" + $.camelCase(getStorageData("hook.#{name}"))
+  return (if no_dot is true then "" else ".") + "js-" + getStorageData("hook.#{name}")
 
 ###
 # Get data from internal storage

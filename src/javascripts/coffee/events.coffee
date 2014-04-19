@@ -1,5 +1,5 @@
 # Tabs
-$(document).on "click", ".js-trigger--tab", ->
+$(document).on "click", hook("tabs.trigger"), ->
   trigger = $(this)
   tabs = trigger.closest ".Tabs"
 
@@ -11,7 +11,7 @@ $(document).on "click", ".js-trigger--tab", ->
   return false
 
 # Scores / Levels of evaluation
-$(document).on "click", ".js-trigger--score", ->
+$(document).on "click", hook("score.trigger"), ->
   t = $(this)
   cls = "is-selected"
 

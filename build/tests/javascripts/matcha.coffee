@@ -19,8 +19,10 @@ storage =
   hook:
     tabs:
       component: "tabs"
-      trigger: "tabs-trigger"
+      trigger: "trigger--tab"
       content: "tabs-content"
+    score:
+      trigger: "trigger--score"
 
 ###
 # 判断某个对象是否有自己的指定属性
@@ -44,7 +46,7 @@ hasOwnProp = ( obj, prop ) ->
 # @return   {String}
 ###
 hook = ( name, no_dot ) ->
-  return (if no_dot is true then "" else ".") + "js-" + $.camelCase(getStorageData("hook.#{name}"))
+  return (if no_dot is true then "" else ".") + "js-" + getStorageData("hook.#{name}")
 
 ###
 # Get data from internal storage
@@ -96,7 +98,7 @@ scoreHtml = ( data ) ->
           """
 
 # Tabs
-$(document).on "click", ".js-trigger--tab", ->
+$(document).on "click", hook("tabs.trigger"), ->
   trigger = $(this)
   tabs = trigger.closest ".Tabs"
 
@@ -108,7 +110,7 @@ $(document).on "click", ".js-trigger--tab", ->
   return false
 
 # Scores / Levels of evaluation
-$(document).on "click", ".js-trigger--score", ->
+$(document).on "click", hook("score.trigger"), ->
   t = $(this)
   cls = "is-selected"
 
@@ -155,7 +157,7 @@ scoreLevels = ->
 
     return true
 
-  $(".Score--selectable .Score-level").addClass("js-trigger--score") if needFix(9)
+  $(".Score--selectable .Score-level").addClass(hook("score.trigger", true)) if needFix(9)
 
 $ ->
   setDefaultTab()

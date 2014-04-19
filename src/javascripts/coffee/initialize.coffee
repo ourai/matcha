@@ -33,7 +33,7 @@ scoreLevels = ->
 
     return true
 
-  $(".Score--selectable .Score-level").addClass("js-trigger--score") if needFix(9)
+  $(".Score--selectable .Score-level").addClass(hook("score.trigger", true)) if needFix(9)
 
 $ ->
   setDefaultTab()

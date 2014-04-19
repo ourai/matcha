@@ -12,5 +12,7 @@ storage =
   hook:
     tabs:
       component: "tabs"
-      trigger: "tabs-trigger"
+      trigger: "trigger--tab"
       content: "tabs-content"
+    score:
+      trigger: "trigger--score"
