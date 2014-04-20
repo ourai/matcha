@@ -7,3 +7,4 @@ Matcha is a library based on [Compass](http://compass-style.org/), so you should
 ## See also
 
 - [Dependencies](VERSIONS.md)
+- [Changelog](CHANGELOG.md)
