@@ -1,7 +1,15 @@
+/* line 3, test.scss */
 body {
+  font-style: normal;
+  font-weight: normal;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+  font-size: 14px;
   padding: 20px;
 }
 
+/* line 9, test.scss */
 fieldset {
   margin-bottom: 20px;
 }

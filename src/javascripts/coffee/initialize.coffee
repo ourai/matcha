@@ -35,6 +35,35 @@ scoreLevels = ->
 
   $(".Score--selectable .Score-level").addClass(hook("score.trigger", true)) if needFix(9)
 
+# Dropdown List
+dummySelect = ->
+  $("select.DropList").each ->
+    sel = $(this)
+    selected = $(":selected", sel)
+    idx = $("option", sel).index selected
+
+    sel
+      .attr "tabindex", -1
+      .removeClass "DropList"
+      .addClass "DropList--dummy"
+
+    ddl = $("<div>", class: "DropList")
+
+    ddl.append  """
+                <div class="DropList-selected"><span class="DropList-label">#{selected.text()}</span></div>
+                <div class="DropList-dropdown"><ol class="DropList-list"></ol></div>
+                """
+
+    lst = $(".DropList-list", ddl)
+
+    $("option", sel).each ->
+      lst.append "<li>#{$(this).text()}</li>"
+
+    $("li:eq(#{idx})", lst).addClass "is-selected"
+
+    sel.after ddl
+
 $ ->
   setDefaultTab()
   scoreLevels()
+  dummySelect()

@@ -1,5 +1,5 @@
 "use strict";
-var LIB_CONFIG, getStorageData, hasOwnProp, hook, needFix, scoreHtml, scoreLevels, setDefaultTab, storage, _H;
+var LIB_CONFIG, dummySelect, getStorageData, hasOwnProp, hook, needFix, scoreHtml, scoreLevels, setDefaultTab, storage, _H;
 
 LIB_CONFIG = {
   name: "@NAME",
@@ -169,9 +169,30 @@ scoreLevels = function() {
   }
 };
 
+dummySelect = function() {
+  return $("select.DropList").each(function() {
+    var ddl, idx, lst, sel, selected;
+    sel = $(this);
+    selected = $(":selected", sel);
+    idx = $("option", sel).index(selected);
+    sel.attr("tabindex", -1).removeClass("DropList").addClass("DropList--dummy");
+    ddl = $("<div>", {
+      "class": "DropList"
+    });
+    ddl.append("<div class=\"DropList-selected\"><span class=\"DropList-label\">" + (selected.text()) + "</span></div>\n<div class=\"DropList-dropdown\"><ol class=\"DropList-list\"></ol></div>");
+    lst = $(".DropList-list", ddl);
+    $("option", sel).each(function() {
+      return lst.append("<li>" + ($(this).text()) + "</li>");
+    });
+    $("li:eq(" + idx + ")", lst).addClass("is-selected");
+    return sel.after(ddl);
+  });
+};
+
 $(function() {
   setDefaultTab();
-  return scoreLevels();
+  scoreLevels();
+  return dummySelect();
 });
 
 window[LIB_CONFIG.name] = _H;

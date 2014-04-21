@@ -517,14 +517,14 @@ img {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/build/tests/images/transparent.gif?1398076797') repeat;
+  background: transparent url('/build/tests/images/transparent.gif?1398091407') repeat;
 }
 
 /* line 81, ../../../dest/stylesheets/_rules.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/build/tests/images/star.png?1398076797');
+  background-image: url('/build/tests/images/star.png?1398091407');
 }
 
 /* line 86, ../../../dest/stylesheets/_rules.scss */
@@ -538,7 +538,7 @@ img {
 /* line 93, ../../../dest/stylesheets/_rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/build/tests/images/ministar.png?1398076797');
+  background-image: url('/build/tests/images/ministar.png?1398091407');
 }
 
 /* line 97, ../../../dest/stylesheets/_rules.scss */
@@ -561,7 +561,7 @@ img {
 }
 /* line 116, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/build/tests/images/star.png?1398076797') repeat-x !important;
+  background: url('/build/tests/images/star.png?1398091407') repeat-x !important;
 }
 /* line 120, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage {
@@ -662,87 +662,121 @@ img {
 
 /* line 158, ../../../dest/stylesheets/_rules.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/build/tests/images/star.png?1398076797') repeat-x;
+  background: url('/build/tests/images/star.png?1398091407') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 164, ../../../dest/stylesheets/_rules.scss */
 .Score-level.is-selected {
-  background: url('/build/tests/images/star.png?1398076797') repeat-x;
+  background: url('/build/tests/images/star.png?1398091407') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 172, ../../../dest/stylesheets/_rules.scss */
 .DropList {
-  min-width: 120px;
-  position: relative;
-  border: 1px solid #BBB;
   display: -moz-inline-stack;
   display: inline-block;
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
+  min-width: 120px;
+  position: relative;
+  border: 1px solid #A6A6A6;
+  border-radius: 3px;
+  background-color: #FFF;
 }
-/* line 178, ../../../dest/stylesheets/_rules.scss */
+/* line 180, ../../../dest/stylesheets/_rules.scss */
+.DropList:hover {
+  border-radius: 3px 3px 0 0;
+}
+/* line 183, ../../../dest/stylesheets/_rules.scss */
+.DropList:hover .DropList-dropdown {
+  display: block;
+}
+/* line 188, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-selected {
-  *zoom: 1;
+  position: relative;
   cursor: pointer;
 }
-/* line 113, ../../../dest/stylesheets/_helpers.scss */
-.DropList .DropList-selected:before, .DropList .DropList-selected:after {
-  content: "\0020";
-  display: table;
-}
-/* line 118, ../../../dest/stylesheets/_helpers.scss */
+/* line 192, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-selected:after {
-  clear: both;
+  content: "\0020";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-bottom-width: 0;
+  border-top-color: #A6A6A6;
+  margin: -3px 4px 0 0;
 }
-/* line 182, ../../../dest/stylesheets/_rules.scss */
-.DropList .DropList-selected button {
-  float: right;
-  border: 1px solid #A6A6A6;
-  width: 16px;
-  height: 16px;
-  margin: 0;
-  padding: 0;
+/* line 206, ../../../dest/stylesheets/_rules.scss */
+.DropList .DropList-selected .DropList-label {
+  display: -moz-inline-stack;
+  display: inline-block;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin: 0 20px 0 9px;
+  padding: 5px 0;
 }
-/* line 190, ../../../dest/stylesheets/_rules.scss */
+/* line 213, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-dropdown {
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  max-width: 100%;
+  z-index: 999;
+  width: 100%;
   background-color: #FFF;
-  border: 1px solid #BBB;
+  border: 1px solid #A6A6A6;
+  border-top-color: transparent;
+  border-radius: 0 0 3px 3px;
+  margin: 0 -1px;
 }
-/* line 198, ../../../dest/stylesheets/_rules.scss */
+/* line 226, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-dropdown .DropList-list {
   list-style: none outside none;
-  margin: 0;
-  padding: 0;
-  height: 220px;
+  max-height: 310px;
+  padding: 0 0 0 4px;
+  margin: 0 4px 4px 0;
   overflow: auto;
 }
-/* line 206, ../../../dest/stylesheets/_rules.scss */
+/* line 233, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-dropdown .DropList-list li {
-  line-height: 22px;
   word-wrap: break-word;
   word-wrap: normal\0;
   word-break: break-all;
   white-space: normal;
   break-word: normal;
-  padding: 0 5px;
+  padding: 5px;
   cursor: pointer;
 }
-/* line 213, ../../../dest/stylesheets/_rules.scss */
-.DropList .DropList-dropdown .DropList-list li:hover {
+/* line 240, ../../../dest/stylesheets/_rules.scss */
+.DropList .DropList-dropdown .DropList-list li:hover, .DropList .DropList-dropdown .DropList-list li.is-selected {
+  background-color: #1385E5;
+  color: #FFF;
+}
+/* line 246, ../../../dest/stylesheets/_rules.scss */
+.DropList .DropList-dropdown .DropList-list:hover li.is-selected {
+  background-color: transparent;
+  color: inherit;
+}
+/* line 250, ../../../dest/stylesheets/_rules.scss */
+.DropList .DropList-dropdown .DropList-list:hover li.is-selected:hover {
   background-color: #1385E5;
   color: #FFF;
 }
 
-/* line 223, ../../../dest/stylesheets/_rules.scss */
+/* line 259, ../../../dest/stylesheets/_rules.scss */
+.DropList--dummy {
+  display: none;
+}
+
+/* line 264, ../../../dest/stylesheets/_rules.scss */
 html[lang^="en"] tbody th {
   text-transform: uppercase;
 }

@@ -8,6 +8,30 @@
   <script src="./jquery.min.js"></script>
   <script src="./test.js"></script>
   <script src="./javascripts/matcha.js"></script>
+  <!-- Droplist -->
+  <fieldset>
+    <legend>Droplist</legend>
+    <select class="DropList">
+      <option value="Chinese">Chinese</option>
+      <option value="Japanese">Japanese</option>
+      <option value="Korean">Korean</option>
+      <option value="Hindi">Hindi</option>
+      <option value="English">English</option>
+      <option value="Italian" selected>Italian</option>
+      <option value="French">French</option>
+      <option value="Spanish">Spanish</option>
+      <option value="Welsh">Welsh</option>
+      <option value="Urdu">Urdu</option>
+      <option value="Vietnamese">Vietnamese</option>
+      <option value="Malay">Malay</option>
+    </select>
+  </fieldset>
+  <!-- Score -->
+  <fieldset>
+    <legend>Score / Levels of evaluation</legend>
+    <div class="Score--selectable" data-highest="5"></div>
+    <div class="Score--selectable" data-highest="4"></div>
+  </fieldset>
   <!-- Tabs -->
   <fieldset>
     <legend>Tabs 1</legend>
@@ -47,38 +71,6 @@
       <div class="Tabs-content" data-flag="tab-1">Tab-1's content</div>
       <div class="Tabs-content" data-flag="tab-2">Tab-2's content</div>
       <div class="Tabs-content" data-flag="tab-3">Tab-3's content</div>
-    </div>
-  </fieldset>
-  <!-- Score -->
-  <fieldset>
-    <legend>Score / Levels of evaluation</legend>
-    <div class="Score--selectable" data-highest="5"></div>
-    <div class="Score--selectable" data-highest="4"></div>
-  </fieldset>
-  <!-- Droplist -->
-  <fieldset>
-    <legend>Droplist</legend>
-    <div class="DropList">
-      <div class="DropList-selected">
-        <span class="DropList-label">Selected Item</span>
-        <button type="button">click</button>
-      </div>
-      <div class="DropList-dropdown">
-        <ol class="DropList-list">
-          <li>United States of America</li>
-          <li>Japan</li>
-          <li>People's Republic of China</li>
-          <li>United States of America</li>
-          <li>Japan</li>
-          <li>People's Republic of China</li>
-          <li>United States of America</li>
-          <li>Japan</li>
-          <li>People's Republic of China</li>
-          <li>United States of America</li>
-          <li>Japan</li>
-          <li>People's Republic of China</li>
-        </ol>
-      </div>
     </div>
   </fieldset>
 </html>

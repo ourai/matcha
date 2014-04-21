@@ -1,0 +1,11 @@
+@import "stylesheets/helpers";
+
+body {
+  @include base-font;
+  font-size: 14px;
+  padding: 20px;
+}
+
+fieldset {
+  margin-bottom: 20px;
+}

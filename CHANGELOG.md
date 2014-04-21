@@ -1,5 +1,9 @@
 # MATCHA CHANGELOG
 
+## 0.3.0 (2014-04-21)
+
+1.  Dropdown-List UI Component
+
 ## 0.2.0 (2014-04-19)
 
 1.  Basic styles

@@ -86,6 +86,10 @@ module.exports = ( grunt ) ->
           cssDir: "<%= meta.tests %>/stylesheets"
           javascriptsDir: "<%= meta.tests %>/javascripts"
           imagesDir: "<%= meta.tests %>/images"
+      test_2:
+        options:
+          sassDir: "<%= meta.tests %>"
+          cssDir: "<%= meta.tests %>"
     coffee:
       options:
         bare: true
@@ -125,7 +129,7 @@ module.exports = ( grunt ) ->
       test:
         expand: true
         cwd: "<%= meta.dest %>"
-        src: ["images/*", "javascripts/*"]
+        src: ["images/*", "javascripts/*", "stylesheets/_helpers.scss"]
         dest: "<%= meta.tests %>"
     clean:
       compiled:
@@ -184,6 +188,7 @@ module.exports = ( grunt ) ->
   grunt.registerTask "test", [
     "coffee:test"
     "compass:test"
+    "compass:test_2"
     "copy:test"
   ]
   # Default task

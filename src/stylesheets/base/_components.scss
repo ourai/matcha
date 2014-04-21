@@ -145,45 +145,82 @@ $score_size: 16px;
 
 // Drop Down List
 .DropList {
+  @include inline-block(none);
   min-width: 120px;
   position: relative;
-  border: 1px solid #BBB;
-  @include inline-block(none);
+  border: 1px solid #A6A6A6;
+  border-radius: 3px;
+  background-color: #FFF;
+
+  &:hover {
+    border-radius: 3px 3px 0 0;
+
+    .DropList-dropdown {
+      display: block;
+    }
+  }
 
   .DropList-selected {
-    @include clearfix;
+    position: relative;
     cursor: pointer;
 
-    button {
-      float: right;
-      border: 1px solid #A6A6A6;
-      @include square(16px);
-      @include no_gap;
+    &:after {
+      $b_w: 6px;
+
+      content: "\0020";
+      position: absolute;
+      top: 50%;
+      right: 0;
+      @include square(0);
+      border: $b_w solid transparent;
+      border-bottom-width: 0;
+      border-top-color: #A6A6A6;
+      margin: -($b_w/2) (20px/2 - $b_w) 0 0;
+    }
+
+    .DropList-label {
+      @include inline-block(none);
+      margin: 0 20px 0 9px;
+      padding: 5px 0;
     }
   }
 
   .DropList-dropdown {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    max-width: 100%;
+    z-index: 999;
+    width: 100%;
     background-color: #FFF;
-    border: 1px solid #BBB;
+    border: 1px solid #A6A6A6;
+    border-top-color: transparent;
+    border-radius: 0 0 3px 3px;
+    margin: 0 -1px;
 
     .DropList-list {
-      $item_h: 22px;
-
       @include no_item;
-      @include no_gap;
-      height: $item_h * 10;
+      max-height: (1.5 * 14px + 10px) * 10;
+      padding: 0 0 0 4px;
+      margin: 0 4px 4px 0;
       overflow: auto;
 
       li {
-        line-height: $item_h;
         @include line_feed;
         break-word: normal;
-        padding: 0 5px;
+        padding: 5px;
         cursor: pointer;
+
+        &:hover,
+        &.is-selected {
+          background-color: #1385E5;
+          color: #FFF;
+        }
+      }
+
+      &:hover li.is-selected {
+        background-color: transparent;
+        color: inherit;
 
         &:hover {
           background-color: #1385E5;
@@ -192,4 +229,8 @@ $score_size: 16px;
       }
     }
   }
+}
+
+.DropList--dummy {
+  display: none;
 }
