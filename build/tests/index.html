@@ -4,9 +4,11 @@
   <title>Test</title>
   <link rel="stylesheet" href="./stylesheets/matcha.css">
   <link rel="stylesheet" href="./matcha_fix.css">
+  <link rel="stylesheet" href="./test.css">
   <script src="./jquery.min.js"></script>
   <script src="./test.js"></script>
   <script src="./javascripts/matcha.js"></script>
+  <!-- Tabs -->
   <fieldset>
     <legend>Tabs 1</legend>
     <div class="Tabs">
@@ -47,9 +49,27 @@
       <div class="Tabs-content" data-flag="tab-3">Tab-3's content</div>
     </div>
   </fieldset>
+  <!-- Score -->
   <fieldset>
     <legend>Score / Levels of evaluation</legend>
     <div class="Score--selectable" data-highest="5"></div>
     <div class="Score--selectable" data-highest="4"></div>
+  </fieldset>
+  <!-- Droplist -->
+  <fieldset>
+    <legend>Droplist</legend>
+    <div class="DropList">
+      <div class="DropList-selected">
+        <span class="DropList-label">Selected Item</span>
+        <button type="button">click</button>
+      </div>
+      <div class="DropList-dropdown">
+        <ol class="DropList-list">
+          <li>United States of America</li>
+          <li>Japan</li>
+          <li>People's Republic of China</li>
+        </ol>
+      </div>
+    </div>
   </fieldset>
 </html>
