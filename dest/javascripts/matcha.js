@@ -41,6 +41,9 @@ storage = {
     },
     score: {
       trigger: "trigger--score"
+    },
+    dropdown: {
+      trigger: "trigger--dropdown"
     }
   }
 };
@@ -149,6 +152,22 @@ $(document).on("click", hook("score.trigger"), function() {
   return false;
 });
 
+$(document).on("click", hook("dropdown.trigger"), function() {
+  var cls, ddl, idx, lst, sel, t;
+  t = $(this);
+  ddl = t.closest(".DropList");
+  lst = t.closest(".DropList-list");
+  idx = $("li", lst).index(t);
+  cls = "is-selected";
+  $("." + cls, lst).removeClass(cls);
+  t.addClass(cls);
+  $(".DropList-label", ddl).text(t.text());
+  sel = ddl.data("" + LIB_CONFIG.name + ".DropListDummy");
+  $(":selected", sel).attr("selected", false);
+  $("option:eq(" + idx + ")", sel).attr("selected", true);
+  return sel.trigger("change");
+});
+
 setDefaultTab = function() {
   $(".Tabs[data-setdefault!='false'] > .Tabs-triggers").each(function() {
     var group, selector;
@@ -199,10 +218,11 @@ dummySelect = function() {
     ddl.append("<div class=\"DropList-selected\"><span class=\"DropList-label\">" + (selected.text()) + "</span></div>\n<div class=\"DropList-dropdown\"><ol class=\"DropList-list\"></ol></div>");
     lst = $(".DropList-list", ddl);
     $("option", sel).each(function() {
-      return lst.append("<li>" + ($(this).text()) + "</li>");
+      return lst.append("<li class=\"" + (hook("dropdown.trigger", true)) + "\">" + ($(this).text()) + "</li>");
     });
     $("li:eq(" + idx + ")", lst).addClass("is-selected");
-    return sel.after(ddl);
+    sel.after(ddl);
+    return ddl.data("" + LIB_CONFIG.name + ".DropListDummy", sel);
   });
 };
 

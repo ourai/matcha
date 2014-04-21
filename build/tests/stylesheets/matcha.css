@@ -517,14 +517,14 @@ img {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/build/tests/images/transparent.gif?1398091407') repeat;
+  background: transparent url('/build/tests/images/transparent.gif?1398092957') repeat;
 }
 
 /* line 81, ../../../dest/stylesheets/_rules.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/build/tests/images/star.png?1398091407');
+  background-image: url('/build/tests/images/star.png?1398092957');
 }
 
 /* line 86, ../../../dest/stylesheets/_rules.scss */
@@ -538,7 +538,7 @@ img {
 /* line 93, ../../../dest/stylesheets/_rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/build/tests/images/ministar.png?1398091407');
+  background-image: url('/build/tests/images/ministar.png?1398092957');
 }
 
 /* line 97, ../../../dest/stylesheets/_rules.scss */
@@ -561,7 +561,7 @@ img {
 }
 /* line 116, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/build/tests/images/star.png?1398091407') repeat-x !important;
+  background: url('/build/tests/images/star.png?1398092957') repeat-x !important;
 }
 /* line 120, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage {
@@ -662,14 +662,14 @@ img {
 
 /* line 158, ../../../dest/stylesheets/_rules.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/build/tests/images/star.png?1398091407') repeat-x;
+  background: url('/build/tests/images/star.png?1398092957') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 164, ../../../dest/stylesheets/_rules.scss */
 .Score-level.is-selected {
-  background: url('/build/tests/images/star.png?1398091407') repeat-x;
+  background: url('/build/tests/images/star.png?1398092957') repeat-x;
   left: 0;
   z-index: 1;
 }

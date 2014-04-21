@@ -22,3 +22,19 @@ $(document).on "click", hook("score.trigger"), ->
   t.prev(":radio").attr("checked", true)
 
   return false
+
+$(document).on "click", hook("dropdown.trigger"), ->
+  t = $(this)
+  ddl = t.closest(".DropList")
+  lst = t.closest ".DropList-list"
+  idx = $("li", lst).index t
+  cls = "is-selected"
+
+  $(".#{cls}", lst).removeClass cls
+  t.addClass cls
+  $(".DropList-label", ddl).text t.text()
+
+  sel = ddl.data "#{LIB_CONFIG.name}.DropListDummy"
+  $(":selected", sel).attr "selected", false
+  $("option:eq(#{idx})", sel).attr "selected", true
+  sel.trigger "change"

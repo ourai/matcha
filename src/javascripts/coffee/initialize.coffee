@@ -57,11 +57,12 @@ dummySelect = ->
     lst = $(".DropList-list", ddl)
 
     $("option", sel).each ->
-      lst.append "<li>#{$(this).text()}</li>"
+      lst.append "<li class=\"#{hook("dropdown.trigger", true)}\">#{$(this).text()}</li>"
 
     $("li:eq(#{idx})", lst).addClass "is-selected"
 
     sel.after ddl
+    ddl.data "#{LIB_CONFIG.name}.DropListDummy", sel
 
 $ ->
   setDefaultTab()

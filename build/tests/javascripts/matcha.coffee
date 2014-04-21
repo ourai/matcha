@@ -23,6 +23,8 @@ storage =
       content: "tabs-content"
     score:
       trigger: "trigger--score"
+    dropdown:
+      trigger: "trigger--dropdown"
 
 ###
 # 判断某个对象是否有自己的指定属性
@@ -122,6 +124,22 @@ $(document).on "click", hook("score.trigger"), ->
 
   return false
 
+$(document).on "click", hook("dropdown.trigger"), ->
+  t = $(this)
+  ddl = t.closest(".DropList")
+  lst = t.closest ".DropList-list"
+  idx = $("li", lst).index t
+  cls = "is-selected"
+
+  $(".#{cls}", lst).removeClass cls
+  t.addClass cls
+  $(".DropList-label", ddl).text t.text()
+
+  sel = ddl.data "#{LIB_CONFIG.name}.DropListDummy"
+  $(":selected", sel).attr "selected", false
+  $("option:eq(#{idx})", sel).attr "selected", true
+  sel.trigger "change"
+
 # Set a default tab
 setDefaultTab = ->
   $(".Tabs[data-setdefault!='false'] > .Tabs-triggers").each ->
@@ -181,11 +199,12 @@ dummySelect = ->
     lst = $(".DropList-list", ddl)
 
     $("option", sel).each ->
-      lst.append "<li>#{$(this).text()}</li>"
+      lst.append "<li class=\"#{hook("dropdown.trigger", true)}\">#{$(this).text()}</li>"
 
     $("li:eq(#{idx})", lst).addClass "is-selected"
 
     sel.after ddl
+    ddl.data "#{LIB_CONFIG.name}.DropListDummy", sel
 
 $ ->
   setDefaultTab()

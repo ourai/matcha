@@ -16,3 +16,5 @@ storage =
       content: "tabs-content"
     score:
       trigger: "trigger--score"
+    dropdown:
+      trigger: "trigger--dropdown"

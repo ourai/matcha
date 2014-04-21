@@ -517,14 +517,14 @@ img {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/dest/images/transparent.gif?1398091401') repeat;
+  background: transparent url('/dest/images/transparent.gif?1398092950') repeat;
 }
 
 /* line 81, _rules.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/dest/images/star.png?1398091401');
+  background-image: url('/dest/images/star.png?1398092950');
 }
 
 /* line 86, _rules.scss */
@@ -538,7 +538,7 @@ img {
 /* line 93, _rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/dest/images/ministar.png?1398091401');
+  background-image: url('/dest/images/ministar.png?1398092950');
 }
 
 /* line 97, _rules.scss */
@@ -561,7 +561,7 @@ img {
 }
 /* line 116, _rules.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/dest/images/star.png?1398091401') repeat-x !important;
+  background: url('/dest/images/star.png?1398092950') repeat-x !important;
 }
 /* line 120, _rules.scss */
 .Score--selectable .Score-storage {
@@ -662,14 +662,14 @@ img {
 
 /* line 158, _rules.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/dest/images/star.png?1398091401') repeat-x;
+  background: url('/dest/images/star.png?1398092950') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 164, _rules.scss */
 .Score-level.is-selected {
-  background: url('/dest/images/star.png?1398091401') repeat-x;
+  background: url('/dest/images/star.png?1398092950') repeat-x;
   left: 0;
   z-index: 1;
 }
