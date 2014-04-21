@@ -1,0 +1,30 @@
+// Tabs
+.Tabs {
+  .Tabs-triggers {
+    overflow: hidden;
+  }
+
+  .Tabs-trigger {
+    @include inline-block(none);
+    padding: 0 2em;
+    cursor: pointer;
+
+    &.is-selected {
+      background-color: #FFF;
+      font-weight: bold;
+      cursor: default;
+    }
+  }
+
+  a.Tabs-trigger {
+    text-decoration: none !important;
+  }
+
+  .Tabs-content {
+    display: none;
+
+    &.is-selected {
+      display: block;
+    }
+  }
+}

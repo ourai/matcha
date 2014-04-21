@@ -1,0 +1,91 @@
+// Drop Down List
+.DropList {
+  @include inline-block(none);
+  min-width: 120px;
+  position: relative;
+  border: 1px solid #A6A6A6;
+  border-radius: 3px;
+  background-color: #FFF;
+
+  &:hover {
+    border-radius: 3px 3px 0 0;
+
+    .DropList-dropdown {
+      display: block;
+    }
+  }
+
+  .DropList-selected {
+    position: relative;
+    cursor: pointer;
+
+    &:after {
+      $b_w: 6px;
+
+      content: "\0020";
+      position: absolute;
+      top: 50%;
+      right: 0;
+      @include square(0);
+      border: $b_w solid transparent;
+      border-bottom-width: 0;
+      border-top-color: #A6A6A6;
+      margin: -($b_w/2) (20px/2 - $b_w) 0 0;
+    }
+
+    .DropList-label {
+      @include inline-block(none);
+      margin: 0 20px 0 9px;
+      padding: 5px 0;
+    }
+  }
+
+  .DropList-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    background-color: #FFF;
+    border: 1px solid #A6A6A6;
+    border-top-color: transparent;
+    border-radius: 0 0 3px 3px;
+    margin: 0 -1px;
+
+    .DropList-list {
+      @include no_item;
+      max-height: (1.5 * 14px + 10px) * 10;
+      padding: 0 0 0 4px;
+      margin: 0 4px 4px 0;
+      overflow: auto;
+
+      li {
+        @include line_feed;
+        break-word: normal;
+        padding: 5px;
+        cursor: pointer;
+
+        &:hover,
+        &.is-selected {
+          background-color: #1385E5;
+          color: #FFF;
+        }
+      }
+
+      &:hover li.is-selected {
+        background-color: transparent;
+        color: inherit;
+
+        &:hover {
+          background-color: #1385E5;
+          color: #FFF;
+        }
+      }
+    }
+  }
+}
+
+.DropList--dummy {
+  display: none;
+}
