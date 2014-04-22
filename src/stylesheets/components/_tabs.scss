@@ -1,17 +1,39 @@
-// Tabs
+$tab-border-color: #A6A6A6;
+$tab-background-color: #FFF;
+
 .Tabs {
   .Tabs-triggers {
     overflow: hidden;
+    position: relative;
+    z-index: 2;
+    margin-bottom: -1px;
   }
 
   .Tabs-trigger {
     @include inline-block(none);
-    padding: 0 2em;
+    padding: .5em 1em;
     cursor: pointer;
+    border: 1px solid transparent;
+    border-bottom-width: 0;
+    border-radius: 3px 3px 0 0;
+    margin-left: 1em;
+    color: $color-text-medium;
+
+    &:hover {
+      background-color: #E5E5E5;
+      color: $color-text-light;
+    }
+
+    // &:first-child {
+    //   margin-left: 0;
+    // }
 
     &.is-selected {
-      background-color: #FFF;
       font-weight: bold;
+      color: $color-text;
+      background-color: $tab-background-color;
+      border-color: $tab-border-color;
+      border-bottom: 1px solid $tab-background-color;
       cursor: default;
     }
   }
@@ -21,7 +43,12 @@
   }
 
   .Tabs-content {
+    position: relative;
+    z-index: 1;
     display: none;
+    border-top: 1px solid $tab-border-color;
+    background-color: $tab-background-color;
+    padding: 1em;
 
     &.is-selected {
       display: block;

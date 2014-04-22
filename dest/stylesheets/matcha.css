@@ -591,14 +591,14 @@ html[lang^="en"] tbody th {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/dest/images/transparent.gif?1398094378') repeat;
+  background: transparent url('/dest/images/transparent.gif?1398136080') repeat;
 }
 
 /* line 148, _rules.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/dest/images/star.png?1398094378');
+  background-image: url('/dest/images/star.png?1398136080');
 }
 
 /* line 153, _rules.scss */
@@ -612,7 +612,7 @@ html[lang^="en"] tbody th {
 /* line 160, _rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/dest/images/ministar.png?1398094378');
+  background-image: url('/dest/images/ministar.png?1398136080');
 }
 
 /* line 164, _rules.scss */
@@ -635,7 +635,7 @@ html[lang^="en"] tbody th {
 }
 /* line 183, _rules.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/dest/images/star.png?1398094378') repeat-x !important;
+  background: url('/dest/images/star.png?1398136080') repeat-x !important;
 }
 /* line 187, _rules.scss */
 .Score--selectable .Score-storage {
@@ -736,47 +736,68 @@ html[lang^="en"] tbody th {
 
 /* line 225, _rules.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/dest/images/star.png?1398094378') repeat-x;
+  background: url('/dest/images/star.png?1398136080') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 231, _rules.scss */
 .Score-level.is-selected {
-  background: url('/dest/images/star.png?1398094378') repeat-x;
+  background: url('/dest/images/star.png?1398136080') repeat-x;
   left: 0;
   z-index: 1;
 }
 
-/* line 239, _rules.scss */
+/* line 241, _rules.scss */
 .Tabs .Tabs-triggers {
   overflow: hidden;
+  position: relative;
+  z-index: 2;
+  margin-bottom: -1px;
 }
-/* line 243, _rules.scss */
+/* line 248, _rules.scss */
 .Tabs .Tabs-trigger {
   display: -moz-inline-stack;
   display: inline-block;
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
-  padding: 0 2em;
+  padding: .5em 1em;
   cursor: pointer;
+  border: 1px solid transparent;
+  border-bottom-width: 0;
+  border-radius: 3px 3px 0 0;
+  margin-left: 1em;
+  color: #666666;
 }
-/* line 248, _rules.scss */
+/* line 258, _rules.scss */
+.Tabs .Tabs-trigger:hover {
+  background-color: #E5E5E5;
+  color: #888888;
+}
+/* line 267, _rules.scss */
 .Tabs .Tabs-trigger.is-selected {
-  background-color: #FFF;
   font-weight: bold;
+  color: #333333;
+  background-color: white;
+  border-color: #a6a6a6;
+  border-bottom: 1px solid white;
   cursor: default;
 }
-/* line 255, _rules.scss */
+/* line 277, _rules.scss */
 .Tabs a.Tabs-trigger {
   text-decoration: none !important;
 }
-/* line 259, _rules.scss */
+/* line 281, _rules.scss */
 .Tabs .Tabs-content {
+  position: relative;
+  z-index: 1;
   display: none;
+  border-top: 1px solid #a6a6a6;
+  background-color: white;
+  padding: 1em;
 }
-/* line 262, _rules.scss */
+/* line 289, _rules.scss */
 .Tabs .Tabs-content.is-selected {
   display: block;
 }

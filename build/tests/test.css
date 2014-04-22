@@ -13,3 +13,11 @@ body {
 fieldset {
   margin-bottom: 20px;
 }
+/* line 12, test.scss */
+fieldset .Tabs {
+  margin-top: 2em;
+}
+/* line 15, test.scss */
+fieldset .Tabs:first-child {
+  margin-top: 0;
+}

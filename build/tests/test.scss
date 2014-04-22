@@ -8,4 +8,12 @@ body {
 
 fieldset {
   margin-bottom: 20px;
+
+  .Tabs {
+    margin-top: 2em;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 }

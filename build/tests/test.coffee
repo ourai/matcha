@@ -1,3 +1,3 @@
-$(document).on "change", "select", ->
-  console.log $(this).val()
-  
+# $(document).on "change", "select", ->
+#   console.log $(this).val()
+#   
