@@ -63,14 +63,22 @@ body {
     .layout-container {
       min-height: 100%;
 
+      &:before,
       &:after {
-        content: "\20";
+        content: "\0020";
         display: block;
-        height: 81px;
         position: relative;
         z-index: -999999999;
         background: transparent none !important;
         visibility: hidden;
+      }
+
+      &:before {
+        height: $layout-header-height + 2px;
+      }
+
+      &:after {
+        height: $layout-footer-height + 21px;
       }
     }
 
