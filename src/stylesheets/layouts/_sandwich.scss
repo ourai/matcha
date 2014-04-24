@@ -101,7 +101,7 @@ body {
     // To limit the width of content
     // and make content center
     .layout-inner {
-      width: $page-width;
+      max-width: $page-width;
       margin: 0 auto;
     }
   }
