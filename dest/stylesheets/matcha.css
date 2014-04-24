@@ -466,7 +466,7 @@ img {
 p {
   line-height: 1.8;
   margin: .5em 0;
-  padding: .2em 0;
+  padding: .25em 0;
 }
 
 /* line 33, _rules.scss */
@@ -598,14 +598,14 @@ html[lang^="en"] tbody th {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/dest/images/transparent.gif?1398259932') repeat;
+  background: transparent url('/dest/images/transparent.gif?1398360494') repeat;
 }
 
 /* line 154, _rules.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/dest/images/star.png?1398259932');
+  background-image: url('/dest/images/star.png?1398360494');
 }
 
 /* line 159, _rules.scss */
@@ -619,7 +619,7 @@ html[lang^="en"] tbody th {
 /* line 166, _rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/dest/images/ministar.png?1398259932');
+  background-image: url('/dest/images/ministar.png?1398360494');
 }
 
 /* line 170, _rules.scss */
@@ -642,7 +642,7 @@ html[lang^="en"] tbody th {
 }
 /* line 189, _rules.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/dest/images/star.png?1398259932') repeat-x !important;
+  background: url('/dest/images/star.png?1398360494') repeat-x !important;
 }
 /* line 193, _rules.scss */
 .Score--selectable .Score-storage {
@@ -743,14 +743,14 @@ html[lang^="en"] tbody th {
 
 /* line 231, _rules.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/dest/images/star.png?1398259932') repeat-x;
+  background: url('/dest/images/star.png?1398360494') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 237, _rules.scss */
 .Score-level.is-selected {
-  background: url('/dest/images/star.png?1398259932') repeat-x;
+  background: url('/dest/images/star.png?1398360494') repeat-x;
   left: 0;
   z-index: 1;
 }

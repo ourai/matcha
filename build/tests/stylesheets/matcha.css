@@ -466,7 +466,7 @@ img {
 p {
   line-height: 1.8;
   margin: .5em 0;
-  padding: .2em 0;
+  padding: .25em 0;
 }
 
 /* line 33, ../../../dest/stylesheets/_rules.scss */
@@ -598,14 +598,14 @@ html[lang^="en"] tbody th {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/build/tests/images/transparent.gif?1398259932') repeat;
+  background: transparent url('/build/tests/images/transparent.gif?1398360500') repeat;
 }
 
 /* line 154, ../../../dest/stylesheets/_rules.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/build/tests/images/star.png?1398259932');
+  background-image: url('/build/tests/images/star.png?1398360500');
 }
 
 /* line 159, ../../../dest/stylesheets/_rules.scss */
@@ -619,7 +619,7 @@ html[lang^="en"] tbody th {
 /* line 166, ../../../dest/stylesheets/_rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/build/tests/images/ministar.png?1398259932');
+  background-image: url('/build/tests/images/ministar.png?1398360500');
 }
 
 /* line 170, ../../../dest/stylesheets/_rules.scss */
@@ -642,7 +642,7 @@ html[lang^="en"] tbody th {
 }
 /* line 189, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/build/tests/images/star.png?1398259932') repeat-x !important;
+  background: url('/build/tests/images/star.png?1398360500') repeat-x !important;
 }
 /* line 193, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage {
@@ -743,14 +743,14 @@ html[lang^="en"] tbody th {
 
 /* line 231, ../../../dest/stylesheets/_rules.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/build/tests/images/star.png?1398259932') repeat-x;
+  background: url('/build/tests/images/star.png?1398360500') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 237, ../../../dest/stylesheets/_rules.scss */
 .Score-level.is-selected {
-  background: url('/build/tests/images/star.png?1398259932') repeat-x;
+  background: url('/build/tests/images/star.png?1398360500') repeat-x;
   left: 0;
   z-index: 1;
 }
