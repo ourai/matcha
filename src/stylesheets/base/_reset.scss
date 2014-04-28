@@ -35,10 +35,10 @@ code {
   color: $color-text-medium;
   white-space: pre-wrap;
   word-wrap: break-word;
+  border: 1px solid $border_color;
+  @include border-radius(3px);
 }
 
 pre {
   padding: .75em;
-  border: 1px solid $border_color;
-  @include border-radius(3px);
 }
