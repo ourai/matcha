@@ -3,6 +3,7 @@
 // Font
 $font_family: "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-serif;
 $font_family-hei: "Microsoft Yahei", "Hiragino Sans GB", Tahoma, Verdana, "BitStream vera Sans", Arial, Helvetica, Sans-serif;
+$font_family-monospace: Monaco, Consolas, "Lucida Console", monospace;
 $font_size: 100%;
 $line_height: 1.5;
 
@@ -45,8 +46,8 @@ $border_color: #B8C4C8;
 }
 
 @mixin triangle( $width: 5px, $color: #000, $dir: top ) {
+  @include inline-block(none);
   @include text-hide;
-  position: absolute;
   width: 0 !important;
   height: 0 !important;
   border: $width solid transparent;
@@ -56,7 +57,7 @@ $border_color: #B8C4C8;
 @mixin card_style {
   border: 1px solid #E0E0E0;
   border-bottom-width: 2px;
-  border-radius: 2px;
+  @include border-radius(2px);
 }
 
 @mixin no_item {
@@ -67,11 +68,19 @@ $border_color: #B8C4C8;
   @include inline-block(none);
   max-width: 120px;
   margin-right: 5px; padding: 0 8px;
-  border-radius: 2px;
+  @include border-radius(2px);
   background-color: #DCE4E6;
   color: $color-text-medium !important;
   text-decoration: none !important;
   @include text-ellipsis;
+}
+
+@mixin block_content {
+  padding: .75em;
+  border: 1px solid #C5CACE;
+  @include border-radius(3px);
+  @include box-shadow(0 1px 5px rgba(0, 0, 0, 0.1) inset, 0 1px 0 #FFF);
+  background-color: #FEFEFE;
 }
 
 
@@ -88,7 +97,7 @@ $border_color: #B8C4C8;
   color: transparent;
   border: 0 none;
   font: 0px/0 a;
-  text-shadow: none;
+  @include text-shadow(none);
   // Use a transparent image to set as the background of it to fix bug of IE6/7/8.
   background: transparent image-url("transparent.gif") repeat;
 }

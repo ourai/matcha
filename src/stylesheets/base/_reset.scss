@@ -28,3 +28,17 @@ p {
   margin: .5em 0;
   padding: .25em 0;
 }
+
+pre,
+code {
+  font-family: $font_family-monospace;
+  color: $color-text-medium;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+pre {
+  padding: .75em;
+  border: 1px solid $border_color;
+  @include border-radius(3px);
+}
