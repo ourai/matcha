@@ -75,14 +75,6 @@ $border_color: #B8C4C8;
   @include text-ellipsis;
 }
 
-@mixin block_content {
-  padding: .75em;
-  border: 1px solid #C5CACE;
-  @include border-radius(2px);
-  @include box-shadow(0 1px 5px rgba(0, 0, 0, 0.1) inset, 0 1px 0 #FFF);
-  background-color: #FEFEFE;
-}
-
 
 
 // !!! Placefolders for future
@@ -126,5 +118,21 @@ $border_color: #B8C4C8;
 
   &:after {
     clear: both;
+  }
+}
+
+@mixin block_content {
+  padding: .75em;
+  border: 1px solid #C5CACE;
+  @include border-radius(2px);
+  @include box-shadow(0 1px 5px rgba(0, 0, 0, 0.1) inset, 0 1px 0 #FFF);
+  background-color: #FEFEFE;
+}
+
+@mixin covered_background {
+  background: {
+    repeat: no-repeat;
+    position: 50% 50%;
+    size: cover;
   }
 }
