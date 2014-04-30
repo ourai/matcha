@@ -476,17 +476,17 @@ code {
   color: #666666;
   white-space: pre-wrap;
   word-wrap: break-word;
-}
-
-/* line 40, ../../../dest/stylesheets/_rules.scss */
-pre {
-  padding: .75em;
   border: 1px solid #b8c4c8;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
+}
+
+/* line 42, ../../../dest/stylesheets/_rules.scss */
+pre {
+  padding: .75em;
 }
 
 /* line 47, ../../../dest/stylesheets/_rules.scss */
@@ -618,14 +618,14 @@ html[lang^="en"] tbody th {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/build/tests/images/transparent.gif?1398700335') repeat;
+  background: transparent url('/build/tests/images/transparent.gif?1398322382') repeat;
 }
 
 /* line 168, ../../../dest/stylesheets/_rules.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/build/tests/images/star.png?1398700335');
+  background-image: url('/build/tests/images/star.png?1398322381');
 }
 
 /* line 173, ../../../dest/stylesheets/_rules.scss */
@@ -639,7 +639,7 @@ html[lang^="en"] tbody th {
 /* line 180, ../../../dest/stylesheets/_rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/build/tests/images/ministar.png?1398700335');
+  background-image: url('/build/tests/images/ministar.png?1398322381');
 }
 
 /* line 184, ../../../dest/stylesheets/_rules.scss */
@@ -662,7 +662,7 @@ html[lang^="en"] tbody th {
 }
 /* line 203, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/build/tests/images/star.png?1398700335') repeat-x !important;
+  background: url('/build/tests/images/star.png?1398322381') repeat-x !important;
 }
 /* line 207, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage {
@@ -763,14 +763,14 @@ html[lang^="en"] tbody th {
 
 /* line 245, ../../../dest/stylesheets/_rules.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/build/tests/images/star.png?1398700335') repeat-x;
+  background: url('/build/tests/images/star.png?1398322381') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 251, ../../../dest/stylesheets/_rules.scss */
 .Score-level.is-selected {
-  background: url('/build/tests/images/star.png?1398700335') repeat-x;
+  background: url('/build/tests/images/star.png?1398322381') repeat-x;
   left: 0;
   z-index: 1;
 }

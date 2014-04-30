@@ -1,7 +1,7 @@
 /*
   - One column -
 
-<body data-layout="sandwich">
+<body class="layout--sandwich">
   <header class="layout-header">Header of page</header>
   <main class="layout-container">
     <div class="layout-content layout-inner">Content of page</div>
@@ -11,7 +11,7 @@
 
   - Two columns -
 
-<body data-layout="sandwich">
+<body class="layout--sandwich">
   <header class="layout-header">Header of page</header>
   <main class="layout-container">
     <div class="layout-content layout-inner">
@@ -35,7 +35,7 @@ body {
     $layout-main-width: percent(640px, 960px),
     $layout-sub-width:  percent(300px, 960px)
   ) {
-  body[data-layout="sandwich"] {
+  .layout--sandwich {
     // Header of page
     .layout-header {
       position: relative;
