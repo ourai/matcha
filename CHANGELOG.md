@@ -3,6 +3,7 @@
 ## 0.3.0 (2014-04-21)
 
 1.  Dropdown-List UI Component
+2.  Code styles
 
 ## 0.2.0 (2014-04-19)
 
