@@ -29,16 +29,31 @@ p {
   padding: .25em 0;
 }
 
-pre,
-code {
+code,
+pre {
   font-family: $font_family-monospace;
   color: $color-text-medium;
+  border: 1px solid $border_color;
+  @include border-radius(2px);
+}
+
+pre,
+pre code {
   white-space: pre-wrap;
   word-wrap: break-word;
-  border: 1px solid $border_color;
-  @include border-radius(3px);
+}
+
+code {
+  padding: 0 .3em;
+  margin: 0 .4em;
+  white-space: nowrap;
 }
 
 pre {
   padding: .75em;
+
+  code {
+    border: none;
+    @include no_gap;
+  }
 }
