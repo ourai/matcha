@@ -1,7 +1,7 @@
 @mixin layout-frameset(
-    $layout-header-height: 100px,
-    $layout-footer-height: 100px,
-    $layout-sub-width: 200px
+    $layout-sub-width: 200px,
+    $layout-header-height: 0,
+    $layout-footer-height: 0
   ) {
 
   html,
