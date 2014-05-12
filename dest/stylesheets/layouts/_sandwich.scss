@@ -23,11 +23,6 @@
 </body>
 */
 
-html,
-body {
-  height: 100%;
-}
-
 @mixin layout-sandwich(
     $page-width: 100%,
     $layout-header-height: 50px,
@@ -35,6 +30,12 @@ body {
     $layout-main-width: percent(640px, 960px),
     $layout-sub-width:  percent(300px, 960px)
   ) {
+  
+  html,
+  body {
+    height: 100%;
+  }
+
   .layout--sandwich {
     // Header of page
     .layout-header {
