@@ -129,7 +129,7 @@ module.exports = ( grunt ) ->
       test:
         expand: true
         cwd: "<%= meta.dest %>"
-        src: ["images/*", "javascripts/*", "stylesheets/_helpers.scss"]
+        src: ["images/*", "javascripts/*", "stylesheets/_helpers.scss", "stylesheets/layouts/*"]
         dest: "<%= meta.tests %>"
     clean:
       compiled:
