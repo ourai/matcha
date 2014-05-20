@@ -2,7 +2,8 @@
 
 .Button,
 .Button--info,
-.Button--warning {
+.Button--warning,
+.Button--file {
   @include inline-block(top);
   // @include user-select(none);
   -webkit-user-select: none;
@@ -25,7 +26,8 @@
   }
 }
 
-.Button {
+.Button,
+.Button--file {
   color: #888;
   border-color: #CBCBCB;
   background-color: #EBEBEB;
@@ -40,6 +42,21 @@
   &:active {
     @include filter-gradient(#F2F2F2, #F9F9F9);
     @include background-image(linear-gradient(#F2F2F2, #F9F9F9));
+  }
+}
+
+.Button--file {
+  position: relative;
+  overflow: hidden;
+
+  input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include no_gap;
+    @include opacity(0);
+    font-size: 10em;
+    cursor: pointer;
   }
 }
 
