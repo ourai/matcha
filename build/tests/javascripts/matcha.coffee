@@ -193,7 +193,7 @@ dummySelect = ->
 
     ddl.append  """
                 <div class="DropList-selected"><span class="DropList-label">#{selected.text()}</span></div>
-                <div class="DropList-dropdown"><ol class="DropList-list"></ol></div>
+                <div class="DropList-dropdown"><ul class="DropList-list"></ul></div>
                 """
 
     lst = $(".DropList-list", ddl)

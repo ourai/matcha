@@ -198,7 +198,7 @@ dummySelect = function() {
     ddl = $("<div>", {
       "class": "DropList"
     });
-    ddl.append("<div class=\"DropList-selected\"><span class=\"DropList-label\">" + (selected.text()) + "</span></div>\n<div class=\"DropList-dropdown\"><ol class=\"DropList-list\"></ol></div>");
+    ddl.append("<div class=\"DropList-selected\"><span class=\"DropList-label\">" + (selected.text()) + "</span></div>\n<div class=\"DropList-dropdown\"><ul class=\"DropList-list\"></ul></div>");
     lst = $(".DropList-list", ddl);
     $("option", sel).each(function() {
       return lst.append("<li class=\"" + (hook("dropdown.trigger", true)) + "\">" + ($(this).text()) + "</li>");
