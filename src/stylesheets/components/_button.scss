@@ -1,0 +1,80 @@
+// Buttons
+
+.Button,
+.Button--info,
+.Button--warning {
+  @include inline-block(top);
+  // @include user-select(none);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  // For links
+  text-decoration: none !important;
+
+  &[disabled] {
+    border-color: #B8C4C8 !important;
+    background: #D8DEE0 none !important;
+    filter: none !important;
+    color: #A2ABAE !important;
+    cursor: default;
+  }
+}
+
+.Button {
+  color: #888;
+  border-color: #CBCBCB;
+  background-color: #EBEBEB;
+  @include filter-gradient(#F8F8F8, #EBEBEB);
+  @include background-image(linear-gradient(#F8F8F8, #EBEBEB));
+
+  &:hover {
+    @include filter-gradient(#F9F9F9, #F2F2F2);
+    @include background-image(linear-gradient(#F9F9F9, #F2F2F2));
+  }
+
+  &:active {
+    @include filter-gradient(#F2F2F2, #F9F9F9);
+    @include background-image(linear-gradient(#F2F2F2, #F9F9F9));
+  }
+}
+
+.Button--info {
+  color: #FFF;
+  border-color: #4BAECC;
+  background-color: #3DCCF6;
+  @include filter-gradient(#5DC3E2, #4DBBDC);
+  @include background-image(linear-gradient(#5DC3E2, #4DBBDC));
+
+  &:hover {
+    @include filter-gradient(#6FCDE9, #60C5E3);
+    @include background-image(linear-gradient(#6FCDE9, #60C5E3));
+  }
+
+  &:active {
+    @include filter-gradient(#60C5E3, #6FCDE9);
+    @include background-image(linear-gradient(#60C5E3, #6FCDE9));
+  }
+}
+
+.Button--warning {
+  color: #FFF;
+  border-color: #EC6B3F;
+  background-color: #FB784B;
+  @include filter-gradient(#FE855B, #FB784B);
+  @include background-image(linear-gradient(#FE855B, #FB784B));
+
+  &:hover {
+    @include filter-gradient(#FF936E, #FB865E);
+    @include background-image(linear-gradient(#FF936E, #FB865E));
+  }
+
+  &:active {
+    @include filter-gradient(#FB865E, #FF936E);
+    @include background-image(linear-gradient(#FB865E, #FF936E));
+  }
+}
