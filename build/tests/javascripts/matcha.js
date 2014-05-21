@@ -20,7 +20,7 @@ var LIB_CONFIG, dummySelect, getStorageData, hasOwnProp, hook, needFix, scoreHtm
 
 LIB_CONFIG = {
   name: "Matcha",
-  version: "0.3.0"
+  version: "0.2.0"
 };
 
 _H = {};
