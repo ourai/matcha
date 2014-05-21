@@ -1,6 +1,6 @@
 {
   "name": "matcha",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": [
     "dest/javascripts/matcha.min.js",
     "dest/stylesheets/matcha.min.css"],
@@ -17,6 +17,7 @@
     "sass",
     "compass",
     "ui",
-    "framework"
+    "framework",
+    "component"
   ]
 }
