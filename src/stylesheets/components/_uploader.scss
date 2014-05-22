@@ -1,0 +1,70 @@
+.Uploader {
+  @include clearfix;
+}
+
+.Uploader-button,
+.Uploader-file {
+  height: 30px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  line-height: 30px;
+  // @include user-select(none);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.Uploader-button {
+  position: relative;
+  overflow: hidden;
+  float: left;
+  border-color: #CBCBCB;
+  padding: 0 1em;
+  margin-right: .5em;
+  cursor: pointer;
+  // For links
+  text-decoration: none !important;
+  color: #888;
+  background-color: #EBEBEB;
+  @include filter-gradient(#F8F8F8, #EBEBEB);
+  @include background-image(linear-gradient(#F8F8F8, #EBEBEB));
+
+  &:hover {
+    @include filter-gradient(#F9F9F9, #F2F2F2);
+    @include background-image(linear-gradient(#F9F9F9, #F2F2F2));
+  }
+
+  &:active {
+    @include filter-gradient(#F2F2F2, #F9F9F9);
+    @include background-image(linear-gradient(#F2F2F2, #F9F9F9));
+  }
+
+  &[disabled] {
+    border-color: #B8C4C8 !important;
+    background: #D8DEE0 none !important;
+    filter: none !important;
+    color: #A2ABAE !important;
+    cursor: default;
+  }
+
+  input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include no_gap;
+    @include opacity(0);
+    font-size: 10em;
+    cursor: pointer;
+  }
+}
+
+.Uploader-file {
+  overflow: hidden;
+  @include text-ellipsis;
+  cursor: default;
+
+  span {
+    cursor: default;
+  }
+}

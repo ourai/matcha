@@ -73,16 +73,19 @@
   <!-- Button -->
   <fieldset>
     <legend>Buttons</legend>
-    <div>
-      <button type="button" class="Button">Default</button>
-      <a href="#" class="Button--info">Info</a>
-      <a class="Button--warning">Warning</a>
-    </div>
-    <div style="margin-top: 10px;">
-      <div class="Button--file">
+    <button type="button" class="Button">Default</button>
+    <a href="#" class="Button--info">Info</a>
+    <a class="Button--warning">Warning</a>
+  </fieldset>
+  <!-- Uploader -->
+  <fieldset>
+    <legend>Uploader</legend>
+    <div class="Uploader">
+      <div class="Uploader-button">
         <span>Choose File</span>
-        <input type="file">
+        <input class="js-trigger--uploader" type="file">
       </div>
+      <div class="Uploader-file"><span class="js-label--uploader">No files selected</span></div>
     </div>
   </fieldset>
 </html>
