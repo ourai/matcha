@@ -18,3 +18,6 @@ storage =
       trigger: "trigger--score"
     dropdown:
       trigger: "trigger--dropdown"
+    uploader:
+      trigger: "trigger--uploader"
+      label: "label--uploader"

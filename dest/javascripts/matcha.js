@@ -44,6 +44,10 @@ storage = {
     },
     dropdown: {
       trigger: "trigger--dropdown"
+    },
+    uploader: {
+      trigger: "trigger--uploader",
+      label: "label--uploader"
     }
   }
 };
@@ -166,6 +170,21 @@ $(document).on("click", hook("dropdown.trigger"), function() {
   $(":selected", sel).attr("selected", false);
   $("option:eq(" + idx + ")", sel).attr("selected", true);
   return sel.trigger("change");
+});
+
+$(document).on("change", hook("uploader.trigger"), function() {
+  var files, ipt, label, text, val;
+  ipt = $(this);
+  label = $(hook("uploader.label"), ipt.closest(".Uploader"));
+  files = this.files;
+  text = "No files selected";
+  val = ipt.val();
+  if (files != null) {
+    label.text(files.length ? files[0].name : text);
+  } else {
+    label.text(val === "" ? text : val);
+  }
+  return false;
 });
 
 setDefaultTab = function() {
