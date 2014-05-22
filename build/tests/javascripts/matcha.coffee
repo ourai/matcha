@@ -25,6 +25,9 @@ storage =
       trigger: "trigger--score"
     dropdown:
       trigger: "trigger--dropdown"
+    uploader:
+      trigger: "trigger--uploader"
+      label: "label--uploader"
 
 ###
 # 判断某个对象是否有自己的指定属性
@@ -139,6 +142,20 @@ $(document).on "click", hook("dropdown.trigger"), ->
   $(":selected", sel).attr "selected", false
   $("option:eq(#{idx})", sel).attr "selected", true
   sel.trigger "change"
+
+$(document).on "change", hook("uploader.trigger"), ->
+  ipt = $(this)
+  label = $(hook("uploader.label"), ipt.closest(".Uploader"))
+  files = this.files
+  text = "No files selected"
+  val = ipt.val()
+
+  if files?
+    label.text if files.length then files[0].name else text
+  else
+    label.text if val is "" then text else val
+
+  return false
 
 # Set a default tab
 setDefaultTab = ->
