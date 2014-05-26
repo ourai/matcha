@@ -45,6 +45,7 @@ module.exports = ( grunt ) ->
       rules:
         src: [
             "<%= meta.base %>/_reset.scss"
+            "<%= meta.base %>/_utilities.scss"
             "<%= meta.base %>/_g11n.scss"
             "<%= meta.style %>/components/*.scss"
           ]

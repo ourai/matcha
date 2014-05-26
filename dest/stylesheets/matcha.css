@@ -508,11 +508,51 @@ pre code {
 }
 
 /* line 62, _rules.scss */
+.u-coveredBgImage {
+  position: relative;
+  z-index: 10;
+}
+
+/* line 68, _rules.scss */
+.u-coveredBgImage-altWrapper,
+.u-coveredBgImage-alternate {
+  position: absolute;
+}
+
+/* line 72, _rules.scss */
+.u-coveredBgImage-altWrapper {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* line 81, _rules.scss */
+.u-coveredBgImage-alternate {
+  min-height: 100%;
+  vertical-align: middle;
+}
+
+/* line 87, _rules.scss */
+:root .u-coveredBgImage {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+/* line 91, _rules.scss */
+:root .u-coveredBgImage-altWrapper {
+  display: none;
+}
+
+/* line 97, _rules.scss */
 html[lang^="en"] tbody th {
   text-transform: uppercase;
 }
 
-/* line 71, _rules.scss */
+/* line 106, _rules.scss */
 .Button,
 .Button--info,
 .Button--warning {
@@ -532,7 +572,7 @@ html[lang^="en"] tbody th {
   cursor: pointer;
   text-decoration: none !important;
 }
-/* line 85, _rules.scss */
+/* line 120, _rules.scss */
 .Button[disabled],
 .Button--info[disabled],
 .Button--warning[disabled] {
@@ -543,7 +583,7 @@ html[lang^="en"] tbody th {
   cursor: default;
 }
 
-/* line 94, _rules.scss */
+/* line 129, _rules.scss */
 .Button {
   color: #888;
   border-color: #CBCBCB;
@@ -556,7 +596,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f8f8f8, #ebebeb);
   background-image: linear-gradient(#f8f8f8, #ebebeb);
 }
-/* line 101, _rules.scss */
+/* line 136, _rules.scss */
 .Button:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF9F9F9', endColorstr='#FFF2F2F2');
@@ -566,7 +606,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f9f9f9, #f2f2f2);
   background-image: linear-gradient(#f9f9f9, #f2f2f2);
 }
-/* line 106, _rules.scss */
+/* line 141, _rules.scss */
 .Button:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF2F2F2', endColorstr='#FFF9F9F9');
@@ -577,7 +617,7 @@ html[lang^="en"] tbody th {
   background-image: linear-gradient(#f2f2f2, #f9f9f9);
 }
 
-/* line 112, _rules.scss */
+/* line 147, _rules.scss */
 .Button--info {
   color: #FFF;
   border-color: #4BAECC;
@@ -590,7 +630,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#5dc3e2, #4dbbdc);
   background-image: linear-gradient(#5dc3e2, #4dbbdc);
 }
-/* line 119, _rules.scss */
+/* line 154, _rules.scss */
 .Button--info:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF6FCDE9', endColorstr='#FF60C5E3');
@@ -600,7 +640,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#6fcde9, #60c5e3);
   background-image: linear-gradient(#6fcde9, #60c5e3);
 }
-/* line 124, _rules.scss */
+/* line 159, _rules.scss */
 .Button--info:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF60C5E3', endColorstr='#FF6FCDE9');
@@ -611,7 +651,7 @@ html[lang^="en"] tbody th {
   background-image: linear-gradient(#60c5e3, #6fcde9);
 }
 
-/* line 130, _rules.scss */
+/* line 165, _rules.scss */
 .Button--warning {
   color: #FFF;
   border-color: #EC6B3F;
@@ -624,7 +664,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#fe855b, #fb784b);
   background-image: linear-gradient(#fe855b, #fb784b);
 }
-/* line 137, _rules.scss */
+/* line 172, _rules.scss */
 .Button--warning:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFF936E', endColorstr='#FFFB865E');
@@ -634,7 +674,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#ff936e, #fb865e);
   background-image: linear-gradient(#ff936e, #fb865e);
 }
-/* line 142, _rules.scss */
+/* line 177, _rules.scss */
 .Button--warning:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFB865E', endColorstr='#FFFF936E');
@@ -645,7 +685,7 @@ html[lang^="en"] tbody th {
   background-image: linear-gradient(#fb865e, #ff936e);
 }
 
-/* line 149, _rules.scss */
+/* line 184, _rules.scss */
 .DropList {
   display: -moz-inline-stack;
   display: inline-block;
@@ -658,20 +698,20 @@ html[lang^="en"] tbody th {
   border-radius: 3px;
   background-color: #FFF;
 }
-/* line 157, _rules.scss */
+/* line 192, _rules.scss */
 .DropList:hover {
   border-radius: 3px 3px 0 0;
 }
-/* line 160, _rules.scss */
+/* line 195, _rules.scss */
 .DropList:hover .DropList-dropdown {
   display: block;
 }
-/* line 165, _rules.scss */
+/* line 200, _rules.scss */
 .DropList .DropList-selected {
   position: relative;
   cursor: pointer;
 }
-/* line 169, _rules.scss */
+/* line 204, _rules.scss */
 .DropList .DropList-selected:after {
   content: "\0020";
   position: absolute;
@@ -684,7 +724,7 @@ html[lang^="en"] tbody th {
   border-top-color: #A6A6A6;
   margin: -3px 4px 0 0;
 }
-/* line 183, _rules.scss */
+/* line 218, _rules.scss */
 .DropList .DropList-selected .DropList-label {
   display: -moz-inline-stack;
   display: inline-block;
@@ -694,7 +734,7 @@ html[lang^="en"] tbody th {
   margin: 0 20px 0 9px;
   padding: 5px 0;
 }
-/* line 190, _rules.scss */
+/* line 225, _rules.scss */
 .DropList .DropList-dropdown {
   display: none;
   position: absolute;
@@ -708,7 +748,7 @@ html[lang^="en"] tbody th {
   border-radius: 0 0 3px 3px;
   margin: 0 -1px;
 }
-/* line 203, _rules.scss */
+/* line 238, _rules.scss */
 .DropList .DropList-dropdown .DropList-list {
   list-style: none outside none;
   max-height: 310px;
@@ -716,7 +756,7 @@ html[lang^="en"] tbody th {
   margin: 0 4px 4px 0;
   overflow: auto;
 }
-/* line 210, _rules.scss */
+/* line 245, _rules.scss */
 .DropList .DropList-dropdown .DropList-list li {
   word-wrap: break-word;
   word-wrap: normal\0;
@@ -726,28 +766,28 @@ html[lang^="en"] tbody th {
   padding: 5px;
   cursor: pointer;
 }
-/* line 217, _rules.scss */
+/* line 252, _rules.scss */
 .DropList .DropList-dropdown .DropList-list li:hover, .DropList .DropList-dropdown .DropList-list li.is-selected {
   background-color: #1385E5;
   color: #FFF;
 }
-/* line 223, _rules.scss */
+/* line 258, _rules.scss */
 .DropList .DropList-dropdown .DropList-list:hover li.is-selected {
   background-color: transparent;
   color: inherit;
 }
-/* line 227, _rules.scss */
+/* line 262, _rules.scss */
 .DropList .DropList-dropdown .DropList-list:hover li.is-selected:hover {
   background-color: #1385E5;
   color: #FFF;
 }
 
-/* line 236, _rules.scss */
+/* line 271, _rules.scss */
 .DropList--dummy {
   display: none;
 }
 
-/* line 246, _rules.scss */
+/* line 281, _rules.scss */
 .Score,
 .Score--small,
 .Score--selectable {
@@ -755,7 +795,7 @@ html[lang^="en"] tbody th {
   position: relative;
   background-repeat: repeat-x;
 }
-/* line 251, _rules.scss */
+/* line 286, _rules.scss */
 .Score .Score-level,
 .Score--small .Score-level,
 .Score--selectable .Score-level {
@@ -769,17 +809,17 @@ html[lang^="en"] tbody th {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/dest/images/transparent.gif?1400776429') repeat;
+  background: transparent url('/dest/images/transparent.gif?1401109625') repeat;
 }
 
-/* line 264, _rules.scss */
+/* line 299, _rules.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/dest/images/star.png?1400776429');
+  background-image: url('/dest/images/star.png?1401109625');
 }
 
-/* line 269, _rules.scss */
+/* line 304, _rules.scss */
 .Score,
 .Score--selectable {
   width: 80px;
@@ -787,153 +827,153 @@ html[lang^="en"] tbody th {
   background-position: 0 -16px;
 }
 
-/* line 276, _rules.scss */
+/* line 311, _rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/dest/images/ministar.png?1400776429');
+  background-image: url('/dest/images/ministar.png?1401109625');
 }
 
-/* line 280, _rules.scss */
+/* line 315, _rules.scss */
 .Score--small {
   width: 55px;
   height: 10px;
   background-position: 0 -10px;
 }
 
-/* line 288, _rules.scss */
+/* line 323, _rules.scss */
 .Score--selectable .Score-level {
   width: 16px;
   top: auto;
   left: auto;
 }
-/* line 293, _rules.scss */
+/* line 328, _rules.scss */
 .Score--selectable .Score-level:hover {
   left: 0;
   z-index: 2;
 }
-/* line 299, _rules.scss */
+/* line 334, _rules.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/dest/images/star.png?1400776429') repeat-x !important;
+  background: url('/dest/images/star.png?1401109625') repeat-x !important;
 }
-/* line 303, _rules.scss */
+/* line 338, _rules.scss */
 .Score--selectable .Score-storage {
   position: absolute;
   clip: rect(0 0 0 0);
   display: none;
 }
-/* line 312, _rules.scss */
+/* line 347, _rules.scss */
 .Score--selectable .Score-level-1 {
   left: 0px;
 }
-/* line 315, _rules.scss */
+/* line 350, _rules.scss */
 .Score--selectable .Score-level-1:hover {
   width: 16px;
 }
-/* line 320, _rules.scss */
+/* line 355, _rules.scss */
 .Score--selectable .Score-storage-1:checked ~ .Score-level-1 {
   width: 16px;
 }
-/* line 324, _rules.scss */
+/* line 359, _rules.scss */
 .Score--selectable .Score-level-1.is-selected {
   width: 16px;
 }
-/* line 312, _rules.scss */
+/* line 347, _rules.scss */
 .Score--selectable .Score-level-2 {
   left: 16px;
 }
-/* line 315, _rules.scss */
+/* line 350, _rules.scss */
 .Score--selectable .Score-level-2:hover {
   width: 32px;
 }
-/* line 320, _rules.scss */
+/* line 355, _rules.scss */
 .Score--selectable .Score-storage-2:checked ~ .Score-level-2 {
   width: 32px;
 }
-/* line 324, _rules.scss */
+/* line 359, _rules.scss */
 .Score--selectable .Score-level-2.is-selected {
   width: 32px;
 }
-/* line 312, _rules.scss */
+/* line 347, _rules.scss */
 .Score--selectable .Score-level-3 {
   left: 32px;
 }
-/* line 315, _rules.scss */
+/* line 350, _rules.scss */
 .Score--selectable .Score-level-3:hover {
   width: 48px;
 }
-/* line 320, _rules.scss */
+/* line 355, _rules.scss */
 .Score--selectable .Score-storage-3:checked ~ .Score-level-3 {
   width: 48px;
 }
-/* line 324, _rules.scss */
+/* line 359, _rules.scss */
 .Score--selectable .Score-level-3.is-selected {
   width: 48px;
 }
-/* line 312, _rules.scss */
+/* line 347, _rules.scss */
 .Score--selectable .Score-level-4 {
   left: 48px;
 }
-/* line 315, _rules.scss */
+/* line 350, _rules.scss */
 .Score--selectable .Score-level-4:hover {
   width: 64px;
 }
-/* line 320, _rules.scss */
+/* line 355, _rules.scss */
 .Score--selectable .Score-storage-4:checked ~ .Score-level-4 {
   width: 64px;
 }
-/* line 324, _rules.scss */
+/* line 359, _rules.scss */
 .Score--selectable .Score-level-4.is-selected {
   width: 64px;
 }
-/* line 312, _rules.scss */
+/* line 347, _rules.scss */
 .Score--selectable .Score-level-5 {
   left: 64px;
 }
-/* line 315, _rules.scss */
+/* line 350, _rules.scss */
 .Score--selectable .Score-level-5:hover {
   width: 80px;
 }
-/* line 320, _rules.scss */
+/* line 355, _rules.scss */
 .Score--selectable .Score-storage-5:checked ~ .Score-level-5 {
   width: 80px;
 }
-/* line 324, _rules.scss */
+/* line 359, _rules.scss */
 .Score--selectable .Score-level-5.is-selected {
   width: 80px;
 }
-/* line 329, _rules.scss */
+/* line 364, _rules.scss */
 .Score--selectable:hover .Score-level {
   background-image: none;
 }
-/* line 333, _rules.scss */
+/* line 368, _rules.scss */
 .Score--selectable label {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-/* line 341, _rules.scss */
+/* line 376, _rules.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/dest/images/star.png?1400776429') repeat-x;
+  background: url('/dest/images/star.png?1401109625') repeat-x;
   left: 0;
   z-index: 1;
 }
 
-/* line 347, _rules.scss */
+/* line 382, _rules.scss */
 .Score-level.is-selected {
-  background: url('/dest/images/star.png?1400776429') repeat-x;
+  background: url('/dest/images/star.png?1401109625') repeat-x;
   left: 0;
   z-index: 1;
 }
 
-/* line 357, _rules.scss */
+/* line 392, _rules.scss */
 .Tabs .Tabs-triggers {
   overflow: hidden;
   position: relative;
   z-index: 2;
   margin-bottom: -1px;
 }
-/* line 364, _rules.scss */
+/* line 399, _rules.scss */
 .Tabs .Tabs-trigger {
   display: -moz-inline-stack;
   display: inline-block;
@@ -948,12 +988,12 @@ html[lang^="en"] tbody th {
   margin-left: 1em;
   color: #666666;
 }
-/* line 374, _rules.scss */
+/* line 409, _rules.scss */
 .Tabs .Tabs-trigger:hover {
   background-color: #E5E5E5;
   color: #888888;
 }
-/* line 383, _rules.scss */
+/* line 418, _rules.scss */
 .Tabs .Tabs-trigger.is-selected {
   font-weight: bold;
   color: #333333;
@@ -962,11 +1002,11 @@ html[lang^="en"] tbody th {
   border-bottom: 1px solid white;
   cursor: default;
 }
-/* line 393, _rules.scss */
+/* line 428, _rules.scss */
 .Tabs a.Tabs-trigger {
   text-decoration: none !important;
 }
-/* line 397, _rules.scss */
+/* line 432, _rules.scss */
 .Tabs .Tabs-content {
   position: relative;
   z-index: 1;
@@ -975,12 +1015,12 @@ html[lang^="en"] tbody th {
   background-color: white;
   padding: 1em;
 }
-/* line 405, _rules.scss */
+/* line 440, _rules.scss */
 .Tabs .Tabs-content.is-selected {
   display: block;
 }
 
-/* line 411, _rules.scss */
+/* line 446, _rules.scss */
 .Uploader {
   *zoom: 1;
 }
@@ -994,7 +1034,7 @@ html[lang^="en"] tbody th {
   clear: both;
 }
 
-/* line 416, _rules.scss */
+/* line 451, _rules.scss */
 .Uploader-button,
 .Uploader-file {
   height: 30px;
@@ -1007,7 +1047,7 @@ html[lang^="en"] tbody th {
   user-select: none;
 }
 
-/* line 428, _rules.scss */
+/* line 463, _rules.scss */
 .Uploader-button {
   position: relative;
   overflow: hidden;
@@ -1027,7 +1067,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f8f8f8, #ebebeb);
   background-image: linear-gradient(#f8f8f8, #ebebeb);
 }
-/* line 443, _rules.scss */
+/* line 478, _rules.scss */
 .Uploader-button:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF9F9F9', endColorstr='#FFF2F2F2');
@@ -1037,7 +1077,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f9f9f9, #f2f2f2);
   background-image: linear-gradient(#f9f9f9, #f2f2f2);
 }
-/* line 448, _rules.scss */
+/* line 483, _rules.scss */
 .Uploader-button:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF2F2F2', endColorstr='#FFF9F9F9');
@@ -1047,7 +1087,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f2f2f2, #f9f9f9);
   background-image: linear-gradient(#f2f2f2, #f9f9f9);
 }
-/* line 453, _rules.scss */
+/* line 488, _rules.scss */
 .Uploader-button[disabled] {
   border-color: #B8C4C8 !important;
   background: #D8DEE0 none !important;
@@ -1055,7 +1095,7 @@ html[lang^="en"] tbody th {
   color: #A2ABAE !important;
   cursor: default;
 }
-/* line 461, _rules.scss */
+/* line 496, _rules.scss */
 .Uploader-button input[type="file"] {
   position: absolute;
   top: 0;
@@ -1068,7 +1108,7 @@ html[lang^="en"] tbody th {
   cursor: pointer;
 }
 
-/* line 472, _rules.scss */
+/* line 507, _rules.scss */
 .Uploader-file {
   overflow: hidden;
   white-space: nowrap;
@@ -1076,7 +1116,7 @@ html[lang^="en"] tbody th {
   text-overflow: ellipsis;
   cursor: default;
 }
-/* line 477, _rules.scss */
+/* line 512, _rules.scss */
 .Uploader-file span {
   cursor: default;
 }
