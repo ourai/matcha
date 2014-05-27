@@ -432,6 +432,296 @@ th {
   padding: 0;
 }
 
+@-webkit-keyframes flashing_dot {
+  /* line 93, _helpers.scss */
+  0% {
+    border-color: #FFF;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+
+  /* line 97, _helpers.scss */
+  50% {
+    border-color: #FE855B;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
+  }
+
+  /* line 101, _helpers.scss */
+  100% {
+    border-color: #FFF;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+@-moz-keyframes flashing_dot {
+  /* line 93, _helpers.scss */
+  0% {
+    border-color: #FFF;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+
+  /* line 97, _helpers.scss */
+  50% {
+    border-color: #FE855B;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
+  }
+
+  /* line 101, _helpers.scss */
+  100% {
+    border-color: #FFF;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+@-ms-keyframes flashing_dot {
+  /* line 93, _helpers.scss */
+  0% {
+    border-color: #FFF;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+
+  /* line 97, _helpers.scss */
+  50% {
+    border-color: #FE855B;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
+  }
+
+  /* line 101, _helpers.scss */
+  100% {
+    border-color: #FFF;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+@-o-keyframes flashing_dot {
+  /* line 93, _helpers.scss */
+  0% {
+    border-color: #FFF;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+
+  /* line 97, _helpers.scss */
+  50% {
+    border-color: #FE855B;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
+  }
+
+  /* line 101, _helpers.scss */
+  100% {
+    border-color: #FFF;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+@keyframes flashing_dot {
+  /* line 93, _helpers.scss */
+  0% {
+    border-color: #FFF;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+
+  /* line 97, _helpers.scss */
+  50% {
+    border-color: #FE855B;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
+  }
+
+  /* line 101, _helpers.scss */
+  100% {
+    border-color: #FFF;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+@-webkit-keyframes progressbar_stripes {
+  /* line 108, _helpers.scss */
+  from {
+    background-position: 40px 0;
+  }
+
+  /* line 111, _helpers.scss */
+  to {
+    background-position: 0 0;
+  }
+}
+
+@-moz-keyframes progressbar_stripes {
+  /* line 108, _helpers.scss */
+  from {
+    background-position: 40px 0;
+  }
+
+  /* line 111, _helpers.scss */
+  to {
+    background-position: 0 0;
+  }
+}
+
+@-ms-keyframes progressbar_stripes {
+  /* line 108, _helpers.scss */
+  from {
+    background-position: 40px 0;
+  }
+
+  /* line 111, _helpers.scss */
+  to {
+    background-position: 0 0;
+  }
+}
+
+@-o-keyframes progressbar_stripes {
+  /* line 108, _helpers.scss */
+  from {
+    background-position: 40px 0;
+  }
+
+  /* line 111, _helpers.scss */
+  to {
+    background-position: 0 0;
+  }
+}
+
+@keyframes progressbar_stripes {
+  /* line 108, _helpers.scss */
+  from {
+    background-position: 40px 0;
+  }
+
+  /* line 111, _helpers.scss */
+  to {
+    background-position: 0 0;
+  }
+}
+
+@-webkit-keyframes spinning {
+  /* line 117, _helpers.scss */
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  /* line 120, _helpers.scss */
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes spinning {
+  /* line 117, _helpers.scss */
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  /* line 120, _helpers.scss */
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-ms-keyframes spinning {
+  /* line 117, _helpers.scss */
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  /* line 120, _helpers.scss */
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes spinning {
+  /* line 117, _helpers.scss */
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  /* line 120, _helpers.scss */
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinning {
+  /* line 117, _helpers.scss */
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  /* line 120, _helpers.scss */
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 /* line 1, _rules.scss */
 body {
   color: #333333;
@@ -809,14 +1099,14 @@ html[lang^="en"] tbody th {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/dest/images/transparent.gif?1401109625') repeat;
+  background: transparent url('/dest/images/transparent.gif?1401198474') repeat;
 }
 
 /* line 299, _rules.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/dest/images/star.png?1401109625');
+  background-image: url('/dest/images/star.png?1401198474');
 }
 
 /* line 304, _rules.scss */
@@ -830,7 +1120,7 @@ html[lang^="en"] tbody th {
 /* line 311, _rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/dest/images/ministar.png?1401109625');
+  background-image: url('/dest/images/ministar.png?1401198474');
 }
 
 /* line 315, _rules.scss */
@@ -853,7 +1143,7 @@ html[lang^="en"] tbody th {
 }
 /* line 334, _rules.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/dest/images/star.png?1401109625') repeat-x !important;
+  background: url('/dest/images/star.png?1401198474') repeat-x !important;
 }
 /* line 338, _rules.scss */
 .Score--selectable .Score-storage {
@@ -954,14 +1244,14 @@ html[lang^="en"] tbody th {
 
 /* line 376, _rules.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/dest/images/star.png?1401109625') repeat-x;
+  background: url('/dest/images/star.png?1401198474') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 382, _rules.scss */
 .Score-level.is-selected {
-  background: url('/dest/images/star.png?1401109625') repeat-x;
+  background: url('/dest/images/star.png?1401198474') repeat-x;
   left: 0;
   z-index: 1;
 }
@@ -1022,19 +1312,20 @@ html[lang^="en"] tbody th {
 
 /* line 446, _rules.scss */
 .Uploader {
+  position: relative;
   *zoom: 1;
 }
-/* line 114, _helpers.scss */
+/* line 172, _helpers.scss */
 .Uploader:before, .Uploader:after {
   content: "\0020";
   display: table;
 }
-/* line 119, _helpers.scss */
+/* line 177, _helpers.scss */
 .Uploader:after {
   clear: both;
 }
 
-/* line 451, _rules.scss */
+/* line 452, _rules.scss */
 .Uploader-button,
 .Uploader-file {
   height: 30px;
@@ -1047,7 +1338,7 @@ html[lang^="en"] tbody th {
   user-select: none;
 }
 
-/* line 463, _rules.scss */
+/* line 464, _rules.scss */
 .Uploader-button {
   position: relative;
   overflow: hidden;
@@ -1067,7 +1358,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f8f8f8, #ebebeb);
   background-image: linear-gradient(#f8f8f8, #ebebeb);
 }
-/* line 478, _rules.scss */
+/* line 479, _rules.scss */
 .Uploader-button:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF9F9F9', endColorstr='#FFF2F2F2');
@@ -1077,7 +1368,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f9f9f9, #f2f2f2);
   background-image: linear-gradient(#f9f9f9, #f2f2f2);
 }
-/* line 483, _rules.scss */
+/* line 484, _rules.scss */
 .Uploader-button:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF2F2F2', endColorstr='#FFF9F9F9');
@@ -1087,7 +1378,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f2f2f2, #f9f9f9);
   background-image: linear-gradient(#f2f2f2, #f9f9f9);
 }
-/* line 488, _rules.scss */
+/* line 489, _rules.scss */
 .Uploader-button[disabled] {
   border-color: #B8C4C8 !important;
   background: #D8DEE0 none !important;
@@ -1095,7 +1386,7 @@ html[lang^="en"] tbody th {
   color: #A2ABAE !important;
   cursor: default;
 }
-/* line 496, _rules.scss */
+/* line 497, _rules.scss */
 .Uploader-button input[type="file"] {
   position: absolute;
   top: 0;
@@ -1108,7 +1399,7 @@ html[lang^="en"] tbody th {
   cursor: pointer;
 }
 
-/* line 507, _rules.scss */
+/* line 508, _rules.scss */
 .Uploader-file {
   overflow: hidden;
   white-space: nowrap;
@@ -1116,7 +1407,109 @@ html[lang^="en"] tbody th {
   text-overflow: ellipsis;
   cursor: default;
 }
-/* line 512, _rules.scss */
+/* line 513, _rules.scss */
 .Uploader-file span {
   cursor: default;
+}
+
+/* line 518, _rules.scss */
+.Uploader-overlay--fullscreen {
+  position: fixed;
+}
+
+/* line 523, _rules.scss */
+.Uploader-overlay,
+.Uploader-background {
+  position: absolute;
+}
+
+/* line 529, _rules.scss */
+.Uploader-overlay,
+.Uploader-overlay--fullscreen,
+.Uploader-background {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* line 537, _rules.scss */
+.Uploader-overlay,
+.Uploader-overlay--fullscreen {
+  display: none;
+  z-index: 999999999;
+  text-align: center;
+}
+/* line 147, _helpers.scss */
+.Uploader-overlay:before,
+.Uploader-overlay--fullscreen:before {
+  content: "\0020";
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  width: 0;
+  height: 100%;
+}
+
+/* line 544, _rules.scss */
+.Uploader-background {
+  z-index: -1;
+  background-color: #000;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  opacity: 0.3;
+}
+
+/* line 551, _rules.scss */
+.Uploader-progress,
+.Uploader-bar {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+
+/* line 555, _rules.scss */
+.Uploader-progress {
+  width: 80%;
+  height: 20px;
+  max-width: 600px;
+  background-color: #F7F7F7;
+  background-repeat: repeat-x;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* line 567, _rules.scss */
+.Uploader-bar {
+  width: 0;
+  height: 100%;
+  background-color: #149BDF;
+  -webkit-animation: progressbar_stripes 2s linear infinite;
+  -moz-animation: progressbar_stripes 2s linear infinite;
+  -ms-animation: progressbar_stripes 2s linear infinite;
+  -o-animation: progressbar_stripes 2s linear infinite;
+  animation: progressbar_stripes 2s linear infinite;
+  -webkit-transition: width 0.6s ease;
+  -moz-transition: width 0.6s ease;
+  -o-transition: width 0.6s ease;
+  transition: width 0.6s ease;
+  -webkit-background-size: 40px 40px;
+  -moz-background-size: 40px 40px;
+  -o-background-size: 40px 40px;
+  background-size: 40px 40px;
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
