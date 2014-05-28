@@ -53,53 +53,6 @@
 
 
 
-// CSS3 fix
-@mixin animation( $value... ) {
-  -webkit-animation: $value;
-  -moz-animation: $value;
-  -ms-animation: $value;
-  -o-animation: $value;
-  animation: $value;
-}
-
-
-
-// CSS3 animation keyframe
-@mixin flashing_dot {
-  0% {
-    border-color: #FFF;
-    @include box-shadow(none);
-  }
-  50% {
-    border-color: #FE855B;
-    @include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #FE855B);
-  }
-  100% {
-    border-color: #FFF;
-    @include box-shadow(none);
-  }
-}
-
-@mixin progressbar_stripes {
-  from {
-    background-position: 40px 0;
-  }
-  to {
-    background-position: 0 0;
-  }
-}
-
-@mixin spinning {
-  from {
-    @include transform(rotate(0deg));
-  }
-  to {
-    @include transform(rotate(360deg));
-  }
-}
-
-
-
 // !!! Placefolders for future
 
 @mixin text-ellipsis {

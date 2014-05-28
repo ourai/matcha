@@ -1,3 +1,44 @@
+// CSS3
+
+@mixin keyframes( $name ) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+
+  @-o-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation( $args... ) {
+  @include experimental(animation, $args);
+}
+
+@mixin user-select( $args ) {
+  @include experimental(user-select, $args);
+}
+
+
+
+// Enhancement
+
+@mixin linear-gradient( $from, $to ) {
+  @include filter-gradient($from, $to);
+  @include background-image(linear-gradient($from, $to));
+}
+
 @import "compass";
 
 // Font
@@ -77,53 +118,6 @@ $border_color: #B8C4C8;
 
 
 
-// CSS3 fix
-@mixin animation( $value... ) {
-  -webkit-animation: $value;
-  -moz-animation: $value;
-  -ms-animation: $value;
-  -o-animation: $value;
-  animation: $value;
-}
-
-
-
-// CSS3 animation keyframe
-@mixin flashing_dot {
-  0% {
-    border-color: #FFF;
-    @include box-shadow(none);
-  }
-  50% {
-    border-color: #FE855B;
-    @include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #FE855B);
-  }
-  100% {
-    border-color: #FFF;
-    @include box-shadow(none);
-  }
-}
-
-@mixin progressbar_stripes {
-  from {
-    background-position: 40px 0;
-  }
-  to {
-    background-position: 0 0;
-  }
-}
-
-@mixin spinning {
-  from {
-    @include transform(rotate(0deg));
-  }
-  to {
-    @include transform(rotate(360deg));
-  }
-}
-
-
-
 // !!! Placefolders for future
 
 @mixin text-ellipsis {
@@ -195,66 +189,35 @@ $border_color: #B8C4C8;
   }
 }
 
-@-webkit-keyframes flashing_dot {
-  @include flashing_dot;
+@include keyframes(flashing_dot) {
+  0% {
+    border-color: #FFF;
+    @include box-shadow(none);
+  }
+  50% {
+    border-color: #FE855B;
+    @include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #FE855B);
+  }
+  100% {
+    border-color: #FFF;
+    @include box-shadow(none);
+  }
 }
 
-@-moz-keyframes flashing_dot {
-  @include flashing_dot;
+@include keyframes(progressbar_stripes) {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
 }
 
-@-ms-keyframes flashing_dot {
-  @include flashing_dot;
-}
-
-@-o-keyframes flashing_dot {
-  @include flashing_dot;
-}
-
-@keyframes flashing_dot {
-  @include flashing_dot;
-}
-
-
-
-@-webkit-keyframes progressbar_stripes {
-  @include progressbar_stripes;
-}
-
-@-moz-keyframes progressbar_stripes {
-  @include progressbar_stripes;
-}
-
-@-ms-keyframes progressbar_stripes {
-  @include progressbar_stripes;
-}
-
-@-o-keyframes progressbar_stripes {
-  @include progressbar_stripes;
-}
-
-@keyframes progressbar_stripes {
-  @include progressbar_stripes;
-}
-
-
-
-@-webkit-keyframes spinning {
-  @include spinning;
-}
-
-@-moz-keyframes spinning {
-  @include spinning;
-}
-
-@-ms-keyframes spinning {
-  @include spinning;
-}
-
-@-o-keyframes spinning {
-  @include spinning;
-}
-
-@keyframes spinning {
-  @include spinning;
+@include keyframes(spinning) {
+  from {
+    @include transform(rotate(0deg));
+  }
+  to {
+    @include transform(rotate(360deg));
+  }
 }

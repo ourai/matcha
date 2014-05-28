@@ -28,17 +28,14 @@
   text-decoration: none !important;
   color: #888;
   background-color: #EBEBEB;
-  @include filter-gradient(#F8F8F8, #EBEBEB);
-  @include background-image(linear-gradient(#F8F8F8, #EBEBEB));
+  @include linear-gradient(#F8F8F8, #EBEBEB);
 
   &:hover {
-    @include filter-gradient(#F9F9F9, #F2F2F2);
-    @include background-image(linear-gradient(#F9F9F9, #F2F2F2));
+    @include linear-gradient(#F9F9F9, #F2F2F2);
   }
 
   &:active {
-    @include filter-gradient(#F2F2F2, #F9F9F9);
-    @include background-image(linear-gradient(#F2F2F2, #F9F9F9));
+    @include linear-gradient(#F2F2F2, #F9F9F9);
   }
 
   &[disabled] {

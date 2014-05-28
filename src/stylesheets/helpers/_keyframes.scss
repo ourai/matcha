@@ -1,63 +1,32 @@
-@-webkit-keyframes flashing_dot {
-  @include flashing_dot;
+@include keyframes(flashing_dot) {
+  0% {
+    border-color: #FFF;
+    @include box-shadow(none);
+  }
+  50% {
+    border-color: #FE855B;
+    @include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #FE855B);
+  }
+  100% {
+    border-color: #FFF;
+    @include box-shadow(none);
+  }
 }
 
-@-moz-keyframes flashing_dot {
-  @include flashing_dot;
+@include keyframes(progressbar_stripes) {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
 }
 
-@-ms-keyframes flashing_dot {
-  @include flashing_dot;
-}
-
-@-o-keyframes flashing_dot {
-  @include flashing_dot;
-}
-
-@keyframes flashing_dot {
-  @include flashing_dot;
-}
-
-
-
-@-webkit-keyframes progressbar_stripes {
-  @include progressbar_stripes;
-}
-
-@-moz-keyframes progressbar_stripes {
-  @include progressbar_stripes;
-}
-
-@-ms-keyframes progressbar_stripes {
-  @include progressbar_stripes;
-}
-
-@-o-keyframes progressbar_stripes {
-  @include progressbar_stripes;
-}
-
-@keyframes progressbar_stripes {
-  @include progressbar_stripes;
-}
-
-
-
-@-webkit-keyframes spinning {
-  @include spinning;
-}
-
-@-moz-keyframes spinning {
-  @include spinning;
-}
-
-@-ms-keyframes spinning {
-  @include spinning;
-}
-
-@-o-keyframes spinning {
-  @include spinning;
-}
-
-@keyframes spinning {
-  @include spinning;
+@include keyframes(spinning) {
+  from {
+    @include transform(rotate(0deg));
+  }
+  to {
+    @include transform(rotate(360deg));
+  }
 }
