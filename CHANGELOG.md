@@ -1,6 +1,6 @@
 # MATCHA CHANGELOG
 
-## 0.2.0 (2014-05-27)
+## 0.2.0 (2014-05-28)
 
 1.  Basic styles
 2.  Sass helpers
@@ -13,6 +13,9 @@
 4.  Layouts
     1.  Sandwich
     2.  Frameset
-5.  CSS fix
-    1.  Animation
+5.  CSS3-related
+    1.  animation
+    2.  keyframes
+    3.  user-select
+    4.  linear-gradient
     
