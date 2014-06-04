@@ -1,27 +1,27 @@
-/*
-  - One column -
+//   - One column -
 
-<body class="layout--sandwich">
-  <header class="layout-header">Header of page</header>
-  <main class="layout-container">
-    <div class="layout-content layout-inner">Content of page</div>
-  </main>
-  <footer class="layout-footer">Footer of page</footer>
-</body>
+// <body class="layout--sandwich">
+//   <header class="layout-header">Header of page</header>
+//   <main class="layout-container">
+//     <div class="layout-content layout-inner">Content of page</div>
+//   </main>
+//   <footer class="layout-footer">Footer of page</footer>
+// </body>
 
-  - Two columns -
+//   - Two columns -
 
-<body class="layout--sandwich">
-  <header class="layout-header">Header of page</header>
-  <main class="layout-container">
-    <div class="layout-content layout-inner">
-      <div class="layout-main">Main content</div>
-      <div class="layout-sub">Sub content</div>
-    </div>
-  </main>
-  <footer class="layout-footer">Footer of page</footer>
-</body>
-*/
+// <body class="layout--sandwich">
+//   <header class="layout-header">Header of page</header>
+//   <main class="layout-container">
+//     <div class="layout-content layout-inner">
+//       <div class="layout-main">Main content</div>
+//       <div class="layout-sub">Sub content</div>
+//     </div>
+//   </main>
+//   <footer class="layout-footer">Footer of page</footer>
+// </body>
+
+
 
 @mixin layout-sandwich(
     $page-width: 100%,
@@ -45,11 +45,6 @@
       margin-bottom: -($layout-header-height + 2px);
       background-color: #FFF;
       border-bottom: 2px solid #C5CFD2;
-
-      @media all and (min-width: 0) {
-        border-bottom: none;
-        box-shadow: 0 2px 0.5em -0.2em #666;
-      }
     }
 
     // Footer of page
@@ -104,6 +99,13 @@
     .layout-inner {
       max-width: $page-width;
       margin: 0 auto;
+    }
+  }
+
+  :root .layout--sandwich {
+    .layout-header {
+      border-bottom: none;
+      box-shadow: 0 2px 0.5em -0.2em #666;
     }
   }
 }
