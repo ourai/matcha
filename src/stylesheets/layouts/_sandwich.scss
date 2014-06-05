@@ -1,34 +1,7 @@
-//   - One column -
-
-// <body class="layout--sandwich">
-//   <header class="layout-header">Header of page</header>
-//   <main class="layout-container">
-//     <div class="layout-content layout-inner">Content of page</div>
-//   </main>
-//   <footer class="layout-footer">Footer of page</footer>
-// </body>
-
-//   - Two columns -
-
-// <body class="layout--sandwich">
-//   <header class="layout-header">Header of page</header>
-//   <main class="layout-container">
-//     <div class="layout-content layout-inner">
-//       <div class="layout-main">Main content</div>
-//       <div class="layout-sub">Sub content</div>
-//     </div>
-//   </main>
-//   <footer class="layout-footer">Footer of page</footer>
-// </body>
-
-
-
 @mixin layout-sandwich(
     $page-width: 100%,
     $layout-header-height: 50px,
-    $layout-footer-height: 60px,
-    $layout-main-width: percent(640px, 960px),
-    $layout-sub-width:  percent(300px, 960px)
+    $layout-footer-height: 60px
   ) {
   
   html,
@@ -42,18 +15,13 @@
       position: relative;
       z-index: 10;
       height: $layout-header-height;
-      margin-bottom: -($layout-header-height + 2px);
-      background-color: #FFF;
-      border-bottom: 2px solid #C5CFD2;
+      margin-bottom: -$layout-header-height;
     }
 
     // Footer of page
     .layout-footer {
       height: $layout-footer-height;
-      margin-top: -($layout-footer-height + 1px);
-      border-top: 1px solid #B8C4C8;
-      background-color: #B8C4C8;
-      color: #FFF;
+      margin-top: -$layout-footer-height;
     }
 
     .layout-container {
@@ -65,7 +33,7 @@
         display: block;
         position: relative;
         z-index: -999999999;
-        background: transparent none !important;
+        background: transparent none;
         visibility: hidden;
       }
 
@@ -76,29 +44,6 @@
       &:after {
         height: $layout-footer-height + 1px;
       }
-    }
-
-    .layout-content {
-      @include clearfix;
-    }
-
-    // Main content
-    .layout-main {
-      width: $layout-main-width;
-      float: left;
-    }
-    
-    // Sub content
-    .layout-sub {
-      width: $layout-sub-width;
-      float: right;
-    }
-
-    // To limit the width of content
-    // and make content center
-    .layout-inner {
-      max-width: $page-width;
-      margin: 0 auto;
     }
   }
 
