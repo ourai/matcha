@@ -1,5 +1,9 @@
 # MATCHA CHANGELOG
 
+## 0.2.1 (2014-06-05)
+
+1.  Sandwich 更加抽象化
+
 ## 0.2.0 (2014-05-28)
 
 1.  Basic styles
