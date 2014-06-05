@@ -1,3 +1,5 @@
+// An instance of Sticky Footer
+
 @mixin layout-sandwich(
     $page-width: 100%,
     $layout-header-height: 50px,
@@ -11,19 +13,21 @@
 
   .layout--sandwich {
     // Header of page
+    // <header class="layout-header"></header>
     .layout-header {
-      position: relative;
-      z-index: 10;
       height: $layout-header-height;
       margin-bottom: -$layout-header-height;
     }
 
     // Footer of page
+    // <footer class="layout-footer"></footer>
     .layout-footer {
       height: $layout-footer-height;
       margin-top: -$layout-footer-height;
     }
 
+    // Main area of page
+    // <main class="layout-container"></main>
     .layout-container {
       min-height: 100%;
 
@@ -37,20 +41,15 @@
         visibility: hidden;
       }
 
+      // Placeholder of page's header
       &:before {
-        height: $layout-header-height + 2px;
+        height: $layout-header-height;
       }
 
+      // Placeholder of page's footer
       &:after {
-        height: $layout-footer-height + 1px;
+        height: $layout-footer-height;
       }
-    }
-  }
-
-  :root .layout--sandwich {
-    .layout-header {
-      border-bottom: none;
-      box-shadow: 0 2px 0.5em -0.2em #666;
     }
   }
 }
