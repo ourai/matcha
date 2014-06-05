@@ -34,9 +34,9 @@ module.exports = ( grunt ) ->
     concat:
       helpers:
         src: [
-            "<%= meta.helpers %>/_enhancement.scss"
             "<%= meta.helpers %>/_variables.scss"
             "<%= meta.helpers %>/_functions.scss"
+            "<%= meta.helpers %>/_enhancement.scss"
             "<%= meta.helpers %>/_mixins.scss"
           ]
         dest: "<%= meta.dest_style %>/_helpers.scss"
