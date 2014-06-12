@@ -882,7 +882,7 @@ html[lang^="en"] tbody th {
 .Button {
   color: #888;
   border-color: #CBCBCB;
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF8F8F8', endColorstr='#FFEBEBEB');
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f8f8f8), color-stop(100%, #ebebeb));
@@ -891,7 +891,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f8f8f8, #ebebeb);
   background-image: linear-gradient(#f8f8f8, #ebebeb);
 }
-/* line 164, ../../../dest/stylesheets/_rules.scss */
+/* line 196, ../../../dest/stylesheets/_helpers.scss */
 .Button:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF9F9F9', endColorstr='#FFF2F2F2');
@@ -901,7 +901,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f9f9f9, #f2f2f2);
   background-image: linear-gradient(#f9f9f9, #f2f2f2);
 }
-/* line 168, ../../../dest/stylesheets/_rules.scss */
+/* line 200, ../../../dest/stylesheets/_helpers.scss */
 .Button:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF2F2F2', endColorstr='#FFF9F9F9');
@@ -912,11 +912,11 @@ html[lang^="en"] tbody th {
   background-image: linear-gradient(#f2f2f2, #f9f9f9);
 }
 
-/* line 173, ../../../dest/stylesheets/_rules.scss */
+/* line 164, ../../../dest/stylesheets/_rules.scss */
 .Button--info {
   color: #FFF;
   border-color: #4BAECC;
-  background-color: #3DCCF6;
+  background-color: #3dccf6;
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF5DC3E2', endColorstr='#FF4DBBDC');
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5dc3e2), color-stop(100%, #4dbbdc));
@@ -925,7 +925,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#5dc3e2, #4dbbdc);
   background-image: linear-gradient(#5dc3e2, #4dbbdc);
 }
-/* line 179, ../../../dest/stylesheets/_rules.scss */
+/* line 196, ../../../dest/stylesheets/_helpers.scss */
 .Button--info:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF6FCDE9', endColorstr='#FF60C5E3');
@@ -935,7 +935,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#6fcde9, #60c5e3);
   background-image: linear-gradient(#6fcde9, #60c5e3);
 }
-/* line 183, ../../../dest/stylesheets/_rules.scss */
+/* line 200, ../../../dest/stylesheets/_helpers.scss */
 .Button--info:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF60C5E3', endColorstr='#FF6FCDE9');
@@ -946,11 +946,11 @@ html[lang^="en"] tbody th {
   background-image: linear-gradient(#60c5e3, #6fcde9);
 }
 
-/* line 188, ../../../dest/stylesheets/_rules.scss */
+/* line 170, ../../../dest/stylesheets/_rules.scss */
 .Button--warning {
   color: #FFF;
   border-color: #EC6B3F;
-  background-color: #FB784B;
+  background-color: #fb784b;
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFE855B', endColorstr='#FFFB784B');
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fe855b), color-stop(100%, #fb784b));
@@ -959,7 +959,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#fe855b, #fb784b);
   background-image: linear-gradient(#fe855b, #fb784b);
 }
-/* line 194, ../../../dest/stylesheets/_rules.scss */
+/* line 196, ../../../dest/stylesheets/_helpers.scss */
 .Button--warning:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFF936E', endColorstr='#FFFB865E');
@@ -969,7 +969,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#ff936e, #fb865e);
   background-image: linear-gradient(#ff936e, #fb865e);
 }
-/* line 198, ../../../dest/stylesheets/_rules.scss */
+/* line 200, ../../../dest/stylesheets/_helpers.scss */
 .Button--warning:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFB865E', endColorstr='#FFFF936E');
@@ -980,7 +980,7 @@ html[lang^="en"] tbody th {
   background-image: linear-gradient(#fb865e, #ff936e);
 }
 
-/* line 204, ../../../dest/stylesheets/_rules.scss */
+/* line 177, ../../../dest/stylesheets/_rules.scss */
 .DropList {
   display: -moz-inline-stack;
   display: inline-block;
@@ -993,20 +993,20 @@ html[lang^="en"] tbody th {
   border-radius: 3px;
   background-color: #FFF;
 }
-/* line 212, ../../../dest/stylesheets/_rules.scss */
+/* line 185, ../../../dest/stylesheets/_rules.scss */
 .DropList:hover {
   border-radius: 3px 3px 0 0;
 }
-/* line 215, ../../../dest/stylesheets/_rules.scss */
+/* line 188, ../../../dest/stylesheets/_rules.scss */
 .DropList:hover .DropList-dropdown {
   display: block;
 }
-/* line 220, ../../../dest/stylesheets/_rules.scss */
+/* line 193, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-selected {
   position: relative;
   cursor: pointer;
 }
-/* line 224, ../../../dest/stylesheets/_rules.scss */
+/* line 197, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-selected:after {
   content: "\0020";
   position: absolute;
@@ -1019,7 +1019,7 @@ html[lang^="en"] tbody th {
   border-top-color: #A6A6A6;
   margin: -3px 4px 0 0;
 }
-/* line 238, ../../../dest/stylesheets/_rules.scss */
+/* line 211, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-selected .DropList-label {
   display: -moz-inline-stack;
   display: inline-block;
@@ -1029,7 +1029,7 @@ html[lang^="en"] tbody th {
   margin: 0 20px 0 9px;
   padding: 5px 0;
 }
-/* line 245, ../../../dest/stylesheets/_rules.scss */
+/* line 218, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-dropdown {
   display: none;
   position: absolute;
@@ -1043,7 +1043,7 @@ html[lang^="en"] tbody th {
   border-radius: 0 0 3px 3px;
   margin: 0 -1px;
 }
-/* line 258, ../../../dest/stylesheets/_rules.scss */
+/* line 231, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-dropdown .DropList-list {
   list-style: none outside none;
   max-height: 310px;
@@ -1051,7 +1051,7 @@ html[lang^="en"] tbody th {
   margin: 0 4px 4px 0;
   overflow: auto;
 }
-/* line 265, ../../../dest/stylesheets/_rules.scss */
+/* line 238, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-dropdown .DropList-list li {
   word-wrap: break-word;
   word-wrap: normal\0;
@@ -1061,28 +1061,28 @@ html[lang^="en"] tbody th {
   padding: 5px;
   cursor: pointer;
 }
-/* line 272, ../../../dest/stylesheets/_rules.scss */
+/* line 245, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-dropdown .DropList-list li:hover, .DropList .DropList-dropdown .DropList-list li.is-selected {
   background-color: #1385E5;
   color: #FFF;
 }
-/* line 278, ../../../dest/stylesheets/_rules.scss */
+/* line 251, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-dropdown .DropList-list:hover li.is-selected {
   background-color: transparent;
   color: inherit;
 }
-/* line 282, ../../../dest/stylesheets/_rules.scss */
+/* line 255, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-dropdown .DropList-list:hover li.is-selected:hover {
   background-color: #1385E5;
   color: #FFF;
 }
 
-/* line 291, ../../../dest/stylesheets/_rules.scss */
+/* line 264, ../../../dest/stylesheets/_rules.scss */
 .DropList--dummy {
   display: none;
 }
 
-/* line 301, ../../../dest/stylesheets/_rules.scss */
+/* line 274, ../../../dest/stylesheets/_rules.scss */
 .Score,
 .Score--small,
 .Score--selectable {
@@ -1090,7 +1090,7 @@ html[lang^="en"] tbody th {
   position: relative;
   background-repeat: repeat-x;
 }
-/* line 306, ../../../dest/stylesheets/_rules.scss */
+/* line 279, ../../../dest/stylesheets/_rules.scss */
 .Score .Score-level,
 .Score--small .Score-level,
 .Score--selectable .Score-level {
@@ -1104,17 +1104,17 @@ html[lang^="en"] tbody th {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/build/tests/images/transparent.gif?1401977015') repeat;
+  background: transparent url('/build/tests/images/transparent.gif?1401948975') repeat;
 }
 
-/* line 319, ../../../dest/stylesheets/_rules.scss */
+/* line 292, ../../../dest/stylesheets/_rules.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/build/tests/images/star.png?1401977015');
+  background-image: url('/build/tests/images/star.png?1401948975');
 }
 
-/* line 324, ../../../dest/stylesheets/_rules.scss */
+/* line 297, ../../../dest/stylesheets/_rules.scss */
 .Score,
 .Score--selectable {
   width: 80px;
@@ -1122,153 +1122,153 @@ html[lang^="en"] tbody th {
   background-position: 0 -16px;
 }
 
-/* line 331, ../../../dest/stylesheets/_rules.scss */
+/* line 304, ../../../dest/stylesheets/_rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/build/tests/images/ministar.png?1401977015');
+  background-image: url('/build/tests/images/ministar.png?1401948975');
 }
 
-/* line 335, ../../../dest/stylesheets/_rules.scss */
+/* line 308, ../../../dest/stylesheets/_rules.scss */
 .Score--small {
   width: 55px;
   height: 10px;
   background-position: 0 -10px;
 }
 
-/* line 343, ../../../dest/stylesheets/_rules.scss */
+/* line 316, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level {
   width: 16px;
   top: auto;
   left: auto;
 }
-/* line 348, ../../../dest/stylesheets/_rules.scss */
+/* line 321, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level:hover {
   left: 0;
   z-index: 2;
 }
-/* line 354, ../../../dest/stylesheets/_rules.scss */
+/* line 327, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/build/tests/images/star.png?1401977015') repeat-x !important;
+  background: url('/build/tests/images/star.png?1401948975') repeat-x !important;
 }
-/* line 358, ../../../dest/stylesheets/_rules.scss */
+/* line 331, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage {
   position: absolute;
   clip: rect(0 0 0 0);
   display: none;
 }
-/* line 367, ../../../dest/stylesheets/_rules.scss */
+/* line 340, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-1 {
   left: 0px;
 }
-/* line 370, ../../../dest/stylesheets/_rules.scss */
+/* line 343, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-1:hover {
   width: 16px;
 }
-/* line 375, ../../../dest/stylesheets/_rules.scss */
+/* line 348, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage-1:checked ~ .Score-level-1 {
   width: 16px;
 }
-/* line 379, ../../../dest/stylesheets/_rules.scss */
+/* line 352, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-1.is-selected {
   width: 16px;
 }
-/* line 367, ../../../dest/stylesheets/_rules.scss */
+/* line 340, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-2 {
   left: 16px;
 }
-/* line 370, ../../../dest/stylesheets/_rules.scss */
+/* line 343, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-2:hover {
   width: 32px;
 }
-/* line 375, ../../../dest/stylesheets/_rules.scss */
+/* line 348, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage-2:checked ~ .Score-level-2 {
   width: 32px;
 }
-/* line 379, ../../../dest/stylesheets/_rules.scss */
+/* line 352, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-2.is-selected {
   width: 32px;
 }
-/* line 367, ../../../dest/stylesheets/_rules.scss */
+/* line 340, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-3 {
   left: 32px;
 }
-/* line 370, ../../../dest/stylesheets/_rules.scss */
+/* line 343, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-3:hover {
   width: 48px;
 }
-/* line 375, ../../../dest/stylesheets/_rules.scss */
+/* line 348, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage-3:checked ~ .Score-level-3 {
   width: 48px;
 }
-/* line 379, ../../../dest/stylesheets/_rules.scss */
+/* line 352, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-3.is-selected {
   width: 48px;
 }
-/* line 367, ../../../dest/stylesheets/_rules.scss */
+/* line 340, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-4 {
   left: 48px;
 }
-/* line 370, ../../../dest/stylesheets/_rules.scss */
+/* line 343, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-4:hover {
   width: 64px;
 }
-/* line 375, ../../../dest/stylesheets/_rules.scss */
+/* line 348, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage-4:checked ~ .Score-level-4 {
   width: 64px;
 }
-/* line 379, ../../../dest/stylesheets/_rules.scss */
+/* line 352, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-4.is-selected {
   width: 64px;
 }
-/* line 367, ../../../dest/stylesheets/_rules.scss */
+/* line 340, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-5 {
   left: 64px;
 }
-/* line 370, ../../../dest/stylesheets/_rules.scss */
+/* line 343, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-5:hover {
   width: 80px;
 }
-/* line 375, ../../../dest/stylesheets/_rules.scss */
+/* line 348, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage-5:checked ~ .Score-level-5 {
   width: 80px;
 }
-/* line 379, ../../../dest/stylesheets/_rules.scss */
+/* line 352, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-5.is-selected {
   width: 80px;
 }
-/* line 384, ../../../dest/stylesheets/_rules.scss */
+/* line 357, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable:hover .Score-level {
   background-image: none;
 }
-/* line 388, ../../../dest/stylesheets/_rules.scss */
+/* line 361, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable label {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-/* line 396, ../../../dest/stylesheets/_rules.scss */
+/* line 369, ../../../dest/stylesheets/_rules.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/build/tests/images/star.png?1401977015') repeat-x;
+  background: url('/build/tests/images/star.png?1401948975') repeat-x;
   left: 0;
   z-index: 1;
 }
 
-/* line 402, ../../../dest/stylesheets/_rules.scss */
+/* line 375, ../../../dest/stylesheets/_rules.scss */
 .Score-level.is-selected {
-  background: url('/build/tests/images/star.png?1401977015') repeat-x;
+  background: url('/build/tests/images/star.png?1401948975') repeat-x;
   left: 0;
   z-index: 1;
 }
 
-/* line 412, ../../../dest/stylesheets/_rules.scss */
+/* line 385, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-triggers {
   overflow: hidden;
   position: relative;
   z-index: 2;
   margin-bottom: -1px;
 }
-/* line 419, ../../../dest/stylesheets/_rules.scss */
+/* line 392, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-trigger {
   display: -moz-inline-stack;
   display: inline-block;
@@ -1283,12 +1283,12 @@ html[lang^="en"] tbody th {
   margin-left: 1em;
   color: #666666;
 }
-/* line 429, ../../../dest/stylesheets/_rules.scss */
+/* line 402, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-trigger:hover {
   background-color: #E5E5E5;
   color: #888888;
 }
-/* line 438, ../../../dest/stylesheets/_rules.scss */
+/* line 411, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-trigger.is-selected {
   font-weight: bold;
   color: #333333;
@@ -1297,11 +1297,11 @@ html[lang^="en"] tbody th {
   border-bottom: 1px solid white;
   cursor: default;
 }
-/* line 448, ../../../dest/stylesheets/_rules.scss */
+/* line 421, ../../../dest/stylesheets/_rules.scss */
 .Tabs a.Tabs-trigger {
   text-decoration: none !important;
 }
-/* line 452, ../../../dest/stylesheets/_rules.scss */
+/* line 425, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-content {
   position: relative;
   z-index: 1;
@@ -1310,12 +1310,12 @@ html[lang^="en"] tbody th {
   background-color: white;
   padding: 1em;
 }
-/* line 460, ../../../dest/stylesheets/_rules.scss */
+/* line 433, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-content.is-selected {
   display: block;
 }
 
-/* line 466, ../../../dest/stylesheets/_rules.scss */
+/* line 439, ../../../dest/stylesheets/_rules.scss */
 .Uploader {
   position: relative;
   *zoom: 1;
@@ -1330,7 +1330,7 @@ html[lang^="en"] tbody th {
   clear: both;
 }
 
-/* line 472, ../../../dest/stylesheets/_rules.scss */
+/* line 445, ../../../dest/stylesheets/_rules.scss */
 .Uploader-button,
 .Uploader-file {
   height: 30px;
@@ -1343,7 +1343,7 @@ html[lang^="en"] tbody th {
   user-select: none;
 }
 
-/* line 484, ../../../dest/stylesheets/_rules.scss */
+/* line 457, ../../../dest/stylesheets/_rules.scss */
 .Uploader-button {
   position: relative;
   overflow: hidden;
@@ -1354,7 +1354,7 @@ html[lang^="en"] tbody th {
   cursor: pointer;
   text-decoration: none !important;
   color: #888;
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF8F8F8', endColorstr='#FFEBEBEB');
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f8f8f8), color-stop(100%, #ebebeb));
@@ -1363,7 +1363,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f8f8f8, #ebebeb);
   background-image: linear-gradient(#f8f8f8, #ebebeb);
 }
-/* line 498, ../../../dest/stylesheets/_rules.scss */
+/* line 196, ../../../dest/stylesheets/_helpers.scss */
 .Uploader-button:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF9F9F9', endColorstr='#FFF2F2F2');
@@ -1373,7 +1373,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f9f9f9, #f2f2f2);
   background-image: linear-gradient(#f9f9f9, #f2f2f2);
 }
-/* line 502, ../../../dest/stylesheets/_rules.scss */
+/* line 200, ../../../dest/stylesheets/_helpers.scss */
 .Uploader-button:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF2F2F2', endColorstr='#FFF9F9F9');
@@ -1383,7 +1383,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f2f2f2, #f9f9f9);
   background-image: linear-gradient(#f2f2f2, #f9f9f9);
 }
-/* line 506, ../../../dest/stylesheets/_rules.scss */
+/* line 470, ../../../dest/stylesheets/_rules.scss */
 .Uploader-button[disabled] {
   border-color: #B8C4C8 !important;
   background: #D8DEE0 none !important;
@@ -1391,7 +1391,7 @@ html[lang^="en"] tbody th {
   color: #A2ABAE !important;
   cursor: default;
 }
-/* line 514, ../../../dest/stylesheets/_rules.scss */
+/* line 478, ../../../dest/stylesheets/_rules.scss */
 .Uploader-button input[type="file"] {
   position: absolute;
   top: 0;
@@ -1404,7 +1404,7 @@ html[lang^="en"] tbody th {
   cursor: pointer;
 }
 
-/* line 525, ../../../dest/stylesheets/_rules.scss */
+/* line 489, ../../../dest/stylesheets/_rules.scss */
 .Uploader-file {
   overflow: hidden;
   white-space: nowrap;
@@ -1412,23 +1412,23 @@ html[lang^="en"] tbody th {
   text-overflow: ellipsis;
   cursor: default;
 }
-/* line 530, ../../../dest/stylesheets/_rules.scss */
+/* line 494, ../../../dest/stylesheets/_rules.scss */
 .Uploader-file span {
   cursor: default;
 }
 
-/* line 535, ../../../dest/stylesheets/_rules.scss */
+/* line 499, ../../../dest/stylesheets/_rules.scss */
 .Uploader-overlay--fullscreen {
   position: fixed;
 }
 
-/* line 540, ../../../dest/stylesheets/_rules.scss */
+/* line 504, ../../../dest/stylesheets/_rules.scss */
 .Uploader-overlay,
 .Uploader-background {
   position: absolute;
 }
 
-/* line 546, ../../../dest/stylesheets/_rules.scss */
+/* line 510, ../../../dest/stylesheets/_rules.scss */
 .Uploader-overlay,
 .Uploader-overlay--fullscreen,
 .Uploader-background {
@@ -1438,7 +1438,7 @@ html[lang^="en"] tbody th {
   left: 0;
 }
 
-/* line 554, ../../../dest/stylesheets/_rules.scss */
+/* line 518, ../../../dest/stylesheets/_rules.scss */
 .Uploader-overlay,
 .Uploader-overlay--fullscreen {
   display: none;
@@ -1459,7 +1459,7 @@ html[lang^="en"] tbody th {
   height: 100%;
 }
 
-/* line 561, ../../../dest/stylesheets/_rules.scss */
+/* line 525, ../../../dest/stylesheets/_rules.scss */
 .Uploader-background {
   z-index: -1;
   background-color: #000;
@@ -1467,7 +1467,7 @@ html[lang^="en"] tbody th {
   opacity: 0.3;
 }
 
-/* line 568, ../../../dest/stylesheets/_rules.scss */
+/* line 532, ../../../dest/stylesheets/_rules.scss */
 .Uploader-progress,
 .Uploader-bar {
   -webkit-border-radius: 2px;
@@ -1477,7 +1477,7 @@ html[lang^="en"] tbody th {
   border-radius: 2px;
 }
 
-/* line 572, ../../../dest/stylesheets/_rules.scss */
+/* line 536, ../../../dest/stylesheets/_rules.scss */
 .Uploader-progress {
   width: 80%;
   height: 20px;
@@ -1495,7 +1495,7 @@ html[lang^="en"] tbody th {
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* line 584, ../../../dest/stylesheets/_rules.scss */
+/* line 548, ../../../dest/stylesheets/_rules.scss */
 .Uploader-bar {
   width: 0;
   height: 100%;

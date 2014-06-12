@@ -123,3 +123,16 @@
     size: cover;
   }
 }
+
+@mixin gradient_button( $bg_color, $normal_start, $normal_end, $hover_start, $hover_end ) {
+  background-color: $bg_color;
+  @include linear-gradient($normal_start, $normal_end);
+
+  &:hover {
+    @include linear-gradient($hover_start, $hover_end);
+  }
+
+  &:active {
+    @include linear-gradient($hover_end, $hover_start);
+  }
+}

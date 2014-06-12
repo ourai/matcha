@@ -24,44 +24,17 @@
 .Button {
   color: #888;
   border-color: #CBCBCB;
-  background-color: #EBEBEB;
-  @include linear-gradient(#F8F8F8, #EBEBEB);
-
-  &:hover {
-    @include linear-gradient(#F9F9F9, #F2F2F2);
-  }
-
-  &:active {
-    @include linear-gradient(#F2F2F2, #F9F9F9);
-  }
+  @include gradient_button(#EBEBEB, #F8F8F8, #EBEBEB, #F9F9F9, #F2F2F2);
 }
 
 .Button--info {
   color: #FFF;
   border-color: #4BAECC;
-  background-color: #3DCCF6;
-  @include linear-gradient(#5DC3E2, #4DBBDC);
-
-  &:hover {
-    @include linear-gradient(#6FCDE9, #60C5E3);
-  }
-
-  &:active {
-    @include linear-gradient(#60C5E3, #6FCDE9);
-  }
+  @include gradient_button(#3DCCF6, #5DC3E2, #4DBBDC, #6FCDE9, #60C5E3);
 }
 
 .Button--warning {
   color: #FFF;
   border-color: #EC6B3F;
-  background-color: #FB784B;
-  @include linear-gradient(#FE855B, #FB784B);
-
-  &:hover {
-    @include linear-gradient(#FF936E, #FB865E);
-  }
-
-  &:active {
-    @include linear-gradient(#FB865E, #FF936E);
-  }
+  @include gradient_button(#FB784B, #FE855B, #FB784B, #FF936E, #FB865E);
 }
