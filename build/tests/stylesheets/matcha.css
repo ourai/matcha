@@ -473,47 +473,34 @@ p {
 code,
 pre {
   font-family: Monaco, Consolas, "Lucida Console", monospace;
-  color: #666666;
-  border: 1px solid #b8c4c8;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
 }
 
-/* line 41, ../../../dest/stylesheets/_rules.scss */
+/* line 38, ../../../dest/stylesheets/_rules.scss */
 pre,
 pre code {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
-/* line 46, ../../../dest/stylesheets/_rules.scss */
-code {
-  padding: 0 .3em;
-  margin: 0 .4em;
-  white-space: nowrap;
-}
-
-/* line 52, ../../../dest/stylesheets/_rules.scss */
+/* line 43, ../../../dest/stylesheets/_rules.scss */
 pre {
   padding: .75em;
-}
-/* line 55, ../../../dest/stylesheets/_rules.scss */
-pre code {
-  border: none;
-  margin: 0;
-  padding: 0;
+  border: 1px solid #b8c4c8;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  color: #666666;
 }
 
-/* line 62, ../../../dest/stylesheets/_rules.scss */
+/* line 51, ../../../dest/stylesheets/_rules.scss */
 html[lang^="en"] tbody th {
   text-transform: uppercase;
 }
 
 @-webkit-keyframes flashing_dot {
-  /* line 68, ../../../dest/stylesheets/_rules.scss */
+  /* line 57, ../../../dest/stylesheets/_rules.scss */
   0% {
     border-color: #FFF;
     -webkit-box-shadow: none;
@@ -521,7 +508,7 @@ html[lang^="en"] tbody th {
     box-shadow: none;
   }
 
-  /* line 72, ../../../dest/stylesheets/_rules.scss */
+  /* line 61, ../../../dest/stylesheets/_rules.scss */
   50% {
     border-color: #FE855B;
     -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
@@ -529,7 +516,7 @@ html[lang^="en"] tbody th {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
   }
 
-  /* line 76, ../../../dest/stylesheets/_rules.scss */
+  /* line 65, ../../../dest/stylesheets/_rules.scss */
   100% {
     border-color: #FFF;
     -webkit-box-shadow: none;
@@ -539,7 +526,7 @@ html[lang^="en"] tbody th {
 }
 
 @-moz-keyframes flashing_dot {
-  /* line 68, ../../../dest/stylesheets/_rules.scss */
+  /* line 57, ../../../dest/stylesheets/_rules.scss */
   0% {
     border-color: #FFF;
     -webkit-box-shadow: none;
@@ -547,7 +534,7 @@ html[lang^="en"] tbody th {
     box-shadow: none;
   }
 
-  /* line 72, ../../../dest/stylesheets/_rules.scss */
+  /* line 61, ../../../dest/stylesheets/_rules.scss */
   50% {
     border-color: #FE855B;
     -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
@@ -555,7 +542,7 @@ html[lang^="en"] tbody th {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
   }
 
-  /* line 76, ../../../dest/stylesheets/_rules.scss */
+  /* line 65, ../../../dest/stylesheets/_rules.scss */
   100% {
     border-color: #FFF;
     -webkit-box-shadow: none;
@@ -565,7 +552,7 @@ html[lang^="en"] tbody th {
 }
 
 @-ms-keyframes flashing_dot {
-  /* line 68, ../../../dest/stylesheets/_rules.scss */
+  /* line 57, ../../../dest/stylesheets/_rules.scss */
   0% {
     border-color: #FFF;
     -webkit-box-shadow: none;
@@ -573,7 +560,7 @@ html[lang^="en"] tbody th {
     box-shadow: none;
   }
 
-  /* line 72, ../../../dest/stylesheets/_rules.scss */
+  /* line 61, ../../../dest/stylesheets/_rules.scss */
   50% {
     border-color: #FE855B;
     -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
@@ -581,7 +568,7 @@ html[lang^="en"] tbody th {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
   }
 
-  /* line 76, ../../../dest/stylesheets/_rules.scss */
+  /* line 65, ../../../dest/stylesheets/_rules.scss */
   100% {
     border-color: #FFF;
     -webkit-box-shadow: none;
@@ -591,7 +578,7 @@ html[lang^="en"] tbody th {
 }
 
 @-o-keyframes flashing_dot {
-  /* line 68, ../../../dest/stylesheets/_rules.scss */
+  /* line 57, ../../../dest/stylesheets/_rules.scss */
   0% {
     border-color: #FFF;
     -webkit-box-shadow: none;
@@ -599,7 +586,7 @@ html[lang^="en"] tbody th {
     box-shadow: none;
   }
 
-  /* line 72, ../../../dest/stylesheets/_rules.scss */
+  /* line 61, ../../../dest/stylesheets/_rules.scss */
   50% {
     border-color: #FE855B;
     -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
@@ -607,7 +594,7 @@ html[lang^="en"] tbody th {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
   }
 
-  /* line 76, ../../../dest/stylesheets/_rules.scss */
+  /* line 65, ../../../dest/stylesheets/_rules.scss */
   100% {
     border-color: #FFF;
     -webkit-box-shadow: none;
@@ -617,7 +604,7 @@ html[lang^="en"] tbody th {
 }
 
 @keyframes flashing_dot {
-  /* line 68, ../../../dest/stylesheets/_rules.scss */
+  /* line 57, ../../../dest/stylesheets/_rules.scss */
   0% {
     border-color: #FFF;
     -webkit-box-shadow: none;
@@ -625,7 +612,7 @@ html[lang^="en"] tbody th {
     box-shadow: none;
   }
 
-  /* line 72, ../../../dest/stylesheets/_rules.scss */
+  /* line 61, ../../../dest/stylesheets/_rules.scss */
   50% {
     border-color: #FE855B;
     -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
@@ -633,7 +620,7 @@ html[lang^="en"] tbody th {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 2px #fe855b;
   }
 
-  /* line 76, ../../../dest/stylesheets/_rules.scss */
+  /* line 65, ../../../dest/stylesheets/_rules.scss */
   100% {
     border-color: #FFF;
     -webkit-box-shadow: none;
@@ -643,67 +630,67 @@ html[lang^="en"] tbody th {
 }
 
 @-webkit-keyframes progressbar_stripes {
-  /* line 83, ../../../dest/stylesheets/_rules.scss */
+  /* line 72, ../../../dest/stylesheets/_rules.scss */
   from {
     background-position: 40px 0;
   }
 
-  /* line 86, ../../../dest/stylesheets/_rules.scss */
+  /* line 75, ../../../dest/stylesheets/_rules.scss */
   to {
     background-position: 0 0;
   }
 }
 
 @-moz-keyframes progressbar_stripes {
-  /* line 83, ../../../dest/stylesheets/_rules.scss */
+  /* line 72, ../../../dest/stylesheets/_rules.scss */
   from {
     background-position: 40px 0;
   }
 
-  /* line 86, ../../../dest/stylesheets/_rules.scss */
+  /* line 75, ../../../dest/stylesheets/_rules.scss */
   to {
     background-position: 0 0;
   }
 }
 
 @-ms-keyframes progressbar_stripes {
-  /* line 83, ../../../dest/stylesheets/_rules.scss */
+  /* line 72, ../../../dest/stylesheets/_rules.scss */
   from {
     background-position: 40px 0;
   }
 
-  /* line 86, ../../../dest/stylesheets/_rules.scss */
+  /* line 75, ../../../dest/stylesheets/_rules.scss */
   to {
     background-position: 0 0;
   }
 }
 
 @-o-keyframes progressbar_stripes {
-  /* line 83, ../../../dest/stylesheets/_rules.scss */
+  /* line 72, ../../../dest/stylesheets/_rules.scss */
   from {
     background-position: 40px 0;
   }
 
-  /* line 86, ../../../dest/stylesheets/_rules.scss */
+  /* line 75, ../../../dest/stylesheets/_rules.scss */
   to {
     background-position: 0 0;
   }
 }
 
 @keyframes progressbar_stripes {
-  /* line 83, ../../../dest/stylesheets/_rules.scss */
+  /* line 72, ../../../dest/stylesheets/_rules.scss */
   from {
     background-position: 40px 0;
   }
 
-  /* line 86, ../../../dest/stylesheets/_rules.scss */
+  /* line 75, ../../../dest/stylesheets/_rules.scss */
   to {
     background-position: 0 0;
   }
 }
 
 @-webkit-keyframes spinning {
-  /* line 92, ../../../dest/stylesheets/_rules.scss */
+  /* line 81, ../../../dest/stylesheets/_rules.scss */
   from {
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -712,7 +699,7 @@ html[lang^="en"] tbody th {
     transform: rotate(0deg);
   }
 
-  /* line 95, ../../../dest/stylesheets/_rules.scss */
+  /* line 84, ../../../dest/stylesheets/_rules.scss */
   to {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -723,7 +710,7 @@ html[lang^="en"] tbody th {
 }
 
 @-moz-keyframes spinning {
-  /* line 92, ../../../dest/stylesheets/_rules.scss */
+  /* line 81, ../../../dest/stylesheets/_rules.scss */
   from {
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -732,7 +719,7 @@ html[lang^="en"] tbody th {
     transform: rotate(0deg);
   }
 
-  /* line 95, ../../../dest/stylesheets/_rules.scss */
+  /* line 84, ../../../dest/stylesheets/_rules.scss */
   to {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -743,7 +730,7 @@ html[lang^="en"] tbody th {
 }
 
 @-ms-keyframes spinning {
-  /* line 92, ../../../dest/stylesheets/_rules.scss */
+  /* line 81, ../../../dest/stylesheets/_rules.scss */
   from {
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -752,7 +739,7 @@ html[lang^="en"] tbody th {
     transform: rotate(0deg);
   }
 
-  /* line 95, ../../../dest/stylesheets/_rules.scss */
+  /* line 84, ../../../dest/stylesheets/_rules.scss */
   to {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -763,7 +750,7 @@ html[lang^="en"] tbody th {
 }
 
 @-o-keyframes spinning {
-  /* line 92, ../../../dest/stylesheets/_rules.scss */
+  /* line 81, ../../../dest/stylesheets/_rules.scss */
   from {
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -772,7 +759,7 @@ html[lang^="en"] tbody th {
     transform: rotate(0deg);
   }
 
-  /* line 95, ../../../dest/stylesheets/_rules.scss */
+  /* line 84, ../../../dest/stylesheets/_rules.scss */
   to {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -783,7 +770,7 @@ html[lang^="en"] tbody th {
 }
 
 @keyframes spinning {
-  /* line 92, ../../../dest/stylesheets/_rules.scss */
+  /* line 81, ../../../dest/stylesheets/_rules.scss */
   from {
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -792,7 +779,7 @@ html[lang^="en"] tbody th {
     transform: rotate(0deg);
   }
 
-  /* line 95, ../../../dest/stylesheets/_rules.scss */
+  /* line 84, ../../../dest/stylesheets/_rules.scss */
   to {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -802,19 +789,19 @@ html[lang^="en"] tbody th {
   }
 }
 
-/* line 101, ../../../dest/stylesheets/_rules.scss */
+/* line 90, ../../../dest/stylesheets/_rules.scss */
 .u-coveredBgImage {
   position: relative;
   z-index: 10;
 }
 
-/* line 107, ../../../dest/stylesheets/_rules.scss */
+/* line 96, ../../../dest/stylesheets/_rules.scss */
 .u-coveredBgImage-altWrapper,
 .u-coveredBgImage-alternate {
   position: absolute;
 }
 
-/* line 111, ../../../dest/stylesheets/_rules.scss */
+/* line 100, ../../../dest/stylesheets/_rules.scss */
 .u-coveredBgImage-altWrapper {
   width: 100%;
   height: 100%;
@@ -825,24 +812,24 @@ html[lang^="en"] tbody th {
   text-align: center;
 }
 
-/* line 120, ../../../dest/stylesheets/_rules.scss */
+/* line 109, ../../../dest/stylesheets/_rules.scss */
 .u-coveredBgImage-alternate {
   min-height: 100%;
   vertical-align: middle;
 }
 
-/* line 126, ../../../dest/stylesheets/_rules.scss */
+/* line 115, ../../../dest/stylesheets/_rules.scss */
 :root .u-coveredBgImage {
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
 }
-/* line 130, ../../../dest/stylesheets/_rules.scss */
+/* line 119, ../../../dest/stylesheets/_rules.scss */
 :root .u-coveredBgImage-altWrapper {
   display: none;
 }
 
-/* line 139, ../../../dest/stylesheets/_rules.scss */
+/* line 128, ../../../dest/stylesheets/_rules.scss */
 .Button,
 .Button--info,
 .Button--warning {
@@ -867,7 +854,7 @@ html[lang^="en"] tbody th {
   cursor: pointer;
   text-decoration: none !important;
 }
-/* line 149, ../../../dest/stylesheets/_rules.scss */
+/* line 138, ../../../dest/stylesheets/_rules.scss */
 .Button[disabled],
 .Button--info[disabled],
 .Button--warning[disabled] {
@@ -878,7 +865,7 @@ html[lang^="en"] tbody th {
   cursor: default;
 }
 
-/* line 158, ../../../dest/stylesheets/_rules.scss */
+/* line 147, ../../../dest/stylesheets/_rules.scss */
 .Button {
   color: #888;
   border-color: #CBCBCB;
@@ -912,7 +899,7 @@ html[lang^="en"] tbody th {
   background-image: linear-gradient(#f2f2f2, #f9f9f9);
 }
 
-/* line 164, ../../../dest/stylesheets/_rules.scss */
+/* line 153, ../../../dest/stylesheets/_rules.scss */
 .Button--info {
   color: #FFF;
   border-color: #4BAECC;
@@ -946,7 +933,7 @@ html[lang^="en"] tbody th {
   background-image: linear-gradient(#60c5e3, #6fcde9);
 }
 
-/* line 170, ../../../dest/stylesheets/_rules.scss */
+/* line 159, ../../../dest/stylesheets/_rules.scss */
 .Button--warning {
   color: #FFF;
   border-color: #EC6B3F;
@@ -980,7 +967,7 @@ html[lang^="en"] tbody th {
   background-image: linear-gradient(#fb865e, #ff936e);
 }
 
-/* line 177, ../../../dest/stylesheets/_rules.scss */
+/* line 166, ../../../dest/stylesheets/_rules.scss */
 .DropList {
   display: -moz-inline-stack;
   display: inline-block;
@@ -993,20 +980,20 @@ html[lang^="en"] tbody th {
   border-radius: 3px;
   background-color: #FFF;
 }
-/* line 185, ../../../dest/stylesheets/_rules.scss */
+/* line 174, ../../../dest/stylesheets/_rules.scss */
 .DropList:hover {
   border-radius: 3px 3px 0 0;
 }
-/* line 188, ../../../dest/stylesheets/_rules.scss */
+/* line 177, ../../../dest/stylesheets/_rules.scss */
 .DropList:hover .DropList-dropdown {
   display: block;
 }
-/* line 193, ../../../dest/stylesheets/_rules.scss */
+/* line 182, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-selected {
   position: relative;
   cursor: pointer;
 }
-/* line 197, ../../../dest/stylesheets/_rules.scss */
+/* line 186, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-selected:after {
   content: "\0020";
   position: absolute;
@@ -1019,7 +1006,7 @@ html[lang^="en"] tbody th {
   border-top-color: #A6A6A6;
   margin: -3px 4px 0 0;
 }
-/* line 211, ../../../dest/stylesheets/_rules.scss */
+/* line 200, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-selected .DropList-label {
   display: -moz-inline-stack;
   display: inline-block;
@@ -1029,7 +1016,7 @@ html[lang^="en"] tbody th {
   margin: 0 20px 0 9px;
   padding: 5px 0;
 }
-/* line 218, ../../../dest/stylesheets/_rules.scss */
+/* line 207, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-dropdown {
   display: none;
   position: absolute;
@@ -1043,7 +1030,7 @@ html[lang^="en"] tbody th {
   border-radius: 0 0 3px 3px;
   margin: 0 -1px;
 }
-/* line 231, ../../../dest/stylesheets/_rules.scss */
+/* line 220, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-dropdown .DropList-list {
   list-style: none outside none;
   max-height: 310px;
@@ -1051,7 +1038,7 @@ html[lang^="en"] tbody th {
   margin: 0 4px 4px 0;
   overflow: auto;
 }
-/* line 238, ../../../dest/stylesheets/_rules.scss */
+/* line 227, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-dropdown .DropList-list li {
   word-wrap: break-word;
   word-wrap: normal\0;
@@ -1061,28 +1048,28 @@ html[lang^="en"] tbody th {
   padding: 5px;
   cursor: pointer;
 }
-/* line 245, ../../../dest/stylesheets/_rules.scss */
+/* line 234, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-dropdown .DropList-list li:hover, .DropList .DropList-dropdown .DropList-list li.is-selected {
   background-color: #1385E5;
   color: #FFF;
 }
-/* line 251, ../../../dest/stylesheets/_rules.scss */
+/* line 240, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-dropdown .DropList-list:hover li.is-selected {
   background-color: transparent;
   color: inherit;
 }
-/* line 255, ../../../dest/stylesheets/_rules.scss */
+/* line 244, ../../../dest/stylesheets/_rules.scss */
 .DropList .DropList-dropdown .DropList-list:hover li.is-selected:hover {
   background-color: #1385E5;
   color: #FFF;
 }
 
-/* line 264, ../../../dest/stylesheets/_rules.scss */
+/* line 253, ../../../dest/stylesheets/_rules.scss */
 .DropList--dummy {
   display: none;
 }
 
-/* line 274, ../../../dest/stylesheets/_rules.scss */
+/* line 263, ../../../dest/stylesheets/_rules.scss */
 .Score,
 .Score--small,
 .Score--selectable {
@@ -1090,7 +1077,7 @@ html[lang^="en"] tbody th {
   position: relative;
   background-repeat: repeat-x;
 }
-/* line 279, ../../../dest/stylesheets/_rules.scss */
+/* line 268, ../../../dest/stylesheets/_rules.scss */
 .Score .Score-level,
 .Score--small .Score-level,
 .Score--selectable .Score-level {
@@ -1104,17 +1091,17 @@ html[lang^="en"] tbody th {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/build/tests/images/transparent.gif?1401948975') repeat;
+  background: transparent url('/build/tests/images/transparent.gif?1403056720') repeat;
 }
 
-/* line 292, ../../../dest/stylesheets/_rules.scss */
+/* line 281, ../../../dest/stylesheets/_rules.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/build/tests/images/star.png?1401948975');
+  background-image: url('/build/tests/images/star.png?1403056720');
 }
 
-/* line 297, ../../../dest/stylesheets/_rules.scss */
+/* line 286, ../../../dest/stylesheets/_rules.scss */
 .Score,
 .Score--selectable {
   width: 80px;
@@ -1122,153 +1109,153 @@ html[lang^="en"] tbody th {
   background-position: 0 -16px;
 }
 
-/* line 304, ../../../dest/stylesheets/_rules.scss */
+/* line 293, ../../../dest/stylesheets/_rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/build/tests/images/ministar.png?1401948975');
+  background-image: url('/build/tests/images/ministar.png?1403056720');
 }
 
-/* line 308, ../../../dest/stylesheets/_rules.scss */
+/* line 297, ../../../dest/stylesheets/_rules.scss */
 .Score--small {
   width: 55px;
   height: 10px;
   background-position: 0 -10px;
 }
 
-/* line 316, ../../../dest/stylesheets/_rules.scss */
+/* line 305, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level {
   width: 16px;
   top: auto;
   left: auto;
 }
-/* line 321, ../../../dest/stylesheets/_rules.scss */
+/* line 310, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level:hover {
   left: 0;
   z-index: 2;
 }
-/* line 327, ../../../dest/stylesheets/_rules.scss */
+/* line 316, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/build/tests/images/star.png?1401948975') repeat-x !important;
+  background: url('/build/tests/images/star.png?1403056720') repeat-x !important;
 }
-/* line 331, ../../../dest/stylesheets/_rules.scss */
+/* line 320, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage {
   position: absolute;
   clip: rect(0 0 0 0);
   display: none;
 }
-/* line 340, ../../../dest/stylesheets/_rules.scss */
+/* line 329, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-1 {
   left: 0px;
 }
-/* line 343, ../../../dest/stylesheets/_rules.scss */
+/* line 332, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-1:hover {
   width: 16px;
 }
-/* line 348, ../../../dest/stylesheets/_rules.scss */
+/* line 337, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage-1:checked ~ .Score-level-1 {
   width: 16px;
 }
-/* line 352, ../../../dest/stylesheets/_rules.scss */
+/* line 341, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-1.is-selected {
   width: 16px;
 }
-/* line 340, ../../../dest/stylesheets/_rules.scss */
+/* line 329, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-2 {
   left: 16px;
 }
-/* line 343, ../../../dest/stylesheets/_rules.scss */
+/* line 332, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-2:hover {
   width: 32px;
 }
-/* line 348, ../../../dest/stylesheets/_rules.scss */
+/* line 337, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage-2:checked ~ .Score-level-2 {
   width: 32px;
 }
-/* line 352, ../../../dest/stylesheets/_rules.scss */
+/* line 341, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-2.is-selected {
   width: 32px;
 }
-/* line 340, ../../../dest/stylesheets/_rules.scss */
+/* line 329, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-3 {
   left: 32px;
 }
-/* line 343, ../../../dest/stylesheets/_rules.scss */
+/* line 332, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-3:hover {
   width: 48px;
 }
-/* line 348, ../../../dest/stylesheets/_rules.scss */
+/* line 337, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage-3:checked ~ .Score-level-3 {
   width: 48px;
 }
-/* line 352, ../../../dest/stylesheets/_rules.scss */
+/* line 341, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-3.is-selected {
   width: 48px;
 }
-/* line 340, ../../../dest/stylesheets/_rules.scss */
+/* line 329, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-4 {
   left: 48px;
 }
-/* line 343, ../../../dest/stylesheets/_rules.scss */
+/* line 332, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-4:hover {
   width: 64px;
 }
-/* line 348, ../../../dest/stylesheets/_rules.scss */
+/* line 337, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage-4:checked ~ .Score-level-4 {
   width: 64px;
 }
-/* line 352, ../../../dest/stylesheets/_rules.scss */
+/* line 341, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-4.is-selected {
   width: 64px;
 }
-/* line 340, ../../../dest/stylesheets/_rules.scss */
+/* line 329, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-5 {
   left: 64px;
 }
-/* line 343, ../../../dest/stylesheets/_rules.scss */
+/* line 332, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-5:hover {
   width: 80px;
 }
-/* line 348, ../../../dest/stylesheets/_rules.scss */
+/* line 337, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage-5:checked ~ .Score-level-5 {
   width: 80px;
 }
-/* line 352, ../../../dest/stylesheets/_rules.scss */
+/* line 341, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level-5.is-selected {
   width: 80px;
 }
-/* line 357, ../../../dest/stylesheets/_rules.scss */
+/* line 346, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable:hover .Score-level {
   background-image: none;
 }
-/* line 361, ../../../dest/stylesheets/_rules.scss */
+/* line 350, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable label {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-/* line 369, ../../../dest/stylesheets/_rules.scss */
+/* line 358, ../../../dest/stylesheets/_rules.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/build/tests/images/star.png?1401948975') repeat-x;
+  background: url('/build/tests/images/star.png?1403056720') repeat-x;
   left: 0;
   z-index: 1;
 }
 
-/* line 375, ../../../dest/stylesheets/_rules.scss */
+/* line 364, ../../../dest/stylesheets/_rules.scss */
 .Score-level.is-selected {
-  background: url('/build/tests/images/star.png?1401948975') repeat-x;
+  background: url('/build/tests/images/star.png?1403056720') repeat-x;
   left: 0;
   z-index: 1;
 }
 
-/* line 385, ../../../dest/stylesheets/_rules.scss */
+/* line 374, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-triggers {
   overflow: hidden;
   position: relative;
   z-index: 2;
   margin-bottom: -1px;
 }
-/* line 392, ../../../dest/stylesheets/_rules.scss */
+/* line 381, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-trigger {
   display: -moz-inline-stack;
   display: inline-block;
@@ -1283,12 +1270,12 @@ html[lang^="en"] tbody th {
   margin-left: 1em;
   color: #666666;
 }
-/* line 402, ../../../dest/stylesheets/_rules.scss */
+/* line 391, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-trigger:hover {
   background-color: #E5E5E5;
   color: #888888;
 }
-/* line 411, ../../../dest/stylesheets/_rules.scss */
+/* line 400, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-trigger.is-selected {
   font-weight: bold;
   color: #333333;
@@ -1297,11 +1284,11 @@ html[lang^="en"] tbody th {
   border-bottom: 1px solid white;
   cursor: default;
 }
-/* line 421, ../../../dest/stylesheets/_rules.scss */
+/* line 410, ../../../dest/stylesheets/_rules.scss */
 .Tabs a.Tabs-trigger {
   text-decoration: none !important;
 }
-/* line 425, ../../../dest/stylesheets/_rules.scss */
+/* line 414, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-content {
   position: relative;
   z-index: 1;
@@ -1310,12 +1297,12 @@ html[lang^="en"] tbody th {
   background-color: white;
   padding: 1em;
 }
-/* line 433, ../../../dest/stylesheets/_rules.scss */
+/* line 422, ../../../dest/stylesheets/_rules.scss */
 .Tabs .Tabs-content.is-selected {
   display: block;
 }
 
-/* line 439, ../../../dest/stylesheets/_rules.scss */
+/* line 428, ../../../dest/stylesheets/_rules.scss */
 .Uploader {
   position: relative;
   *zoom: 1;
@@ -1330,7 +1317,7 @@ html[lang^="en"] tbody th {
   clear: both;
 }
 
-/* line 445, ../../../dest/stylesheets/_rules.scss */
+/* line 434, ../../../dest/stylesheets/_rules.scss */
 .Uploader-button,
 .Uploader-file {
   height: 30px;
@@ -1343,7 +1330,7 @@ html[lang^="en"] tbody th {
   user-select: none;
 }
 
-/* line 457, ../../../dest/stylesheets/_rules.scss */
+/* line 446, ../../../dest/stylesheets/_rules.scss */
 .Uploader-button {
   position: relative;
   overflow: hidden;
@@ -1383,7 +1370,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f2f2f2, #f9f9f9);
   background-image: linear-gradient(#f2f2f2, #f9f9f9);
 }
-/* line 470, ../../../dest/stylesheets/_rules.scss */
+/* line 459, ../../../dest/stylesheets/_rules.scss */
 .Uploader-button[disabled] {
   border-color: #B8C4C8 !important;
   background: #D8DEE0 none !important;
@@ -1391,7 +1378,7 @@ html[lang^="en"] tbody th {
   color: #A2ABAE !important;
   cursor: default;
 }
-/* line 478, ../../../dest/stylesheets/_rules.scss */
+/* line 467, ../../../dest/stylesheets/_rules.scss */
 .Uploader-button input[type="file"] {
   position: absolute;
   top: 0;
@@ -1404,7 +1391,7 @@ html[lang^="en"] tbody th {
   cursor: pointer;
 }
 
-/* line 489, ../../../dest/stylesheets/_rules.scss */
+/* line 478, ../../../dest/stylesheets/_rules.scss */
 .Uploader-file {
   overflow: hidden;
   white-space: nowrap;
@@ -1412,23 +1399,23 @@ html[lang^="en"] tbody th {
   text-overflow: ellipsis;
   cursor: default;
 }
-/* line 494, ../../../dest/stylesheets/_rules.scss */
+/* line 483, ../../../dest/stylesheets/_rules.scss */
 .Uploader-file span {
   cursor: default;
 }
 
-/* line 499, ../../../dest/stylesheets/_rules.scss */
+/* line 488, ../../../dest/stylesheets/_rules.scss */
 .Uploader-overlay--fullscreen {
   position: fixed;
 }
 
-/* line 504, ../../../dest/stylesheets/_rules.scss */
+/* line 493, ../../../dest/stylesheets/_rules.scss */
 .Uploader-overlay,
 .Uploader-background {
   position: absolute;
 }
 
-/* line 510, ../../../dest/stylesheets/_rules.scss */
+/* line 499, ../../../dest/stylesheets/_rules.scss */
 .Uploader-overlay,
 .Uploader-overlay--fullscreen,
 .Uploader-background {
@@ -1438,7 +1425,7 @@ html[lang^="en"] tbody th {
   left: 0;
 }
 
-/* line 518, ../../../dest/stylesheets/_rules.scss */
+/* line 507, ../../../dest/stylesheets/_rules.scss */
 .Uploader-overlay,
 .Uploader-overlay--fullscreen {
   display: none;
@@ -1459,7 +1446,7 @@ html[lang^="en"] tbody th {
   height: 100%;
 }
 
-/* line 525, ../../../dest/stylesheets/_rules.scss */
+/* line 514, ../../../dest/stylesheets/_rules.scss */
 .Uploader-background {
   z-index: -1;
   background-color: #000;
@@ -1467,7 +1454,7 @@ html[lang^="en"] tbody th {
   opacity: 0.3;
 }
 
-/* line 532, ../../../dest/stylesheets/_rules.scss */
+/* line 521, ../../../dest/stylesheets/_rules.scss */
 .Uploader-progress,
 .Uploader-bar {
   -webkit-border-radius: 2px;
@@ -1477,7 +1464,7 @@ html[lang^="en"] tbody th {
   border-radius: 2px;
 }
 
-/* line 536, ../../../dest/stylesheets/_rules.scss */
+/* line 525, ../../../dest/stylesheets/_rules.scss */
 .Uploader-progress {
   width: 80%;
   height: 20px;
@@ -1495,7 +1482,7 @@ html[lang^="en"] tbody th {
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* line 548, ../../../dest/stylesheets/_rules.scss */
+/* line 537, ../../../dest/stylesheets/_rules.scss */
 .Uploader-bar {
   width: 0;
   height: 100%;
