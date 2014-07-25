@@ -21,3 +21,36 @@ fieldset .Tabs {
 fieldset .Tabs:first-child {
   margin-top: 0;
 }
+
+/* line 24, test.scss */
+.color,
+.color--opacity,
+.color--transparent,
+.color--opaque {
+  margin-bottom: 20px;
+  width: 150px;
+  height: 150px;
+  background-color: lime;
+  border: 1px solid #EEE;
+}
+
+/* line 31, test.scss */
+.color--opacity {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  *filter: alpha(opacity=50);
+}
+
+/* line 35, test.scss */
+.color--opaque {
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  *filter: alpha(opacity=100);
+}
+
+/* line 39, test.scss */
+.color--transparent {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  *filter: alpha(opacity=0);
+}

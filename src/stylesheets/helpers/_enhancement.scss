@@ -38,3 +38,24 @@
   @include filter-gradient($from, $to);
   @include background-image(linear-gradient($from, $to));
 }
+
+// Overwrite default opacity mixin defined in compass
+@mixin opacity( $opacity ) {
+  opacity: $opacity;
+
+  $alpha_opacity: #{round($opacity * 100)};
+
+  @if $legacy-support-for-ie8 {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$alpha_opacity})";
+  }
+
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *filter: alpha(opacity=$alpha_opacity);
+  }
+
+//  @at-root {
+//   :root {
+//      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Enabled=false)";
+//    }
+//  }
+}

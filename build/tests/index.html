@@ -1,104 +1,114 @@
 <!DOCTYPE html>
 <html>
-  <meta charset="UTF-8">
-  <title>Test</title>
-  <link rel="stylesheet" href="./stylesheets/matcha.css">
-  <link rel="stylesheet" href="./matcha_fix.css">
-  <link rel="stylesheet" href="./test.css">
-  <script src="./jquery.min.js"></script>
-  <script src="./test.js"></script>
-  <script src="./javascripts/matcha.js"></script>
-  <!-- Dropdown List -->
-  <fieldset>
-    <legend>Covered Background Image</legend>
-    <div class="u-coveredBgImage" style="width: 300px; height: 100px; background-image: url('images/jojo.jpg');">
-      <div class="u-coveredBgImage-altWrapper"><img class="u-coveredBgImage-alternate" src="images/jojo.jpg"></div>
-    </div>
-  </fieldset>
-  <!-- Dropdown List -->
-  <fieldset>
-    <legend>Dropdown List</legend>
-    <select class="DropList">
-      <option value="Chinese">Chinese</option>
-      <option value="Japanese">Japanese</option>
-      <option value="Korean">Korean</option>
-      <option value="Hindi">Hindi</option>
-      <option value="English">English</option>
-      <option value="Italian" selected>Italian</option>
-      <option value="French">French</option>
-      <option value="Spanish">Spanish</option>
-      <option value="Welsh">Welsh</option>
-      <option value="Urdu">Urdu</option>
-      <option value="Vietnamese">Vietnamese</option>
-      <option value="Malay">Malay</option>
-    </select>
-  </fieldset>
-  <!-- Score -->
-  <fieldset>
-    <legend>Levels of evaluation</legend>
-    <div class="Score--selectable" data-highest="5"></div>
-    <div class="Score--selectable" data-highest="4"></div>
-  </fieldset>
-  <!-- Tabs -->
-  <fieldset>
-    <legend>Tabs</legend>
-    <div class="Tabs">
-      <div class="Tabs-triggers">
-        <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-1">Tab-1</a>
-        <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-2">Tab-2</a>
-        <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-3">Tab-3</a>
+  <head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="./stylesheets/matcha.css">
+    <link rel="stylesheet" href="./matcha_fix.css">
+    <link rel="stylesheet" href="./test.css">
+    <script src="./jquery.min.js"></script>
+    <script src="./test.js"></script>
+    <script src="./javascripts/matcha.js"></script>
+  </head>
+  <body>
+    <fieldset>
+      <div class="color"></div>
+      <div class="color--transparent"></div>
+      <div class="color--opaque"></div>
+      <div class="color--opacity"></div>
+    </fieldset>
+    <!-- Dropdown List -->
+    <fieldset>
+      <legend>Covered Background Image</legend>
+      <div class="u-coveredBgImage" style="width: 300px; height: 100px; background-image: url('images/jojo.jpg');">
+        <div class="u-coveredBgImage-altWrapper"><img class="u-coveredBgImage-alternate" src="images/jojo.jpg"></div>
       </div>
-      <div class="Tabs-content" data-flag="tab-1">
-        <h3>Tab-1's content</h3>
-        <!--
-        <div class="Tabs" data-setdefault="false">
-          <div class="Tabs-triggers">
-            <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-1">Tab-1</a>
-            <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-2">Tab-2</a>
-            <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-3">Tab-3</a>
+    </fieldset>
+    <!-- Dropdown List -->
+    <fieldset>
+      <legend>Dropdown List</legend>
+      <select class="DropList">
+        <option value="Chinese">Chinese</option>
+        <option value="Japanese">Japanese</option>
+        <option value="Korean">Korean</option>
+        <option value="Hindi">Hindi</option>
+        <option value="English">English</option>
+        <option value="Italian" selected>Italian</option>
+        <option value="French">French</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Welsh">Welsh</option>
+        <option value="Urdu">Urdu</option>
+        <option value="Vietnamese">Vietnamese</option>
+        <option value="Malay">Malay</option>
+      </select>
+    </fieldset>
+    <!-- Score -->
+    <fieldset>
+      <legend>Levels of evaluation</legend>
+      <div class="Score--selectable" data-highest="5"></div>
+      <div class="Score--selectable" data-highest="4"></div>
+    </fieldset>
+    <!-- Tabs -->
+    <fieldset>
+      <legend>Tabs</legend>
+      <div class="Tabs">
+        <div class="Tabs-triggers">
+          <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-1">Tab-1</a>
+          <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-2">Tab-2</a>
+          <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-3">Tab-3</a>
+        </div>
+        <div class="Tabs-content" data-flag="tab-1">
+          <h3>Tab-1's content</h3>
+          <!--
+          <div class="Tabs" data-setdefault="false">
+            <div class="Tabs-triggers">
+              <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-1">Tab-1</a>
+              <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-2">Tab-2</a>
+              <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-3">Tab-3</a>
+            </div>
+            <div class="Tabs-content" data-flag="tab-1">Tab-1's content</div>
+            <div class="Tabs-content" data-flag="tab-2">Tab-2's content</div>
+            <div class="Tabs-content" data-flag="tab-3">Tab-3's content</div>
           </div>
-          <div class="Tabs-content" data-flag="tab-1">Tab-1's content</div>
-          <div class="Tabs-content" data-flag="tab-2">Tab-2's content</div>
-          <div class="Tabs-content" data-flag="tab-3">Tab-3's content</div>
+          -->
         </div>
-        -->
+        <div class="Tabs-content" data-flag="tab-2">Tab-2's content</div>
+        <div class="Tabs-content" data-flag="tab-3">Tab-3's content</div>
       </div>
-      <div class="Tabs-content" data-flag="tab-2">Tab-2's content</div>
-      <div class="Tabs-content" data-flag="tab-3">Tab-3's content</div>
-    </div>
-    <div class="Tabs" data-setdefault="false">
-      <div class="Tabs-triggers">
-        <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-1">Tab-1</a>
-        <a href="#" class="Tabs-trigger js-trigger--tab is-selected" data-flag="tab-2">Tab-2</a>
-        <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-3">Tab-3</a>
+      <div class="Tabs" data-setdefault="false">
+        <div class="Tabs-triggers">
+          <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-1">Tab-1</a>
+          <a href="#" class="Tabs-trigger js-trigger--tab is-selected" data-flag="tab-2">Tab-2</a>
+          <a href="#" class="Tabs-trigger js-trigger--tab" data-flag="tab-3">Tab-3</a>
+        </div>
+        <div class="Tabs-content" data-flag="tab-1">Tab-1's content</div>
+        <div class="Tabs-content" data-flag="tab-2">Tab-2's content</div>
+        <div class="Tabs-content" data-flag="tab-3">Tab-3's content</div>
       </div>
-      <div class="Tabs-content" data-flag="tab-1">Tab-1's content</div>
-      <div class="Tabs-content" data-flag="tab-2">Tab-2's content</div>
-      <div class="Tabs-content" data-flag="tab-3">Tab-3's content</div>
-    </div>
-  </fieldset>
-  <!-- Button -->
-  <fieldset>
-    <legend>Buttons</legend>
-    <button type="button" class="Button">Default</button>
-    <a href="#" class="Button--info">Info</a>
-    <a class="Button--warning">Warning</a>
-  </fieldset>
-  <!-- Uploader -->
-  <fieldset>
-    <legend>Uploader</legend>
-    <div class="Uploader">
-      <div class="Uploader-button">
-        <span>Choose File</span>
-        <input class="js-trigger--uploader" type="file">
-      </div>
-      <div class="Uploader-file"><span class="js-label--uploader">No files selected</span></div>
-      <div class="Uploader-overlay">
-        <div class="Uploader-background"></div>
-        <div class="Uploader-progress">
-          <div class="Uploader-bar"></div>
+    </fieldset>
+    <!-- Button -->
+    <fieldset>
+      <legend>Buttons</legend>
+      <button type="button" class="Button">Default</button>
+      <a href="#" class="Button--info">Info</a>
+      <a class="Button--warning">Warning</a>
+    </fieldset>
+    <!-- Uploader -->
+    <fieldset>
+      <legend>Uploader</legend>
+      <div class="Uploader">
+        <div class="Uploader-button">
+          <span>Choose File</span>
+          <input class="js-trigger--uploader" type="file">
+        </div>
+        <div class="Uploader-file"><span class="js-label--uploader">No files selected</span></div>
+        <div class="Uploader-overlay">
+          <div class="Uploader-background"></div>
+          <div class="Uploader-progress">
+            <div class="Uploader-bar"></div>
+          </div>
         </div>
       </div>
-    </div>
-  </fieldset>
+    </fieldset>
+  </body>
 </html>

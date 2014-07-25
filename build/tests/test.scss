@@ -17,3 +17,25 @@ fieldset {
     }
   }
 }
+
+.color,
+.color--opacity,
+.color--transparent,
+.color--opaque {
+  margin-bottom: 20px;
+  @include square(150px);
+  background-color: lime;
+  border: 1px solid #EEE;
+}
+
+.color--opacity {
+  @include opacity(0.5);
+}
+
+.color--opaque {
+  @include opaque;
+}
+
+.color--transparent {
+  @include transparent;
+}
