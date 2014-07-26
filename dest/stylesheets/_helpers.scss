@@ -63,25 +63,29 @@ $border_color: #B8C4C8;
   @include background-image(linear-gradient($from, $to));
 }
 
-// Overwrite default opacity mixin defined in compass
-@mixin opacity( $opacity ) {
-  opacity: $opacity;
-
-  $alpha_opacity: #{round($opacity * 100)};
-
+@mixin ie-opacity( $opacity ) {
   @if $legacy-support-for-ie8 {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$alpha_opacity})";
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity})";
   }
 
   @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    *filter: alpha(opacity=$alpha_opacity);
+    *filter: alpha(opacity=$opacity);
   }
-
+//  upcoming at rule
 //  @at-root {
 //   :root {
 //      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Enabled=false)";
 //    }
 //  }
+}
+
+
+
+// Overwrite
+
+@mixin opacity( $opacity ) {
+  opacity: $opacity;
+  @include ie-opacity(round($opacity * 100));
 }
 
 @mixin base-font( $font_size: $font_size ) {

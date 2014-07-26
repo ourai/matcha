@@ -444,7 +444,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f8f8f8, #ebebeb);
   background-image: linear-gradient(#f8f8f8, #ebebeb);
 }
-/* line 217, ../../../dest/stylesheets/_helpers.scss */
+/* line 221, ../../../dest/stylesheets/_helpers.scss */
 .Button:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF9F9F9', endColorstr='#FFF2F2F2');
@@ -454,7 +454,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f9f9f9, #f2f2f2);
   background-image: linear-gradient(#f9f9f9, #f2f2f2);
 }
-/* line 221, ../../../dest/stylesheets/_helpers.scss */
+/* line 225, ../../../dest/stylesheets/_helpers.scss */
 .Button:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF2F2F2', endColorstr='#FFF9F9F9');
@@ -478,7 +478,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#5dc3e2, #4dbbdc);
   background-image: linear-gradient(#5dc3e2, #4dbbdc);
 }
-/* line 217, ../../../dest/stylesheets/_helpers.scss */
+/* line 221, ../../../dest/stylesheets/_helpers.scss */
 .Button--info:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF6FCDE9', endColorstr='#FF60C5E3');
@@ -488,7 +488,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#6fcde9, #60c5e3);
   background-image: linear-gradient(#6fcde9, #60c5e3);
 }
-/* line 221, ../../../dest/stylesheets/_helpers.scss */
+/* line 225, ../../../dest/stylesheets/_helpers.scss */
 .Button--info:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF60C5E3', endColorstr='#FF6FCDE9');
@@ -512,7 +512,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#fe855b, #fb784b);
   background-image: linear-gradient(#fe855b, #fb784b);
 }
-/* line 217, ../../../dest/stylesheets/_helpers.scss */
+/* line 221, ../../../dest/stylesheets/_helpers.scss */
 .Button--warning:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFF936E', endColorstr='#FFFB865E');
@@ -522,7 +522,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#ff936e, #fb865e);
   background-image: linear-gradient(#ff936e, #fb865e);
 }
-/* line 221, ../../../dest/stylesheets/_helpers.scss */
+/* line 225, ../../../dest/stylesheets/_helpers.scss */
 .Button--warning:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFB865E', endColorstr='#FFFF936E');
@@ -657,14 +657,14 @@ html[lang^="en"] tbody th {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/build/tests/images/transparent.gif?1406300080') repeat;
+  background: transparent url('/build/tests/images/transparent.gif?1406343173') repeat;
 }
 
 /* line 281, ../../../dest/stylesheets/_rules.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/build/tests/images/star.png?1406300080');
+  background-image: url('/build/tests/images/star.png?1406343173');
 }
 
 /* line 286, ../../../dest/stylesheets/_rules.scss */
@@ -678,7 +678,7 @@ html[lang^="en"] tbody th {
 /* line 293, ../../../dest/stylesheets/_rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/build/tests/images/ministar.png?1406300080');
+  background-image: url('/build/tests/images/ministar.png?1406343173');
 }
 
 /* line 297, ../../../dest/stylesheets/_rules.scss */
@@ -701,7 +701,7 @@ html[lang^="en"] tbody th {
 }
 /* line 316, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/build/tests/images/star.png?1406300080') repeat-x !important;
+  background: url('/build/tests/images/star.png?1406343173') repeat-x !important;
 }
 /* line 320, ../../../dest/stylesheets/_rules.scss */
 .Score--selectable .Score-storage {
@@ -802,14 +802,14 @@ html[lang^="en"] tbody th {
 
 /* line 358, ../../../dest/stylesheets/_rules.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/build/tests/images/star.png?1406300080') repeat-x;
+  background: url('/build/tests/images/star.png?1406343173') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 364, ../../../dest/stylesheets/_rules.scss */
 .Score-level.is-selected {
-  background: url('/build/tests/images/star.png?1406300080') repeat-x;
+  background: url('/build/tests/images/star.png?1406343173') repeat-x;
   left: 0;
   z-index: 1;
 }
@@ -873,12 +873,12 @@ html[lang^="en"] tbody th {
   position: relative;
   *zoom: 1;
 }
-/* line 187, ../../../dest/stylesheets/_helpers.scss */
+/* line 191, ../../../dest/stylesheets/_helpers.scss */
 .Uploader:before, .Uploader:after {
   content: "\0020";
   display: table;
 }
-/* line 192, ../../../dest/stylesheets/_helpers.scss */
+/* line 196, ../../../dest/stylesheets/_helpers.scss */
 .Uploader:after {
   clear: both;
 }
@@ -916,7 +916,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f8f8f8, #ebebeb);
   background-image: linear-gradient(#f8f8f8, #ebebeb);
 }
-/* line 217, ../../../dest/stylesheets/_helpers.scss */
+/* line 221, ../../../dest/stylesheets/_helpers.scss */
 .Uploader-button:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF9F9F9', endColorstr='#FFF2F2F2');
@@ -926,7 +926,7 @@ html[lang^="en"] tbody th {
   background-image: -o-linear-gradient(#f9f9f9, #f2f2f2);
   background-image: linear-gradient(#f9f9f9, #f2f2f2);
 }
-/* line 221, ../../../dest/stylesheets/_helpers.scss */
+/* line 225, ../../../dest/stylesheets/_helpers.scss */
 .Uploader-button:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF2F2F2', endColorstr='#FFF9F9F9');
@@ -999,7 +999,7 @@ html[lang^="en"] tbody th {
   z-index: 999999999;
   text-align: center;
 }
-/* line 162, ../../../dest/stylesheets/_helpers.scss */
+/* line 166, ../../../dest/stylesheets/_helpers.scss */
 .Uploader-overlay:before,
 .Uploader-overlay--fullscreen:before {
   content: "\0020";
