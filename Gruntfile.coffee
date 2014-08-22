@@ -29,8 +29,7 @@ module.exports = ( grunt ) ->
       dest_style: "<%= meta.dest %>/stylesheets"
       dest_script: "<%= meta.dest %>/javascripts"
       dest_image: "<%= meta.dest %>/images"
-      build: "build"
-      tests: "<%= meta.build %>/tests"
+      tests: "test"
     concat:
       helpers:
         src: [
