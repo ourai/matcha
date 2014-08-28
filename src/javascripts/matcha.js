@@ -1,5 +1,5 @@
 "use strict";
-var LIB_CONFIG, dummySelect, getStorageData, hasOwnProp, hook, needFix, scoreHtml, scoreLevels, setDefaultTab, storage, _H;
+var LIB_CONFIG, dummySelect, eventName, getStorageData, hasOwnProp, hook, needFix, scoreHtml, scoreLevels, setDefaultTab, storage, _H;
 
 LIB_CONFIG = {
   name: "@NAME",
@@ -67,6 +67,15 @@ hook = function(name, no_dot) {
 
 
 /*
+ * 获取事件名称
+ */
+
+eventName = function(event_name) {
+  return ("" + event_name + "." + LIB_CONFIG.name).toLowerCase();
+};
+
+
+/*
  * Get data from internal storage
  *
  * @private
@@ -90,7 +99,7 @@ getStorageData = function(ns_str) {
 
 
 /*
- * Whether need to fix IE
+ * Whether to need to fix IE
  *
  * @private
  * @method   needFix
@@ -120,11 +129,13 @@ scoreHtml = function(data) {
 };
 
 $(document).on("click", hook("tabs.trigger"), function() {
-  var tabs, trigger;
+  var tabs, trigger, type;
   trigger = $(this);
   tabs = trigger.closest(".Tabs");
+  type = trigger.data("flag");
   $(".Tabs-trigger.is-selected, .Tabs-content.is-selected", tabs).removeClass("is-selected");
-  $(".Tabs-content[data-flag='" + (trigger.data("flag")) + "']", tabs).add(trigger).addClass("is-selected");
+  $(".Tabs-content[data-flag='" + type + "']", tabs).add(trigger).addClass("is-selected");
+  trigger.triggerHandler(eventName("change"), [type]);
   return false;
 });
 
@@ -136,6 +147,7 @@ $(document).on("click", hook("score.trigger"), function() {
   t.addClass(cls);
   t.siblings("[checked]").attr("checked", false);
   t.prev(":radio").attr("checked", true);
+  t.triggerHandler(eventName("select"));
   return false;
 });
 

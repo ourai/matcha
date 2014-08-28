@@ -2,11 +2,14 @@
 $(document).on "click", hook("tabs.trigger"), ->
   trigger = $(this)
   tabs = trigger.closest ".Tabs"
+  type = trigger.data "flag"
 
   $(".Tabs-trigger.is-selected, .Tabs-content.is-selected", tabs).removeClass "is-selected"
-  $(".Tabs-content[data-flag='#{trigger.data "flag"}']", tabs)
+  $(".Tabs-content[data-flag='#{type}']", tabs)
     .add trigger
     .addClass "is-selected"
+
+  trigger.triggerHandler eventName("change"), [type]
 
   return false
 
@@ -20,6 +23,8 @@ $(document).on "click", hook("score.trigger"), ->
 
   t.siblings("[checked]").attr("checked", false)
   t.prev(":radio").attr("checked", true)
+
+  t.triggerHandler eventName("select")
 
   return false
 

@@ -32,9 +32,6 @@ p {
 code,
 pre {
   font-family: $font_family-monospace;
-  color: $color-text-medium;
-  border: 1px solid $border_color;
-  @include border-radius(2px);
 }
 
 pre,
@@ -43,17 +40,9 @@ pre code {
   word-wrap: break-word;
 }
 
-code {
-  padding: 0 .3em;
-  margin: 0 .4em;
-  white-space: nowrap;
-}
-
 pre {
   padding: .75em;
-
-  code {
-    border: none;
-    @include no_gap;
-  }
+  border: 1px solid $border_color;
+  @include border-radius(2px);
+  color: $color-text-medium;
 }

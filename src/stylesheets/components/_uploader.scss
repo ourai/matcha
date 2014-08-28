@@ -27,16 +27,7 @@
   // For links
   text-decoration: none !important;
   color: #888;
-  background-color: #EBEBEB;
-  @include linear-gradient(#F8F8F8, #EBEBEB);
-
-  &:hover {
-    @include linear-gradient(#F9F9F9, #F2F2F2);
-  }
-
-  &:active {
-    @include linear-gradient(#F2F2F2, #F9F9F9);
-  }
+  @include gradient_button(#EBEBEB, #F8F8F8, #EBEBEB, #F9F9F9, #F2F2F2);
 
   &[disabled] {
     border-color: #B8C4C8 !important;

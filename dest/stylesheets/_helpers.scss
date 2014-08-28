@@ -1,3 +1,27 @@
+@import "compass";
+
+// Font
+$font_family: "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+$font_family-hei: "Microsoft Yahei", "Hiragino Sans GB", Tahoma, Verdana, "BitStream vera Sans", Arial, Helvetica, Sans-serif;
+$font_family-monospace: Monaco, Consolas, "Lucida Console", monospace;
+$font_size: 100%;
+$line_height: 1.5;
+
+// Text
+$color-title: #444;
+$color-text: #333;
+$color-text-medium: #666;
+$color-text-light: #888;
+$color-link: #3F6D77;
+$color-link-hover: #518C99;
+
+// Border
+$border_color: #B8C4C8;
+
+@function percent( $divisor, $dividend ) {
+  @return $divisor / $dividend * 100%;
+}
+
 // CSS3
 
 @mixin keyframes( $name ) {
@@ -39,28 +63,29 @@
   @include background-image(linear-gradient($from, $to));
 }
 
-@import "compass";
+@mixin ie-opacity( $opacity ) {
+  @if $legacy-support-for-ie8 {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity})";
+  }
 
-// Font
-$font_family: "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-serif;
-$font_family-hei: "Microsoft Yahei", "Hiragino Sans GB", Tahoma, Verdana, "BitStream vera Sans", Arial, Helvetica, Sans-serif;
-$font_family-monospace: Monaco, Consolas, "Lucida Console", monospace;
-$font_size: 100%;
-$line_height: 1.5;
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *filter: alpha(opacity=$opacity);
+  }
+//  upcoming at rule
+//  @at-root {
+//   :root {
+//      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Enabled=false)";
+//    }
+//  }
+}
 
-// Text
-$color-title: #444;
-$color-text: #333;
-$color-text-medium: #666;
-$color-text-light: #888;
-$color-link: #3F6D77;
-$color-link-hover: #518C99;
 
-// Border
-$border_color: #B8C4C8;
 
-@function percent( $divisor, $dividend ) {
-  @return $divisor / $dividend * 100%;
+// Overwrite
+
+@mixin opacity( $opacity ) {
+  opacity: $opacity;
+  @include ie-opacity(round($opacity * 100));
 }
 
 @mixin base-font( $font_size: $font_size ) {
@@ -186,5 +211,18 @@ $border_color: #B8C4C8;
     repeat: no-repeat;
     position: 50% 50%;
     size: cover;
+  }
+}
+
+@mixin gradient_button( $bg_color, $normal_start, $normal_end, $hover_start, $hover_end ) {
+  background-color: $bg_color;
+  @include linear-gradient($normal_start, $normal_end);
+
+  &:hover {
+    @include linear-gradient($hover_start, $hover_end);
+  }
+
+  &:active {
+    @include linear-gradient($hover_end, $hover_start);
   }
 }

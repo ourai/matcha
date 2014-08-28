@@ -23,6 +23,12 @@ hook = ( name, no_dot ) ->
   return (if no_dot is true then "" else ".") + "js-" + getStorageData("hook.#{name}")
 
 ###
+# 获取事件名称
+###
+eventName = ( event_name ) ->
+  return "#{event_name}.#{LIB_CONFIG.name}".toLowerCase()
+
+###
 # Get data from internal storage
 #
 # @private
@@ -42,7 +48,7 @@ getStorageData = ( ns_str ) ->
   return result
 
 ###
-# Whether need to fix IE
+# Whether to need to fix IE
 #
 # @private
 # @method   needFix

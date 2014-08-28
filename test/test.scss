@@ -1,0 +1,41 @@
+@import "stylesheets/helpers";
+
+body {
+  @include base-font;
+  font-size: 14px;
+  padding: 20px;
+}
+
+fieldset {
+  margin-bottom: 20px;
+
+  .Tabs {
+    margin-top: 2em;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.color,
+.color--opacity,
+.color--transparent,
+.color--opaque {
+  margin-bottom: 20px;
+  @include square(150px);
+  background-color: lime;
+  border: 1px solid #EEE;
+}
+
+.color--opacity {
+  @include opacity(0.5);
+}
+
+.color--opaque {
+  @include opaque;
+}
+
+.color--transparent {
+  @include transparent;
+}
