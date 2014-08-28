@@ -38,3 +38,28 @@
   @include filter-gradient($from, $to);
   @include background-image(linear-gradient($from, $to));
 }
+
+@mixin ie-opacity( $opacity ) {
+  @if $legacy-support-for-ie8 {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity})";
+  }
+
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *filter: alpha(opacity=$opacity);
+  }
+//  upcoming at rule
+//  @at-root {
+//   :root {
+//      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Enabled=false)";
+//    }
+//  }
+}
+
+
+
+// Overwrite
+
+@mixin opacity( $opacity ) {
+  opacity: $opacity;
+  @include ie-opacity(round($opacity * 100));
+}

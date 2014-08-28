@@ -54,6 +54,12 @@ hook = ( name, no_dot ) ->
   return (if no_dot is true then "" else ".") + "js-" + getStorageData("hook.#{name}")
 
 ###
+# 获取事件名称
+###
+eventName = ( event_name ) ->
+  return "#{event_name}.#{LIB_CONFIG.name}".toLowerCase()
+
+###
 # Get data from internal storage
 #
 # @private
@@ -73,7 +79,7 @@ getStorageData = ( ns_str ) ->
   return result
 
 ###
-# Whether need to fix IE
+# Whether to need to fix IE
 #
 # @private
 # @method   needFix
@@ -106,11 +112,14 @@ scoreHtml = ( data ) ->
 $(document).on "click", hook("tabs.trigger"), ->
   trigger = $(this)
   tabs = trigger.closest ".Tabs"
+  type = trigger.data "flag"
 
   $(".Tabs-trigger.is-selected, .Tabs-content.is-selected", tabs).removeClass "is-selected"
-  $(".Tabs-content[data-flag='#{trigger.data "flag"}']", tabs)
+  $(".Tabs-content[data-flag='#{type}']", tabs)
     .add trigger
     .addClass "is-selected"
+
+  trigger.triggerHandler eventName("change"), [type]
 
   return false
 
@@ -124,6 +133,8 @@ $(document).on "click", hook("score.trigger"), ->
 
   t.siblings("[checked]").attr("checked", false)
   t.prev(":radio").attr("checked", true)
+
+  t.triggerHandler eventName("select")
 
   return false
 

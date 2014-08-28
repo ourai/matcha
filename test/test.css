@@ -1,0 +1,56 @@
+/* line 3, test.scss */
+body {
+  font-style: normal;
+  font-weight: normal;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+  font-size: 14px;
+  padding: 20px;
+}
+
+/* line 9, test.scss */
+fieldset {
+  margin-bottom: 20px;
+}
+/* line 12, test.scss */
+fieldset .Tabs {
+  margin-top: 2em;
+}
+/* line 15, test.scss */
+fieldset .Tabs:first-child {
+  margin-top: 0;
+}
+
+/* line 24, test.scss */
+.color,
+.color--opacity,
+.color--transparent,
+.color--opaque {
+  margin-bottom: 20px;
+  width: 150px;
+  height: 150px;
+  background-color: lime;
+  border: 1px solid #EEE;
+}
+
+/* line 31, test.scss */
+.color--opacity {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  *filter: alpha(opacity=50);
+}
+
+/* line 35, test.scss */
+.color--opaque {
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  *filter: alpha(opacity=100);
+}
+
+/* line 39, test.scss */
+.color--transparent {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  *filter: alpha(opacity=0);
+}
