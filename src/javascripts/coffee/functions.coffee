@@ -56,7 +56,7 @@ getStorageData = ( ns_str ) ->
 # @return   {Boolean}
 ###
 needFix = ( version ) ->
-  return $.browser.msie and $.browser.version * 1 < version      
+  return browser.msie and browser.version * 1 < version      
 
 ###
 # Construct HTML string for score

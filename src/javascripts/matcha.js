@@ -1,5 +1,5 @@
 "use strict";
-var LIB_CONFIG, dummySelect, eventName, getStorageData, hasOwnProp, hook, needFix, scoreHtml, scoreLevels, setDefaultTab, storage, _H;
+var LIB_CONFIG, browser, dummySelect, eventName, getStorageData, hasOwnProp, hook, needFix, scoreHtml, scoreLevels, setDefaultTab, storage, _H;
 
 LIB_CONFIG = {
   name: "@NAME",
@@ -34,6 +34,54 @@ storage = {
     }
   }
 };
+
+browser = (function() {
+  var detectBrowser, jQueryBrowser, ua;
+  ua = window.navigator.userAgent.toLowerCase();
+  jQueryBrowser = function() {
+    var match, result;
+    browser = {};
+    match = /(chrome)[ \/]([\w.]+)/.exec(ua) || /(webkit)[ \/]([\w.]+)/.exec(ua) || /(opera)(?:.*version|)[ \/]([\w.]+)/.exec(ua) || /(msie) ([\w.]+)/.exec(ua) || ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec(ua) || [];
+    result = {
+      browser: match[1] || "",
+      version: match[2] || "0"
+    };
+    if (result.browser) {
+      browser[result.browser] = true;
+      browser.version = result.version;
+    }
+    if (browser.chrome) {
+      browser.webkit = true;
+    } else if (browser.webkit) {
+      browser.safari = true;
+    }
+    return browser;
+  };
+  detectBrowser = function() {
+    var match;
+    match = /trident.*? rv:([\w.]+)/.exec(ua);
+    if (match) {
+      browser = {
+        msie: true,
+        version: match[1]
+      };
+    } else {
+      browser = jQueryBrowser();
+      if (browser.mozilla) {
+        browser.firefox = true;
+        match = /firefox[ \/]([\w.]+)/.exec(ua);
+        if (match) {
+          browser.version = match[1];
+        }
+      }
+    }
+    browser.language = navigator.language || navigator.browserLanguage;
+    return browser;
+  };
+  return detectBrowser();
+})();
+
+console.log(browser);
 
 
 /*
@@ -108,7 +156,7 @@ getStorageData = function(ns_str) {
  */
 
 needFix = function(version) {
-  return $.browser.msie && $.browser.version * 1 < version;
+  return browser.msie && browser.version * 1 < version;
 };
 
 
