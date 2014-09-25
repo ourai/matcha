@@ -1,0 +1,56 @@
+.Typo-em,
+.Typo-gu--wavy {
+  @include punc_under;
+}
+
+span.Typo-em,
+span.Typo-gu--wavy {
+  @include inline-block(none);
+}
+
+//====================
+// Emphasis
+//====================
+
+.Typo-em:after {
+  content: $UN-bullet;
+  margin-top: -.67em;
+  width: 100%;
+  text-align: center;
+}
+
+@supports (text-emphasis-style: dot) or
+          (-moz-text-emphasis-style: dot) or
+          (-webkit-text-emphasis-style: dot) {
+  .Typo-em {
+    @include experimental(text-emphasis-style, dot);
+    @include experimental(text-emphasis-position, under);
+
+    &:after {
+      display: none;
+    }
+  }
+}
+
+//====================
+// Guillemet (Wavy)
+//====================
+
+.Typo-gu--wavy:after {
+  content: $UN-wavy_low_line;
+  top: auto;
+  bottom: 0;
+}
+
+@supports (text-decoration-style: wavy) or
+          (-moz-text-decoration-style: wavy) or
+          (-webkit-text-decoration-style: wavy) {
+  .Typo-gu--wavy {
+    @include experimental(text-decoration-style, wavy);
+    @include experimental(text-decoration-line, underline);
+
+    &:after {
+      display: none;
+    }
+  }
+}

@@ -37,6 +37,7 @@ module.exports = ( grunt ) ->
             "<%= meta.helpers %>/_functions.scss"
             "<%= meta.helpers %>/_enhancement.scss"
             "<%= meta.helpers %>/_mixins.scss"
+            "<%= meta.helpers %>/_punctuation.scss"
           ]
         dest: "<%= meta.dest_style %>/_helpers.scss"
       vendors:
