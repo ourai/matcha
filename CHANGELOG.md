@@ -22,4 +22,9 @@
     2.  keyframes
     3.  user-select
     4.  linear-gradient
-    
+
+## 0.3.1 (2014-09-25)
+
+1.  Typography for Chinese
+    *   Emphasis
+    *   Guillemet (Wavy Line)
