@@ -20,7 +20,7 @@ var LIB_CONFIG, dummySelect, eventName, getStorageData, hasOwnProp, hook, needFi
 
 LIB_CONFIG = {
   name: "Matcha",
-  version: "0.2.1"
+  version: "0.3.1"
 };
 
 _H = {};
