@@ -81,8 +81,6 @@ browser = (function() {
   return detectBrowser();
 })();
 
-console.log(browser);
-
 
 /*
  * 判断某个对象是否有自己的指定属性

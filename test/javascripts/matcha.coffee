@@ -31,7 +31,7 @@ storage =
 
 browser = do ->
   ua = window.navigator.userAgent.toLowerCase()
-  
+
   # jQuery 1.9.x 以下版本中 jQuery.browser 的实现方式
   # IE 只能检测 IE11 以下
   jQueryBrowser = ->
@@ -78,8 +78,6 @@ browser = do ->
     return browser
 
   return detectBrowser()
-
-console.log browser
 
 ###
 # 判断某个对象是否有自己的指定属性
