@@ -2,7 +2,7 @@
   "name": "matcha",
   "version": "0.3.1",
   "description": "A Flexible, Responsive UI Framework",
-  "homepage": "http://ourai.github.io/matcha/",
+  "homepage": "http://dev.ourai.ws/projects/matcha/",
   "keywords": [
     "flexible",
     "responsive",
@@ -13,9 +13,9 @@
   "author": "Ourai Lin <ourairyu@hotmail.com> (http://ourai.ws/)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ourai/matcha.git"
+    "url": "https://github.com/fekit/matcha.git"
   },
-  "bugs": "https://github.com/ourai/matcha/issues",
+  "bugs": "https://github.com/fekit/matcha/issues",
   "engines": "node >= 0.8.0",
   "devDependencies": {
     "grunt": "~0.4.1",
