@@ -1,0 +1,53 @@
+.Item {
+  @include clearfix;
+
+  .Item-user {
+    float: left;
+    margin-right: 15px;
+
+    img {
+      display: block;
+    }
+  }
+
+  .Item-avatar {
+    @include square(48px);
+  }
+
+  .Item-avatar--large {
+    @include square(60px);
+  }
+
+  .Item-avatar--small {
+    @include square(30px);
+  }
+
+  .Item-content {
+    overflow: hidden;
+  }
+
+  .Item-name {
+    @include inline-block(none);
+    max-width: 6em;
+    margin-top: 10px;
+  }
+
+  .Item-title,
+  .Item-title--large,
+  .Item-title--small {
+    @include no_gap;
+  }
+
+  .Item-title {
+    font-size: 1em;
+  }
+
+  .Item-title--large {
+    font-size: 1.2em;
+  }
+
+  .Item-title--small,
+  .Item-footer {
+    font-size: .9em;
+  }
+}
