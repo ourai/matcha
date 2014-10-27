@@ -1,5 +1,5 @@
 "use strict";
-var LIB_CONFIG, browser, dummySelect, eventName, getStorageData, hasOwnProp, hook, needFix, scoreHtml, scoreLevels, setDefaultTab, storage, _H;
+var LIB_CONFIG, browser, dummySelect, eventName, getStorageData, hasOwnProp, hook, initRules, needFix, scoreHtml, scoreLevels, setDefaultTab, storage, _H;
 
 LIB_CONFIG = {
   name: "@NAME",
@@ -290,6 +290,34 @@ $(function() {
   setDefaultTab();
   scoreLevels();
   return dummySelect();
+});
+
+initRules = [
+  {
+    name: "tab",
+    tags: "div"
+  }, {
+    name: "button",
+    tags: "button div a"
+  }
+];
+
+$.each(initRules, function(idx, rule) {
+  var tags;
+  tags = rule.tags.split(" ");
+  return _H[rule.name] = function() {
+    var args, cmpts, opts, target;
+    args = arguments;
+    target = $(args[0]);
+    opts = args[1];
+    cmpts = [];
+    target.each(function() {
+      if ($.inArray(this.tagName.toLowerCase(), tags) > -1) {
+        return cmpts.push(this);
+      }
+    });
+    return $(cmpts);
+  };
 });
 
 window[LIB_CONFIG.name] = _H;

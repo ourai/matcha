@@ -289,4 +289,32 @@ $ ->
   scoreLevels()
   dummySelect()
 
+# 初始化组件的规则
+initRules = [
+    {
+      # 组件名
+      name: "tab"
+      # 允许作为容器的 HTML 标签
+      tags: "div"
+    },
+    {
+      name: "button"
+      tags: "button div a"
+    }
+  ]
+
+$.each initRules, ( idx, rule ) ->
+  tags = rule.tags.split " "
+  _H[rule.name] = ->
+    args = arguments
+    target = $(args[0])
+    opts = args[1]
+    cmpts = []
+
+    target.each ->
+      if $.inArray(this.tagName.toLowerCase(), tags) > -1
+        cmpts.push this
+
+    return $ cmpts
+
 window[LIB_CONFIG.name] = _H
