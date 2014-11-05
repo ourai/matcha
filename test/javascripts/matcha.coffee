@@ -8,8 +8,26 @@ LIB_CONFIG =
 # Main objects
 _H = {}
 
+$ = jQuery
+
 # 内部数据载体
 storage =
+  ###
+  # 构造函数
+  #
+  # @property   classes
+  # @type       {Object}
+  ###
+  classes: {}
+
+  ###
+  # 已注册组件
+  #
+  # @property   components
+  # @type       {Object}
+  ###
+  components: {}
+
   ###
   # JavaScript 钩子
   #
@@ -158,6 +176,38 @@ scoreHtml = ( data ) ->
           </a>
           """
 
+storage.classes.Component = do ->
+  savedComps = {}
+
+  # 组件是否已保存
+  isSaved = ( compName ) ->
+    return false
+
+  # 保存组件到内存中
+  saveComp = ( compName, compConstructor ) ->
+    savedComps[compName] = compConstructor
+
+  class Component
+    constructor: ( name, func ) ->
+      if isSaved name
+        throw "The component #{name} has existed."
+      else
+        @name = name
+        saveComp name, func
+
+    # 注册组件
+    # 将组件暴露到全局环境中
+    register: ->
+      result = @registered isnt true
+
+      if result
+        _H[@name] = storage.components[@name] = savedComps[@name]
+        @registered = true
+
+      return result
+
+  return Component
+
 # Tabs
 $(document).on "click", hook("tabs.trigger"), ->
   trigger = $(this)
@@ -303,6 +353,12 @@ initRules = [
     }
   ]
 
+# 添加 UI 组件
+_H.addComponent = ( name, func ) ->
+  (new storage.classes.Component name, func).register()
+
+  return func
+
 $.each initRules, ( idx, rule ) ->
   tags = rule.tags.split " "
   _H[rule.name] = ->
@@ -316,5 +372,22 @@ $.each initRules, ( idx, rule ) ->
         cmpts.push this
 
     return $ cmpts
+
+do ( _H )-> 
+  defaults =
+    source: []
+    data: "{%ROOT%}"
+    template: ( itemData ) ->
+    paginator:
+      tiny: false
+      container: null
+      total: 0
+      defaultPage: 0
+    update: ->
+
+  _H.addComponent "dataList", ( settings ) ->
+    settings = $.extend true, {}, defaults, settings
+
+    return settings
 
 window[LIB_CONFIG.name] = _H
