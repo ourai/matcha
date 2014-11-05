@@ -4,6 +4,22 @@ _H = {}
 # 内部数据载体
 storage =
   ###
+  # 构造函数
+  #
+  # @property   classes
+  # @type       {Object}
+  ###
+  classes: {}
+
+  ###
+  # 已注册组件
+  #
+  # @property   components
+  # @type       {Object}
+  ###
+  components: {}
+
+  ###
   # JavaScript 钩子
   #
   # @property   hook

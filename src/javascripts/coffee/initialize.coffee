@@ -83,6 +83,12 @@ initRules = [
     }
   ]
 
+# 添加 UI 组件
+_H.addComponent = ( name, func ) ->
+  (new storage.classes.Component name, func).register()
+
+  return func
+
 $.each initRules, ( idx, rule ) ->
   tags = rule.tags.split " "
   _H[rule.name] = ->
