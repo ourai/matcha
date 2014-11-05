@@ -56,15 +56,23 @@ module.exports = ( grunt ) ->
         src: ["<%= meta.style %>/rules.scss"]
         dest: "<%= meta.dest_style %>/<%= pkg.name %>.scss"
       coffee:
-        src: [
-            "<%= meta.coffee %>/intro.coffee"
-            "<%= meta.coffee %>/variables.coffee"
-            "<%= meta.coffee %>/functions.coffee"
-            "<%= meta.coffee %>/events.coffee"
-            "<%= meta.coffee %>/initialize.coffee"
-            "<%= meta.coffee %>/outro.coffee"
-          ]
-        dest: "<%= meta.dest_script %>/<%= pkg.name %>.coffee"
+        files:
+          "<%= meta.coffee %>/classes.coffee": [
+              "<%= meta.coffee %>/classes/Component.coffee"
+            ]
+          "<%= meta.coffee %>/components.coffee": [
+              "<%= meta.coffee %>/components/data-list.coffee"
+            ]
+          "<%= meta.dest_script %>/<%= pkg.name %>.coffee": [
+              "<%= meta.coffee %>/intro.coffee"
+              "<%= meta.coffee %>/variables.coffee"
+              "<%= meta.coffee %>/functions.coffee"
+              "<%= meta.coffee %>/classes.coffee"
+              "<%= meta.coffee %>/events.coffee"
+              "<%= meta.coffee %>/initialize.coffee"
+              "<%= meta.coffee %>/components.coffee"
+              "<%= meta.coffee %>/outro.coffee"
+            ]
       js:
         options:
           process: ( src, filepath ) ->

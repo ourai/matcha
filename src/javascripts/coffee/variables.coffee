@@ -1,6 +1,8 @@
 # Main objects
 _H = {}
 
+$ = jQuery
+
 # 内部数据载体
 storage =
   ###
