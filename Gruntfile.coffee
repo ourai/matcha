@@ -63,17 +63,29 @@ module.exports = ( grunt ) ->
           "<%= meta.coffee %>/components.coffee": [
               "<%= meta.coffee %>/components/data-list.coffee"
             ]
+          "<%= meta.coffee %>/initializers.coffee": [
+              "<%= meta.coffee %>/initializers/module-component.coffee"
+            ]
           "<%= meta.dest_script %>/<%= pkg.name %>.coffee": [
               "<%= meta.coffee %>/intro.coffee"
               "<%= meta.coffee %>/variables.coffee"
               "<%= meta.coffee %>/functions.coffee"
-              "<%= meta.coffee %>/modules.coffee"
               "<%= meta.coffee %>/events.coffee"
               "<%= meta.coffee %>/initialize.coffee"
+              "<%= meta.coffee %>/outro.coffee"
+            ]
+          "<%= meta.dest_script %>/<%= pkg.name %>.full.coffee": [
+              "<%= meta.coffee %>/intro.coffee"
+              "<%= meta.coffee %>/variables.coffee"
+              "<%= meta.coffee %>/functions.coffee"
+              "<%= meta.coffee %>/events.coffee"
+              "<%= meta.coffee %>/initialize.coffee"
+              "<%= meta.coffee %>/modules.coffee"
+              "<%= meta.coffee %>/initializers.coffee"
               "<%= meta.coffee %>/components.coffee"
               "<%= meta.coffee %>/outro.coffee"
             ]
-      js:
+      js_normal:
         options:
           process: ( src, filepath ) ->
             return src.replace /@(NAME|VERSION)/g, ( text, key ) ->
@@ -84,6 +96,17 @@ module.exports = ( grunt ) ->
             "<%= meta.script %>/outro.js"
           ]
         dest: "<%= meta.dest_script %>/<%= pkg.name %>.js"
+      js_full:
+        options:
+          process: ( src, filepath ) ->
+            return src.replace /@(NAME|VERSION)/g, ( text, key ) ->
+              return info[key.toLowerCase()]
+        src: [
+            "<%= meta.script %>/intro.js"
+            "<%= meta.script %>/<%= pkg.name %>.full.js"
+            "<%= meta.script %>/outro.js"
+          ]
+        dest: "<%= meta.dest_script %>/<%= pkg.name %>.full.js"
     compass:
       compile:
         options:
@@ -105,9 +128,12 @@ module.exports = ( grunt ) ->
       options:
         bare: true
         separator: "\x20"
-      build:
+      build_normal:
         src: "<%= meta.dest_script %>/<%= pkg.name %>.coffee"
         dest: "<%= meta.script %>/<%= pkg.name %>.js"
+      build_full:
+        src: "<%= meta.dest_script %>/<%= pkg.name %>.full.coffee"
+        dest: "<%= meta.script %>/<%= pkg.name %>.full.js"
       test:
         src: "<%= meta.tests %>/test.coffee"
         dest: "<%= meta.tests %>/test.js"
@@ -122,9 +148,12 @@ module.exports = ( grunt ) ->
                 " * Date: <%= grunt.template.today('yyyy-mm-dd') %>\n" +
                 " */\n"
         sourceMap: true
-      build:
+      build_normal:
         src: "<%= meta.dest_script %>/<%= pkg.name %>.js"
         dest: "<%= meta.dest_script %>/<%= pkg.name %>.min.js"
+      build_full:
+        src: "<%= meta.dest_script %>/<%= pkg.name %>.full.js"
+        dest: "<%= meta.dest_script %>/<%= pkg.name %>.full.min.js"
     copy:
       sass:
         expand: true
@@ -192,8 +221,10 @@ module.exports = ( grunt ) ->
   # Tasks about CoffeeScript
   grunt.registerTask "compile_coffee", [
       "concat:coffee"
-      "coffee:build"
-      "concat:js"
+      "coffee:build_normal"
+      "coffee:build_full"
+      "concat:js_normal"
+      "concat:js_full"
       "uglify"
     ]
   grunt.registerTask "test", [

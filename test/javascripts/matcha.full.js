@@ -1,9 +1,26 @@
+(function( global, factory ) {
+
+  if ( typeof module === "object" && typeof module.exports === "object" ) {
+    module.exports = global.document ?
+      factory(global, true) :
+      function( w ) {
+        if ( !w.document ) {
+          throw new Error("Requires a window with a document");
+        }
+        return factory(w);
+      };
+  } else {
+    factory(global);
+  }
+
+}(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
+
 "use strict";
 var $, LIB_CONFIG, browser, dummySelect, eventName, getStorageData, hasOwnProp, hook, initRules, needFix, scoreHtml, scoreLevels, setDefaultTab, storage, _H;
 
 LIB_CONFIG = {
-  name: "@NAME",
-  version: "@VERSION"
+  name: "Matcha",
+  version: "0.3.1"
 };
 
 _H = {};
@@ -338,4 +355,66 @@ $.each(initRules, function(idx, rule) {
   };
 });
 
+storage.modules.Component = (function() {
+  var Component, isSaved, saveComp, savedComps;
+  savedComps = storage.components;
+  isSaved = function(compName) {
+    return false;
+  };
+  saveComp = function(compName, compConstructor) {
+    return savedComps[compName] = compConstructor;
+  };
+  Component = (function() {
+    function Component(name, func) {
+      if (isSaved(name)) {
+        throw "The component " + name + " has existed.";
+      } else {
+        this.name = name;
+        saveComp(name, func);
+      }
+    }
+
+    Component.prototype.register = function() {
+      var result;
+      result = this.registered !== true;
+      if (result) {
+        _H[this.name] = savedComps[this.name];
+        this.registered = true;
+      }
+      return result;
+    };
+
+    return Component;
+
+  })();
+  return Component;
+})();
+
+_H.addComponent = function(name, func) {
+  (new storage.modules.Component(name, func)).register();
+  return func;
+};
+
+(function(_H) {
+  var defaults;
+  defaults = {
+    source: [],
+    data: "{%ROOT%}",
+    template: function(itemData) {},
+    paginator: {
+      tiny: false,
+      container: null,
+      total: 0,
+      defaultPage: 0
+    },
+    update: function() {}
+  };
+  return _H.addComponent("dataList", function(settings) {
+    settings = $.extend(true, {}, defaults, settings);
+    return settings;
+  });
+})(_H);
+
 window[LIB_CONFIG.name] = _H;
+
+}));

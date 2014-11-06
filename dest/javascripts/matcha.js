@@ -209,41 +209,6 @@ scoreHtml = function(data) {
   return "<input id=\"" + id + "\" class=\"Score-storage Score-storage-" + score + "\" type=\"radio\" name=\"" + data.name + "\" value=\"" + score + "\">\n<a class=\"Score-level Score-level-" + score + "\" href=\"http://www.baidu.com/\">\n  <label for=\"" + id + "\">" + score + "</label>\n</a>";
 };
 
-storage.modules.Component = (function() {
-  var Component, isSaved, saveComp, savedComps;
-  savedComps = storage.components;
-  isSaved = function(compName) {
-    return false;
-  };
-  saveComp = function(compName, compConstructor) {
-    return savedComps[compName] = compConstructor;
-  };
-  Component = (function() {
-    function Component(name, func) {
-      if (isSaved(name)) {
-        throw "The component " + name + " has existed.";
-      } else {
-        this.name = name;
-        saveComp(name, func);
-      }
-    }
-
-    Component.prototype.register = function() {
-      var result;
-      result = this.registered !== true;
-      if (result) {
-        _H[this.name] = savedComps[this.name];
-        this.registered = true;
-      }
-      return result;
-    };
-
-    return Component;
-
-  })();
-  return Component;
-})();
-
 $(document).on("click", hook("tabs.trigger"), function() {
   var tabs, trigger, type;
   trigger = $(this);
@@ -372,11 +337,6 @@ initRules = [
   }
 ];
 
-_H.addComponent = function(name, func) {
-  (new storage.modules.Component(name, func)).register();
-  return func;
-};
-
 $.each(initRules, function(idx, rule) {
   var tags;
   tags = rule.tags.split(" ");
@@ -394,26 +354,6 @@ $.each(initRules, function(idx, rule) {
     return $(cmpts);
   };
 });
-
-(function(_H) {
-  var defaults;
-  defaults = {
-    source: [],
-    data: "{%ROOT%}",
-    template: function(itemData) {},
-    paginator: {
-      tiny: false,
-      container: null,
-      total: 0,
-      defaultPage: 0
-    },
-    update: function() {}
-  };
-  return _H.addComponent("dataList", function(settings) {
-    settings = $.extend(true, {}, defaults, settings);
-    return settings;
-  });
-})(_H);
 
 window[LIB_CONFIG.name] = _H;
 
