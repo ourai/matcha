@@ -57,14 +57,9 @@ module.exports = ( grunt ) ->
         dest: "<%= meta.dest_style %>/<%= pkg.name %>.scss"
       coffee:
         files:
-          "<%= meta.coffee %>/modules.coffee": [
-              "<%= meta.coffee %>/modules/Component.coffee"
-            ]
           "<%= meta.coffee %>/components.coffee": [
-              "<%= meta.coffee %>/components/data-list.coffee"
-            ]
-          "<%= meta.coffee %>/initializers.coffee": [
-              "<%= meta.coffee %>/initializers/module-component.coffee"
+              "<%= meta.coffee %>/modules/Component/initializer.coffee"
+              "<%= meta.coffee %>/modules/Component/data-list.coffee"
             ]
           "<%= meta.dest_script %>/<%= pkg.name %>.coffee": [
               "<%= meta.coffee %>/intro.coffee"
@@ -80,8 +75,6 @@ module.exports = ( grunt ) ->
               "<%= meta.coffee %>/functions.coffee"
               "<%= meta.coffee %>/events.coffee"
               "<%= meta.coffee %>/initialize.coffee"
-              "<%= meta.coffee %>/modules.coffee"
-              "<%= meta.coffee %>/initializers.coffee"
               "<%= meta.coffee %>/components.coffee"
               "<%= meta.coffee %>/outro.coffee"
             ]
