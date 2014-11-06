@@ -30,6 +30,11 @@ module.exports = ( grunt ) ->
       dest_script: "<%= meta.dest %>/javascripts"
       dest_image: "<%= meta.dest %>/images"
       tests: "test"
+      temp: ".<%= pkg.name %>-cache"
+      modules: "src/modules"
+      mod_cmpt: "<%= meta.modules %>/Component"
+      mod_cmpt_c: "<%= meta.mod_cmpt %>/coffee"
+      mod_cmpt_s: "<%= meta.mod_cmpt %>/sass"
     concat:
       helpers:
         src: [
@@ -57,9 +62,13 @@ module.exports = ( grunt ) ->
         dest: "<%= meta.dest_style %>/<%= pkg.name %>.scss"
       coffee:
         files:
-          "<%= meta.coffee %>/components.coffee": [
-              "<%= meta.coffee %>/modules/Component/initializer.coffee"
-              "<%= meta.coffee %>/modules/Component/data-list.coffee"
+          "<%= meta.temp %>/components.coffee": [
+              "<%= meta.mod_cmpt_c %>/initializer.coffee"
+              "<%= meta.mod_cmpt_c %>/drop-down_list.coffee"
+              "<%= meta.mod_cmpt_c %>/score.coffee"
+              "<%= meta.mod_cmpt_c %>/tabs.coffee"
+              "<%= meta.mod_cmpt_c %>/uploader.coffee"
+              "<%= meta.mod_cmpt_c %>/data_list.coffee"
             ]
           "<%= meta.dest_script %>/<%= pkg.name %>.coffee": [
               "<%= meta.coffee %>/intro.coffee"
