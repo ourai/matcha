@@ -1,4 +1,4 @@
-do ( _H )-> 
+do ( _H ) -> 
   defaults =
     source: []
     data: "{%ROOT%}"

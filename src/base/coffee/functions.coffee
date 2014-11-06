@@ -57,22 +57,3 @@ getStorageData = ( ns_str ) ->
 ###
 needFix = ( version ) ->
   return browser.msie and browser.version * 1 < version      
-
-###
-# Construct HTML string for score
-#
-# @private
-# @method   scoreHtml
-# @param    data {Object}
-# @return   {String}
-###
-scoreHtml = ( data ) ->
-  score = data.score
-  id = "#{data.name}-#{score}"
-
-  return  """
-          <input id="#{id}" class="Score-storage Score-storage-#{score}" type="radio" name="#{data.name}" value="#{score}">
-          <a class="Score-level Score-level-#{score}" href="http://www.baidu.com/">
-            <label for="#{id}">#{score}</label>
-          </a>
-          """
