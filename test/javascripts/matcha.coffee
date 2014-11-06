@@ -13,12 +13,12 @@ $ = jQuery
 # 内部数据载体
 storage =
   ###
-  # 构造函数
+  # 模块
   #
-  # @property   classes
+  # @property   modules
   # @type       {Object}
   ###
-  classes: {}
+  modules: {}
 
   ###
   # 已注册组件
@@ -176,8 +176,8 @@ scoreHtml = ( data ) ->
           </a>
           """
 
-storage.classes.Component = do ->
-  savedComps = {}
+storage.modules.Component = do ->
+  savedComps = storage.components
 
   # 组件是否已保存
   isSaved = ( compName ) ->
@@ -201,7 +201,7 @@ storage.classes.Component = do ->
       result = @registered isnt true
 
       if result
-        _H[@name] = storage.components[@name] = savedComps[@name]
+        _H[@name] = savedComps[@name]
         @registered = true
 
       return result
@@ -355,7 +355,7 @@ initRules = [
 
 # 添加 UI 组件
 _H.addComponent = ( name, func ) ->
-  (new storage.classes.Component name, func).register()
+  (new storage.modules.Component name, func).register()
 
   return func
 

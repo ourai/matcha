@@ -1,5 +1,5 @@
-storage.classes.Component = do ->
-  savedComps = {}
+storage.modules.Component = do ->
+  savedComps = storage.components
 
   # 组件是否已保存
   isSaved = ( compName ) ->
@@ -23,7 +23,7 @@ storage.classes.Component = do ->
       result = @registered isnt true
 
       if result
-        _H[@name] = storage.components[@name] = savedComps[@name]
+        _H[@name] = savedComps[@name]
         @registered = true
 
       return result

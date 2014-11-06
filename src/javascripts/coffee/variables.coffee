@@ -6,12 +6,12 @@ $ = jQuery
 # 内部数据载体
 storage =
   ###
-  # 构造函数
+  # 模块
   #
-  # @property   classes
+  # @property   modules
   # @type       {Object}
   ###
-  classes: {}
+  modules: {}
 
   ###
   # 已注册组件

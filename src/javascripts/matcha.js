@@ -13,12 +13,12 @@ $ = jQuery;
 storage = {
 
   /*
-   * 构造函数
+   * 模块
    *
-   * @property   classes
+   * @property   modules
    * @type       {Object}
    */
-  classes: {},
+  modules: {},
 
   /*
    * 已注册组件
@@ -192,9 +192,9 @@ scoreHtml = function(data) {
   return "<input id=\"" + id + "\" class=\"Score-storage Score-storage-" + score + "\" type=\"radio\" name=\"" + data.name + "\" value=\"" + score + "\">\n<a class=\"Score-level Score-level-" + score + "\" href=\"http://www.baidu.com/\">\n  <label for=\"" + id + "\">" + score + "</label>\n</a>";
 };
 
-storage.classes.Component = (function() {
+storage.modules.Component = (function() {
   var Component, isSaved, saveComp, savedComps;
-  savedComps = {};
+  savedComps = storage.components;
   isSaved = function(compName) {
     return false;
   };
@@ -215,7 +215,7 @@ storage.classes.Component = (function() {
       var result;
       result = this.registered !== true;
       if (result) {
-        _H[this.name] = storage.components[this.name] = savedComps[this.name];
+        _H[this.name] = savedComps[this.name];
         this.registered = true;
       }
       return result;
@@ -356,7 +356,7 @@ initRules = [
 ];
 
 _H.addComponent = function(name, func) {
-  (new storage.classes.Component(name, func)).register();
+  (new storage.modules.Component(name, func)).register();
   return func;
 };
 
