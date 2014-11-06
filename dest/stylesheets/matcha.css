@@ -823,13 +823,14 @@ html[lang^="en"] tbody th {
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
+  z-index: auto;
 }
-/* line 119, _rules.scss */
+/* line 120, _rules.scss */
 :root .u-coveredBgImage-altWrapper {
   display: none;
 }
 
-/* line 128, _rules.scss */
+/* line 129, _rules.scss */
 .Button,
 .Button--info,
 .Button--warning {
@@ -854,7 +855,7 @@ html[lang^="en"] tbody th {
   cursor: pointer;
   text-decoration: none !important;
 }
-/* line 138, _rules.scss */
+/* line 139, _rules.scss */
 .Button[disabled],
 .Button--info[disabled],
 .Button--warning[disabled] {
@@ -865,7 +866,7 @@ html[lang^="en"] tbody th {
   cursor: default;
 }
 
-/* line 147, _rules.scss */
+/* line 148, _rules.scss */
 .Button {
   color: #888;
   border-color: #CBCBCB;
@@ -899,7 +900,7 @@ html[lang^="en"] tbody th {
   background-image: linear-gradient(#f2f2f2, #f9f9f9);
 }
 
-/* line 153, _rules.scss */
+/* line 154, _rules.scss */
 .Button--info {
   color: #FFF;
   border-color: #4BAECC;
@@ -933,7 +934,7 @@ html[lang^="en"] tbody th {
   background-image: linear-gradient(#60c5e3, #6fcde9);
 }
 
-/* line 159, _rules.scss */
+/* line 160, _rules.scss */
 .Button--warning {
   color: #FFF;
   border-color: #EC6B3F;
@@ -967,7 +968,7 @@ html[lang^="en"] tbody th {
   background-image: linear-gradient(#fb865e, #ff936e);
 }
 
-/* line 166, _rules.scss */
+/* line 167, _rules.scss */
 .DropList {
   display: -moz-inline-stack;
   display: inline-block;
@@ -980,20 +981,20 @@ html[lang^="en"] tbody th {
   border-radius: 3px;
   background-color: #FFF;
 }
-/* line 174, _rules.scss */
+/* line 175, _rules.scss */
 .DropList:hover {
   border-radius: 3px 3px 0 0;
 }
-/* line 177, _rules.scss */
+/* line 178, _rules.scss */
 .DropList:hover .DropList-dropdown {
   display: block;
 }
-/* line 182, _rules.scss */
+/* line 183, _rules.scss */
 .DropList .DropList-selected {
   position: relative;
   cursor: pointer;
 }
-/* line 186, _rules.scss */
+/* line 187, _rules.scss */
 .DropList .DropList-selected:after {
   content: "\0020";
   position: absolute;
@@ -1006,7 +1007,7 @@ html[lang^="en"] tbody th {
   border-top-color: #A6A6A6;
   margin: -3px 4px 0 0;
 }
-/* line 200, _rules.scss */
+/* line 201, _rules.scss */
 .DropList .DropList-selected .DropList-label {
   display: -moz-inline-stack;
   display: inline-block;
@@ -1016,7 +1017,7 @@ html[lang^="en"] tbody th {
   margin: 0 20px 0 9px;
   padding: 5px 0;
 }
-/* line 207, _rules.scss */
+/* line 208, _rules.scss */
 .DropList .DropList-dropdown {
   display: none;
   position: absolute;
@@ -1030,7 +1031,7 @@ html[lang^="en"] tbody th {
   border-radius: 0 0 3px 3px;
   margin: 0 -1px;
 }
-/* line 220, _rules.scss */
+/* line 221, _rules.scss */
 .DropList .DropList-dropdown .DropList-list {
   list-style: none outside none;
   max-height: 310px;
@@ -1038,7 +1039,7 @@ html[lang^="en"] tbody th {
   margin: 0 4px 4px 0;
   overflow: auto;
 }
-/* line 227, _rules.scss */
+/* line 228, _rules.scss */
 .DropList .DropList-dropdown .DropList-list li {
   word-wrap: break-word;
   word-wrap: normal\0;
@@ -1048,28 +1049,28 @@ html[lang^="en"] tbody th {
   padding: 5px;
   cursor: pointer;
 }
-/* line 234, _rules.scss */
+/* line 235, _rules.scss */
 .DropList .DropList-dropdown .DropList-list li:hover, .DropList .DropList-dropdown .DropList-list li.is-selected {
   background-color: #1385E5;
   color: #FFF;
 }
-/* line 240, _rules.scss */
+/* line 241, _rules.scss */
 .DropList .DropList-dropdown .DropList-list:hover li.is-selected {
   background-color: transparent;
   color: inherit;
 }
-/* line 244, _rules.scss */
+/* line 245, _rules.scss */
 .DropList .DropList-dropdown .DropList-list:hover li.is-selected:hover {
   background-color: #1385E5;
   color: #FFF;
 }
 
-/* line 253, _rules.scss */
+/* line 254, _rules.scss */
 .DropList--dummy {
   display: none;
 }
 
-/* line 257, _rules.scss */
+/* line 258, _rules.scss */
 .Item {
   *zoom: 1;
 }
@@ -1082,35 +1083,35 @@ html[lang^="en"] tbody th {
 .Item:after {
   clear: both;
 }
-/* line 260, _rules.scss */
+/* line 261, _rules.scss */
 .Item .Item-user {
   float: left;
   margin-right: 15px;
 }
-/* line 264, _rules.scss */
+/* line 265, _rules.scss */
 .Item .Item-user img {
   display: block;
 }
-/* line 269, _rules.scss */
+/* line 270, _rules.scss */
 .Item .Item-avatar {
   width: 48px;
   height: 48px;
 }
-/* line 273, _rules.scss */
+/* line 274, _rules.scss */
 .Item .Item-avatar--large {
   width: 60px;
   height: 60px;
 }
-/* line 277, _rules.scss */
+/* line 278, _rules.scss */
 .Item .Item-avatar--small {
   width: 30px;
   height: 30px;
 }
-/* line 281, _rules.scss */
+/* line 282, _rules.scss */
 .Item .Item-content {
   overflow: hidden;
 }
-/* line 285, _rules.scss */
+/* line 286, _rules.scss */
 .Item .Item-name {
   display: -moz-inline-stack;
   display: inline-block;
@@ -1120,28 +1121,28 @@ html[lang^="en"] tbody th {
   max-width: 6em;
   margin-top: 10px;
 }
-/* line 293, _rules.scss */
+/* line 294, _rules.scss */
 .Item .Item-title,
 .Item .Item-title--large,
 .Item .Item-title--small {
   margin: 0;
   padding: 0;
 }
-/* line 297, _rules.scss */
+/* line 298, _rules.scss */
 .Item .Item-title {
   font-size: 1em;
 }
-/* line 301, _rules.scss */
+/* line 302, _rules.scss */
 .Item .Item-title--large {
   font-size: 1.2em;
 }
-/* line 306, _rules.scss */
+/* line 307, _rules.scss */
 .Item .Item-title--small,
 .Item .Item-footer {
   font-size: .9em;
 }
 
-/* line 317, _rules.scss */
+/* line 318, _rules.scss */
 .Score,
 .Score--small,
 .Score--selectable {
@@ -1149,7 +1150,7 @@ html[lang^="en"] tbody th {
   position: relative;
   background-repeat: repeat-x;
 }
-/* line 322, _rules.scss */
+/* line 323, _rules.scss */
 .Score .Score-level,
 .Score--small .Score-level,
 .Score--selectable .Score-level {
@@ -1163,17 +1164,17 @@ html[lang^="en"] tbody th {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/dest/images/transparent.gif?1415239819') repeat;
+  background: transparent url('/dest/images/transparent.gif?1415239861') repeat;
 }
 
-/* line 335, _rules.scss */
+/* line 336, _rules.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/dest/images/star.png?1415239819');
+  background-image: url('/dest/images/star.png?1415239861');
 }
 
-/* line 340, _rules.scss */
+/* line 341, _rules.scss */
 .Score,
 .Score--selectable {
   width: 80px;
@@ -1181,153 +1182,153 @@ html[lang^="en"] tbody th {
   background-position: 0 -16px;
 }
 
-/* line 347, _rules.scss */
+/* line 348, _rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/dest/images/ministar.png?1415239819');
+  background-image: url('/dest/images/ministar.png?1415239861');
 }
 
-/* line 351, _rules.scss */
+/* line 352, _rules.scss */
 .Score--small {
   width: 55px;
   height: 10px;
   background-position: 0 -10px;
 }
 
-/* line 359, _rules.scss */
+/* line 360, _rules.scss */
 .Score--selectable .Score-level {
   width: 16px;
   top: auto;
   left: auto;
 }
-/* line 364, _rules.scss */
+/* line 365, _rules.scss */
 .Score--selectable .Score-level:hover {
   left: 0;
   z-index: 2;
 }
-/* line 370, _rules.scss */
+/* line 371, _rules.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/dest/images/star.png?1415239819') repeat-x !important;
+  background: url('/dest/images/star.png?1415239861') repeat-x !important;
 }
-/* line 374, _rules.scss */
+/* line 375, _rules.scss */
 .Score--selectable .Score-storage {
   position: absolute;
   clip: rect(0 0 0 0);
   display: none;
 }
-/* line 383, _rules.scss */
+/* line 384, _rules.scss */
 .Score--selectable .Score-level-1 {
   left: 0px;
 }
-/* line 386, _rules.scss */
+/* line 387, _rules.scss */
 .Score--selectable .Score-level-1:hover {
   width: 16px;
 }
-/* line 391, _rules.scss */
+/* line 392, _rules.scss */
 .Score--selectable .Score-storage-1:checked ~ .Score-level-1 {
   width: 16px;
 }
-/* line 395, _rules.scss */
+/* line 396, _rules.scss */
 .Score--selectable .Score-level-1.is-selected {
   width: 16px;
 }
-/* line 383, _rules.scss */
+/* line 384, _rules.scss */
 .Score--selectable .Score-level-2 {
   left: 16px;
 }
-/* line 386, _rules.scss */
+/* line 387, _rules.scss */
 .Score--selectable .Score-level-2:hover {
   width: 32px;
 }
-/* line 391, _rules.scss */
+/* line 392, _rules.scss */
 .Score--selectable .Score-storage-2:checked ~ .Score-level-2 {
   width: 32px;
 }
-/* line 395, _rules.scss */
+/* line 396, _rules.scss */
 .Score--selectable .Score-level-2.is-selected {
   width: 32px;
 }
-/* line 383, _rules.scss */
+/* line 384, _rules.scss */
 .Score--selectable .Score-level-3 {
   left: 32px;
 }
-/* line 386, _rules.scss */
+/* line 387, _rules.scss */
 .Score--selectable .Score-level-3:hover {
   width: 48px;
 }
-/* line 391, _rules.scss */
+/* line 392, _rules.scss */
 .Score--selectable .Score-storage-3:checked ~ .Score-level-3 {
   width: 48px;
 }
-/* line 395, _rules.scss */
+/* line 396, _rules.scss */
 .Score--selectable .Score-level-3.is-selected {
   width: 48px;
 }
-/* line 383, _rules.scss */
+/* line 384, _rules.scss */
 .Score--selectable .Score-level-4 {
   left: 48px;
 }
-/* line 386, _rules.scss */
+/* line 387, _rules.scss */
 .Score--selectable .Score-level-4:hover {
   width: 64px;
 }
-/* line 391, _rules.scss */
+/* line 392, _rules.scss */
 .Score--selectable .Score-storage-4:checked ~ .Score-level-4 {
   width: 64px;
 }
-/* line 395, _rules.scss */
+/* line 396, _rules.scss */
 .Score--selectable .Score-level-4.is-selected {
   width: 64px;
 }
-/* line 383, _rules.scss */
+/* line 384, _rules.scss */
 .Score--selectable .Score-level-5 {
   left: 64px;
 }
-/* line 386, _rules.scss */
+/* line 387, _rules.scss */
 .Score--selectable .Score-level-5:hover {
   width: 80px;
 }
-/* line 391, _rules.scss */
+/* line 392, _rules.scss */
 .Score--selectable .Score-storage-5:checked ~ .Score-level-5 {
   width: 80px;
 }
-/* line 395, _rules.scss */
+/* line 396, _rules.scss */
 .Score--selectable .Score-level-5.is-selected {
   width: 80px;
 }
-/* line 400, _rules.scss */
+/* line 401, _rules.scss */
 .Score--selectable:hover .Score-level {
   background-image: none;
 }
-/* line 404, _rules.scss */
+/* line 405, _rules.scss */
 .Score--selectable label {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-/* line 412, _rules.scss */
+/* line 413, _rules.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/dest/images/star.png?1415239819') repeat-x;
+  background: url('/dest/images/star.png?1415239861') repeat-x;
   left: 0;
   z-index: 1;
 }
 
-/* line 418, _rules.scss */
+/* line 419, _rules.scss */
 .Score-level.is-selected {
-  background: url('/dest/images/star.png?1415239819') repeat-x;
+  background: url('/dest/images/star.png?1415239861') repeat-x;
   left: 0;
   z-index: 1;
 }
 
-/* line 428, _rules.scss */
+/* line 429, _rules.scss */
 .Tabs .Tabs-triggers {
   overflow: hidden;
   position: relative;
   z-index: 2;
   margin-bottom: -1px;
 }
-/* line 435, _rules.scss */
+/* line 436, _rules.scss */
 .Tabs .Tabs-trigger {
   display: -moz-inline-stack;
   display: inline-block;
@@ -1342,12 +1343,12 @@ html[lang^="en"] tbody th {
   margin-left: 1em;
   color: #666666;
 }
-/* line 445, _rules.scss */
+/* line 446, _rules.scss */
 .Tabs .Tabs-trigger:hover {
   background-color: #E5E5E5;
   color: #888888;
 }
-/* line 454, _rules.scss */
+/* line 455, _rules.scss */
 .Tabs .Tabs-trigger.is-selected {
   font-weight: bold;
   color: #333333;
@@ -1356,11 +1357,11 @@ html[lang^="en"] tbody th {
   border-bottom: 1px solid white;
   cursor: default;
 }
-/* line 464, _rules.scss */
+/* line 465, _rules.scss */
 .Tabs a.Tabs-trigger {
   text-decoration: none !important;
 }
-/* line 468, _rules.scss */
+/* line 469, _rules.scss */
 .Tabs .Tabs-content {
   position: relative;
   z-index: 1;
@@ -1369,12 +1370,12 @@ html[lang^="en"] tbody th {
   background-color: white;
   padding: 1em;
 }
-/* line 476, _rules.scss */
+/* line 477, _rules.scss */
 .Tabs .Tabs-content.is-selected {
   display: block;
 }
 
-/* line 483, _rules.scss */
+/* line 484, _rules.scss */
 .Typo-em,
 .Typo-gu--wavy {
   position: relative;
@@ -1389,7 +1390,7 @@ html[lang^="en"] tbody th {
   line-height: 1;
 }
 
-/* line 488, _rules.scss */
+/* line 489, _rules.scss */
 span.Typo-em,
 span.Typo-gu--wavy {
   display: -moz-inline-stack;
@@ -1399,7 +1400,7 @@ span.Typo-gu--wavy {
   *display: inline;
 }
 
-/* line 496, _rules.scss */
+/* line 497, _rules.scss */
 .Typo-em:after {
   content: "\2022";
   margin-top: -.67em;
@@ -1408,7 +1409,7 @@ span.Typo-gu--wavy {
 }
 
 @supports (text-emphasis-style: dot) or (-moz-text-emphasis-style: dot) or (-webkit-text-emphasis-style: dot) {
-  /* line 506, _rules.scss */
+  /* line 507, _rules.scss */
   .Typo-em {
     -webkit-text-emphasis-style: dot;
     -moz-text-emphasis-style: dot;
@@ -1421,12 +1422,12 @@ span.Typo-gu--wavy {
     -o-text-emphasis-position: under;
     text-emphasis-position: under;
   }
-  /* line 510, _rules.scss */
+  /* line 511, _rules.scss */
   .Typo-em:after {
     display: none;
   }
 }
-/* line 520, _rules.scss */
+/* line 521, _rules.scss */
 .Typo-gu--wavy:after {
   content: "\FE4F";
   top: auto;
@@ -1434,7 +1435,7 @@ span.Typo-gu--wavy {
 }
 
 @supports (text-decoration-style: wavy) or (-moz-text-decoration-style: wavy) or (-webkit-text-decoration-style: wavy) {
-  /* line 529, _rules.scss */
+  /* line 530, _rules.scss */
   .Typo-gu--wavy {
     -webkit-text-decoration-style: wavy;
     -moz-text-decoration-style: wavy;
@@ -1447,12 +1448,12 @@ span.Typo-gu--wavy {
     -o-text-decoration-line: underline;
     text-decoration-line: underline;
   }
-  /* line 533, _rules.scss */
+  /* line 534, _rules.scss */
   .Typo-gu--wavy:after {
     display: none;
   }
 }
-/* line 539, _rules.scss */
+/* line 540, _rules.scss */
 .Uploader {
   position: relative;
   *zoom: 1;
@@ -1467,7 +1468,7 @@ span.Typo-gu--wavy {
   clear: both;
 }
 
-/* line 545, _rules.scss */
+/* line 546, _rules.scss */
 .Uploader-button,
 .Uploader-file {
   height: 30px;
@@ -1480,7 +1481,7 @@ span.Typo-gu--wavy {
   user-select: none;
 }
 
-/* line 557, _rules.scss */
+/* line 558, _rules.scss */
 .Uploader-button {
   position: relative;
   overflow: hidden;
@@ -1520,7 +1521,7 @@ span.Typo-gu--wavy {
   background-image: -o-linear-gradient(#f2f2f2, #f9f9f9);
   background-image: linear-gradient(#f2f2f2, #f9f9f9);
 }
-/* line 570, _rules.scss */
+/* line 571, _rules.scss */
 .Uploader-button[disabled] {
   border-color: #B8C4C8 !important;
   background: #D8DEE0 none !important;
@@ -1528,7 +1529,7 @@ span.Typo-gu--wavy {
   color: #A2ABAE !important;
   cursor: default;
 }
-/* line 578, _rules.scss */
+/* line 579, _rules.scss */
 .Uploader-button input[type="file"] {
   position: absolute;
   top: 0;
@@ -1542,7 +1543,7 @@ span.Typo-gu--wavy {
   cursor: pointer;
 }
 
-/* line 589, _rules.scss */
+/* line 590, _rules.scss */
 .Uploader-file {
   overflow: hidden;
   white-space: nowrap;
@@ -1550,23 +1551,23 @@ span.Typo-gu--wavy {
   text-overflow: ellipsis;
   cursor: default;
 }
-/* line 594, _rules.scss */
+/* line 595, _rules.scss */
 .Uploader-file span {
   cursor: default;
 }
 
-/* line 599, _rules.scss */
+/* line 600, _rules.scss */
 .Uploader-overlay--fullscreen {
   position: fixed;
 }
 
-/* line 604, _rules.scss */
+/* line 605, _rules.scss */
 .Uploader-overlay,
 .Uploader-background {
   position: absolute;
 }
 
-/* line 610, _rules.scss */
+/* line 611, _rules.scss */
 .Uploader-overlay,
 .Uploader-overlay--fullscreen,
 .Uploader-background {
@@ -1576,7 +1577,7 @@ span.Typo-gu--wavy {
   left: 0;
 }
 
-/* line 618, _rules.scss */
+/* line 619, _rules.scss */
 .Uploader-overlay,
 .Uploader-overlay--fullscreen {
   display: none;
@@ -1597,7 +1598,7 @@ span.Typo-gu--wavy {
   height: 100%;
 }
 
-/* line 625, _rules.scss */
+/* line 626, _rules.scss */
 .Uploader-background {
   z-index: -1;
   background-color: #000;
@@ -1606,7 +1607,7 @@ span.Typo-gu--wavy {
   *filter: alpha(opacity=30);
 }
 
-/* line 632, _rules.scss */
+/* line 633, _rules.scss */
 .Uploader-progress,
 .Uploader-bar {
   -webkit-border-radius: 2px;
@@ -1616,7 +1617,7 @@ span.Typo-gu--wavy {
   border-radius: 2px;
 }
 
-/* line 636, _rules.scss */
+/* line 637, _rules.scss */
 .Uploader-progress {
   width: 80%;
   height: 20px;
@@ -1634,7 +1635,7 @@ span.Typo-gu--wavy {
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* line 648, _rules.scss */
+/* line 649, _rules.scss */
 .Uploader-bar {
   width: 0;
   height: 100%;

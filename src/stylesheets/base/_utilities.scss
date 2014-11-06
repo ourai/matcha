@@ -25,7 +25,8 @@
 
 :root {
   .u-coveredBgImage {
-    @include covered_background;  
+    @include covered_background;
+    z-index: auto;
   }
 
   .u-coveredBgImage-altWrapper {
