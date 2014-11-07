@@ -18,65 +18,67 @@ module.exports = ( grunt ) ->
     repo: info
     pkg: pkg
     meta:
-      src: "src"
+      base: "src/base"
+      base_c: "<%= meta.base %>/coffee"
+      base_s: "<%= meta.base %>/sass"
+
+      helpers: "src/helpers"
+
+      modules: "src/modules"
+      mod_cmpt: "<%= meta.modules %>/Component"
+      mod_cmpt_c: "<%= meta.mod_cmpt %>/coffee"
+      mod_cmpt_s: "<%= meta.mod_cmpt %>/sass"
+      mod_layout: "<%= meta.modules %>/Layout"
+      mod_layout_s: "<%= meta.layout %>/sass"
+
+      temp: ".<%= pkg.name %>-cache"
+      image: "src/images"
+
       dest: "dest"
-      style: "<%= meta.src %>/stylesheets"
-      helpers: "<%= meta.style %>/helpers"
-      base: "<%= meta.style %>/base"
-      script: "<%= meta.src %>/javascripts"
-      coffee: "<%= meta.script %>/coffee"
-      image: "<%= meta.src %>/images"
       dest_style: "<%= meta.dest %>/stylesheets"
       dest_script: "<%= meta.dest %>/javascripts"
       dest_image: "<%= meta.dest %>/images"
+
       tests: "test"
     concat:
-      helpers:
-        src: [
-            "<%= meta.helpers %>/_variables.scss"
-            "<%= meta.helpers %>/_functions.scss"
-            "<%= meta.helpers %>/_enhancement.scss"
-            "<%= meta.helpers %>/_mixins.scss"
-            "<%= meta.helpers %>/_punctuation.scss"
-          ]
-        dest: "<%= meta.dest_style %>/_helpers.scss"
-      vendors:
-        src: ["vendors/normalize.css/normalize.css"]
-        dest: "<%= meta.dest_style %>/_vendors.scss"
-      rules:
-        src: [
-            "<%= meta.base %>/_reset.scss"
-            "<%= meta.base %>/_g11n.scss"
-            "<%= meta.base %>/_keyframes.scss"
-            "<%= meta.base %>/_utilities.scss"
-            "<%= meta.style %>/components/*.scss"
-          ]
-        dest: "<%= meta.dest_style %>/_rules.scss"
-      core:
-        src: ["<%= meta.style %>/rules.scss"]
-        dest: "<%= meta.dest_style %>/<%= pkg.name %>.scss"
+      sass:
+        files:
+          "<%= meta.dest_style %>/_vendors.scss": [
+              "vendors/normalize.css/normalize.css"
+            ]
+          "<%= meta.dest_style %>/sass/_helpers.scss": [
+              "<%= meta.helpers %>/_variables.scss"
+              "<%= meta.helpers %>/_functions.scss"
+              "<%= meta.helpers %>/_enhancement.scss"
+              "<%= meta.helpers %>/_mixins.scss"
+              "<%= meta.helpers %>/_punctuation.scss"
+            ]
+          "<%= meta.dest_style %>/_rules.scss": [
+              "<%= meta.base_s %>/_reset.scss"
+              "<%= meta.base_s %>/_g11n.scss"
+              "<%= meta.base_s %>/_keyframes.scss"
+              "<%= meta.base_s %>/_utilities.scss"
+              "<%= meta.mod_cmpt_s %>/*.scss"
+            ]
+          "<%= meta.dest_style %>/<%= pkg.name %>.scss": [
+              "build/rules.scss"
+            ]
       coffee:
         files:
-          "<%= meta.coffee %>/components.coffee": [
-              "<%= meta.coffee %>/modules/Component/initializer.coffee"
-              "<%= meta.coffee %>/modules/Component/data-list.coffee"
+          "<%= meta.temp %>/components.coffee": [
+              "<%= meta.mod_cmpt_c %>/initializer.coffee"
+              "<%= meta.mod_cmpt_c %>/drop-down_list.coffee"
+              "<%= meta.mod_cmpt_c %>/score.coffee"
+              "<%= meta.mod_cmpt_c %>/tabs.coffee"
+              "<%= meta.mod_cmpt_c %>/uploader.coffee"
+              "<%= meta.mod_cmpt_c %>/data_list.coffee"
             ]
-          "<%= meta.dest_script %>/<%= pkg.name %>.coffee": [
-              "<%= meta.coffee %>/intro.coffee"
-              "<%= meta.coffee %>/variables.coffee"
-              "<%= meta.coffee %>/functions.coffee"
-              "<%= meta.coffee %>/events.coffee"
-              "<%= meta.coffee %>/initialize.coffee"
-              "<%= meta.coffee %>/outro.coffee"
-            ]
-          "<%= meta.dest_script %>/<%= pkg.name %>.full.coffee": [
-              "<%= meta.coffee %>/intro.coffee"
-              "<%= meta.coffee %>/variables.coffee"
-              "<%= meta.coffee %>/functions.coffee"
-              "<%= meta.coffee %>/events.coffee"
-              "<%= meta.coffee %>/initialize.coffee"
-              "<%= meta.coffee %>/components.coffee"
-              "<%= meta.coffee %>/outro.coffee"
+          "<%= meta.temp %>/<%= pkg.name %>.coffee": [
+              "<%= meta.base_c %>/intro.coffee"
+              "<%= meta.base_c %>/variables.coffee"
+              "<%= meta.base_c %>/functions.coffee"
+              "<%= meta.temp %>/components.coffee"
+              "<%= meta.base_c %>/outro.coffee"
             ]
       js_normal:
         options:
@@ -84,22 +86,11 @@ module.exports = ( grunt ) ->
             return src.replace /@(NAME|VERSION)/g, ( text, key ) ->
               return info[key.toLowerCase()]
         src: [
-            "<%= meta.script %>/intro.js"
-            "<%= meta.script %>/<%= pkg.name %>.js"
-            "<%= meta.script %>/outro.js"
+            "build/intro.js"
+            "<%= meta.temp %>/<%= pkg.name %>.js"
+            "build/outro.js"
           ]
         dest: "<%= meta.dest_script %>/<%= pkg.name %>.js"
-      js_full:
-        options:
-          process: ( src, filepath ) ->
-            return src.replace /@(NAME|VERSION)/g, ( text, key ) ->
-              return info[key.toLowerCase()]
-        src: [
-            "<%= meta.script %>/intro.js"
-            "<%= meta.script %>/<%= pkg.name %>.full.js"
-            "<%= meta.script %>/outro.js"
-          ]
-        dest: "<%= meta.dest_script %>/<%= pkg.name %>.full.js"
     compass:
       compile:
         options:
@@ -122,11 +113,8 @@ module.exports = ( grunt ) ->
         bare: true
         separator: "\x20"
       build_normal:
-        src: "<%= meta.dest_script %>/<%= pkg.name %>.coffee"
-        dest: "<%= meta.script %>/<%= pkg.name %>.js"
-      build_full:
-        src: "<%= meta.dest_script %>/<%= pkg.name %>.full.coffee"
-        dest: "<%= meta.script %>/<%= pkg.name %>.full.js"
+        src: "<%= meta.temp %>/<%= pkg.name %>.coffee"
+        dest: "<%= meta.temp %>/<%= pkg.name %>.js"
       test:
         src: "<%= meta.tests %>/test.coffee"
         dest: "<%= meta.tests %>/test.js"
@@ -144,14 +132,11 @@ module.exports = ( grunt ) ->
       build_normal:
         src: "<%= meta.dest_script %>/<%= pkg.name %>.js"
         dest: "<%= meta.dest_script %>/<%= pkg.name %>.min.js"
-      build_full:
-        src: "<%= meta.dest_script %>/<%= pkg.name %>.full.js"
-        dest: "<%= meta.dest_script %>/<%= pkg.name %>.full.min.js"
     copy:
       sass:
         expand: true
-        cwd: "<%= meta.style %>"
-        src: ["layouts/*"]
+        cwd: "<%= meta.mod_layout %>"
+        src: ["sass/*"]
         dest: "<%= meta.dest_style %>"
         filter: "isFile"
       image:
@@ -162,14 +147,13 @@ module.exports = ( grunt ) ->
       test:
         expand: true
         cwd: "<%= meta.dest %>"
-        src: ["images/*", "javascripts/*", "stylesheets/_helpers.scss", "stylesheets/layouts/*"]
+        src: ["images/*", "javascripts/*", "stylesheets/sass/*"]
         dest: "<%= meta.tests %>"
     clean:
       compiled:
         src: [
-            "<%= meta.dest_script %>/*.coffee"
+            "<%= meta.temp %>/**"
             "<%= meta.dest_style %>/*.scss"
-            "!<%= meta.dest_style %>/_helpers.scss"
           ]
     ###
     jade:
@@ -203,10 +187,7 @@ module.exports = ( grunt ) ->
 
   # Tasks about Sass
   grunt.registerTask "compile_sass", [
-      "concat:helpers"
-      "concat:vendors"
-      "concat:rules"
-      "concat:core"
+      "concat:sass"
       "copy:sass"
       "compass:compile"
       "cssmin"
@@ -215,16 +196,25 @@ module.exports = ( grunt ) ->
   grunt.registerTask "compile_coffee", [
       "concat:coffee"
       "coffee:build_normal"
-      "coffee:build_full"
       "concat:js_normal"
-      "concat:js_full"
       "uglify"
     ]
   grunt.registerTask "test", [
-    "coffee:test"
-    "compass:test"
-    "compass:test_2"
-    "copy:test"
-  ]
+      "coffee:test"
+      "copy:test"
+      "compass:test"
+      "compass:test_2"
+    ]
   # Default task
-  grunt.registerTask "default", ["compile_sass", "compile_coffee", "copy:image", "test", "clean"]
+  grunt.registerTask "default", [
+      "compile_sass"
+      "compile_coffee"
+      "copy:image"
+      "test"
+      "clean"
+    ]
+
+  grunt.registerTask "cct", [
+      "compile_coffee"
+      "clean"
+    ]
