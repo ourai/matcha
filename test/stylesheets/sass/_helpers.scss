@@ -232,15 +232,3 @@ $UN-wavy_low_line: "\FE4F";
     @include linear-gradient($hover_end, $hover_start);
   }
 }
-
-@mixin punc_under {
-  position: relative;
-  text-indent: 0;
-
-  &:after {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    line-height: 1;
-  }
-}

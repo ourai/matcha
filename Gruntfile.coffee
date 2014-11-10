@@ -23,6 +23,7 @@ module.exports = ( grunt ) ->
       base_s: "<%= meta.base %>/sass"
 
       helpers: "src/helpers"
+      helpers_s: "<%= meta.helpers %>/sass"
 
       modules: "src/modules"
       mod_cmpt: "<%= meta.modules %>/Component"
@@ -30,6 +31,8 @@ module.exports = ( grunt ) ->
       mod_cmpt_s: "<%= meta.mod_cmpt %>/sass"
       mod_layout: "<%= meta.modules %>/Layout"
       mod_layout_s: "<%= meta.layout %>/sass"
+      mod_typo: "<%= meta.modules %>/Typography"
+      mod_typo_s: "<%= meta.mod_typo %>/sass"
 
       temp: ".<%= pkg.name %>-cache"
       image: "src/images"
@@ -47,18 +50,20 @@ module.exports = ( grunt ) ->
               "vendors/normalize.css/normalize.css"
             ]
           "<%= meta.dest_style %>/sass/_helpers.scss": [
-              "<%= meta.helpers %>/_variables.scss"
-              "<%= meta.helpers %>/_functions.scss"
-              "<%= meta.helpers %>/_enhancement.scss"
-              "<%= meta.helpers %>/_mixins.scss"
-              "<%= meta.helpers %>/_punctuation.scss"
+              "<%= meta.helpers_s %>/_variables.scss"
+              "<%= meta.helpers_s %>/_functions.scss"
+              "<%= meta.helpers_s %>/_enhancement.scss"
+              "<%= meta.helpers_s %>/_mixins.scss"
             ]
           "<%= meta.dest_style %>/_rules.scss": [
               "<%= meta.base_s %>/_reset.scss"
               "<%= meta.base_s %>/_g11n.scss"
-              "<%= meta.base_s %>/_keyframes.scss"
               "<%= meta.base_s %>/_utilities.scss"
               "<%= meta.mod_cmpt_s %>/*.scss"
+            ]
+          "<%= meta.dest_style %>/_typography.scss": [
+              "<%= meta.mod_typo_s %>/_helper.scss"
+              "<%= meta.mod_typo_s %>/_punctuation.scss"
             ]
           "<%= meta.dest_style %>/<%= pkg.name %>.scss": [
               "build/rules.scss"
