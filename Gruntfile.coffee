@@ -22,9 +22,6 @@ module.exports = ( grunt ) ->
       base_c: "<%= meta.base %>/coffee"
       base_s: "<%= meta.base %>/sass"
 
-      helpers: "src/helpers"
-      helpers_s: "<%= meta.helpers %>/sass"
-
       modules: "src/modules"
       mod_cmpt: "<%= meta.modules %>/Component"
       mod_cmpt_c: "<%= meta.mod_cmpt %>/coffee"
@@ -50,10 +47,10 @@ module.exports = ( grunt ) ->
               "vendors/normalize.css/normalize.css"
             ]
           "<%= meta.dest_style %>/sass/_helpers.scss": [
-              "<%= meta.helpers_s %>/_variables.scss"
-              "<%= meta.helpers_s %>/_functions.scss"
-              "<%= meta.helpers_s %>/_enhancement.scss"
-              "<%= meta.helpers_s %>/_mixins.scss"
+              "<%= meta.base_s %>/_variables.scss"
+              "<%= meta.base_s %>/_functions.scss"
+              "<%= meta.base_s %>/_enhancement.scss"
+              "<%= meta.base_s %>/_mixins.scss"
             ]
           "<%= meta.dest_style %>/_rules.scss": [
               "<%= meta.base_s %>/_reset.scss"
