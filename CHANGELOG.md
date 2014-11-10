@@ -1,5 +1,12 @@
 # MATCHA CHANGELOG
 
+## 0.4.1 (2014-11-10)
+
+1.  模块化
+
+    文件按照 Layout、Typography、Components 三大模块进行分割
+2.  添加 data list
+
 ## 0.3.1 (2014-09-25)
 
 1.  Typography for Chinese

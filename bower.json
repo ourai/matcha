@@ -1,6 +1,6 @@
 {
   "name": "matcha",
-  "version": "0.3.1",
+  "version": "0.4.1",
   "main": [
     "dest/javascripts/matcha.min.js",
     "dest/stylesheets/matcha.min.css"],
