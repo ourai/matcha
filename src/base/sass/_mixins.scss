@@ -21,6 +21,11 @@
   height: $size;
 }
 
+@mixin circle( $size: 16px ) {
+  @include square($size);
+  @include border-radius(50%);
+}
+
 @mixin triangle( $width: 5px, $color: #000, $dir: top ) {
   @include inline-block(none);
   @include text-hide;
@@ -53,14 +58,17 @@
 
 
 
-// !!! Placefolders for future
+// !!! Placeholders for future
 
+// 文本过长时以「...」省略
+// 强制为单行文本
 @mixin text-ellipsis {
   white-space: nowrap;
   overflow-x: hidden;
   text-overflow: ellipsis;
 }
 
+// 不显示文字
 @mixin text-hide {
   color: transparent;
   border: 0 none;
@@ -124,6 +132,7 @@
   }
 }
 
+// 渐变按钮
 @mixin gradient_button( $bg_color, $normal_start, $normal_end, $hover_start, $hover_end ) {
   background-color: $bg_color;
   @include linear-gradient($normal_start, $normal_end);
