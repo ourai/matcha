@@ -874,14 +874,14 @@ html[lang^="en"] tbody th {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/dest/images/transparent.gif?1415588274') repeat;
+  background: transparent url('/dest/images/transparent.gif?1415987985') repeat;
 }
 
 /* line 303, _rules.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/dest/images/star.png?1415588274');
+  background-image: url('/dest/images/star.png?1415987985');
 }
 
 /* line 308, _rules.scss */
@@ -895,7 +895,7 @@ html[lang^="en"] tbody th {
 /* line 315, _rules.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/dest/images/ministar.png?1415588274');
+  background-image: url('/dest/images/ministar.png?1415987984');
 }
 
 /* line 319, _rules.scss */
@@ -918,7 +918,7 @@ html[lang^="en"] tbody th {
 }
 /* line 338, _rules.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/dest/images/star.png?1415588274') repeat-x !important;
+  background: url('/dest/images/star.png?1415987985') repeat-x !important;
 }
 /* line 342, _rules.scss */
 .Score--selectable .Score-storage {
@@ -1019,14 +1019,14 @@ html[lang^="en"] tbody th {
 
 /* line 380, _rules.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/dest/images/star.png?1415588274') repeat-x;
+  background: url('/dest/images/star.png?1415987985') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 386, _rules.scss */
 .Score-level.is-selected {
-  background: url('/dest/images/star.png?1415588274') repeat-x;
+  background: url('/dest/images/star.png?1415987985') repeat-x;
   left: 0;
   z-index: 1;
 }
