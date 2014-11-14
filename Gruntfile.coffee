@@ -43,6 +43,9 @@ module.exports = ( grunt ) ->
     concat:
       sass:
         files:
+          "src/_normalize.scss": [
+              "vendors/normalize.css/normalize.css"
+            ]
           "<%= meta.dest_style %>/_vendors.scss": [
               "vendors/normalize.css/normalize.css"
             ]
