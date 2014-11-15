@@ -13,9 +13,9 @@
   "author": "Ourai Lin <ourairyu@hotmail.com> (http://ourai.ws/)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fekit/matcha.git"
+    "url": "https://github.com/matchaui/matcha.git"
   },
-  "bugs": "https://github.com/fekit/matcha/issues",
+  "bugs": "https://github.com/matchaui/matcha/issues",
   "engines": "node >= 0.8.0",
   "devDependencies": {
     "grunt": "~0.4.1",
