@@ -1,7 +1,13 @@
+// Core variables and mixins
+@import "matcha/variables";
+@import "matcha/functions";
 @import "matcha/mixins";
 
-// Dependencies
+// Dependencies and reset
 @import "matcha/normalize";
+@import "matcha/reset";
+@import "matcha/g11n";
+@import "matcha/utilities";
 
 // Components
 @import "matcha/button";
