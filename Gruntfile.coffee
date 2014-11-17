@@ -77,6 +77,7 @@ module.exports = ( grunt ) ->
               "<%= meta.mod_cmpt_c %>/tabs.coffee"
               "<%= meta.mod_cmpt_c %>/uploader.coffee"
               "<%= meta.mod_cmpt_c %>/data_list.coffee"
+              "<%= meta.mod_cmpt_c %>/slide.coffee"
             ]
           "<%= meta.temp %>/<%= pkg.name %>.coffee": [
               "<%= meta.base_c %>/intro.coffee"
