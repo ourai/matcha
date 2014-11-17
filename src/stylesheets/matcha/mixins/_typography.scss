@@ -1,0 +1,55 @@
+@mixin base-font( $font_size: $font_size ) {
+  font: {
+    style: normal;
+    weight: normal;
+    family: $font_family;
+    size: $font_size;
+  }
+
+  line-height: $line_height;
+}
+
+@mixin text-ellipsis {
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin text-hide {
+  color: transparent;
+  border: 0 none;
+  font: 0px/0 a;
+  @include text-shadow(none);
+  // Use a transparent image to set as the background of it to fix bug of IE6/7/8.
+  background: transparent image-url("transparent.gif") repeat;
+}
+
+// Makes text's vertical alignment middle,
+// should invoked on parent node.
+@mixin text-middle {
+  &:before {
+    content: "\0020";
+    @include inline-block;
+    width: 0;
+    height: 100%;
+  }
+}
+
+@mixin line_feed {
+  word-wrap: break-word;
+  word-wrap: normal\0;
+  word-break: break-all;
+  white-space: normal;
+}
+
+@mixin punc_under {
+  position: relative;
+  text-indent: 0;
+
+  &:after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    line-height: 1;
+  }
+}
