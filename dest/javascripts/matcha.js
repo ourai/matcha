@@ -386,6 +386,10 @@ $(document).on("change", hook("uploader.trigger"), function() {
   });
 })(_H);
 
+(function(_H) {
+  return _H.addComponent("slide", function(settings) {});
+})(_H);
+
 window[LIB_CONFIG.name] = _H;
 
 }));

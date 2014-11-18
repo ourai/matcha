@@ -2,10 +2,10 @@
 
 ## 0.4.1 (2014-11-10)
 
-1.  模块化
-
-    文件按照 Layout、Typography、Components 三大模块进行分割
-2.  添加 data list
+1.  Sass 源文件的目录结构模仿 [bootstrap-sass](http://github.com/twbs/bootstrap-sass)
+2.  编译后的样式表文件只有 CSS，没有 Sass
+3.  添加 data list
+4.  添加 slide
 
 ## 0.3.1 (2014-09-25)
 

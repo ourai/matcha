@@ -11,25 +11,16 @@ module.exports = ( grunt ) ->
       "grunt-contrib-jade"
       "grunt-contrib-concat"
       "grunt-contrib-copy"
-      "grunt-contrib-clean"
     ]
 
   grunt.initConfig
     repo: info
     pkg: pkg
     meta:
-      base: "src/base"
-      base_c: "<%= meta.base %>/coffee"
-      base_s: "<%= meta.base %>/sass"
+      base: "src/javascripts/base"
 
-      modules: "src/modules"
+      modules: "src/javascripts/modules"
       mod_cmpt: "<%= meta.modules %>/Component"
-      mod_cmpt_c: "<%= meta.mod_cmpt %>/coffee"
-      mod_cmpt_s: "<%= meta.mod_cmpt %>/sass"
-      mod_layout: "<%= meta.modules %>/Layout"
-      mod_layout_s: "<%= meta.layout %>/sass"
-      mod_typo: "<%= meta.modules %>/Typography"
-      mod_typo_s: "<%= meta.mod_typo %>/sass"
 
       temp: ".<%= pkg.name %>-cache"
       image: "src/images"
@@ -41,50 +32,23 @@ module.exports = ( grunt ) ->
 
       tests: "test"
     concat:
-      sass:
-        files:
-          "src/_normalize.scss": [
-              "vendors/normalize.css/normalize.css"
-            ]
-          "<%= meta.dest_style %>/_vendors.scss": [
-              "vendors/normalize.css/normalize.css"
-            ]
-          "<%= meta.dest_style %>/sass/_helpers.scss": [
-              "<%= meta.base_s %>/_variables.scss"
-              "<%= meta.base_s %>/_functions.scss"
-              "<%= meta.base_s %>/_enhancement.scss"
-              "<%= meta.base_s %>/_mixins.scss"
-            ]
-          "<%= meta.dest_style %>/_rules.scss": [
-              "<%= meta.base_s %>/_reset.scss"
-              "<%= meta.base_s %>/_g11n.scss"
-              "<%= meta.base_s %>/_utilities.scss"
-              "<%= meta.mod_cmpt_s %>/*.scss"
-            ]
-          "<%= meta.dest_style %>/_typography.scss": [
-              "<%= meta.mod_typo_s %>/_helper.scss"
-              "<%= meta.mod_typo_s %>/_punctuation.scss"
-            ]
-          "<%= meta.dest_style %>/<%= pkg.name %>.scss": [
-              "build/rules.scss"
-            ]
       coffee:
         files:
           "<%= meta.temp %>/components.coffee": [
-              "<%= meta.mod_cmpt_c %>/initializer.coffee"
-              "<%= meta.mod_cmpt_c %>/drop-down_list.coffee"
-              "<%= meta.mod_cmpt_c %>/score.coffee"
-              "<%= meta.mod_cmpt_c %>/tabs.coffee"
-              "<%= meta.mod_cmpt_c %>/uploader.coffee"
-              "<%= meta.mod_cmpt_c %>/data_list.coffee"
-              "<%= meta.mod_cmpt_c %>/slide.coffee"
+              "<%= meta.mod_cmpt %>/initializer.coffee"
+              "<%= meta.mod_cmpt %>/drop-down_list.coffee"
+              "<%= meta.mod_cmpt %>/score.coffee"
+              "<%= meta.mod_cmpt %>/tabs.coffee"
+              "<%= meta.mod_cmpt %>/uploader.coffee"
+              "<%= meta.mod_cmpt %>/data_list.coffee"
+              "<%= meta.mod_cmpt %>/slide.coffee"
             ]
           "<%= meta.temp %>/<%= pkg.name %>.coffee": [
-              "<%= meta.base_c %>/intro.coffee"
-              "<%= meta.base_c %>/variables.coffee"
-              "<%= meta.base_c %>/functions.coffee"
+              "<%= meta.base %>/intro.coffee"
+              "<%= meta.base %>/variables.coffee"
+              "<%= meta.base %>/functions.coffee"
               "<%= meta.temp %>/components.coffee"
-              "<%= meta.base_c %>/outro.coffee"
+              "<%= meta.base %>/outro.coffee"
             ]
       js_normal:
         options:
@@ -100,7 +64,7 @@ module.exports = ( grunt ) ->
     compass:
       compile:
         options:
-          sassDir: "<%= meta.dest_style %>"
+          sassDir: "build"
           cssDir: "<%= meta.dest_style %>"
           javascriptsDir: "<%= meta.dest_script %>"
           imagesDir: "<%= meta.dest_image %>"
@@ -139,12 +103,6 @@ module.exports = ( grunt ) ->
         src: "<%= meta.dest_script %>/<%= pkg.name %>.js"
         dest: "<%= meta.dest_script %>/<%= pkg.name %>.min.js"
     copy:
-      sass:
-        expand: true
-        cwd: "<%= meta.mod_layout %>"
-        src: ["sass/*"]
-        dest: "<%= meta.dest_style %>"
-        filter: "isFile"
       image:
         expand: true
         cwd: "<%= meta.image %>"
@@ -153,24 +111,8 @@ module.exports = ( grunt ) ->
       test:
         expand: true
         cwd: "<%= meta.dest %>"
-        src: ["images/*", "javascripts/*", "stylesheets/sass/*"]
+        src: ["images/*", "javascripts/*"]
         dest: "<%= meta.tests %>"
-    clean:
-      compiled:
-        src: [
-            "<%= meta.temp %>/**"
-            "<%= meta.dest_style %>/*.scss"
-          ]
-    ###
-    jade:
-      compile:
-        options:
-          pretty: true
-          data:
-            debug: false
-        files:
-          "<%= meta.dest %>/layout.html": "<%= meta.src %>/views/layouts/layout.jade"
-    ###
     cssmin:
       minify:
         options:
@@ -193,8 +135,6 @@ module.exports = ( grunt ) ->
 
   # Tasks about Sass
   grunt.registerTask "compile_sass", [
-      "concat:sass"
-      "copy:sass"
       "compass:compile"
       "cssmin"
     ]
@@ -217,10 +157,4 @@ module.exports = ( grunt ) ->
       "compile_coffee"
       "copy:image"
       "test"
-      "clean"
-    ]
-
-  grunt.registerTask "cct", [
-      "compile_coffee"
-      "clean"
     ]
