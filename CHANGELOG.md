@@ -1,5 +1,12 @@
 # MATCHA CHANGELOG
 
+## 0.4.1 (2014-11-10)
+
+1.  Sass 源文件的目录结构模仿 [bootstrap-sass](http://github.com/twbs/bootstrap-sass)
+2.  编译后的样式表文件只有 CSS，没有 Sass
+3.  添加 data list
+4.  添加 slide
+
 ## 0.3.1 (2014-09-25)
 
 1.  Typography for Chinese
