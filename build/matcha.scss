@@ -1,1 +1,22 @@
-@import "../src/stylesheets/matcha";
+// Core variables and mixins
+@import "../src/stylesheets/variables";
+@import "../src/stylesheets/functions";
+@import "../src/stylesheets/mixins";
+
+// Dependencies and reset
+@import "../src/stylesheets/normalize";
+@import "../src/stylesheets/reset";
+@import "../src/stylesheets/g11n";
+@import "../src/stylesheets/utilities";
+
+// Typography
+@import "../src/stylesheets/punctuation";
+
+// Components
+@import "../src/stylesheets/button";
+@import "../src/stylesheets/dropdown";
+@import "../src/stylesheets/item";
+@import "../src/stylesheets/score";
+@import "../src/stylesheets/tabs";
+@import "../src/stylesheets/uploader";
+@import "../src/stylesheets/slide";
