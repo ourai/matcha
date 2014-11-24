@@ -1,9 +1,3 @@
-ul.List,
-ol.List {
-  @include no_gap;
-  @include no_item;
-}
-
 .Item {
   @include clearfix;
 
