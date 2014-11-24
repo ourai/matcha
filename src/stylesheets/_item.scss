@@ -1,3 +1,9 @@
+ul.List,
+ol.List {
+  @include no_gap;
+  @include no_item;
+}
+
 .Item {
   @include clearfix;
 
@@ -11,15 +17,15 @@
   }
 
   .Item-avatar {
-    @include square(48px);
+    @include square($avatar-small);
   }
 
   .Item-avatar--large {
-    @include square(60px);
+    @include square($avatar-normal);
   }
 
   .Item-avatar--small {
-    @include square(30px);
+    @include square($avatar-tiny);
   }
 
   .Item-content {
