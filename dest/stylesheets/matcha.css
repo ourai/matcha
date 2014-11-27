@@ -756,33 +756,44 @@ span.Typo-gu--wavy {
   background-image: linear-gradient(#fb865e, #ff936e);
 }
 
-/* line 2, ../../src/stylesheets/_dropdown.scss */
-.DropList {
+/* line 7, ../../src/stylesheets/_dropdown.scss */
+.DropList,
+.DropDown--upon,
+.DropDown--upon .DropDown-list {
+  position: relative;
+}
+
+/* line 12, ../../src/stylesheets/_dropdown.scss */
+.DropList,
+.DropDown--upon {
   display: -moz-inline-stack;
   display: inline-block;
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
+}
+
+/* line 18, ../../src/stylesheets/_dropdown.scss */
+.DropList {
   min-width: 120px;
-  position: relative;
   border: 1px solid #A6A6A6;
   border-radius: 3px;
   background-color: #FFF;
 }
-/* line 10, ../../src/stylesheets/_dropdown.scss */
+/* line 24, ../../src/stylesheets/_dropdown.scss */
 .DropList:hover {
   border-radius: 3px 3px 0 0;
 }
-/* line 13, ../../src/stylesheets/_dropdown.scss */
+/* line 27, ../../src/stylesheets/_dropdown.scss */
 .DropList:hover .DropList-dropdown {
   display: block;
 }
-/* line 18, ../../src/stylesheets/_dropdown.scss */
+/* line 32, ../../src/stylesheets/_dropdown.scss */
 .DropList .DropList-selected {
   position: relative;
   cursor: pointer;
 }
-/* line 22, ../../src/stylesheets/_dropdown.scss */
+/* line 36, ../../src/stylesheets/_dropdown.scss */
 .DropList .DropList-selected:after {
   content: "\0020";
   position: absolute;
@@ -795,7 +806,7 @@ span.Typo-gu--wavy {
   border-top-color: #A6A6A6;
   margin: -3px 4px 0 0;
 }
-/* line 36, ../../src/stylesheets/_dropdown.scss */
+/* line 50, ../../src/stylesheets/_dropdown.scss */
 .DropList .DropList-selected .DropList-label {
   display: -moz-inline-stack;
   display: inline-block;
@@ -805,7 +816,7 @@ span.Typo-gu--wavy {
   margin: 0 20px 0 9px;
   padding: 5px 0;
 }
-/* line 43, ../../src/stylesheets/_dropdown.scss */
+/* line 57, ../../src/stylesheets/_dropdown.scss */
 .DropList .DropList-dropdown {
   display: none;
   position: absolute;
@@ -819,7 +830,7 @@ span.Typo-gu--wavy {
   border-radius: 0 0 3px 3px;
   margin: 0 -1px;
 }
-/* line 56, ../../src/stylesheets/_dropdown.scss */
+/* line 70, ../../src/stylesheets/_dropdown.scss */
 .DropList .DropList-dropdown .DropList-list {
   list-style: none outside none;
   max-height: 310px;
@@ -827,7 +838,7 @@ span.Typo-gu--wavy {
   margin: 0 4px 4px 0;
   overflow: auto;
 }
-/* line 63, ../../src/stylesheets/_dropdown.scss */
+/* line 77, ../../src/stylesheets/_dropdown.scss */
 .DropList .DropList-dropdown .DropList-list li {
   word-wrap: break-word;
   word-wrap: normal\0;
@@ -837,25 +848,72 @@ span.Typo-gu--wavy {
   padding: 5px;
   cursor: pointer;
 }
-/* line 70, ../../src/stylesheets/_dropdown.scss */
+/* line 84, ../../src/stylesheets/_dropdown.scss */
 .DropList .DropList-dropdown .DropList-list li:hover, .DropList .DropList-dropdown .DropList-list li.is-selected {
   background-color: #1385E5;
   color: #FFF;
 }
-/* line 76, ../../src/stylesheets/_dropdown.scss */
+/* line 90, ../../src/stylesheets/_dropdown.scss */
 .DropList .DropList-dropdown .DropList-list:hover li.is-selected {
   background-color: transparent;
   color: inherit;
 }
-/* line 80, ../../src/stylesheets/_dropdown.scss */
+/* line 94, ../../src/stylesheets/_dropdown.scss */
 .DropList .DropList-dropdown .DropList-list:hover li.is-selected:hover {
   background-color: #1385E5;
   color: #FFF;
 }
 
-/* line 89, ../../src/stylesheets/_dropdown.scss */
+/* line 103, ../../src/stylesheets/_dropdown.scss */
 .DropList--dummy {
   display: none;
+}
+
+/* line 109, ../../src/stylesheets/_dropdown.scss */
+.DropDown--upon {
+  padding-top: 10px;
+}
+/* line 112, ../../src/stylesheets/_dropdown.scss */
+.DropDown--upon:hover .DropDown-list {
+  display: block;
+}
+/* line 116, ../../src/stylesheets/_dropdown.scss */
+.DropDown--upon .DropDown-list {
+  display: none;
+  position: absolute;
+  list-style: none outside none;
+  bottom: 100%;
+  left: 50%;
+  width: 6em;
+  margin: 0 0 0 -3em;
+  padding: 10px 0;
+  text-align: center;
+  background-color: #FFF;
+  border: 1px solid #A6A6A6;
+  border-radius: 3px;
+}
+/* line 131, ../../src/stylesheets/_dropdown.scss */
+.DropDown--upon .DropDown-list:before, .DropDown--upon .DropDown-list:after {
+  content: "\0020";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+}
+/* line 139, ../../src/stylesheets/_dropdown.scss */
+.DropDown--upon .DropDown-list:before {
+  border: 0 solid transparent;
+  border-width: 10px 10px 0;
+  border-top-color: #A6A6A6;
+  margin-left: -6px;
+}
+/* line 146, ../../src/stylesheets/_dropdown.scss */
+.DropDown--upon .DropDown-list:after {
+  border: 0 solid transparent;
+  border-width: 9px 9px 0;
+  border-top-color: #FFF;
+  margin-left: -5.5px;
 }
 
 /* line 2, ../../src/stylesheets/_list.scss */
@@ -960,14 +1018,14 @@ ol.List {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/dest/images/transparent.gif?1416818769') repeat;
+  background: transparent url('/dest/images/transparent.gif?1416888828') repeat;
 }
 
 /* line 25, ../../src/stylesheets/_score.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/dest/images/star.png?1416818769');
+  background-image: url('/dest/images/star.png?1416888828');
 }
 
 /* line 30, ../../src/stylesheets/_score.scss */
@@ -981,7 +1039,7 @@ ol.List {
 /* line 37, ../../src/stylesheets/_score.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/dest/images/ministar.png?1416818769');
+  background-image: url('/dest/images/ministar.png?1416888828');
 }
 
 /* line 41, ../../src/stylesheets/_score.scss */
@@ -1004,7 +1062,7 @@ ol.List {
 }
 /* line 60, ../../src/stylesheets/_score.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/dest/images/star.png?1416818769') repeat-x !important;
+  background: url('/dest/images/star.png?1416888828') repeat-x !important;
 }
 /* line 64, ../../src/stylesheets/_score.scss */
 .Score--selectable .Score-storage {
@@ -1105,14 +1163,14 @@ ol.List {
 
 /* line 102, ../../src/stylesheets/_score.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/dest/images/star.png?1416818769') repeat-x;
+  background: url('/dest/images/star.png?1416888828') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 108, ../../src/stylesheets/_score.scss */
 .Score-level.is-selected {
-  background: url('/dest/images/star.png?1416818769') repeat-x;
+  background: url('/dest/images/star.png?1416888828') repeat-x;
   left: 0;
   z-index: 1;
 }
