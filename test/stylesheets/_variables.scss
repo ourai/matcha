@@ -1,0 +1,31 @@
+@import "compass";
+
+// Font
+$font_family: "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+$font_family-hei: "Microsoft Yahei", "Hiragino Sans GB", Tahoma, Verdana, "BitStream vera Sans", Arial, Helvetica, Sans-serif;
+$font_family-monospace: Monaco, Consolas, "Lucida Console", monospace;
+$font_size: 100%;
+$line_height: 1.5;
+
+// Text
+$color-title: #444;
+$color-text: #333;
+$color-text-medium: #666;
+$color-text-light: #888;
+$color-link: #3F6D77;
+$color-link-hover: #518C99;
+
+// Border
+$border_color: #B8C4C8;
+
+// Unicode
+$UN-bullet: "\2022";
+$UN-middle_dot: "\00B7";
+$UN-wavy_overline: "\FE4B";
+$UN-wavy_low_line: "\FE4F";
+
+// Avatar
+$avatar-tiny: 30px;
+$avatar-small: 48px;
+$avatar-normal: 60px;
+$avatar-large: 120px;

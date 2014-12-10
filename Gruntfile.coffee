@@ -61,6 +61,22 @@ module.exports = ( grunt ) ->
             "build/outro.js"
           ]
         dest: "<%= meta.dest_script %>/<%= pkg.name %>.js"
+      matcha_helper:
+        files:
+          "test/stylesheets/_variables.scss": [
+              "src/stylesheets/_variables.scss"
+            ]
+          "test/stylesheets/_functions.scss": [
+              "src/stylesheets/_functions.scss"
+            ]
+          "test/stylesheets/_mixins.scss": [
+              "src/stylesheets/mixins/_enhancement.scss"
+              "src/stylesheets/mixins/_typography.scss"
+              "src/stylesheets/mixins/_utilities.scss"
+              "src/stylesheets/mixins/_components.scss"
+              "src/stylesheets/mixins/_sandwich.scss"
+              "src/stylesheets/mixins/_frameset.scss"
+            ]
     compass:
       compile:
         options:
@@ -68,13 +84,13 @@ module.exports = ( grunt ) ->
           cssDir: "<%= meta.dest_style %>"
           javascriptsDir: "<%= meta.dest_script %>"
           imagesDir: "<%= meta.dest_image %>"
-      test:
+      matcha_for_test:
         options:
-          sassDir: "<%= meta.dest_style %>"
+          sassDir: "build"
           cssDir: "<%= meta.tests %>/stylesheets"
           javascriptsDir: "<%= meta.tests %>/javascripts"
           imagesDir: "<%= meta.tests %>/images"
-      test_2:
+      test:
         options:
           sassDir: "<%= meta.tests %>"
           cssDir: "<%= meta.tests %>"
@@ -148,8 +164,9 @@ module.exports = ( grunt ) ->
   grunt.registerTask "test", [
       "coffee:test"
       "copy:test"
+      "compass:matcha_for_test"
+      "concat:matcha_helper"
       "compass:test"
-      "compass:test_2"
     ]
   # Default task
   grunt.registerTask "default", [

@@ -1,0 +1,358 @@
+// CSS3
+
+@mixin keyframes( $name ) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+
+  @-o-keyframes #{$name} {
+    @content;
+  }
+
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation( $args... ) {
+  @include experimental(animation, $args);
+}
+
+@mixin user-select( $args ) {
+  @include experimental(user-select, $args);
+}
+
+
+
+// Enhancement
+
+@mixin linear-gradient( $from, $to ) {
+  @include filter-gradient($from, $to);
+  @include background-image(linear-gradient($from, $to));
+}
+
+@mixin ie-opacity( $opacity ) {
+  @if $legacy-support-for-ie8 {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity})";
+  }
+
+  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+    *filter: alpha(opacity=$opacity);
+  }
+//  upcoming at rule
+//  @at-root {
+//   :root {
+//      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Enabled=false)";
+//    }
+//  }
+}
+
+@mixin supports( $prop_name, $prop_val ) {
+  @supports ($prop_name: $prop_val) or
+            (-o-#{$prop_name}: $prop_val) or
+            (-ms-#{$prop_name}: $prop_val) or
+            (-moz-#{$prop_name}: $prop_val) or
+            (-webkit-#{$prop_name}: $prop_val) {
+    @content;
+  }
+}
+
+
+
+// Overwrite
+
+@mixin opacity( $opacity ) {
+  opacity: $opacity;
+  @include ie-opacity(round($opacity * 100));
+}
+
+@mixin base-font( $font_size: $font_size ) {
+  font: {
+    style: normal;
+    weight: normal;
+    family: $font_family;
+    size: $font_size;
+  }
+
+  line-height: $line_height;
+}
+
+@mixin text-ellipsis {
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin text-hide {
+  color: transparent;
+  border: 0 none;
+  font: 0px/0 a;
+  @include text-shadow(none);
+  // Use a transparent image to set as the background of it to fix bug of IE6/7/8.
+  background: transparent image-url("transparent.gif") repeat;
+}
+
+// Makes text's vertical alignment middle,
+// should invoked on parent node.
+@mixin text-middle {
+  &:before {
+    content: "\0020";
+    @include inline-block;
+    width: 0;
+    height: 100%;
+  }
+}
+
+@mixin line_feed {
+  word-wrap: break-word;
+  word-wrap: normal\0;
+  word-break: break-all;
+  white-space: normal;
+}
+
+@mixin punc_under {
+  position: relative;
+  text-indent: 0;
+
+  &:after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    line-height: 1;
+  }
+}
+
+// IE6 only
+@mixin hack-ie6 {
+  * html {
+    @content;
+  }
+}
+
+@mixin square( $size: 16px ) {
+  width: $size;
+  height: $size;
+}
+
+@mixin circle( $size: 16px ) {
+  @include square($size);
+  @include border-radius(50%);
+}
+
+@mixin triangle( $width: 5px, $color: #000, $dir: top ) {
+  @include inline-block(none);
+  @include text-hide;
+  width: 0 !important;
+  height: 0 !important;
+  border: $width solid transparent;
+  border-#{$dir}-color: $color;
+}
+
+@mixin card_style {
+  border: 1px solid #E0E0E0;
+  border-bottom-width: 2px;
+  @include border-radius(2px);
+}
+
+@mixin no_item {
+  list-style: none outside none;
+}
+
+@mixin tag_unit {
+  @include inline-block(none);
+  max-width: 120px;
+  margin-right: 5px; padding: 0 8px;
+  @include border-radius(2px);
+  background-color: #DCE4E6;
+  color: $color-text-medium !important;
+  text-decoration: none !important;
+  @include text-ellipsis;
+}
+
+@mixin no_gap {
+  margin: 0;
+  padding: 0;
+}
+
+// refer to http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    content: "\0020";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin block_content {
+  padding: .75em;
+  border: 1px solid #C5CACE;
+  @include border-radius(2px);
+  @include box-shadow(0 1px 5px rgba(0, 0, 0, 0.1) inset, 0 1px 0 #FFF);
+  background-color: #FEFEFE;
+}
+
+@mixin covered_background {
+  background: {
+    repeat: no-repeat;
+    position: 50% 50%;
+    size: cover;
+  }
+}
+
+// 渐变按钮
+@mixin gradient_button( $bg_color, $normal_start, $normal_end, $hover_start, $hover_end ) {
+  background-color: $bg_color;
+  @include linear-gradient($normal_start, $normal_end);
+
+  &:hover {
+    @include linear-gradient($hover_start, $hover_end);
+  }
+
+  &:active {
+    @include linear-gradient($hover_end, $hover_start);
+  }
+}
+
+@mixin dropdown-element( $target: "& > ul, & > ol", $alignment: left ) {
+  position: relative;
+
+  &:hover {
+    #{$target} {
+      display: block;
+    }
+  }
+
+  #{$target} {
+    display: none;
+    position: absolute;
+    top: 100%;
+    
+    @if $alignment == "right" {
+      right: 0;
+    }
+    @else {
+      left: 0;
+    }
+  }
+}
+
+@mixin special-list {
+  @include no_item;
+  @include no_gap;
+}
+
+// An instance of Sticky Footer
+
+@mixin layout-sandwich(
+    $page-width: 100%,
+    $layout-header-height: 50px,
+    $layout-footer-height: 60px
+  ) {
+  
+  html,
+  body {
+    height: 100%;
+  }
+
+  .layout--sandwich {
+    // Header of page
+    // <header class="layout-header"></header>
+    .layout-header {
+      height: $layout-header-height;
+      margin-bottom: -$layout-header-height;
+    }
+
+    // Footer of page
+    // <footer class="layout-footer"></footer>
+    .layout-footer {
+      height: $layout-footer-height;
+      margin-top: -$layout-footer-height;
+    }
+
+    // Main area of page
+    // <main class="layout-container"></main>
+    .layout-container {
+      min-height: 100%;
+
+      &:before,
+      &:after {
+        content: "\0020";
+        display: block;
+        position: relative;
+        z-index: -999999999;
+        background: transparent none;
+        visibility: hidden;
+      }
+
+      // Placeholder of page's header
+      &:before {
+        height: $layout-header-height;
+      }
+
+      // Placeholder of page's footer
+      &:after {
+        height: $layout-footer-height;
+      }
+    }
+  }
+}
+
+@mixin layout-frameset(
+    $layout-sub-width: 200px,
+    $layout-header-height: 0,
+    $layout-footer-height: 0
+  ) {
+
+  html,
+  body {
+    @include square(100%);
+    min-height: 0;
+    zoom: 1;
+  }
+
+  html {
+    @include box-sizing(border-box);
+    padding: {
+      top: $layout-header-height;
+      bottom: $layout-footer-height;
+    }
+    overflow-y: hidden;
+  }
+
+  .layout--frameset {
+    .layout-header {
+      height: $layout-header-height;
+      margin-top: -($layout-header-height);
+    }
+
+    .layout-footer {
+      height: $layout-footer-height;
+      margin-bottom: -($layout-footer-height);
+    }
+
+    .layout-main,
+    .layout-sub {
+      height: 100%;
+      overflow: auto;
+    }
+
+    .layout-sub {
+      width: $layout-sub-width;
+      float: left;
+    }
+  }
+}
