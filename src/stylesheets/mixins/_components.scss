@@ -1,0 +1,22 @@
+@mixin dropdown-element( $target: "& > ul, & > ol", $alignment: left ) {
+  position: relative;
+
+  &:hover {
+    #{$target} {
+      display: block;
+    }
+  }
+
+  #{$target} {
+    display: none;
+    position: absolute;
+    top: 100%;
+    
+    @if $alignment == "right" {
+      right: 0;
+    }
+    @else {
+      left: 0;
+    }
+  }
+}
