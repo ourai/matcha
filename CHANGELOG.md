@@ -4,8 +4,12 @@
 
 1.  Sass 源文件的目录结构模仿 [bootstrap-sass](http://github.com/twbs/bootstrap-sass)
 2.  编译后的样式表文件只有 CSS，没有 Sass
-3.  添加 data list
-4.  添加 slide
+3.  添加 data list 组件
+4.  添加 slide 组件
+5.  添加 menu 组件
+    1.  @mixin dropdown-element
+    2.  @mixin special-list
+    3.  菜单与子菜单基础样式
 
 ## 0.3.1 (2014-09-25)
 
