@@ -1022,14 +1022,14 @@ ol.List {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/dest/images/transparent.gif?1418139081') repeat;
+  background: transparent url('/dest/images/transparent.gif?1418194245') repeat;
 }
 
 /* line 25, ../../src/stylesheets/_score.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/dest/images/star.png?1418139081');
+  background-image: url('/dest/images/star.png?1418194245');
 }
 
 /* line 30, ../../src/stylesheets/_score.scss */
@@ -1043,7 +1043,7 @@ ol.List {
 /* line 37, ../../src/stylesheets/_score.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/dest/images/ministar.png?1418139081');
+  background-image: url('/dest/images/ministar.png?1418194245');
 }
 
 /* line 41, ../../src/stylesheets/_score.scss */
@@ -1066,7 +1066,7 @@ ol.List {
 }
 /* line 60, ../../src/stylesheets/_score.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/dest/images/star.png?1418139081') repeat-x !important;
+  background: url('/dest/images/star.png?1418194245') repeat-x !important;
 }
 /* line 64, ../../src/stylesheets/_score.scss */
 .Score--selectable .Score-storage {
@@ -1167,14 +1167,14 @@ ol.List {
 
 /* line 102, ../../src/stylesheets/_score.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/dest/images/star.png?1418139081') repeat-x;
+  background: url('/dest/images/star.png?1418194245') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 108, ../../src/stylesheets/_score.scss */
 .Score-level.is-selected {
-  background: url('/dest/images/star.png?1418139081') repeat-x;
+  background: url('/dest/images/star.png?1418194245') repeat-x;
   left: 0;
   z-index: 1;
 }
@@ -1497,4 +1497,96 @@ ol.List {
   background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+
+/* line 7, ../../src/stylesheets/_menu.scss */
+.Menu,
+.Menu-submenu {
+  list-style: none outside none;
+  margin: 0;
+  padding: 0;
+}
+/* line 10, ../../src/stylesheets/_menu.scss */
+.Menu > li > a,
+.Menu-submenu > li > a {
+  display: block;
+}
+
+/* line 20, ../../src/stylesheets/_menu.scss */
+.Menu,
+.Menu > li,
+.Menu > li > a,
+.Menu-submenu,
+.Menu-submenu > li,
+.Menu-submenu > li > a {
+  background-color: inherit;
+}
+
+/* line 26, ../../src/stylesheets/_menu.scss */
+.Menu,
+.Menu > li,
+.Menu > li > a {
+  height: 100%;
+}
+
+/* line 31, ../../src/stylesheets/_menu.scss */
+.Menu > li > a,
+.Menu-submenu > li > a {
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+/* line 38, ../../src/stylesheets/_menu.scss */
+.Menu {
+  *zoom: 1;
+}
+/* line 58, ../../src/stylesheets/mixins/_utilities.scss */
+.Menu:before, .Menu:after {
+  content: "\0020";
+  display: table;
+}
+/* line 63, ../../src/stylesheets/mixins/_utilities.scss */
+.Menu:after {
+  clear: both;
+}
+/* line 41, ../../src/stylesheets/_menu.scss */
+.Menu > li {
+  float: left;
+  overflow: hidden;
+  position: relative;
+}
+/* line 5, ../../src/stylesheets/mixins/_components.scss */
+.Menu > li:hover .Menu-submenu {
+  display: block;
+}
+/* line 10, ../../src/stylesheets/mixins/_components.scss */
+.Menu > li .Menu-submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+/* line 46, ../../src/stylesheets/_menu.scss */
+.Menu > li.state--parent {
+  overflow: visible;
+}
+/* line 51, ../../src/stylesheets/_menu.scss */
+.Menu a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@supports (box-shadow: none) or (-o-box-shadow: none) or (-ms-box-shadow: none) or (-moz-box-shadow: none) or (-webkit-box-shadow: none) {
+  /* line 58, ../../src/stylesheets/_menu.scss */
+  .Menu > li > a {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* line 63, ../../src/stylesheets/_menu.scss */
+  .Menu-submenu {
+    -webkit-box-shadow: 0 1px 0.8em rgba(102, 102, 102, 0.7);
+    -moz-box-shadow: 0 1px 0.8em rgba(102, 102, 102, 0.7);
+    box-shadow: 0 1px 0.8em rgba(102, 102, 102, 0.7);
+  }
 }

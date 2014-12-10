@@ -36,6 +36,8 @@
 }
 
 .Menu {
+  @include clearfix;
+  
   & > li {
     float: left;
     overflow: hidden;
