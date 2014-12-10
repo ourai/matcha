@@ -55,6 +55,16 @@
 //  }
 }
 
+@mixin supports( $prop_name, $prop_val ) {
+  @supports ($prop_name: $prop_val) or
+            (-o-#{$prop_name}: $prop_val) or
+            (-ms-#{$prop_name}: $prop_val) or
+            (-moz-#{$prop_name}: $prop_val) or
+            (-webkit-#{$prop_name}: $prop_val) {
+    @content;
+  }
+}
+
 
 
 // Overwrite

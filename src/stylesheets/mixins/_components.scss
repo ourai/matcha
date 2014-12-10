@@ -20,3 +20,8 @@
     }
   }
 }
+
+@mixin special-list {
+  @include no_item;
+  @include no_gap;
+}

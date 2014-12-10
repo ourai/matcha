@@ -1,0 +1,64 @@
+// UI Components
+// Menu
+
+
+
+.Menu,
+.Menu-submenu {
+  @include special-list;
+
+  & > li > a {
+    display: block;
+  }
+}
+
+.Menu,
+.Menu > li,
+.Menu > li > a,
+.Menu-submenu,
+.Menu-submenu > li,
+.Menu-submenu > li > a {
+  background-color: inherit;
+}
+
+.Menu,
+.Menu > li,
+.Menu > li > a {
+  height: 100%;
+}
+
+.Menu > li > a,
+.Menu-submenu > li > a {
+  padding: {
+    right: 1em;
+    left: 1em;
+  }
+}
+
+.Menu {
+  & > li {
+    float: left;
+    overflow: hidden;
+    @include dropdown-element(".Menu-submenu");
+
+    &.state--parent {
+      overflow: visible;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@include supports(box-shadow, none) {
+  .Menu > li > a {
+    position: relative;
+    z-index: 1;
+  }
+
+  .Menu-submenu {
+    @include box-shadow(0 1px 0.8em rgba(102, 102, 102, 0.7));
+  }
+}
