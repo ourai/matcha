@@ -46,6 +46,11 @@
     &.state--parent {
       overflow: visible;
     }
+
+    .Menu-submenu.state--right {
+      right: 0;
+      left: auto;
+    }
   }
 
   a {
