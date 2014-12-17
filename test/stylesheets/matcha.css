@@ -1022,14 +1022,14 @@ ol.List {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/test/images/transparent.gif?1418808810') repeat;
+  background: transparent url('/test/images/transparent.gif?1418810319') repeat;
 }
 
 /* line 25, ../../src/stylesheets/_score.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/test/images/star.png?1418808810');
+  background-image: url('/test/images/star.png?1418810319');
 }
 
 /* line 30, ../../src/stylesheets/_score.scss */
@@ -1043,7 +1043,7 @@ ol.List {
 /* line 37, ../../src/stylesheets/_score.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/test/images/ministar.png?1418808810');
+  background-image: url('/test/images/ministar.png?1418810319');
 }
 
 /* line 41, ../../src/stylesheets/_score.scss */
@@ -1066,7 +1066,7 @@ ol.List {
 }
 /* line 60, ../../src/stylesheets/_score.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/test/images/star.png?1418808810') repeat-x !important;
+  background: url('/test/images/star.png?1418810319') repeat-x !important;
 }
 /* line 64, ../../src/stylesheets/_score.scss */
 .Score--selectable .Score-storage {
@@ -1167,14 +1167,14 @@ ol.List {
 
 /* line 102, ../../src/stylesheets/_score.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/test/images/star.png?1418808810') repeat-x;
+  background: url('/test/images/star.png?1418810319') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 108, ../../src/stylesheets/_score.scss */
 .Score-level.is-selected {
-  background: url('/test/images/star.png?1418808810') repeat-x;
+  background: url('/test/images/star.png?1418810319') repeat-x;
   left: 0;
   z-index: 1;
 }
@@ -1579,20 +1579,22 @@ ol.List {
 .Menu a {
   color: inherit;
 }
-/* line 61, ../../src/stylesheets/_menu.scss */
+/* line 63, ../../src/stylesheets/_menu.scss */
 .Menu a,
-.Menu a:hover {
+.Menu a:hover,
+.Menu a:active,
+.Menu a:visited {
   text-decoration: none;
 }
 
 @supports (box-shadow: none) or (-o-box-shadow: none) or (-ms-box-shadow: none) or (-moz-box-shadow: none) or (-webkit-box-shadow: none) {
-  /* line 67, ../../src/stylesheets/_menu.scss */
+  /* line 69, ../../src/stylesheets/_menu.scss */
   .Menu > li > a {
     position: relative;
     z-index: 1;
   }
 
-  /* line 72, ../../src/stylesheets/_menu.scss */
+  /* line 74, ../../src/stylesheets/_menu.scss */
   .Menu-submenu {
     -webkit-box-shadow: 0 1px 0.8em rgba(102, 102, 102, 0.7);
     -moz-box-shadow: 0 1px 0.8em rgba(102, 102, 102, 0.7);
