@@ -356,3 +356,7 @@
     }
   }
 }
+
+@mixin _aspect-ratio( $w, $h ) {
+  padding-bottom: 100% * $h / $w;
+}

@@ -76,6 +76,7 @@ module.exports = ( grunt ) ->
               "src/stylesheets/mixins/_components.scss"
               "src/stylesheets/mixins/_sandwich.scss"
               "src/stylesheets/mixins/_frameset.scss"
+              "src/stylesheets/mixins/_internal.scss"
             ]
     compass:
       compile:
