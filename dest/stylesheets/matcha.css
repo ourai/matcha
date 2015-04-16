@@ -542,35 +542,42 @@ html[lang^="en"] tbody th {
 
 /* line 42, ../../src/stylesheets/_utilities.scss */
 .u-aspectRatio {
-  width: 100%;
-  height: 0;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
-
-/* line 49, ../../src/stylesheets/_utilities.scss */
-.u-aspectRatio-adapter {
+/* line 46, ../../src/stylesheets/_utilities.scss */
+.u-aspectRatio:before {
+  content: "\0020";
+  display: block;
+}
+/* line 51, ../../src/stylesheets/_utilities.scss */
+.u-aspectRatio > * {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
 }
-/* line 56, ../../src/stylesheets/_utilities.scss */
-.u-aspectRatio-adapter img {
-  display: block;
+/* line 59, ../../src/stylesheets/_utilities.scss */
+.u-aspectRatio > img {
+  max-width: 100%;
+  margin: auto;
+}
+
+/* line 65, ../../src/stylesheets/_utilities.scss */
+.u-aspectRatio--2to1:before {
+  padding-top: 50%;
+}
+
+/* line 69, ../../src/stylesheets/_utilities.scss */
+.u-aspectRatio--3to2:before {
+  padding-top: 66.66667%;
+}
+
+/* line 75, ../../src/stylesheets/_utilities.scss */
+.u-fillUp {
   width: 100%;
   height: 100%;
-}
-
-/* line 62, ../../src/stylesheets/_utilities.scss */
-.u-aspectRatio--2to1 {
-  padding-bottom: 50%;
-}
-
-/* line 66, ../../src/stylesheets/_utilities.scss */
-.u-aspectRatio--3to2 {
-  padding-bottom: 66.66667%;
 }
 
 /* line 2, ../../src/stylesheets/_punctuation.scss */
@@ -1055,14 +1062,14 @@ ol.List {
   border: 0 none;
   font: 0px/0 a;
   text-shadow: none;
-  background: transparent url('/dest/images/transparent.gif?1427351595') repeat;
+  background: transparent url('/dest/images/transparent.gif?1429154106') repeat;
 }
 
 /* line 25, ../../src/stylesheets/_score.scss */
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/dest/images/star.png?1427351595');
+  background-image: url('/dest/images/star.png?1429154106');
 }
 
 /* line 30, ../../src/stylesheets/_score.scss */
@@ -1076,7 +1083,7 @@ ol.List {
 /* line 37, ../../src/stylesheets/_score.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/dest/images/ministar.png?1427351595');
+  background-image: url('/dest/images/ministar.png?1429154106');
 }
 
 /* line 41, ../../src/stylesheets/_score.scss */
@@ -1099,7 +1106,7 @@ ol.List {
 }
 /* line 60, ../../src/stylesheets/_score.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/dest/images/star.png?1427351595') repeat-x !important;
+  background: url('/dest/images/star.png?1429154106') repeat-x !important;
 }
 /* line 64, ../../src/stylesheets/_score.scss */
 .Score--selectable .Score-storage {
@@ -1200,14 +1207,14 @@ ol.List {
 
 /* line 102, ../../src/stylesheets/_score.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/dest/images/star.png?1427351595') repeat-x;
+  background: url('/dest/images/star.png?1429154106') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 108, ../../src/stylesheets/_score.scss */
 .Score-level.is-selected {
-  background: url('/dest/images/star.png?1427351595') repeat-x;
+  background: url('/dest/images/star.png?1429154106') repeat-x;
   left: 0;
   z-index: 1;
 }
