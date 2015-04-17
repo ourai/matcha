@@ -1,38 +1,7 @@
 // Covered Background Image
 
-.u-coveredBgImage {
-  position: relative;
-  z-index: 10;
-}
-
-.u-coveredBgImage-altWrapper,
-.u-coveredBgImage-alternate {
-  position: absolute;
-}
-
-.u-coveredBgImage-altWrapper {
-  @include square(100%);
-  top: 0;
-  left: 0;
-  z-index: -1;
-  overflow: hidden;
-  text-align: center;
-}
-
-.u-coveredBgImage-alternate {
-  min-height: 100%;
-  vertical-align: middle;
-}
-
-:root {
-  .u-coveredBgImage {
-    @include covered_background;
-    z-index: auto;
-  }
-
-  .u-coveredBgImage-altWrapper {
-    display: none;
-  }
+.u-coveredBg {
+  @include covered_background;
 }
 
 
