@@ -1,12 +1,14 @@
 # MATCHA CHANGELOG
 
 ## 0.4.2
+
 ### Deprecations
   * 取消对 IE9 以下 IE 浏览器的支持
     * `.u-coveredBgImage-altWrapper`
     * `.u-coveredBgImage-alternate`
 
 ## 0.4.1
+
 ### Features
   * 添加 data list 组件
   * 添加 slide 组件
@@ -15,21 +17,25 @@
     * `@mixin special-list`
     * 菜单与子菜单基础样式
   * 等比例缩放 `.u-aspectRatio`
+
 ### Enhancements
   * Sass 源文件的目录结构模仿 [bootstrap-sass](http://github.com/twbs/bootstrap-sass)
   * 编译后的样式表文件只有 CSS，没有 Sass
 
 ## 0.3.1
+
 ### Features
   * Typography for Chinese
     * Emphasis
     * Guillemet (Wavy Line)
 
 ## 0.2.1
+
 ### Enhancements
   * Sandwich 更加抽象化
 
 ## 0.2.0
+
 ### Features
   * Basic styles
   * Sass helpers
