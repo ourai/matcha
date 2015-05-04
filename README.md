@@ -14,7 +14,7 @@ Matcha is a library based on [Compass](http://compass-style.org/), so you should
 
 1.  Google Chrome (version unknown)
 2.  Mozilla Firefox (version unknown)
-3.  Internet Explorer 8 and later
+3.  Internet Explorer 9 and later
 
 ## See also
 
