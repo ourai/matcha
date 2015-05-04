@@ -39,22 +39,6 @@
   @include background-image(linear-gradient($from, $to));
 }
 
-@mixin ie-opacity( $opacity ) {
-  @if $legacy-support-for-ie8 {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity})";
-  }
-
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    *filter: alpha(opacity=$opacity);
-  }
-//  upcoming at rule
-//  @at-root {
-//   :root {
-//      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Enabled=false)";
-//    }
-//  }
-}
-
 @mixin supports( $prop_name, $prop_val ) {
   @supports ($prop_name: $prop_val) or
             (-o-#{$prop_name}: $prop_val) or
@@ -71,7 +55,6 @@
 
 @mixin opacity( $opacity ) {
   opacity: $opacity;
-  @include ie-opacity(round($opacity * 100));
 }
 
 @mixin base-font( $font_size: $font_size ) {
@@ -96,8 +79,6 @@
   border: 0 none;
   font: 0px/0 a;
   @include text-shadow(none);
-  // Use a transparent image to set as the background of it to fix bug of IE6/7/8.
-  background: transparent image-url("transparent.gif") repeat;
 }
 
 // Makes text's vertical alignment middle,
@@ -127,13 +108,6 @@
     top: 100%;
     left: 0;
     line-height: 1;
-  }
-}
-
-// IE6 only
-@mixin hack-ie6 {
-  * html {
-    @content;
   }
 }
 
@@ -184,8 +158,6 @@
 
 // refer to http://nicolasgallagher.com/micro-clearfix-hack/
 @mixin clearfix {
-  *zoom: 1;
-
   &:before,
   &:after {
     content: "\0020";

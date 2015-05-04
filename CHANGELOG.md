@@ -4,8 +4,12 @@
 
 ### Deprecations
   * 取消对 IE9 以下 IE 浏览器的支持
-    * `.u-coveredBgImage-altWrapper`
-    * `.u-coveredBgImage-alternate`
+    * 更新`.u-coveredBgImage-altWrapper`、`.u-coveredBgImage-alternate` 等 class
+    * 更新 `text-hide`、`opacity`、`clearfix` 等 mixin
+    * 移除 `ie-opacity`、`hack-ie6` 等 mixin
+
+### Bug fixes
+  * #12
 
 ## 0.4.1
 

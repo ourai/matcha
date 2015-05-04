@@ -1,10 +1,3 @@
-// IE6 only
-@mixin hack-ie6 {
-  * html {
-    @content;
-  }
-}
-
 @mixin square( $size: 16px ) {
   width: $size;
   height: $size;
@@ -52,8 +45,6 @@
 
 // refer to http://nicolasgallagher.com/micro-clearfix-hack/
 @mixin clearfix {
-  *zoom: 1;
-
   &:before,
   &:after {
     content: "\0020";

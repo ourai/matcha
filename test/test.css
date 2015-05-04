@@ -37,20 +37,14 @@ fieldset .Tabs:first-child {
 /* line 31, test.scss */
 .color--opacity {
   opacity: 0.5;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-  *filter: alpha(opacity=50);
 }
 
 /* line 35, test.scss */
 .color--opaque {
   opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  *filter: alpha(opacity=100);
 }
 
 /* line 39, test.scss */
 .color--transparent {
   opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  *filter: alpha(opacity=0);
 }
