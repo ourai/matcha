@@ -8,7 +8,6 @@ module.exports = ( grunt ) ->
       "grunt-contrib-cssmin"
       "grunt-contrib-coffee"
       "grunt-contrib-uglify"
-      "grunt-contrib-jade"
       "grunt-contrib-concat"
       "grunt-contrib-copy"
     ]
