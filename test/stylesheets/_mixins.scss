@@ -30,6 +30,11 @@
   @include experimental(user-select, $args);
 }
 
+@mixin image-set( $args... ) {
+  background-image: -webkit-image-set($args);
+  background-image: image-set($args);
+}
+
 
 
 // Enhancement

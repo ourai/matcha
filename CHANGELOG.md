@@ -2,6 +2,9 @@
 
 ## 0.4.2
 
+### Features
+  * 添加 mixin `image-set`
+
 ### Deprecations
   * 取消对 IE9 以下 IE 浏览器的支持
     * 更新`.u-coveredBgImage-altWrapper`、`.u-coveredBgImage-alternate` 等 class
@@ -17,8 +20,8 @@
   * 添加 data list 组件
   * 添加 slide 组件
   * 添加 menu 组件
-    * `@mixin dropdown-element`
-    * `@mixin special-list`
+    * mixin `dropdown-element`
+    * mixin `special-list`
     * 菜单与子菜单基础样式
   * 等比例缩放 `.u-aspectRatio`
 
