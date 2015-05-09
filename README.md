@@ -1,8 +1,8 @@
 # Matcha
 
-This is a Flexible, Responsive and Powerful UI framework, what I want it to be. ;-)
+This is a Flexible, Responsive and Powerful UI framework, what I want it to be. ;-) However, it is only consist of some layouts, components and Sass helpers (variables, functions and mixins) now.
 
-Matcha is a library based on [Compass](http://compass-style.org/), so you should install [Ruby](https://www.ruby-lang.org/) and Compass before use.
+Matcha is a library based on [Compass](http://compass-style.org/), so you should install [Ruby](https://www.ruby-lang.org/) and Compass before use it.
 
 ## Dependencies
 
