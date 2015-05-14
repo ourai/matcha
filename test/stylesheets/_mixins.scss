@@ -232,32 +232,37 @@
   @include no_gap;
 }
 
+// Sandwich
+// ==========
 // An instance of Sticky Footer
 
 @mixin layout-sandwich(
-    $page-width: 100%,
-    $layout-header-height: 50px,
-    $layout-footer-height: 60px
+    $layout-header-height: auto,
+    $layout-footer-height: auto
   ) {
-  
-  html,
-  body {
+
+  html[data-layout="sandwich"],
+  html[data-layout="sandwich"] body {
     height: 100%;
   }
 
-  .layout--sandwich {
+  html[data-layout="sandwich"] {
     // Header of page
     // <header class="layout-header"></header>
-    .layout-header {
-      height: $layout-header-height;
-      margin-bottom: -$layout-header-height;
+    @if $layout-header-height != auto {
+      .layout-header {
+        height: $layout-header-height;
+        margin-bottom: -$layout-header-height;
+      }
     }
 
     // Footer of page
     // <footer class="layout-footer"></footer>
-    .layout-footer {
-      height: $layout-footer-height;
-      margin-top: -$layout-footer-height;
+    @if $layout-footer-height != auto {
+      .layout-footer {
+        height: $layout-footer-height;
+        margin-top: -$layout-footer-height;
+      }
     }
 
     // Main area of page
@@ -288,29 +293,32 @@
   }
 }
 
+
+
+// Frameset
+
 @mixin layout-frameset(
-    $layout-sub-width: 200px,
+    $sidebar-width: auto,
+    $sidebar-pos: left,
     $layout-header-height: 0,
     $layout-footer-height: 0
   ) {
 
-  html,
-  body {
+  html[data-layout="frameset"],
+  html[data-layout="frameset"] body {
     @include square(100%);
     min-height: 0;
     zoom: 1;
   }
 
-  html {
+  html[data-layout="frameset"] {
     @include box-sizing(border-box);
     padding: {
       top: $layout-header-height;
       bottom: $layout-footer-height;
     }
     overflow-y: hidden;
-  }
 
-  .layout--frameset {
     .layout-header {
       height: $layout-header-height;
       margin-top: -($layout-header-height);
@@ -328,8 +336,8 @@
     }
 
     .layout-sub {
-      width: $layout-sub-width;
-      float: left;
+      width: $sidebar-width;
+      float: $sidebar-pos;
     }
   }
 }

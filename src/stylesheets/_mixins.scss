@@ -2,9 +2,5 @@
 @import "mixins/typography";
 @import "mixins/utilities";
 @import "mixins/components";
-
-// Layouts
-@import "mixins/sandwich";
-@import "mixins/frameset";
-
+@import "mixins/layouts";
 @import "mixins/internal";
