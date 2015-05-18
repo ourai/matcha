@@ -10,6 +10,7 @@ module.exports = ( grunt ) ->
       "grunt-contrib-uglify"
       "grunt-contrib-concat"
       "grunt-contrib-copy"
+      "grunt-contrib-clean"
     ]
 
   grunt.initConfig
@@ -22,6 +23,7 @@ module.exports = ( grunt ) ->
       mod_cmpt: "<%= meta.modules %>/Component"
 
       temp: ".<%= pkg.name %>-cache"
+      style: "src/stylesheets"
       image: "src/images"
 
       dest: "dest"
@@ -60,6 +62,37 @@ module.exports = ( grunt ) ->
             "build/outro.js"
           ]
         dest: "<%= meta.dest_script %>/<%= pkg.name %>.js"
+      matcha:
+        files:
+          # Partial
+          "<%= meta.dest_style %>/_<%= pkg.name %>.scss": [
+              # Core variables, functions
+              "<%= meta.style %>/_variables.scss"
+              "<%= meta.style %>/_functions.scss"
+              # Mixins
+              "<%= meta.style %>/mixins/_enhancement.scss"
+              "<%= meta.style %>/mixins/_typography.scss"
+              "<%= meta.style %>/mixins/_utilities.scss"
+              "<%= meta.style %>/mixins/_components.scss"
+              "<%= meta.style %>/mixins/_layouts.scss"
+              "<%= meta.style %>/mixins/_internal.scss"
+              # Reset
+              "<%= meta.style %>/_reset.scss"
+              "<%= meta.style %>/_g11n.scss"
+              "<%= meta.style %>/_utilities.scss"
+              # Typography
+              "<%= meta.style %>/_punctuation.scss"
+              # Components
+              "<%= meta.style %>/_button.scss"
+              "<%= meta.style %>/_dropdown.scss"
+              "<%= meta.style %>/_list.scss"
+              "<%= meta.style %>/_item.scss"
+              "<%= meta.style %>/_score.scss"
+              "<%= meta.style %>/_tabs.scss"
+              "<%= meta.style %>/_uploader.scss"
+              "<%= meta.style %>/_slide.scss"
+              "<%= meta.style %>/_menu.scss"
+            ]
       matcha_helper:
         files:
           "test/stylesheets/_variables.scss": [
@@ -142,11 +175,18 @@ module.exports = ( grunt ) ->
           keepSpecialComments: 0
         files:
           "<%= meta.dest_style %>/<%= pkg.name %>.min.css": "<%= meta.dest_style %>/<%= pkg.name %>.css"
+    clean:
+      compiled:
+        src: [
+            "<%= meta.dest_style %>/<%= pkg.name %>.css"
+            "<%= meta.dest_script %>/<%= pkg.name %>.js"
+          ]
 
   grunt.loadNpmTasks task for task in npmTasks
 
   # Tasks about Sass
   grunt.registerTask "compile_sass", [
+      "concat:matcha"
       "compass:compile"
       "cssmin"
     ]
@@ -170,4 +210,5 @@ module.exports = ( grunt ) ->
       "compile_coffee"
       "copy:image"
       "test"
+      "clean"
     ]
