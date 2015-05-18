@@ -145,8 +145,8 @@ span.Typo-gu--wavy {
   text-align: center;
 }
 
-@supports (text-emphasis-style: dot) or (-moz-text-emphasis-style: dot) or (-webkit-text-emphasis-style: dot) {
-  /* line 25, ../../src/stylesheets/_punctuation.scss */
+@supports (text-emphasis-style: dot) or (-o-text-emphasis-style: dot) or (-ms-text-emphasis-style: dot) or (-moz-text-emphasis-style: dot) or (-webkit-text-emphasis-style: dot) {
+  /* line 23, ../../src/stylesheets/_punctuation.scss */
   .Typo-em {
     -webkit-text-emphasis-style: dot;
     -moz-text-emphasis-style: dot;
@@ -159,20 +159,20 @@ span.Typo-gu--wavy {
     -o-text-emphasis-position: under;
     text-emphasis-position: under;
   }
-  /* line 29, ../../src/stylesheets/_punctuation.scss */
+  /* line 27, ../../src/stylesheets/_punctuation.scss */
   .Typo-em:after {
     display: none;
   }
 }
-/* line 39, ../../src/stylesheets/_punctuation.scss */
+/* line 37, ../../src/stylesheets/_punctuation.scss */
 .Typo-gu--wavy:after {
   content: "\FE4F";
   top: auto;
   bottom: 0;
 }
 
-@supports (text-decoration-style: wavy) or (-moz-text-decoration-style: wavy) or (-webkit-text-decoration-style: wavy) {
-  /* line 48, ../../src/stylesheets/_punctuation.scss */
+@supports (text-decoration-style: wavy) or (-o-text-decoration-style: wavy) or (-ms-text-decoration-style: wavy) or (-moz-text-decoration-style: wavy) or (-webkit-text-decoration-style: wavy) {
+  /* line 44, ../../src/stylesheets/_punctuation.scss */
   .Typo-gu--wavy {
     -webkit-text-decoration-style: wavy;
     -moz-text-decoration-style: wavy;
@@ -185,7 +185,7 @@ span.Typo-gu--wavy {
     -o-text-decoration-line: underline;
     text-decoration-line: underline;
   }
-  /* line 52, ../../src/stylesheets/_punctuation.scss */
+  /* line 48, ../../src/stylesheets/_punctuation.scss */
   .Typo-gu--wavy:after {
     display: none;
   }
@@ -596,7 +596,7 @@ ol.List {
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/test/images/star.png?1431938684');
+  background-image: url('/test/images/star.png?1431943370');
 }
 
 /* line 30, ../../src/stylesheets/_score.scss */
@@ -610,7 +610,7 @@ ol.List {
 /* line 37, ../../src/stylesheets/_score.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/test/images/ministar.png?1431938684');
+  background-image: url('/test/images/ministar.png?1431943370');
 }
 
 /* line 41, ../../src/stylesheets/_score.scss */
@@ -633,7 +633,7 @@ ol.List {
 }
 /* line 60, ../../src/stylesheets/_score.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/test/images/star.png?1431938684') repeat-x !important;
+  background: url('/test/images/star.png?1431943370') repeat-x !important;
 }
 /* line 64, ../../src/stylesheets/_score.scss */
 .Score--selectable .Score-storage {
@@ -734,14 +734,14 @@ ol.List {
 
 /* line 102, ../../src/stylesheets/_score.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/test/images/star.png?1431938684') repeat-x;
+  background: url('/test/images/star.png?1431943370') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 108, ../../src/stylesheets/_score.scss */
 .Score-level.is-selected {
-  background: url('/test/images/star.png?1431938684') repeat-x;
+  background: url('/test/images/star.png?1431943370') repeat-x;
   left: 0;
   z-index: 1;
 }
