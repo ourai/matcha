@@ -1,15 +1,13 @@
 {
   "name": "matcha",
-  "version": "0.4.2",
+  "version": "0.5.1",
   "main": [
     "dest/javascripts/matcha.min.js",
     "dest/stylesheets/matcha.min.css"],
   "license": "MIT",
   "ignore": ["**/*", "!dest/**/*"],
   "dependencies": {
-    "jquery": "https://github.com/jquery/jquery.git#1.8.3"
-  },
-  "devDependencies": {
+    "jquery": "https://github.com/jquery/jquery.git#1.8.3",
     "normalize.css": "https://github.com/necolas/normalize.css.git#3.0.0"
   },
   "keywords": [

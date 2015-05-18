@@ -1,5 +1,10 @@
 # MATCHA CHANGELOG
 
+## 0.5.1
+
+### Deprecations
+  * 不再默认包含 [normalize.css](https://github.com/necolas/normalize.css)
+
 ## 0.4.2
 
 ### Features

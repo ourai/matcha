@@ -20,7 +20,7 @@ var $, LIB_CONFIG, browser, eventName, getStorageData, hasOwnProp, hook, needFix
 
 LIB_CONFIG = {
   name: "Matcha",
-  version: "0.4.2"
+  version: "0.5.1"
 };
 
 _H = {};

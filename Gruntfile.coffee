@@ -135,9 +135,6 @@ module.exports = ( grunt ) ->
                   " * <%= repo.name %> UI Library v<%= repo.version %>\n" +
                   " * <%= pkg.homepage %>\n" +
                   " *\n" +
-                  " * Includes Normalize.css\n" +
-                  " * http://necolas.github.io/normalize.css/\n" +
-                  " *\n" +
                   " * Copyright 2013, <%= grunt.template.today('yyyy') %> Ourairyu, http://ourai.ws/\n" +
                   " *\n" +
                   " * Date: <%= grunt.template.today('yyyy-mm-dd') %>\n" +
