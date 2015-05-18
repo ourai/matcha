@@ -64,8 +64,7 @@ module.exports = ( grunt ) ->
         dest: "<%= meta.dest_script %>/<%= pkg.name %>.js"
       matcha:
         files:
-          # Partial
-          "<%= meta.dest_style %>/_<%= pkg.name %>.scss": [
+          "<%= meta.dest_style %>/sass/_helper.scss": [
               # Core variables, functions
               "<%= meta.style %>/_variables.scss"
               "<%= meta.style %>/_functions.scss"
@@ -76,6 +75,10 @@ module.exports = ( grunt ) ->
               "<%= meta.style %>/mixins/_components.scss"
               "<%= meta.style %>/mixins/_layouts.scss"
               "<%= meta.style %>/mixins/_internal.scss"
+            ]
+          "<%= meta.dest_style %>/sass/_<%= pkg.name %>.scss": [
+              # Bridge
+              "build/_bridge.scss"
               # Reset
               "<%= meta.style %>/_reset.scss"
               "<%= meta.style %>/_g11n.scss"
