@@ -64,7 +64,7 @@ module.exports = ( grunt ) ->
         dest: "<%= meta.dest_script %>/<%= pkg.name %>.js"
       matcha:
         files:
-          "<%= meta.dest_style %>/sass/_helper.scss": [
+          "<%= meta.dest_style %>/<%= pkg.name %>/_helper.scss": [
               # Core variables, functions
               "<%= meta.style %>/_variables.scss"
               "<%= meta.style %>/_functions.scss"
@@ -76,7 +76,7 @@ module.exports = ( grunt ) ->
               "<%= meta.style %>/mixins/_layouts.scss"
               "<%= meta.style %>/mixins/_internal.scss"
             ]
-          "<%= meta.dest_style %>/sass/_<%= pkg.name %>.scss": [
+          "<%= meta.dest_style %>/<%= pkg.name %>/_rules.scss": [
               # Bridge
               "build/_bridge.scss"
               # Reset
@@ -145,7 +145,7 @@ module.exports = ( grunt ) ->
                 " * <%= repo.name %> UI Library v<%= repo.version %>\n" +
                 " * <%= pkg.homepage %>\n" +
                 " *\n" +
-                " * Copyright 2013, <%= grunt.template.today('yyyy') %> Ourairyu, http://ourai.ws/\n" +
+                " * Copyright Ourai Lin, http://ourai.ws/\n" +
                 " *\n" +
                 " * Date: <%= grunt.template.today('yyyy-mm-dd') %>\n" +
                 " */\n"
@@ -171,7 +171,7 @@ module.exports = ( grunt ) ->
                   " * <%= repo.name %> UI Library v<%= repo.version %>\n" +
                   " * <%= pkg.homepage %>\n" +
                   " *\n" +
-                  " * Copyright 2013, <%= grunt.template.today('yyyy') %> Ourairyu, http://ourai.ws/\n" +
+                  " * Copyright Ourai Lin, http://ourai.ws/\n" +
                   " *\n" +
                   " * Date: <%= grunt.template.today('yyyy-mm-dd') %>\n" +
                   " */\n"
