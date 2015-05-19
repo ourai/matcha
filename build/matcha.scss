@@ -21,3 +21,6 @@
 @import "../src/stylesheets/uploader";
 @import "../src/stylesheets/slide";
 @import "../src/stylesheets/menu";
+
+@include layout-sandwich;
+@include layout-frameset;
