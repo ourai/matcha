@@ -51,7 +51,7 @@
 @mixin clearfix {
   &:before,
   &:after {
-    content: "\0020";
+    content: $UN-space;
     display: table;
   }
 

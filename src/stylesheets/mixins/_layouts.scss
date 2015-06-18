@@ -20,7 +20,7 @@
 
       &:before,
       &:after {
-        content: "\0020";
+        content: $UN-space;
         display: block;
         position: relative;
         z-index: -999999999;

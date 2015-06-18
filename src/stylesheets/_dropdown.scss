@@ -34,7 +34,7 @@
     &:after {
       $b_w: 6px;
 
-      content: "\0020";
+      content: $UN-space;
       position: absolute;
       top: 50%;
       right: 0;
@@ -123,7 +123,7 @@
 
     &:before,
     &:after {
-      content: "\0020";
+      content: $UN-space;
       position: absolute;
       top: 100%;
       left: 50%;

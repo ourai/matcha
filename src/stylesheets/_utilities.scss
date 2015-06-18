@@ -13,7 +13,7 @@
   overflow: hidden;
 
   &:before {
-    content: "\0020";
+    content: $UN-space;
     display: block;
   }
 
