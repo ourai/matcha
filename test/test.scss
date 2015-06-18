@@ -39,3 +39,16 @@ fieldset {
 .color--transparent {
   @include transparent;
 }
+
+#slidesDemo {
+  width: 300px;
+  height: 200px;
+}
+
+.Slides-wrapper {
+  margin-top: 10px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}

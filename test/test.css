@@ -48,3 +48,18 @@ fieldset .Tabs:first-child {
 .color--transparent {
   opacity: 0;
 }
+
+/* line 43, test.scss */
+#slidesDemo {
+  width: 300px;
+  height: 200px;
+}
+
+/* line 48, test.scss */
+.Slides-wrapper {
+  margin-top: 10px;
+}
+/* line 51, test.scss */
+.Slides-wrapper:first-child {
+  margin-top: 0;
+}

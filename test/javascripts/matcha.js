@@ -16,7 +16,7 @@
 }(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
 
 "use strict";
-var $, LIB_CONFIG, browser, eventName, getStorageData, hasOwnProp, hook, needFix, storage, _H;
+var $, LIB_CONFIG, browser, dataFlag, eventName, getStorageData, hasOwnProp, hook, needFix, storage, _H;
 
 LIB_CONFIG = {
   name: "Matcha",
@@ -157,6 +157,15 @@ eventName = function(event_name) {
 
 
 /*
+ * 获取 data 的标识
+ */
+
+dataFlag = function(flag) {
+  return "" + LIB_CONFIG.name + "." + flag;
+};
+
+
+/*
  * Get data from internal storage
  *
  * @private
@@ -193,33 +202,18 @@ needFix = function(version) {
 };
 
 storage.modules.Component = (function() {
-  var Component, isSaved, saveComp, savedComps;
+  var Component, savedComps;
   savedComps = storage.components;
-  isSaved = function(compName) {
-    return false;
-  };
-  saveComp = function(compName, compConstructor) {
-    return savedComps[compName] = compConstructor;
-  };
   Component = (function() {
     function Component(name, func) {
-      if (isSaved(name)) {
-        throw "The component " + name + " has existed.";
+      if (hasOwnProp(savedComps, name)) {
+        throw "The component '" + name + "' exists.";
+      } else if (hasOwnProp(_H, name)) {
+        throw "Wrong component's name!!!";
       } else {
-        this.name = name;
-        saveComp(name, func);
+        _H[name] = savedComps[name] = func;
       }
     }
-
-    Component.prototype.register = function() {
-      var result;
-      result = this.registered !== true;
-      if (result) {
-        _H[this.name] = savedComps[this.name];
-        this.registered = true;
-      }
-      return result;
-    };
 
     return Component;
 
@@ -228,8 +222,7 @@ storage.modules.Component = (function() {
 })();
 
 _H.addComponent = function(name, func) {
-  (new storage.modules.Component(name, func)).register();
-  return func;
+  return new storage.modules.Component(name, func);
 };
 
 (function(_H) {
@@ -250,7 +243,7 @@ _H.addComponent = function(name, func) {
       });
       $("li:eq(" + idx + ")", lst).addClass("is-selected");
       sel.after(ddl);
-      return ddl.data("" + LIB_CONFIG.name + ".DropListDummy", sel);
+      return ddl.data(dataFlag("DropListDummy"), sel);
     });
   });
 })(_H);
@@ -265,7 +258,7 @@ $(document).on("click", hook("dropdown.trigger"), function() {
   $("." + cls, lst).removeClass(cls);
   t.addClass(cls);
   $(".DropList-label", ddl).text(t.text());
-  sel = ddl.data("" + LIB_CONFIG.name + ".DropListDummy");
+  sel = ddl.data(dataFlag("DropListDummy"));
   $(":selected", sel).attr("selected", false);
   $("option:eq(" + idx + ")", sel).attr("selected", true);
   return sel.trigger("change");
@@ -387,7 +380,96 @@ $(document).on("change", hook("uploader.trigger"), function() {
 })(_H);
 
 (function(_H) {
-  return _H.addComponent("slide", function(settings) {});
+  var autoSlide, changeUnit, defaults, initSlides, triggerHtml;
+  defaults = {
+    $el: null,
+    dir: 1,
+    effect: "fade",
+    auto: false,
+    interval: 5,
+    pageable: false
+  };
+  initSlides = function($el, opts) {
+    var effect, wrapper;
+    effect = opts.effect;
+    wrapper = $el.parent();
+    $el.addClass("Slides").data(dataFlag("SlidesEffect"), effect).children("li").addClass("Slides-unit").eq(0).addClass("is-active");
+    if (opts.pageable === true) {
+
+    } else {
+
+    }
+    if (opts.auto === true) {
+      autoSlide($el, ($.isNumeric(opts.interval) ? opts.interval : defaults.interval) * 1000, effect);
+    } else {
+      wrapper.append("<div class=\"Slides-triggers\">" + (triggerHtml("prev")) + (triggerHtml("next")) + "</div>");
+    }
+    return wrapper;
+  };
+  autoSlide = function(slides, interval, effect) {
+    setTimeout(function() {
+      return changeUnit(slides, 1, effect, function() {
+        return autoSlide(slides, interval, effect);
+      });
+    }, interval);
+  };
+  triggerHtml = function(dir, text) {
+    if (text == null) {
+      text = "";
+    }
+    return "<button type=\"button\" class=\"Slides-trigger\" data-direction=\"" + dir + "\">" + text + "</button>";
+  };
+  changeUnit = function(slides, dir, effect, callback) {
+    var curr, currCls, handler, next, nextCls;
+    currCls = "is-active";
+    nextCls = "is-next";
+    curr = slides.children("li." + currCls);
+    if (dir === 0) {
+      if (curr.is(":first-child")) {
+        next = slides.children("li:last-child");
+      } else {
+        next = curr.prev();
+      }
+    } else {
+      if (curr.is(":last-child")) {
+        next = slides.children("li:first-child");
+      } else {
+        next = curr.next();
+      }
+    }
+    handler = function() {
+      next.removeClass(nextCls).addClass(currCls);
+      curr.removeClass(currCls).show();
+      return typeof callback === "function" ? callback() : void 0;
+    };
+    next.addClass(nextCls);
+    if (effect === "fade") {
+      curr.fadeOut(handler);
+    } else {
+      handler();
+    }
+    return next;
+  };
+  _H.addComponent("slides", function($el, settings) {
+    if (settings == null) {
+      settings = {};
+    }
+    if ($.isPlainObject($el)) {
+      settings = $el;
+      $el = settings.$el;
+    } else {
+      settings.$el = $el;
+    }
+    return $el.wrap("<div class=\"Slides-wrapper\" />").each(function() {
+      return initSlides($(this), $.extend(true, {}, defaults, settings));
+    });
+  });
+  return $(document).on("click", ".Slides-trigger", function() {
+    var slides;
+    slides = $(this).closest(".Slides-wrapper").children(".Slides");
+    changeUnit(slides, ($(this).attr("data-direction") === "prev" ? 0 : 1), slides.data(dataFlag("SlidesEffect")));
+    return false;
+  });
 })(_H);
 
 window[LIB_CONFIG.name] = _H;

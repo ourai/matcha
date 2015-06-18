@@ -239,7 +239,7 @@ span.Typo-gu--wavy {
   background-image: -o-linear-gradient(#f8f8f8, #ebebeb);
   background-image: linear-gradient(#f8f8f8, #ebebeb);
 }
-/* line 80, ../../src/stylesheets/mixins/_utilities.scss */
+/* line 84, ../../src/stylesheets/mixins/_utilities.scss */
 .Button:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF9F9F9', endColorstr='#FFF2F2F2');
@@ -249,7 +249,7 @@ span.Typo-gu--wavy {
   background-image: -o-linear-gradient(#f9f9f9, #f2f2f2);
   background-image: linear-gradient(#f9f9f9, #f2f2f2);
 }
-/* line 84, ../../src/stylesheets/mixins/_utilities.scss */
+/* line 88, ../../src/stylesheets/mixins/_utilities.scss */
 .Button:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF2F2F2', endColorstr='#FFF9F9F9');
@@ -273,7 +273,7 @@ span.Typo-gu--wavy {
   background-image: -o-linear-gradient(#5dc3e2, #4dbbdc);
   background-image: linear-gradient(#5dc3e2, #4dbbdc);
 }
-/* line 80, ../../src/stylesheets/mixins/_utilities.scss */
+/* line 84, ../../src/stylesheets/mixins/_utilities.scss */
 .Button--info:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF6FCDE9', endColorstr='#FF60C5E3');
@@ -283,7 +283,7 @@ span.Typo-gu--wavy {
   background-image: -o-linear-gradient(#6fcde9, #60c5e3);
   background-image: linear-gradient(#6fcde9, #60c5e3);
 }
-/* line 84, ../../src/stylesheets/mixins/_utilities.scss */
+/* line 88, ../../src/stylesheets/mixins/_utilities.scss */
 .Button--info:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF60C5E3', endColorstr='#FF6FCDE9');
@@ -307,7 +307,7 @@ span.Typo-gu--wavy {
   background-image: -o-linear-gradient(#fe855b, #fb784b);
   background-image: linear-gradient(#fe855b, #fb784b);
 }
-/* line 80, ../../src/stylesheets/mixins/_utilities.scss */
+/* line 84, ../../src/stylesheets/mixins/_utilities.scss */
 .Button--warning:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFF936E', endColorstr='#FFFB865E');
@@ -317,7 +317,7 @@ span.Typo-gu--wavy {
   background-image: -o-linear-gradient(#ff936e, #fb865e);
   background-image: linear-gradient(#ff936e, #fb865e);
 }
-/* line 84, ../../src/stylesheets/mixins/_utilities.scss */
+/* line 88, ../../src/stylesheets/mixins/_utilities.scss */
 .Button--warning:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFFB865E', endColorstr='#FFFF936E');
@@ -500,12 +500,12 @@ ol.List {
   list-style: none outside none;
 }
 
-/* line 49, ../../src/stylesheets/mixins/_utilities.scss */
+/* line 53, ../../src/stylesheets/mixins/_utilities.scss */
 .Item:before, .Item:after {
   content: "\0020";
   display: table;
 }
-/* line 54, ../../src/stylesheets/mixins/_utilities.scss */
+/* line 58, ../../src/stylesheets/mixins/_utilities.scss */
 .Item:after {
   clear: both;
 }
@@ -596,7 +596,7 @@ ol.List {
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/test/images/star.png?1432028018');
+  background-image: url('/test/images/star.png?1434646644');
 }
 
 /* line 30, ../../src/stylesheets/_score.scss */
@@ -610,7 +610,7 @@ ol.List {
 /* line 37, ../../src/stylesheets/_score.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/test/images/ministar.png?1432028018');
+  background-image: url('/test/images/ministar.png?1434646644');
 }
 
 /* line 41, ../../src/stylesheets/_score.scss */
@@ -633,7 +633,7 @@ ol.List {
 }
 /* line 60, ../../src/stylesheets/_score.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/test/images/star.png?1432028018') repeat-x !important;
+  background: url('/test/images/star.png?1434646644') repeat-x !important;
 }
 /* line 64, ../../src/stylesheets/_score.scss */
 .Score--selectable .Score-storage {
@@ -734,14 +734,14 @@ ol.List {
 
 /* line 102, ../../src/stylesheets/_score.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/test/images/star.png?1432028018') repeat-x;
+  background: url('/test/images/star.png?1434646644') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 108, ../../src/stylesheets/_score.scss */
 .Score-level.is-selected {
-  background: url('/test/images/star.png?1432028018') repeat-x;
+  background: url('/test/images/star.png?1434646644') repeat-x;
   left: 0;
   z-index: 1;
 }
@@ -864,12 +864,12 @@ ol.List {
 .Uploader {
   position: relative;
 }
-/* line 49, ../../src/stylesheets/mixins/_utilities.scss */
+/* line 53, ../../src/stylesheets/mixins/_utilities.scss */
 .Uploader:before, .Uploader:after {
   content: "\0020";
   display: table;
 }
-/* line 54, ../../src/stylesheets/mixins/_utilities.scss */
+/* line 58, ../../src/stylesheets/mixins/_utilities.scss */
 .Uploader:after {
   clear: both;
 }
@@ -907,7 +907,7 @@ ol.List {
   background-image: -o-linear-gradient(#f8f8f8, #ebebeb);
   background-image: linear-gradient(#f8f8f8, #ebebeb);
 }
-/* line 80, ../../src/stylesheets/mixins/_utilities.scss */
+/* line 84, ../../src/stylesheets/mixins/_utilities.scss */
 .Uploader-button:hover {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF9F9F9', endColorstr='#FFF2F2F2');
@@ -917,7 +917,7 @@ ol.List {
   background-image: -o-linear-gradient(#f9f9f9, #f2f2f2);
   background-image: linear-gradient(#f9f9f9, #f2f2f2);
 }
-/* line 84, ../../src/stylesheets/mixins/_utilities.scss */
+/* line 88, ../../src/stylesheets/mixins/_utilities.scss */
 .Uploader-button:active {
   *zoom: 1;
   filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFF2F2F2', endColorstr='#FFF9F9F9');
@@ -1061,6 +1061,102 @@ ol.List {
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 
+/* line 1, ../../src/stylesheets/_slides.scss */
+.Slides-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 28, ../../src/stylesheets/mixins/_typography.scss */
+.Slides-wrapper:before {
+  content: "\0020";
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  width: 0;
+  height: 100%;
+}
+
+/* line 11, ../../src/stylesheets/_slides.scss */
+.Slides,
+.Slides-unit {
+  position: absolute;
+}
+
+/* line 15, ../../src/stylesheets/_slides.scss */
+.Slides {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* line 24, ../../src/stylesheets/_slides.scss */
+ul.Slides,
+ol.Slides {
+  margin: 0;
+  padding: 0;
+  list-style: none outside none;
+}
+
+/* line 29, ../../src/stylesheets/_slides.scss */
+.Slides-unit {
+  width: 100%;
+  height: 100%;
+}
+/* line 32, ../../src/stylesheets/_slides.scss */
+.Slides-unit.is-active {
+  z-index: 9999;
+}
+/* line 36, ../../src/stylesheets/_slides.scss */
+.Slides-unit.is-next {
+  z-index: 999;
+}
+
+/* line 41, ../../src/stylesheets/_slides.scss */
+.Slides-triggers {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+/* line 53, ../../src/stylesheets/mixins/_utilities.scss */
+.Slides-triggers:before, .Slides-triggers:after {
+  content: "\0020";
+  display: table;
+}
+/* line 58, ../../src/stylesheets/mixins/_utilities.scss */
+.Slides-triggers:after {
+  clear: both;
+}
+
+/* line 49, ../../src/stylesheets/_slides.scss */
+.Slides-trigger {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+}
+/* line 55, ../../src/stylesheets/_slides.scss */
+.Slides-trigger[data-direction="prev"] {
+  float: left;
+}
+/* line 59, ../../src/stylesheets/_slides.scss */
+.Slides-trigger[data-direction="next"] {
+  float: right;
+}
+
 /* line 7, ../../src/stylesheets/_menu.scss */
 .Menu,
 .Menu-submenu {
@@ -1098,12 +1194,12 @@ ol.List {
   padding-left: 1em;
 }
 
-/* line 49, ../../src/stylesheets/mixins/_utilities.scss */
+/* line 53, ../../src/stylesheets/mixins/_utilities.scss */
 .Menu:before, .Menu:after {
   content: "\0020";
   display: table;
 }
-/* line 54, ../../src/stylesheets/mixins/_utilities.scss */
+/* line 58, ../../src/stylesheets/mixins/_utilities.scss */
 .Menu:after {
   clear: both;
 }

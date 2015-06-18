@@ -16,6 +16,7 @@ do ( _H ) ->
   # 初始化单个 slides
   initSlides = ( $el, opts ) ->
     effect = opts.effect
+    wrapper = $el.parent()
 
     $el
       .addClass "Slides"
@@ -33,7 +34,9 @@ do ( _H ) ->
     if opts.auto is true
       autoSlide $el, (if $.isNumeric(opts.interval) then opts.interval else defaults.interval) * 1000, effect
     else
-      $el.parent().append "<div class=\"Slides-triggers\">#{triggerHtml("prev")}#{triggerHtml("next")}</div>"
+      wrapper.append "<div class=\"Slides-triggers\">#{triggerHtml("prev")}#{triggerHtml("next")}</div>"
+
+    return wrapper
 
   # 自动切换
   autoSlide = ( slides, interval, effect ) ->
@@ -41,6 +44,8 @@ do ( _H ) ->
       changeUnit slides, 1, effect, ->
         autoSlide slides, interval, effect
     , interval
+
+    return
 
   # 获取 trigger 的 HTML
   triggerHtml = ( dir, text = "" ) ->
@@ -84,6 +89,8 @@ do ( _H ) ->
     # 无动态效果
     else
       handler()
+
+    return next
 
   _H.addComponent "slides", ( $el, settings = {} ) ->
     if $.isPlainObject($el)

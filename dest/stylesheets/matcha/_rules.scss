@@ -70,7 +70,7 @@ html[lang^="en"] {
   overflow: hidden;
 
   &:before {
-    content: "\0020";
+    content: $UN-space;
     display: block;
   }
 
@@ -232,7 +232,7 @@ span.Typo-gu--wavy {
     &:after {
       $b_w: 6px;
 
-      content: "\0020";
+      content: $UN-space;
       position: absolute;
       top: 50%;
       right: 0;
@@ -321,7 +321,7 @@ span.Typo-gu--wavy {
 
     &:before,
     &:after {
-      content: "\0020";
+      content: $UN-space;
       position: absolute;
       top: 100%;
       left: 50%;
@@ -703,6 +703,68 @@ $tab-background-color: #FFF;
   @include background-image(linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent));
 }
 
+.Slides-wrapper {
+  position: relative;
+  @include fill_up;
+}
+
+.Slides-wrapper {
+  @include text-middle;
+}
+
+.Slides,
+.Slides-unit {
+  position: absolute;
+}
+
+.Slides {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+ul.Slides,
+ol.Slides {
+  @include no_gap;
+  @include no_item;
+}
+
+.Slides-unit {
+  @include fill_up;
+
+  &.is-active {
+    z-index: 9999;
+  }
+
+  &.is-next {
+    z-index: 999;
+  }
+}
+
+.Slides-triggers {
+  @include inline-block;
+  @include clearfix;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.Slides-trigger {
+  @include no_gap;
+  background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+
+  &[data-direction="prev"] {
+    float: left;
+  }
+
+  &[data-direction="next"] {
+    float: right;
+  }
+}
 
 // UI Components
 // Menu

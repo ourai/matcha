@@ -2,6 +2,9 @@
 
 ## 0.5.1
 
+### Features
+  * 添加 slides 组件
+
 ### Deprecations
   * 不再默认包含 [normalize.css](https://github.com/necolas/normalize.css)
 
@@ -23,7 +26,6 @@
 
 ### Features
   * 添加 data list 组件
-  * 添加 slide 组件
   * 添加 menu 组件
     * mixin `dropdown-element`
     * mixin `special-list`
