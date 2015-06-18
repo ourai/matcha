@@ -25,7 +25,7 @@ do ( _H ) ->
       $("li:eq(#{idx})", lst).addClass "is-selected"
 
       sel.after ddl
-      ddl.data "#{LIB_CONFIG.name}.DropListDummy", sel
+      ddl.data dataFlag("DropListDummy"), sel
 
 $(document).on "click", hook("dropdown.trigger"), ->
   t = $(this)
@@ -38,7 +38,7 @@ $(document).on "click", hook("dropdown.trigger"), ->
   t.addClass cls
   $(".DropList-label", ddl).text t.text()
 
-  sel = ddl.data "#{LIB_CONFIG.name}.DropListDummy"
+  sel = ddl.data dataFlag("DropListDummy")
   $(":selected", sel).attr "selected", false
   $("option:eq(#{idx})", sel).attr "selected", true
   sel.trigger "change"
