@@ -53,13 +53,17 @@ do ( _H ) ->
   triggerHtml = ( dir, text = "" ) ->
     return "<button type=\"button\" class=\"Slides-trigger\" data-direction=\"#{dir}\">#{text}</button>"
 
+  # 切换幻灯片
   changeUnit = ( slides, dir, effect, callback ) ->
     currCls = "is-active"
     nextCls = "is-next"
 
     curr = slides.children "li.#{currCls}"
+    next = nextUnit curr, slides, dir
 
-    handler = ->
+    next.addClass nextCls
+
+    slidesEffect curr, effect, ->
       next
         .removeClass nextCls
         .addClass currCls
@@ -70,31 +74,37 @@ do ( _H ) ->
 
       callback?()
 
+    return next
+
+  # 获取下一个单元
+  nextUnit = ( unit, slides, dir ) ->
     # 上翻
     if dir is 0
-      if curr.is(":first-child")
+      if unit.is(":first-child")
         next = slides.children "li:last-child"
       else
-        next = curr.prev()
+        next = unit.prev()
     # 下翻
     else
-      if curr.is(":last-child")
+      if unit.is(":last-child")
         next = slides.children "li:first-child"
       else
-        next = curr.next()
+        next = unit.next()
 
-    next.addClass nextCls
+    return next
 
+  # 使用动态效果
+  slidesEffect = ( unit, effect, handler ) ->
     # 淡出效果
     if effect is "fade"
-      curr.fadeOut handler
+      unit.fadeOut handler
     # 滑动效果
     else if effect is "slide"
     # 无动态效果
     else
       handler()
 
-    return next
+    return
 
   _H.addComponent "slides", ( $el, settings = {} ) ->
     if $.isPlainObject($el)

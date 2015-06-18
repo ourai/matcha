@@ -380,7 +380,7 @@ $(document).on("change", hook("uploader.trigger"), function() {
 })(_H);
 
 (function(_H) {
-  var autoSlide, changeUnit, defaults, initSlides, triggerHtml;
+  var autoSlide, changeUnit, defaults, initSlides, nextUnit, slidesEffect, triggerHtml;
   defaults = {
     $el: null,
     vertical: false,
@@ -421,37 +421,44 @@ $(document).on("change", hook("uploader.trigger"), function() {
     return "<button type=\"button\" class=\"Slides-trigger\" data-direction=\"" + dir + "\">" + text + "</button>";
   };
   changeUnit = function(slides, dir, effect, callback) {
-    var curr, currCls, handler, next, nextCls;
+    var curr, currCls, next, nextCls;
     currCls = "is-active";
     nextCls = "is-next";
     curr = slides.children("li." + currCls);
-    handler = function() {
+    next = nextUnit(curr, slides, dir);
+    next.addClass(nextCls);
+    slidesEffect(curr, effect, function() {
       next.removeClass(nextCls).addClass(currCls);
       curr.removeClass(currCls).show();
       return typeof callback === "function" ? callback() : void 0;
-    };
+    });
+    return next;
+  };
+  nextUnit = function(unit, slides, dir) {
+    var next;
     if (dir === 0) {
-      if (curr.is(":first-child")) {
+      if (unit.is(":first-child")) {
         next = slides.children("li:last-child");
       } else {
-        next = curr.prev();
+        next = unit.prev();
       }
     } else {
-      if (curr.is(":last-child")) {
+      if (unit.is(":last-child")) {
         next = slides.children("li:first-child");
       } else {
-        next = curr.next();
+        next = unit.next();
       }
     }
-    next.addClass(nextCls);
+    return next;
+  };
+  slidesEffect = function(unit, effect, handler) {
     if (effect === "fade") {
-      curr.fadeOut(handler);
+      unit.fadeOut(handler);
     } else if (effect === "slide") {
 
     } else {
       handler();
     }
-    return next;
   };
   _H.addComponent("slides", function($el, settings) {
     if (settings == null) {
