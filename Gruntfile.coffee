@@ -42,7 +42,7 @@ module.exports = ( grunt ) ->
               "<%= meta.mod_cmpt %>/tabs.coffee"
               "<%= meta.mod_cmpt %>/uploader.coffee"
               "<%= meta.mod_cmpt %>/data_list.coffee"
-              "<%= meta.mod_cmpt %>/slide.coffee"
+              "<%= meta.mod_cmpt %>/slides.coffee"
             ]
           "<%= meta.temp %>/<%= pkg.name %>.coffee": [
               "<%= meta.base %>/intro.coffee"
@@ -93,7 +93,7 @@ module.exports = ( grunt ) ->
               "<%= meta.style %>/_score.scss"
               "<%= meta.style %>/_tabs.scss"
               "<%= meta.style %>/_uploader.scss"
-              "<%= meta.style %>/_slide.scss"
+              "<%= meta.style %>/_slides.scss"
               "<%= meta.style %>/_menu.scss"
             ]
       matcha_helper:

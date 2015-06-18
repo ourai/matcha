@@ -29,6 +29,12 @@ eventName = ( event_name ) ->
   return "#{event_name}.#{LIB_CONFIG.name}".toLowerCase()
 
 ###
+# 获取 data 的标识
+###
+dataFlag = ( flag ) ->
+  return "#{LIB_CONFIG.name}.#{flag}"
+
+###
 # Get data from internal storage
 #
 # @private

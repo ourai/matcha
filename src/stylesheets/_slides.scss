@@ -1,0 +1,62 @@
+.Slides-wrapper {
+  position: relative;
+  @include fill_up;
+}
+
+.Slides-wrapper {
+  @include text-middle;
+}
+
+.Slides,
+.Slides-unit {
+  position: absolute;
+}
+
+.Slides {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+ul.Slides,
+ol.Slides {
+  @include no_gap;
+  @include no_item;
+}
+
+.Slides-unit {
+  @include fill_up;
+
+  &.is-active {
+    z-index: 9999;
+  }
+
+  &.is-next {
+    z-index: 999;
+  }
+}
+
+.Slides-triggers {
+  @include inline-block;
+  @include clearfix;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.Slides-trigger {
+  @include no_gap;
+  background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+
+  &[data-direction="prev"] {
+    float: left;
+  }
+
+  &[data-direction="next"] {
+    float: right;
+  }
+}

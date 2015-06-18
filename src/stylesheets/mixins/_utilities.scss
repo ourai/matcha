@@ -8,6 +8,10 @@
   @include border-radius(50%);
 }
 
+@mixin fill_up {
+  @include square(100%);
+}
+
 @mixin triangle( $width: 5px, $color: #000, $dir: top ) {
   @include inline-block(none);
   @include text-hide;
