@@ -139,7 +139,7 @@ span.Typo-gu--wavy {
 //====================
 
 .Typo-gu--wavy:after {
-  content: $UN-wavy_low_line;
+  content: $UN-wavy-low_line;
   top: auto;
   bottom: 0;
 }
@@ -706,9 +706,6 @@ $tab-background-color: #FFF;
 .Slides-wrapper {
   position: relative;
   @include fill_up;
-}
-
-.Slides-wrapper {
   @include text-middle;
 }
 

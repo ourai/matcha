@@ -2,6 +2,8 @@ do ( _H ) ->
   defaults =
     # 目标元素（jQuery 对象）
     $el: null
+    # 是否为垂直滑动
+    vertical: false
     # 方向，0 代表上一个，1 代表下一个
     dir: 1
     # 动态效果，值可为 "fade"、"slide"，其他值时无效果
@@ -57,6 +59,17 @@ do ( _H ) ->
 
     curr = slides.children "li.#{currCls}"
 
+    handler = ->
+      next
+        .removeClass nextCls
+        .addClass currCls
+
+      curr
+        .removeClass currCls
+        .show()
+
+      callback?()
+
     # 上翻
     if dir is 0
       if curr.is(":first-child")
@@ -70,22 +83,13 @@ do ( _H ) ->
       else
         next = curr.next()
 
-    handler = ->
-      next
-        .removeClass nextCls
-        .addClass currCls
-
-      curr
-        .removeClass currCls
-        .show()
-
-      callback?()
-
     next.addClass nextCls
 
     # 淡出效果
     if effect is "fade"
       curr.fadeOut handler
+    # 滑动效果
+    else if effect is "slide"
     # 无动态效果
     else
       handler()

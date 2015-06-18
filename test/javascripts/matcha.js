@@ -383,6 +383,7 @@ $(document).on("change", hook("uploader.trigger"), function() {
   var autoSlide, changeUnit, defaults, initSlides, triggerHtml;
   defaults = {
     $el: null,
+    vertical: false,
     dir: 1,
     effect: "fade",
     auto: false,
@@ -424,6 +425,11 @@ $(document).on("change", hook("uploader.trigger"), function() {
     currCls = "is-active";
     nextCls = "is-next";
     curr = slides.children("li." + currCls);
+    handler = function() {
+      next.removeClass(nextCls).addClass(currCls);
+      curr.removeClass(currCls).show();
+      return typeof callback === "function" ? callback() : void 0;
+    };
     if (dir === 0) {
       if (curr.is(":first-child")) {
         next = slides.children("li:last-child");
@@ -437,14 +443,11 @@ $(document).on("change", hook("uploader.trigger"), function() {
         next = curr.next();
       }
     }
-    handler = function() {
-      next.removeClass(nextCls).addClass(currCls);
-      curr.removeClass(currCls).show();
-      return typeof callback === "function" ? callback() : void 0;
-    };
     next.addClass(nextCls);
     if (effect === "fade") {
       curr.fadeOut(handler);
+    } else if (effect === "slide") {
+
     } else {
       handler();
     }
