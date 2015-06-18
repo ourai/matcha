@@ -1,37 +1,19 @@
 storage.modules.Component = do ->
   savedComps = storage.components
 
-  # 组件是否已保存
-  isSaved = ( compName ) ->
-    return false
-
-  # 保存组件到内存中
-  saveComp = ( compName, compConstructor ) ->
-    savedComps[compName] = compConstructor
-
   class Component
     constructor: ( name, func ) ->
-      if isSaved name
-        throw "The component #{name} has existed."
+      # 组件是否已保存
+      if hasOwnProp(savedComps, name)
+        throw "The component '#{name}' exists."
+      # 组件名是否与已暴露到全局对象上的属性名冲突
+      else if hasOwnProp(_H, name)
+        throw "Wrong component's name!!!"
       else
-        @name = name
-        saveComp name, func
-
-    # 注册组件
-    # 将组件暴露到全局环境中
-    register: ->
-      result = @registered isnt true
-
-      if result
-        _H[@name] = savedComps[@name]
-        @registered = true
-
-      return result
+        _H[name] = savedComps[name] = func
 
   return Component
 
 # 添加 UI 组件
 _H.addComponent = ( name, func ) ->
-  (new storage.modules.Component name, func).register()
-
-  return func
+  return new storage.modules.Component name, func
