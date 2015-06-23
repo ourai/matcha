@@ -10,6 +10,10 @@ Matcha is a library based on [Compass](http://compass-style.org/), so you should
 * [Normalize.css](http://necolas.github.io/normalize.css/) 3.0.0
 * [Compass](http://compass-style.org/) 0.12.3
 
+## Includes
+
+* [Tangram](https://github.com/ourai/tangram) 0.1.0+
+
 ## Browser support
 
 1.  Google Chrome (version unknown)

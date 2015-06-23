@@ -4,6 +4,7 @@
 
 ### Features
   * 添加 slides 组件
+  * 页面布局部分的代码替换成 [Tangram](https://github.com/ourai/tangram)
 
 ### Deprecations
   * 不再默认包含 [normalize.css](https://github.com/necolas/normalize.css)
