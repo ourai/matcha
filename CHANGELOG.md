@@ -5,6 +5,7 @@
 ### Features
   * 添加 slides 组件
   * 页面布局部分的代码替换成 [Tangram](https://github.com/ourai/tangram)
+  * 等比例缩放 `@mixin aspect_ratio` 和 `.u-aspectRatio`
 
 ### Deprecations
   * 不再默认包含 [normalize.css](https://github.com/necolas/normalize.css)
@@ -31,7 +32,6 @@
     * mixin `dropdown-element`
     * mixin `special-list`
     * 菜单与子菜单基础样式
-  * 等比例缩放 `.u-aspectRatio`
 
 ### Enhancements
   * Sass 源文件的目录结构模仿 [bootstrap-sass](http://github.com/twbs/bootstrap-sass)

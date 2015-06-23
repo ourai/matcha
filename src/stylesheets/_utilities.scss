@@ -1,46 +1,11 @@
-// Covered Background Image
+.u-fillUp {
+  @include fill_up;
+}
 
 .u-coveredBg {
   @include covered_background;
 }
 
-
-
-// Keep the aspect ratio
-
 .u-aspectRatio {
-  position: relative;
-  overflow: hidden;
-
-  &:before {
-    content: $UN-space;
-    display: block;
-  }
-
-  & > * {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  & > img {
-    max-width: 100%;
-    margin: auto;
-  }
-}
-
-.u-aspectRatio--2to1:before {
-  @include _aspect-ratio(2, 1);
-}
-
-.u-aspectRatio--3to2:before {
-  @include _aspect-ratio(3, 2);
-}
-
-
-
-.u-fillUp {
-  @include fill_up;
+  @include aspect_ratio;
 }

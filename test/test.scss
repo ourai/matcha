@@ -52,3 +52,11 @@ fieldset {
     margin-top: 0;
   }
 }
+
+.u-aspectRatio--3to2 {
+  @include aspect_ratio(3, 2, "> a");
+}
+
+.u-aspectRatio--16to9 {
+  @include aspect_ratio(16, 9);
+}

@@ -130,6 +130,31 @@
   @include square(100%);
 }
 
+// Keep the aspect ratio
+@mixin aspect_ratio( $width: auto, $height: auto, $target: "> *" ) {
+  position: relative;
+  overflow: hidden;
+
+  &:after {
+    content: $UN-space;
+    display: block;
+    position: relative;
+    z-index: -999999999;
+
+    @if $width != auto and $height != auto {
+      padding-top: 100% * $height / $width;
+    }
+  }
+
+  #{$target} {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
 @mixin triangle( $width: 5px, $color: #000, $dir: top ) {
   @include inline-block(none);
   @include text-hide;
@@ -186,6 +211,7 @@
   background-color: #FEFEFE;
 }
 
+// Covered Background Image
 @mixin covered_background {
   background: {
     repeat: no-repeat;
@@ -341,8 +367,4 @@
       float: $sidebar-pos;
     }
   }
-}
-
-@mixin _aspect-ratio( $w, $h ) {
-  padding-top: 100% * $h / $w;
 }

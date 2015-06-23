@@ -78,7 +78,6 @@ module.exports = ( grunt ) ->
               "<%= meta.style %>/mixins/_utilities.scss"
               "<%= meta.style %>/mixins/_components.scss"
               "<%= meta.style %>/mixins/_layouts.scss"
-              "<%= meta.style %>/mixins/_internal.scss"
             ]
           "<%= meta.dest_style %>/<%= pkg.name %>/_rules.scss": [
               # Bridge
@@ -114,7 +113,6 @@ module.exports = ( grunt ) ->
               "src/stylesheets/mixins/_utilities.scss"
               "src/stylesheets/mixins/_components.scss"
               "src/stylesheets/mixins/_layouts.scss"
-              "src/stylesheets/mixins/_internal.scss"
             ]
     compass:
       compile:
