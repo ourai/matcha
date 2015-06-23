@@ -380,7 +380,7 @@ $(document).on("change", hook("uploader.trigger"), function() {
 })(_H);
 
 (function(_H) {
-  var autoSlide, changeUnit, defaults, initSlides, nextUnit, slidesEffect, triggerHtml;
+  var autoSlide, changeUnit, changeUnitTrigger, defaults, initSlides, nextUnit, pageNumHtml, slideToEffect, slidesEffect, triggerHtml;
   defaults = {
     $el: null,
     vertical: false,
@@ -388,28 +388,42 @@ $(document).on("change", hook("uploader.trigger"), function() {
     effect: "fade",
     auto: false,
     interval: 5,
-    pageable: false
+    pageable: false,
+    locale: {
+      prev: "Prev",
+      next: "Next"
+    }
   };
   initSlides = function($el, opts) {
-    var effect, wrapper;
+    var cls, effect, wrapper;
     effect = opts.effect;
+    cls = "is-active";
+    $el.addClass("Slides").data(dataFlag("SlidesEffect"), effect).children("li").addClass("Slides-unit").eq(0).addClass(cls);
     wrapper = $el.parent();
-    $el.addClass("Slides").data(dataFlag("SlidesEffect"), effect).children("li").addClass("Slides-unit").eq(0).addClass("is-active");
     if (opts.pageable === true) {
-
-    } else {
-
+      $("<div class=\"Slides-pagination\"><ol>" + (pageNumHtml($el.children("li"))) + "</ol></div>").find("li:first").addClass(cls).closest(".Slides-pagination").appendTo(wrapper);
     }
     if (opts.auto === true) {
       autoSlide($el, ($.isNumeric(opts.interval) ? opts.interval : defaults.interval) * 1000, effect);
     } else {
-      wrapper.append("<div class=\"Slides-triggers\">" + (triggerHtml("prev")) + (triggerHtml("next")) + "</div>");
+      wrapper.append("<div class=\"Slides-triggers\">" + (triggerHtml("prev", opts.locale.prev)) + (triggerHtml("next", opts.locale.next)) + "</div>");
     }
     return wrapper;
   };
+  pageNumHtml = function(units) {
+    var html;
+    html = [];
+    units.each(function(idx) {
+      var pageNum;
+      pageNum = idx + 1;
+      $(this).data(dataFlag("SlidesPageNum"), pageNum);
+      return html.push("<li><a href=\"#\" data-page=\"" + pageNum + "\">" + pageNum + "</a></li>");
+    });
+    return html.join("");
+  };
   autoSlide = function(slides, interval, effect) {
     setTimeout(function() {
-      return changeUnit(slides, 1, effect, function() {
+      return changeUnit(slides.children("li.is-active"), nextUnit(slides, 1), 1, effect, function() {
         return autoSlide(slides, interval, effect);
       });
     }, interval);
@@ -420,45 +434,78 @@ $(document).on("change", hook("uploader.trigger"), function() {
     }
     return "<button type=\"button\" class=\"Slides-trigger\" data-direction=\"" + dir + "\">" + text + "</button>";
   };
-  changeUnit = function(slides, dir, effect, callback) {
-    var curr, currCls, next, nextCls;
-    currCls = "is-active";
+  changeUnit = function(curr, next, dir, effect, callback) {
+    var nextCls;
     nextCls = "is-next";
-    curr = slides.children("li." + currCls);
-    next = nextUnit(curr, slides, dir);
     next.addClass(nextCls);
-    slidesEffect(curr, effect, function() {
+    slidesEffect(curr, dir, effect, function() {
+      var currCls, pagination;
+      currCls = "is-active";
       next.removeClass(nextCls).addClass(currCls);
       curr.removeClass(currCls).show();
+      pagination = curr.closest(".Slides-wrapper").children(".Slides-pagination");
+      if (pagination.size()) {
+        $("[data-page='" + (next.data(dataFlag("SlidesPageNum"))) + "']", pagination).parent().addClass(currCls).siblings("." + currCls).removeClass(currCls);
+      }
       return typeof callback === "function" ? callback() : void 0;
     });
     return next;
   };
-  nextUnit = function(unit, slides, dir) {
-    var next;
-    if (dir === 0) {
-      if (unit.is(":first-child")) {
-        next = slides.children("li:last-child");
+  nextUnit = function(slides, dir, index) {
+    var curr, next;
+    if (index == null) {
+      index = -1;
+    }
+    if (index === -1) {
+      curr = slides.children("li.is-active");
+      if (dir === 0) {
+        if (curr.is(":first-child")) {
+          next = slides.children("li:last-child");
+        } else {
+          next = curr.prev();
+        }
       } else {
-        next = unit.prev();
+        if (curr.is(":last-child")) {
+          next = slides.children("li:first-child");
+        } else {
+          next = curr.next();
+        }
       }
     } else {
-      if (unit.is(":last-child")) {
-        next = slides.children("li:first-child");
-      } else {
-        next = unit.next();
-      }
+      next = slides.children("li:eq(" + index + ")");
     }
     return next;
   };
-  slidesEffect = function(unit, effect, handler) {
+  slidesEffect = function(unit, dir, effect, handler) {
     if (effect === "fade") {
       unit.fadeOut(handler);
     } else if (effect === "slide") {
-
+      slideToEffect(unit, dir, handler);
     } else {
       handler();
     }
+  };
+  slideToEffect = function(unit, dir, handler) {
+    var prop, props, value;
+    if (dir === 0) {
+      prop = "right";
+    } else {
+      prop = "left";
+    }
+    value = unit.css(prop);
+    props = {};
+    props["" + prop] = "-" + (unit.outerWidth(true));
+    return unit.animate(props, function() {
+      unit.css(prop, value);
+      return handler();
+    });
+  };
+  changeUnitTrigger = function(el, getDirection, index) {
+    var curr, dir, slides;
+    slides = $(el).closest(".Slides-wrapper").children(".Slides");
+    curr = slides.children("li.is-active");
+    dir = getDirection.call(curr);
+    return changeUnit(curr, nextUnit(slides, dir, index), dir, slides.data(dataFlag("SlidesEffect")));
   };
   _H.addComponent("slides", function($el, settings) {
     if (settings == null) {
@@ -474,10 +521,31 @@ $(document).on("change", hook("uploader.trigger"), function() {
       return initSlides($(this), $.extend(true, {}, defaults, settings));
     });
   });
-  return $(document).on("click", ".Slides-trigger", function() {
-    var slides;
-    slides = $(this).closest(".Slides-wrapper").children(".Slides");
-    changeUnit(slides, ($(this).attr("data-direction") === "prev" ? 0 : 1), slides.data(dataFlag("SlidesEffect")));
+  $(document).on("click", ".Slides-trigger", function() {
+    changeUnitTrigger(this, (function(_this) {
+      return function() {
+        if ($(_this).attr("data-direction") === "prev") {
+          return 0;
+        } else {
+          return 1;
+        }
+      };
+    })(this));
+    return false;
+  });
+  return $(document).on("click", ".Slides-pagination a", function() {
+    var nextPage, pageNum;
+    nextPage = $(this).parent();
+    if (!nextPage.is(".is-active")) {
+      pageNum = Number($("a", nextPage).attr("data-page"));
+      changeUnitTrigger(this, function() {
+        if (pageNum > Number($("a", nextPage.siblings(".is-active")).attr("data-page"))) {
+          return 1;
+        } else {
+          return 0;
+        }
+      }, pageNum - 1);
+    }
     return false;
   });
 })(_H);

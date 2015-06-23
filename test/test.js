@@ -1,6 +1,12 @@
 $(function() {
   return Matcha.slides($("#slidesDemo ul"), {
-    auto: true,
-    interval: 3
+    auto: false,
+    interval: 3,
+    effect: "fade",
+    pageable: true,
+    locale: {
+      prev: "上一个",
+      next: "下一个"
+    }
   });
 });

@@ -22,7 +22,7 @@ fieldset .Tabs:first-child {
   margin-top: 0;
 }
 
-/* line 21, test.scss */
+/* line 24, test.scss */
 .color,
 .color--opacity,
 .color--transparent,
@@ -62,4 +62,48 @@ fieldset .Tabs:first-child {
 /* line 51, test.scss */
 .Slides-wrapper:first-child {
   margin-top: 0;
+}
+
+/* line 56, test.scss */
+.u-aspectRatio--3to2 {
+  position: relative;
+  overflow: hidden;
+}
+/* line 141, stylesheets/_mixins.scss */
+.u-aspectRatio--3to2:after {
+  content: "\0020";
+  display: block;
+  position: relative;
+  z-index: -999999999;
+  padding-top: 66.66667%;
+}
+/* line 152, stylesheets/_mixins.scss */
+.u-aspectRatio--3to2 > a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* line 60, test.scss */
+.u-aspectRatio--16to9 {
+  position: relative;
+  overflow: hidden;
+}
+/* line 141, stylesheets/_mixins.scss */
+.u-aspectRatio--16to9:after {
+  content: "\0020";
+  display: block;
+  position: relative;
+  z-index: -999999999;
+  padding-top: 56.25%;
+}
+/* line 152, stylesheets/_mixins.scss */
+.u-aspectRatio--16to9 > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }

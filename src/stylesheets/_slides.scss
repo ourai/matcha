@@ -2,10 +2,12 @@
   position: relative;
   @include fill_up;
   @include text-middle;
+  color: $color-text-medium;
 }
 
 .Slides,
-.Slides-unit {
+.Slides-unit,
+.Slides-pagination {
   position: absolute;
 }
 
@@ -19,7 +21,8 @@
 }
 
 ul.Slides,
-ol.Slides {
+ol.Slides,
+.Slides-pagination ol {
   @include no_gap;
   @include no_item;
 }
@@ -44,17 +47,68 @@ ol.Slides {
   z-index: 2;
 }
 
+.Slides-trigger,
+.Slides-pagination a {
+  padding: 0 .5em;
+  color: inherit;
+  background-color: rgba(255, 255, 255, .7);
+  @include border-radius(3px);
+
+  &:hover {
+    background-color: #FFF;
+  }
+}
+
 .Slides-trigger {
-  @include no_gap;
-  background-color: transparent;
+  margin: 0;
+  font: {
+    family: inherit;
+    size: inherit;
+  }
+  line-height: inherit;
   border-style: none;
   cursor: pointer;
 
   &[data-direction="prev"] {
     float: left;
+    margin-left: 5px;
   }
 
   &[data-direction="next"] {
     float: right;
+    margin-right: 5px;
+  }
+}
+
+.Slides-pagination {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  text-align: center;
+
+  ol {
+    @include clearfix;
+    @include inline-block;
+    margin-bottom: 10px;
+  }
+
+  li {
+    float: left;
+    margin-left: 5px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &.is-active a {
+      background-color: #FFF;
+      cursor: default;
+    }
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
   }
 }

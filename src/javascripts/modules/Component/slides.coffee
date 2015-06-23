@@ -14,11 +14,15 @@ do ( _H ) ->
     interval: 5
     # 是否分页
     pageable: false
+    # 本地化
+    locale:
+      prev: "Prev"
+      next: "Next"
 
   # 初始化单个 slides
   initSlides = ( $el, opts ) ->
     effect = opts.effect
-    wrapper = $el.parent()
+    cls = "is-active"
 
     $el
       .addClass "Slides"
@@ -26,24 +30,43 @@ do ( _H ) ->
       .children "li"
       .addClass "Slides-unit"
       .eq 0
-      .addClass "is-active"
+      .addClass cls
+
+    wrapper = $el.parent()
 
     # 可分页
     if opts.pageable is true
-    else
+      $ "<div class=\"Slides-pagination\"><ol>#{pageNumHtml($el.children("li"))}</ol></div>"
+        .find "li:first"
+        .addClass cls
+        .closest ".Slides-pagination"
+        .appendTo wrapper
 
     # 自动切换
     if opts.auto is true
       autoSlide $el, (if $.isNumeric(opts.interval) then opts.interval else defaults.interval) * 1000, effect
     else
-      wrapper.append "<div class=\"Slides-triggers\">#{triggerHtml("prev")}#{triggerHtml("next")}</div>"
+      wrapper.append "<div class=\"Slides-triggers\">#{triggerHtml("prev", opts.locale.prev)}#{triggerHtml("next", opts.locale.next)}</div>"
 
     return wrapper
+
+  # 页码的 HTML
+  pageNumHtml = ( units ) ->
+    html = []
+
+    units.each ( idx ) ->
+      pageNum = idx + 1
+
+      $(@).data dataFlag("SlidesPageNum"), pageNum
+
+      html.push "<li><a href=\"#\" data-page=\"#{pageNum}\">#{pageNum}</a></li>"
+
+    return html.join ""
 
   # 自动切换
   autoSlide = ( slides, interval, effect ) ->
     setTimeout ->
-      changeUnit slides, 1, effect, ->
+      changeUnit slides.children("li.is-active"), nextUnit(slides, 1), 1, effect, ->
         autoSlide slides, interval, effect
     , interval
 
@@ -54,16 +77,14 @@ do ( _H ) ->
     return "<button type=\"button\" class=\"Slides-trigger\" data-direction=\"#{dir}\">#{text}</button>"
 
   # 切换幻灯片
-  changeUnit = ( slides, dir, effect, callback ) ->
-    currCls = "is-active"
+  changeUnit = ( curr, next, dir, effect, callback ) ->
     nextCls = "is-next"
-
-    curr = slides.children "li.#{currCls}"
-    next = nextUnit curr, slides, dir
 
     next.addClass nextCls
 
     slidesEffect curr, dir, effect, ->
+      currCls = "is-active"
+
       next
         .removeClass nextCls
         .addClass currCls
@@ -72,24 +93,39 @@ do ( _H ) ->
         .removeClass currCls
         .show()
 
+      pagination = curr.closest(".Slides-wrapper").children ".Slides-pagination"
+
+      # 更新页码状态
+      if pagination.size()
+        $("[data-page='#{next.data(dataFlag("SlidesPageNum"))}']", pagination)
+          .parent()
+          .addClass currCls
+          .siblings ".#{currCls}"
+          .removeClass currCls
+
       callback?()
 
     return next
 
   # 获取下一个单元
-  nextUnit = ( unit, slides, dir ) ->
-    # 上翻
-    if dir is 0
-      if unit.is(":first-child")
-        next = slides.children "li:last-child"
+  nextUnit = ( slides, dir, index = -1 ) ->
+    if index is -1
+      curr = slides.children "li.is-active"
+
+      # 上翻
+      if dir is 0
+        if curr.is(":first-child")
+          next = slides.children "li:last-child"
+        else
+          next = curr.prev()
+      # 下翻
       else
-        next = unit.prev()
-    # 下翻
+        if curr.is(":last-child")
+          next = slides.children "li:first-child"
+        else
+          next = curr.next()
     else
-      if unit.is(":last-child")
-        next = slides.children "li:first-child"
-      else
-        next = unit.next()
+      next = slides.children "li:eq(#{index})"
 
     return next
 
@@ -123,6 +159,13 @@ do ( _H ) ->
 
       handler()
 
+  changeUnitTrigger = ( el, getDirection, index ) ->
+    slides = $(el).closest(".Slides-wrapper").children(".Slides")
+    curr = slides.children "li.is-active"
+    dir = getDirection.call curr
+
+    return changeUnit curr, nextUnit(slides, dir, index), dir, slides.data(dataFlag("SlidesEffect"))
+
   _H.addComponent "slides", ( $el, settings = {} ) ->
     if $.isPlainObject($el)
       settings = $el
@@ -135,9 +178,22 @@ do ( _H ) ->
       .each ->
         initSlides $(@), $.extend true, {}, defaults, settings
 
+  # 上一个/下一个
   $(document).on "click", ".Slides-trigger", ->
-    slides = $(@).closest(".Slides-wrapper").children ".Slides"
+    changeUnitTrigger @, =>
+      return if $(@).attr("data-direction") is "prev" then 0 else 1
 
-    changeUnit slides, (if $(@).attr("data-direction") is "prev" then 0 else 1), slides.data(dataFlag("SlidesEffect"))
+    return false
+
+  # 翻页
+  $(document).on "click", ".Slides-pagination a", ->
+    nextPage = $(@).parent()
+
+    if not nextPage.is(".is-active")
+      pageNum = Number $("a", nextPage).attr("data-page")
+
+      changeUnitTrigger @, ->
+        return if pageNum > Number($("a", nextPage.siblings(".is-active")).attr("data-page")) then 1 else 0
+      , pageNum - 1
 
     return false
