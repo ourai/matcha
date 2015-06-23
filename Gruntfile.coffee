@@ -32,6 +32,7 @@ module.exports = ( grunt ) ->
       dest_image: "<%= meta.dest %>/images"
 
       tests: "test"
+      tangram: "vendors/tangram/dest"
     concat:
       coffee:
         files:
@@ -64,6 +65,9 @@ module.exports = ( grunt ) ->
         dest: "<%= meta.dest_script %>/<%= pkg.name %>.js"
       matcha:
         files:
+          "<%= meta.style %>/mixins/_layouts.scss": [
+              "<%= meta.tangram %>/tangram.scss"
+            ]
           "<%= meta.dest_style %>/<%= pkg.name %>/_helper.scss": [
               # Core variables, functions
               "<%= meta.style %>/_variables.scss"
