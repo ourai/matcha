@@ -125,7 +125,7 @@
   @if $size != auto {
     @include square($size);
   }
-  
+
   @include border-radius(50%);
 }
 
@@ -167,25 +167,8 @@
   border-#{$dir}-color: $color;
 }
 
-@mixin card_style {
-  border: 1px solid #E0E0E0;
-  border-bottom-width: 2px;
-  @include border-radius(2px);
-}
-
 @mixin no_item {
   list-style: none outside none;
-}
-
-@mixin tag_unit {
-  @include inline-block(none);
-  max-width: 120px;
-  margin-right: 5px; padding: 0 8px;
-  @include border-radius(2px);
-  background-color: #DCE4E6;
-  color: $color-text-medium !important;
-  text-decoration: none !important;
-  @include text-ellipsis;
 }
 
 @mixin no_gap {
@@ -204,14 +187,6 @@
   &:after {
     clear: both;
   }
-}
-
-@mixin block_content {
-  padding: .75em;
-  border: 1px solid #C5CACE;
-  @include border-radius(2px);
-  @include box-shadow(0 1px 5px rgba(0, 0, 0, 0.1) inset, 0 1px 0 #FFF);
-  background-color: #FEFEFE;
 }
 
 // Covered Background Image

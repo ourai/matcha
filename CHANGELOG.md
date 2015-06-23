@@ -10,6 +10,7 @@
 
 ### Deprecations
   * 不再默认包含 [normalize.css](https://github.com/necolas/normalize.css)
+  * 移除 `card_style`、`tag_unit`、`block_content` 等 mixin
 
 ## 0.4.2
 
