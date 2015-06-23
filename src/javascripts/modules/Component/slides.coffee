@@ -63,7 +63,7 @@ do ( _H ) ->
 
     next.addClass nextCls
 
-    slidesEffect curr, effect, ->
+    slidesEffect curr, dir, effect, ->
       next
         .removeClass nextCls
         .addClass currCls
@@ -94,17 +94,34 @@ do ( _H ) ->
     return next
 
   # 使用动态效果
-  slidesEffect = ( unit, effect, handler ) ->
+  slidesEffect = ( unit, dir, effect, handler ) ->
     # 淡出效果
     if effect is "fade"
       unit.fadeOut handler
     # 滑动效果
     else if effect is "slide"
+      slideToEffect unit, dir, handler
     # 无动态效果
     else
       handler()
 
     return
+
+  # 滑动效果
+  slideToEffect = ( unit, dir, handler ) ->
+    if dir is 0
+      prop = "right"
+    else
+      prop = "left"
+
+    value = unit.css prop
+    props = {}
+    props["#{prop}"] = "-#{unit.outerWidth(true)}"
+
+    unit.animate props, ->
+      unit.css prop, value
+
+      handler()
 
   _H.addComponent "slides", ( $el, settings = {} ) ->
     if $.isPlainObject($el)

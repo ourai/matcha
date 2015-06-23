@@ -5,8 +5,10 @@
 ### Features
   * slides 组件
   * 页面布局部分的代码替换成 [Tangram](https://github.com/ourai/tangram)
-  * 等比例缩放 `@mixin aspect_ratio` 和 `.u-aspectRatio`
-  * 使目标元素变圆 `.u-circle`
+  * 等比例缩放
+    * mixin `aspect_ratio`
+    * CSS class `.u-aspectRatio`
+  * 使目标元素变圆的 `.u-circle`
 
 ### Deprecations
   * 不再默认包含 [normalize.css](https://github.com/necolas/normalize.css)
@@ -15,7 +17,7 @@
 ## 0.4.2
 
 ### Features
-  * 添加 mixin `image-set`
+  * mixin `image-set`
 
 ### Deprecations
   * 取消对 IE9 以下 IE 浏览器的支持
@@ -29,8 +31,8 @@
 ## 0.4.1
 
 ### Features
-  * 添加 data list 组件
-  * 添加 menu 组件
+  * data list 组件
+  * menu 组件
     * mixin `dropdown-element`
     * mixin `special-list`
     * 菜单与子菜单基础样式
