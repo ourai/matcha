@@ -1,10 +1,13 @@
-@mixin square( $size: 16px ) {
+@mixin square( $size: 100% ) {
   width: $size;
   height: $size;
 }
 
-@mixin circle( $size: 16px ) {
-  @include square($size);
+@mixin circle( $size: auto ) {
+  @if $size != auto {
+    @include square($size);
+  }
+  
   @include border-radius(50%);
 }
 

@@ -1,3 +1,7 @@
+.u-circle {
+  @include circle;
+}
+
 .u-fillUp {
   @include fill_up;
 }

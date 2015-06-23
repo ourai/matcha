@@ -3,9 +3,10 @@
 ## 0.5.1
 
 ### Features
-  * 添加 slides 组件
+  * slides 组件
   * 页面布局部分的代码替换成 [Tangram](https://github.com/ourai/tangram)
   * 等比例缩放 `@mixin aspect_ratio` 和 `.u-aspectRatio`
+  * 使目标元素变圆 `.u-circle`
 
 ### Deprecations
   * 不再默认包含 [normalize.css](https://github.com/necolas/normalize.css)
