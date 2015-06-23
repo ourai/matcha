@@ -99,7 +99,7 @@ html[lang^="en"] {
 
 
 .u-fillUp {
-  @include square(100%);
+  @include fill_up;
 }
 
 .Typo-em,
@@ -499,7 +499,7 @@ $score_size: 16px;
 
   label {
     display: block;
-    @include square(100%);
+    @include fill_up;
   }
 }
 
