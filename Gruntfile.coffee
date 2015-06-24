@@ -19,8 +19,7 @@ module.exports = ( grunt ) ->
     meta:
       base: "src/javascripts/base"
 
-      modules: "src/javascripts/modules"
-      mod_cmpt: "<%= meta.modules %>/Component"
+      components: "src/javascripts/components"
 
       temp: ".<%= pkg.name %>-cache"
       style: "src/stylesheets"
@@ -37,13 +36,13 @@ module.exports = ( grunt ) ->
       coffee:
         files:
           "<%= meta.temp %>/components.coffee": [
-              "<%= meta.mod_cmpt %>/initializer.coffee"
-              "<%= meta.mod_cmpt %>/drop-down_list.coffee"
-              "<%= meta.mod_cmpt %>/score.coffee"
-              "<%= meta.mod_cmpt %>/tabs.coffee"
-              "<%= meta.mod_cmpt %>/uploader.coffee"
-              "<%= meta.mod_cmpt %>/data_list.coffee"
-              "<%= meta.mod_cmpt %>/slides.coffee"
+              "<%= meta.components %>/initializer.coffee"
+              "<%= meta.components %>/drop-down_list.coffee"
+              "<%= meta.components %>/score.coffee"
+              "<%= meta.components %>/tabs.coffee"
+              "<%= meta.components %>/uploader.coffee"
+              "<%= meta.components %>/data_list.coffee"
+              "<%= meta.components %>/slides.coffee"
             ]
           "<%= meta.temp %>/<%= pkg.name %>.coffee": [
               "<%= meta.base %>/intro.coffee"
