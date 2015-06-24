@@ -18,7 +18,7 @@ module.exports = ( grunt ) ->
     pkg: pkg
     meta:
       base: "src/javascripts/base"
-
+      classes: "src/javascripts/classes"
       components: "src/javascripts/components"
 
       temp: ".<%= pkg.name %>-cache"
@@ -35,6 +35,9 @@ module.exports = ( grunt ) ->
     concat:
       coffee:
         files:
+          "<%= meta.temp %>/classes.coffee": [
+              "<%= meta.classes %>/Component.coffee"
+            ]
           "<%= meta.temp %>/components.coffee": [
               "<%= meta.components %>/initializer.coffee"
               "<%= meta.components %>/drop-down_list.coffee"
@@ -48,6 +51,7 @@ module.exports = ( grunt ) ->
               "<%= meta.base %>/intro.coffee"
               "<%= meta.base %>/variables.coffee"
               "<%= meta.base %>/functions.coffee"
+              "<%= meta.temp %>/classes.coffee"
               "<%= meta.temp %>/components.coffee"
               "<%= meta.base %>/outro.coffee"
             ]

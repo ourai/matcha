@@ -592,7 +592,7 @@ ol.List {
 .Score,
 .Score .Score-level,
 .Score--selectable {
-  background-image: url('/test/images/star.png?1435160866');
+  background-image: url('/test/images/star.png?1435165457');
 }
 
 /* line 30, ../../src/stylesheets/_score.scss */
@@ -606,7 +606,7 @@ ol.List {
 /* line 37, ../../src/stylesheets/_score.scss */
 .Score--small,
 .Score--small .Score-level {
-  background-image: url('/test/images/ministar.png?1435160866');
+  background-image: url('/test/images/ministar.png?1435165457');
 }
 
 /* line 41, ../../src/stylesheets/_score.scss */
@@ -629,7 +629,7 @@ ol.List {
 }
 /* line 60, ../../src/stylesheets/_score.scss */
 .Score--selectable .Score-level:hover {
-  background: url('/test/images/star.png?1435160866') repeat-x !important;
+  background: url('/test/images/star.png?1435165457') repeat-x !important;
 }
 /* line 64, ../../src/stylesheets/_score.scss */
 .Score--selectable .Score-storage {
@@ -730,14 +730,14 @@ ol.List {
 
 /* line 102, ../../src/stylesheets/_score.scss */
 .Score-storage:checked + .Score-level {
-  background: url('/test/images/star.png?1435160866') repeat-x;
+  background: url('/test/images/star.png?1435165457') repeat-x;
   left: 0;
   z-index: 1;
 }
 
 /* line 108, ../../src/stylesheets/_score.scss */
 .Score-level.is-selected {
-  background: url('/test/images/star.png?1435160866') repeat-x;
+  background: url('/test/images/star.png?1435165457') repeat-x;
   left: 0;
   z-index: 1;
 }

@@ -16,7 +16,7 @@
 }(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
 
 "use strict";
-var $, LIB_CONFIG, browser, dataFlag, eventName, getDatasetByAttrs, getDatasetByHTML, getStorageData, hasOwnProp, hook, isFalse, isTrue, needFix, nodeDataset, storage, _H;
+var $, Component, LIB_CONFIG, browser, dataFlag, eventName, getDatasetByAttrs, getDatasetByHTML, getStorageData, hasOwnProp, hook, isFalse, isTrue, needFix, nodeDataset, storage, _H;
 
 LIB_CONFIG = {
   name: "Matcha",
@@ -249,11 +249,76 @@ isFalse = function(value) {
   return value === false || value === "false";
 };
 
+Component = (function() {
+  var attr2dataset, convert, html2dataset;
+
+  convert = function(value) {
+    if (value === "true") {
+      value = true;
+    } else if (value === "false") {
+      value = false;
+    } else if ($.isNumeric(value)) {
+      value = Number(value);
+    }
+    return value;
+  };
+
+  html2dataset = function(html) {
+    var dataset, _ref;
+    dataset = {};
+    $.each(((_ref = html.match(/<[a-z]+[^>]*>/i)) != null ? _ref[0].match(/(data(-[a-z]+)+=[^\s>]*)/ig) : void 0) || [], function(attr) {
+      attr = attr.match(/data-(.*)="([^\s"]*)"/i);
+      dataset[$.camelCase(attr[1])] = convert(attr[2]);
+      return true;
+    });
+    return dataset;
+  };
+
+  attr2dataset = function(attrs) {
+    var dataset;
+    dataset = {};
+    $.each(attrs, function(attr) {
+      var match;
+      if (attr.nodeType === 2 && ((match = attr.nodeName.match(/^data-(.*)$/i)) != null)) {
+        dataset[$.camelCase(match(1))] = convert(attr.nodeValue);
+      }
+      return true;
+    });
+    return dataset;
+  };
+
+  function Component(el, opts) {
+    this.el = el;
+    this.$el = $(el);
+    this.__defaults = {};
+  }
+
+  Component.prototype.dataset = function(el) {
+    var dataset;
+    if (el == null) {
+      el = this.el;
+    }
+    if (el.dataset != null) {
+      dataset = el.dataset;
+    } else if (el.outerHTML != null) {
+      dataset = html2dataset(el.outerHTML);
+    } else if ((el.attributes != null) && $.isNumeric(el.attributes.length)) {
+      dataset = attr2dataset(el.attributes);
+    } else {
+      dataset = {};
+    }
+    return dataset;
+  };
+
+  return Component;
+
+})();
+
 storage.modules.Component = (function() {
-  var Component, savedComps;
+  var savedComps, __Component;
   savedComps = storage.components;
-  Component = (function() {
-    function Component(name, func) {
+  __Component = (function() {
+    function __Component(name, func) {
       if (hasOwnProp(savedComps, name)) {
         throw "The component '" + name + "' exists.";
       } else if (hasOwnProp(_H, name)) {
@@ -263,10 +328,10 @@ storage.modules.Component = (function() {
       }
     }
 
-    return Component;
+    return __Component;
 
   })();
-  return Component;
+  return __Component;
 })();
 
 _H.addComponent = function(name, func) {

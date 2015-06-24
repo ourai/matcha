@@ -1,7 +1,7 @@
 storage.modules.Component = do ->
   savedComps = storage.components
 
-  class Component
+  class __Component
     constructor: ( name, func ) ->
       # 组件是否已保存
       if hasOwnProp(savedComps, name)
@@ -12,7 +12,7 @@ storage.modules.Component = do ->
       else
         _H[name] = savedComps[name] = func
 
-  return Component
+  return __Component
 
 # 添加 UI 组件
 _H.addComponent = ( name, func ) ->
