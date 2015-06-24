@@ -97,3 +97,9 @@ getDatasetByAttrs = ( attrs ) ->
     return true
 
   return dataset
+
+isTrue = ( value ) ->
+  return value in [true, "true"]
+
+isFalse = ( value ) ->
+  return value in [false, "false"]

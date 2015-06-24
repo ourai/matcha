@@ -16,7 +16,7 @@
 }(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
 
 "use strict";
-var $, LIB_CONFIG, browser, dataFlag, eventName, getStorageData, hasOwnProp, hook, needFix, storage, _H;
+var $, LIB_CONFIG, browser, dataFlag, eventName, getDatasetByAttrs, getDatasetByHTML, getStorageData, hasOwnProp, hook, isFalse, isTrue, needFix, nodeDataset, storage, _H;
 
 LIB_CONFIG = {
   name: "Matcha",
@@ -199,6 +199,54 @@ getStorageData = function(ns_str) {
 
 needFix = function(version) {
   return browser.msie && browser.version * 1 < version;
+};
+
+nodeDataset = function(dom) {
+  var dataset;
+  if (dom.dataset != null) {
+    dataset = dom.dataset;
+  } else if (dom.outerHTML != null) {
+    dataset = getDatasetByHTML(dom.outerHTML);
+  } else if ((dom.attributes != null) && $.isNumeric(dom.attributes.length)) {
+    dataset = getDatasetByAttrs(dom.attributes);
+  } else {
+    dataset = {};
+  }
+  return dataset;
+};
+
+getDatasetByHTML = function(html) {
+  var dataset, fragment;
+  dataset = {};
+  if ((fragment = html.match(/<[a-z]+[^>]*>/i)) != null) {
+    $.each(fragment[0].match(/(data(-[a-z]+)+=[^\s>]*)/ig) || [], function(attr) {
+      attr = attr.match(/data-(.*)="([^\s"]*)"/i);
+      dataset[$.camelCase(attr[1])] = attr[2];
+      return true;
+    });
+  }
+  return dataset;
+};
+
+getDatasetByAttrs = function(attrs) {
+  var dataset;
+  dataset = {};
+  $.each(attrs, function(attr) {
+    var match;
+    if (attr.nodeType === 2 && ((match = attr.nodeName.match(/^data-(.*)$/i)) != null)) {
+      dataset[$.camelCase(match(1))] = attr.nodeValue;
+    }
+    return true;
+  });
+  return dataset;
+};
+
+isTrue = function(value) {
+  return value === true || value === "true";
+};
+
+isFalse = function(value) {
+  return value === false || value === "false";
 };
 
 storage.modules.Component = (function() {
@@ -400,10 +448,10 @@ $(document).on("change", hook("uploader.trigger"), function() {
     cls = "is-active";
     $el.addClass("Slides").data(dataFlag("SlidesEffect"), effect).children("li").addClass("Slides-unit").eq(0).addClass(cls);
     wrapper = $el.parent();
-    if (opts.pageable === true) {
+    if (isTrue(opts.pageable)) {
       $("<div class=\"Slides-pagination\"><ol>" + (pageNumHtml($el.children("li"))) + "</ol></div>").find("li:first").addClass(cls).closest(".Slides-pagination").appendTo(wrapper);
     }
-    if (opts.auto === true) {
+    if (isTrue(opts.auto)) {
       autoSlide($el, ($.isNumeric(opts.interval) ? opts.interval : defaults.interval) * 1000, effect);
     } else {
       wrapper.append("<div class=\"Slides-triggers\">" + (triggerHtml("prev", opts.locale.prev)) + (triggerHtml("next", opts.locale.next)) + "</div>");
@@ -518,7 +566,7 @@ $(document).on("change", hook("uploader.trigger"), function() {
       settings.$el = $el;
     }
     return $el.wrap("<div class=\"Slides-wrapper\" />").each(function() {
-      return initSlides($(this), $.extend(true, {}, defaults, settings));
+      return initSlides($(this), $.extend(true, {}, defaults, settings, nodeDataset(this)));
     });
   });
   $(document).on("click", ".Slides-trigger", function() {

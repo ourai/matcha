@@ -35,7 +35,7 @@ do ( _H ) ->
     wrapper = $el.parent()
 
     # 可分页
-    if opts.pageable is true
+    if isTrue(opts.pageable)
       $ "<div class=\"Slides-pagination\"><ol>#{pageNumHtml($el.children("li"))}</ol></div>"
         .find "li:first"
         .addClass cls
@@ -43,7 +43,7 @@ do ( _H ) ->
         .appendTo wrapper
 
     # 自动切换
-    if opts.auto is true
+    if isTrue(opts.auto)
       autoSlide $el, (if $.isNumeric(opts.interval) then opts.interval else defaults.interval) * 1000, effect
     else
       wrapper.append "<div class=\"Slides-triggers\">#{triggerHtml("prev", opts.locale.prev)}#{triggerHtml("next", opts.locale.next)}</div>"
@@ -176,7 +176,7 @@ do ( _H ) ->
     $el
       .wrap "<div class=\"Slides-wrapper\" />"
       .each ->
-        initSlides $(@), $.extend true, {}, defaults, settings
+        initSlides $(@), $.extend true, {}, defaults, settings, nodeDataset(@)
 
   # 上一个/下一个
   $(document).on "click", ".Slides-trigger", ->
