@@ -63,3 +63,37 @@ getStorageData = ( ns_str ) ->
 ###
 needFix = ( version ) ->
   return browser.msie and browser.version * 1 < version      
+
+nodeDataset = ( dom ) ->
+  if dom.dataset?
+    dataset = dom.dataset
+  else if dom.outerHTML?
+    dataset = getDatasetByHTML dom.outerHTML
+  else if dom.attributes? and $.isNumeric(dom.attributes.length)
+    dataset = getDatasetByAttrs dom.attributes
+  else
+    dataset = {}
+
+  return dataset
+
+getDatasetByHTML = ( html ) ->
+  dataset = {}
+
+  if (fragment = html.match /<[a-z]+[^>]*>/i)?
+    $.each fragment[0].match(/(data(-[a-z]+)+=[^\s>]*)/ig) or [], ( attr ) ->
+      attr = attr.match /data-(.*)="([^\s"]*)"/i
+      dataset[$.camelCase(attr[1])] = attr[2]
+
+      return true
+
+  return dataset
+
+getDatasetByAttrs = ( attrs ) ->
+  dataset = {}
+
+  $.each attrs, ( attr ) ->
+    dataset[$.camelCase(match(1))] = attr.nodeValue if attr.nodeType is 2 and (match = attr.nodeName.match(/^data-(.*)$/i))?
+
+    return true
+
+  return dataset
