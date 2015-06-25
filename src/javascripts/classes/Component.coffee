@@ -1,4 +1,10 @@
 class Component
+  ##
+  # Functions
+  # ==========
+  # for internal use
+  #
+
   convert = ( value ) ->
     if value is "true"
       value = true
@@ -14,7 +20,7 @@ class Component
 
     $.each html.match(/<[a-z]+[^>]*>/i)?[0].match(/(data(-[a-z]+)+=[^\s>]*)/ig) or [], ( attr ) ->
       attr = attr.match /data-(.*)="([^\s"]*)"/i
-      dataset[$.camelCase(attr[1])] = convert attr[2]
+      dataset[$.camelCase(attr[1])] = attr[2]
 
       return true
 
@@ -24,11 +30,21 @@ class Component
     dataset = {}
 
     $.each attrs, ( attr ) ->
-      dataset[$.camelCase(match(1))] = convert(attr.nodeValue) if attr.nodeType is 2 and (match = attr.nodeName.match(/^data-(.*)$/i))?
+      dataset[$.camelCase(match(1))] = attr.nodeValue if attr.nodeType is 2 and (match = attr.nodeName.match(/^data-(.*)$/i))?
 
       return true
 
     return dataset
+
+  getRawOption = ->
+
+  getMergedOption = ->
+
+  ##
+  # Prototype properties and methods
+  # ==========
+  # for instances
+  #
 
   constructor: ( el, opts ) ->
     @el = el
@@ -36,6 +52,7 @@ class Component
 
     @__defaults = {}
 
+  # 获取 DOM 的 dataset
   dataset: ( el = @el ) ->
     if el.dataset?
       dataset = el.dataset
@@ -47,3 +64,9 @@ class Component
       dataset = {}
 
     return dataset
+
+  getOptions: ->
+    # 返回全部配置项
+
+  getOption: ( optName ) ->
+    # 返回指定配置项
