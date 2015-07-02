@@ -25,15 +25,14 @@ module.exports = ( grunt ) ->
       style: "src/stylesheets"
       image: "src/images"
 
-      dest: "dest"
-      dest_style: "<%= meta.dest %>/stylesheets"
-      dest_script: "<%= meta.dest %>/javascripts"
-      dest_image: "<%= meta.dest %>/images"
+      dest_style: "stylesheets"
+      dest_script: "javascripts"
+      dest_image: "images"
 
       tests: "test"
 
       painter: "vendors/painter"
-      tangram: "vendors/tangram/dest"
+      tangram: "vendors/tangram"
     concat:
       coffee:
         files:
@@ -72,7 +71,7 @@ module.exports = ( grunt ) ->
         files:
           "<%= meta.style %>/_vendors.scss": [
               "<%= meta.painter %>/_painter.scss"
-              "<%= meta.tangram %>/tangram.scss"
+              "<%= meta.tangram %>/_tangram.scss"
             ]
           "<%= meta.dest_style %>/<%= pkg.name %>/_helper.scss": [
               "<%= meta.style %>/_vendors.scss"
@@ -157,7 +156,7 @@ module.exports = ( grunt ) ->
                 " *\n" +
                 " * Date: <%= grunt.template.today('yyyy-mm-dd') %>\n" +
                 " */\n"
-        sourceMap: true
+        sourceMap: false
       build_normal:
         src: "<%= meta.dest_script %>/<%= pkg.name %>.js"
         dest: "<%= meta.dest_script %>/<%= pkg.name %>.min.js"
@@ -169,7 +168,7 @@ module.exports = ( grunt ) ->
         dest: "<%= meta.dest_image %>"
       test:
         expand: true
-        cwd: "<%= meta.dest %>"
+        cwd: "."
         src: ["images/*", "javascripts/*"]
         dest: "<%= meta.tests %>"
     cssmin:

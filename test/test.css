@@ -69,7 +69,7 @@ fieldset .Tabs:first-child {
   position: relative;
   overflow: hidden;
 }
-/* line 141, stylesheets/_mixins.scss */
+/* line 134, stylesheets/_vendors.scss */
 .u-aspectRatio--3to2:after {
   content: "\0020";
   display: block;
@@ -77,7 +77,7 @@ fieldset .Tabs:first-child {
   z-index: -999999999;
   padding-top: 66.66667%;
 }
-/* line 152, stylesheets/_mixins.scss */
+/* line 145, stylesheets/_vendors.scss */
 .u-aspectRatio--3to2 > a {
   position: absolute;
   top: 0;
@@ -91,7 +91,7 @@ fieldset .Tabs:first-child {
   position: relative;
   overflow: hidden;
 }
-/* line 141, stylesheets/_mixins.scss */
+/* line 134, stylesheets/_vendors.scss */
 .u-aspectRatio--16to9:after {
   content: "\0020";
   display: block;
@@ -99,7 +99,7 @@ fieldset .Tabs:first-child {
   z-index: -999999999;
   padding-top: 56.25%;
 }
-/* line 152, stylesheets/_mixins.scss */
+/* line 145, stylesheets/_vendors.scss */
 .u-aspectRatio--16to9 > * {
   position: absolute;
   top: 0;

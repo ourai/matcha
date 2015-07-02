@@ -2,11 +2,22 @@
   "name": "matcha",
   "version": "0.5.1",
   "main": [
-    "dest/javascripts/matcha.min.js",
-    "dest/stylesheets/matcha.min.css",
-    "dest/images/**/*"],
+    "javascripts/matcha.min.js",
+    "stylesheets/matcha.min.css",
+    "images/**/*"],
   "license": "MIT",
-  "ignore": ["**/*", "!dest/**/*"],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendors",
+    "backup",
+    "build",
+    "src",
+    "test",
+    "*.json",
+    "*.md",
+    "*.coffee"
+  ],
   "dependencies": {
     "tangram": "https://github.com/ourai/tangram.git#0.1.0",
     "painter": "https://github.com/ourai/painter.git#0.1.0"

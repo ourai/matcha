@@ -250,7 +250,7 @@ isFalse = function(value) {
 };
 
 Component = (function() {
-  var attr2dataset, convert, html2dataset;
+  var attr2dataset, convert, getMergedOption, getRawOption, html2dataset;
 
   convert = function(value) {
     if (value === "true") {
@@ -268,7 +268,7 @@ Component = (function() {
     dataset = {};
     $.each(((_ref = html.match(/<[a-z]+[^>]*>/i)) != null ? _ref[0].match(/(data(-[a-z]+)+=[^\s>]*)/ig) : void 0) || [], function(attr) {
       attr = attr.match(/data-(.*)="([^\s"]*)"/i);
-      dataset[$.camelCase(attr[1])] = convert(attr[2]);
+      dataset[$.camelCase(attr[1])] = attr[2];
       return true;
     });
     return dataset;
@@ -280,12 +280,16 @@ Component = (function() {
     $.each(attrs, function(attr) {
       var match;
       if (attr.nodeType === 2 && ((match = attr.nodeName.match(/^data-(.*)$/i)) != null)) {
-        dataset[$.camelCase(match(1))] = convert(attr.nodeValue);
+        dataset[$.camelCase(match(1))] = attr.nodeValue;
       }
       return true;
     });
     return dataset;
   };
+
+  getRawOption = function() {};
+
+  getMergedOption = function() {};
 
   function Component(el, opts) {
     this.el = el;
@@ -309,6 +313,10 @@ Component = (function() {
     }
     return dataset;
   };
+
+  Component.prototype.getOptions = function() {};
+
+  Component.prototype.getOption = function(optName) {};
 
   return Component;
 
