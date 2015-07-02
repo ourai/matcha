@@ -9,43 +9,6 @@
   line-height: $line_height;
 }
 
-@mixin text-ellipsis {
-  white-space: nowrap;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-}
-
-@mixin text-hide {
-  color: transparent;
-  border: 0 none;
-  font: 0px/0 a;
-  @include text-shadow(none);
-}
-
-// Makes text's vertical alignment middle,
-// should invoked on parent node.
-@mixin text-middle( $target: "" ) {
-  &:before {
-    content: $UN-space;
-    @include inline-block;
-    width: 0;
-    height: 100%;
-  }
-
-  @if $target != "" {
-    #{$target} {
-      @include inline-block;
-    }
-  }
-}
-
-@mixin line_feed {
-  word-wrap: break-word;
-  word-wrap: normal\0;
-  word-break: break-all;
-  white-space: normal;
-}
-
 @mixin punc_under {
   position: relative;
   text-indent: 0;

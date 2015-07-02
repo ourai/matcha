@@ -1,32 +1,30 @@
-@import "compass";
-
 // Font
-$font_family: "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-serif;
-$font_family-hei: "Microsoft Yahei", "Hiragino Sans GB", Tahoma, Verdana, "BitStream vera Sans", Arial, Helvetica, Sans-serif;
-$font_family-monospace: Monaco, Consolas, "Lucida Console", monospace;
-$font_size: 100%;
-$line_height: 1.5;
+$font_family: "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-serif !default;
+$font_family-hei: "Microsoft Yahei", "Hiragino Sans GB", Tahoma, Verdana, "BitStream vera Sans", Arial, Helvetica, Sans-serif !default;
+$font_family-monospace: Monaco, Consolas, "Lucida Console", monospace !default;
+$font_size: 100% !default;
+$line_height: 1.5 !default;
 
 // Text
-$color-title: #444;
-$color-text: #333;
-$color-text-medium: #666;
-$color-text-light: #888;
-$color-link: #3F6D77;
-$color-link-hover: #518C99;
+$color-title: #444 !default;
+$color-text: #333 !default;
+$color-text-medium: #666 !default;
+$color-text-light: #888 !default;
+$color-link: #3F6D77 !default;
+$color-link-hover: #518C99 !default;
 
 // Border
-$border_color: #B8C4C8;
+$border_color: #B8C4C8 !default;
 
 // Unicode
-$UN-space: "\0020";
-$UN-bullet: "\2022";
-$UN-middle_dot: "\00B7";
-$UN-wavy-overline: "\FE4B";
-$UN-wavy-low_line: "\FE4F";
+$UN-space: "\0020" !default;
+$UN-bullet: "\2022" !default;
+$UN-middle_dot: "\00B7" !default;
+$UN-wavy-overline: "\FE4B" !default;
+$UN-wavy-low_line: "\FE4F" !default;
 
 // Avatar
-$avatar-tiny: 30px;
-$avatar-small: 48px;
-$avatar-normal: 60px;
-$avatar-large: 120px;
+$avatar-tiny: 30px !default;
+$avatar-small: 48px !default;
+$avatar-normal: 60px !default;
+$avatar-large: 120px !default;

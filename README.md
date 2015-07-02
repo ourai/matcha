@@ -12,6 +12,7 @@ Matcha is a library based on [Compass](http://compass-style.org/), so you should
 
 ## Includes
 
+* [Painter](https://github.com/ourai/painter) 0.1.0+
 * [Tangram](https://github.com/ourai/tangram) 0.1.0+
 
 ## Browser support

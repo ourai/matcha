@@ -31,6 +31,8 @@ module.exports = ( grunt ) ->
       dest_image: "<%= meta.dest %>/images"
 
       tests: "test"
+
+      painter: "vendors/painter"
       tangram: "vendors/tangram/dest"
     concat:
       coffee:
@@ -68,19 +70,19 @@ module.exports = ( grunt ) ->
         dest: "<%= meta.dest_script %>/<%= pkg.name %>.js"
       matcha:
         files:
-          "<%= meta.style %>/mixins/_layouts.scss": [
+          "<%= meta.style %>/_vendors.scss": [
+              "<%= meta.painter %>/_painter.scss"
               "<%= meta.tangram %>/tangram.scss"
             ]
           "<%= meta.dest_style %>/<%= pkg.name %>/_helper.scss": [
+              "<%= meta.style %>/_vendors.scss"
               # Core variables, functions
               "<%= meta.style %>/_variables.scss"
               "<%= meta.style %>/_functions.scss"
               # Mixins
-              "<%= meta.style %>/mixins/_enhancement.scss"
               "<%= meta.style %>/mixins/_typography.scss"
               "<%= meta.style %>/mixins/_utilities.scss"
               "<%= meta.style %>/mixins/_components.scss"
-              "<%= meta.style %>/mixins/_layouts.scss"
             ]
           "<%= meta.dest_style %>/<%= pkg.name %>/_rules.scss": [
               # Bridge
@@ -104,6 +106,9 @@ module.exports = ( grunt ) ->
             ]
       matcha_helper:
         files:
+          "test/stylesheets/_vendors.scss": [
+              "src/stylesheets/_vendors.scss"
+            ]
           "test/stylesheets/_variables.scss": [
               "src/stylesheets/_variables.scss"
             ]
@@ -111,11 +116,9 @@ module.exports = ( grunt ) ->
               "src/stylesheets/_functions.scss"
             ]
           "test/stylesheets/_mixins.scss": [
-              "src/stylesheets/mixins/_enhancement.scss"
               "src/stylesheets/mixins/_typography.scss"
               "src/stylesheets/mixins/_utilities.scss"
               "src/stylesheets/mixins/_components.scss"
-              "src/stylesheets/mixins/_layouts.scss"
             ]
     compass:
       compile:
