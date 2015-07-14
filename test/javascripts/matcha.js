@@ -386,6 +386,28 @@ $(document).on("click", hook("dropdown.trigger"), function() {
 });
 
 (function(_H) {
+  var defaults, initScore, scoreHtml;
+  defaults = {
+    $el: null,
+    highest: 5
+  };
+  initScore = function($el, opts) {
+    var data, highest, lowest;
+    highest = Number(opts.highest);
+    lowest = 1;
+    data = {};
+    $el.width(highest * 16);
+    data.name = opts.name || ("Score-" + ($(".Score--selectable").index($el) + 1));
+    if (isNaN(highest)) {
+      highest = 0;
+    } else {
+      highest++;
+    }
+    while (lowest < highest) {
+      data.score = lowest++;
+      $el.append(scoreHtml(data));
+    }
+  };
 
   /*
    * Construct HTML string for score
@@ -395,50 +417,41 @@ $(document).on("click", hook("dropdown.trigger"), function() {
    * @param    data {Object}
    * @return   {String}
    */
-  var scoreHtml;
   scoreHtml = function(data) {
     var id, score;
     score = data.score;
     id = "" + data.name + "-" + score;
     return "<input id=\"" + id + "\" class=\"Score-storage Score-storage-" + score + "\" type=\"radio\" name=\"" + data.name + "\" value=\"" + score + "\">\n<a class=\"Score-level Score-level-" + score + "\" href=\"http://www.baidu.com/\">\n  <label for=\"" + id + "\">" + score + "</label>\n</a>";
   };
-  return $(function() {
-    $(".Score--selectable[data-highest]").each(function() {
-      var data, highest, lowest, __e;
-      __e = $(this);
-      highest = Number(__e.data("highest"));
-      lowest = 1;
-      data = {};
-      __e.width(highest * 16);
-      data.name = __e.data("name") || ("Score-" + ($(".Score--selectable").index(__e) + 1));
-      if (isNaN(highest)) {
-        highest = 0;
-      } else {
-        highest += 1;
-      }
-      while (lowest < highest) {
-        data.score = lowest++;
-        __e.append(scoreHtml(data));
-      }
-      return true;
+  _H.addComponent("score", function($el, settings) {
+    if (settings == null) {
+      settings = {};
+    }
+    if ($.isPlainObject($el)) {
+      settings = $el;
+      $el = settings.$el;
+    } else {
+      settings.$el = $el;
+    }
+    $el.each(function() {
+      return initScore($(this), $.extend(true, {}, defaults, settings, nodeDataset(this)));
     });
     if (needFix(9)) {
       return $(".Score--selectable .Score-level").addClass(hook("score.trigger", true));
     }
   });
+  return $(document).on("click", hook("score.trigger"), function() {
+    var cls, t;
+    t = $(this);
+    cls = "is-selected";
+    t.siblings("." + cls).removeClass(cls);
+    t.addClass(cls);
+    t.siblings("[checked]").attr("checked", false);
+    t.prev(":radio").attr("checked", true);
+    t.triggerHandler(eventName("select"));
+    return false;
+  });
 })(_H);
-
-$(document).on("click", hook("score.trigger"), function() {
-  var cls, t;
-  t = $(this);
-  cls = "is-selected";
-  t.siblings("." + cls).removeClass(cls);
-  t.addClass(cls);
-  t.siblings("[checked]").attr("checked", false);
-  t.prev(":radio").attr("checked", true);
-  t.triggerHandler(eventName("select"));
-  return false;
-});
 
 (function(_H) {
   return $(function() {
@@ -670,6 +683,10 @@ $(document).on("change", hook("uploader.trigger"), function() {
     return false;
   });
 })(_H);
+
+$(document).ready(function() {
+  return _H.score($(".Score--selectable[data-highest]"));
+});
 
 window[LIB_CONFIG.name] = _H;
 

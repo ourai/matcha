@@ -1,4 +1,28 @@
 do ( _H ) ->
+  defaults =
+    $el: null
+    highest: 5
+
+  initScore = ( $el, opts ) ->
+    highest = Number opts.highest
+    lowest = 1
+    data = {}
+
+    $el.width highest * 16
+
+    data.name = opts.name or "Score-#{$(".Score--selectable").index($el) + 1}"
+
+    if isNaN(highest)
+      highest = 0
+    else
+      highest++
+
+    while lowest < highest
+      data.score = lowest++
+      $el.append scoreHtml(data)
+
+    return
+
   ###
   # Construct HTML string for score
   #
@@ -18,43 +42,30 @@ do ( _H ) ->
             </a>
             """
 
-  # Construct levels of evaluation
-  $ ->
-    $(".Score--selectable[data-highest]").each ->
-      __e = $(this)
+  _H.addComponent "score", ( $el, settings = {} ) ->
+    if $.isPlainObject($el)
+      settings = $el
+      $el = settings.$el
+    else
+      settings.$el = $el
 
-      highest = Number __e.data("highest")
-      lowest = 1
-      data = {}
-
-      __e.width highest * 16
-
-      data.name = __e.data("name") || "Score-#{$(".Score--selectable").index(__e) + 1}"
-
-      if isNaN highest
-        highest = 0
-      else
-        highest += 1
-
-      while lowest < highest
-        data.score = lowest++
-        __e.append scoreHtml data
-
-      return true
+    # Construct levels of evaluation
+    $el.each ->
+      initScore $(@), $.extend(true, {}, defaults, settings, nodeDataset(@))
 
     $(".Score--selectable .Score-level").addClass(hook("score.trigger", true)) if needFix(9)
 
-# Scores / Levels of evaluation
-$(document).on "click", hook("score.trigger"), ->
-  t = $(this)
-  cls = "is-selected"
+  # Scores / Levels of evaluation
+  $(document).on "click", hook("score.trigger"), ->
+    t = $(this)
+    cls = "is-selected"
 
-  t.siblings(".#{cls}").removeClass(cls)
-  t.addClass cls
+    t.siblings(".#{cls}").removeClass(cls)
+    t.addClass cls
 
-  t.siblings("[checked]").attr("checked", false)
-  t.prev(":radio").attr("checked", true)
+    t.siblings("[checked]").attr("checked", false)
+    t.prev(":radio").attr("checked", true)
 
-  t.triggerHandler eventName("select")
+    t.triggerHandler eventName("select")
 
-  return false
+    return false
