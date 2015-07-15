@@ -1,44 +1,55 @@
 do ( _H ) ->
-  $ ->
-    $("select.DropList").each ->
-      sel = $(this)
-      selected = $(":selected", sel)
-      idx = $("option", sel).index selected
+  defaults =
+    $el: null
 
-      sel
-        .attr "tabindex", -1
-        .removeClass "DropList"
-        .addClass "DropList--dummy"
+  initDropdownList = ( $el, opts ) ->
+    selected = $(":selected", $el)
+    idx = $("option", $el).index selected
 
-      ddl = $("<div>", class: "DropList")
+    $el
+      .attr "tabindex", -1
+      .removeClass "DropList"
+      .addClass "DropList--dummy"
 
-      ddl.append  """
-                  <div class="DropList-selected"><span class="DropList-label">#{selected.text()}</span></div>
-                  <div class="DropList-dropdown"><ul class="DropList-list"></ul></div>
-                  """
+    ddl = $("<div>", class: "DropList")
 
-      lst = $(".DropList-list", ddl)
+    ddl.append  """
+                <div class="DropList-selected"><span class="DropList-label">#{selected.text()}</span></div>
+                <div class="DropList-dropdown"><ul class="DropList-list"></ul></div>
+                """
 
-      $("option", sel).each ->
-        lst.append "<li class=\"#{hook("dropdown.trigger", true)}\">#{$(this).text()}</li>"
+    lst = $(".DropList-list", ddl)
 
-      $("li:eq(#{idx})", lst).addClass "is-selected"
+    $("option", $el).each ->
+      lst.append "<li class=\"#{hook("dropdown.trigger", true)}\">#{$(@).text()}</li>"
 
-      sel.after ddl
-      ddl.data dataFlag("DropListDummy"), sel
+    $("li:eq(#{idx})", lst).addClass "is-selected"
 
-$(document).on "click", hook("dropdown.trigger"), ->
-  t = $(this)
-  ddl = t.closest(".DropList")
-  lst = t.closest ".DropList-list"
-  idx = $("li", lst).index t
-  cls = "is-selected"
+    $el.after ddl
+    ddl.data dataFlag("DropListDummy"), $el
 
-  $(".#{cls}", lst).removeClass cls
-  t.addClass cls
-  $(".DropList-label", ddl).text t.text()
+  _H.addComponent "dropdown", ( $el, settings = {} ) ->
+    if $.isPlainObject($el)
+      settings = $el
+      $el = settings.$el
+    else
+      settings.$el = $el
 
-  sel = ddl.data dataFlag("DropListDummy")
-  $(":selected", sel).attr "selected", false
-  $("option:eq(#{idx})", sel).attr "selected", true
-  sel.trigger "change"
+    $el.each ->
+      initDropdownList $(@), $.extend(true, {}, defaults, settings, nodeDataset(@))
+
+  $(document).on "click", hook("dropdown.trigger"), ->
+    t = $(@)
+    ddl = t.closest(".DropList")
+    lst = t.closest ".DropList-list"
+    idx = $("li", lst).index t
+    cls = "is-selected"
+
+    $(".#{cls}", lst).removeClass cls
+    t.addClass cls
+    $(".DropList-label", ddl).text t.text()
+
+    sel = ddl.data dataFlag("DropListDummy")
+    $(":selected", sel).attr "selected", false
+    $("option:eq(#{idx})", sel).attr "selected", true
+    sel.trigger "change"
