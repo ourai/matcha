@@ -36,21 +36,32 @@ class Component
 
     return dataset
 
-  getRawOption = ->
-
-  getMergedOption = ->
-
   ##
   # Prototype properties and methods
   # ==========
   # for instances
   #
 
-  constructor: ( el, opts ) ->
-    @el = el
-    @$el = $ el
+  # 构造函数
+  # 根据传入的配置参数对元素集合进行初始化
+  constructor: ( $el = $(), opts = {} ) ->
+    if $.isPlainObject($el)
+      opts = $el
+      $el = opts.$el ? $()
+    else
+      opts.$el = $el
 
-    @__defaults = {}
+    $el.each ( idx, el ) =>
+      @initialize $(el), $.extend(true, {}, @defaults ? {}, opts, @dataset(el)), opts
+
+      return
+
+  # 默认配置
+  defaults: null
+
+  # 根据传入的配置参数对单个元素进行初始化
+  initialize: ( $el, mergedOpts, rawOpts ) ->
+    # Do something by yourself
 
   # 获取 DOM 的 dataset
   dataset: ( el = @el ) ->
@@ -64,9 +75,3 @@ class Component
       dataset = {}
 
     return dataset
-
-  getOptions: ->
-    # 返回全部配置项
-
-  getOption: ( optName ) ->
-    # 返回指定配置项

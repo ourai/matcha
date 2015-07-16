@@ -1,5 +1,5 @@
-do ( _H ) -> 
-  defaults =
+class DataList extends Component
+  defaults:
     source: []
     data: "{%ROOT%}"
     template: ( itemData ) ->
@@ -10,7 +10,4 @@ do ( _H ) ->
       defaultPage: 0
     update: ->
 
-  _H.addComponent "dataList", ( settings ) ->
-    settings = $.extend true, {}, defaults, settings
-
-    return settings
+_H.addComponent "dataList", initializer(DataList)

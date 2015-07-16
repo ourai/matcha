@@ -103,3 +103,11 @@ isTrue = ( value ) ->
 
 isFalse = ( value ) ->
   return value in [false, "false"]
+
+initializer = ( componentClass, callback ) ->
+  return ( $el, settings ) ->
+    inst = new componentClass $el, settings
+
+    callback?()
+
+    return inst

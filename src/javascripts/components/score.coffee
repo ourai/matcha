@@ -1,9 +1,25 @@
-do ( _H ) ->
-  defaults =
-    $el: null
+class Score extends Component
+  ###
+  # Construct HTML string for score
+  #
+  # @private
+  # @method   scoreHtml
+  # @param    data {Object}
+  # @return   {String}
+  ###
+  scoreHtml = ( data ) ->
+    score = data.score
+    id = "#{data.name}-#{score}"
+
+    return  """
+            <input id="#{id}" class="Score-storage Score-storage-#{score}" type="radio" name="#{data.name}" value="#{score}">
+            <a class="Score-level Score-level-#{score}" href="javascript:void(0);"><label for="#{id}">#{score}</label></a>
+            """
+
+  defaults:
     highest: 5
 
-  initScore = ( $el, opts ) ->
+  initialize: ( $el, opts ) ->
     highest = Number opts.highest
     lowest = 1
     data = {}
@@ -23,49 +39,20 @@ do ( _H ) ->
 
     return
 
-  ###
-  # Construct HTML string for score
-  #
-  # @private
-  # @method   scoreHtml
-  # @param    data {Object}
-  # @return   {String}
-  ###
-  scoreHtml = ( data ) ->
-    score = data.score
-    id = "#{data.name}-#{score}"
+_H.addComponent "score", initializer Score, ->
+  $(".Score--selectable .Score-level").addClass(hook("score.trigger", true)) if needFix(9)
 
-    return  """
-            <input id="#{id}" class="Score-storage Score-storage-#{score}" type="radio" name="#{data.name}" value="#{score}">
-            <a class="Score-level Score-level-#{score}" href="http://www.baidu.com/">
-              <label for="#{id}">#{score}</label>
-            </a>
-            """
+# Scores / Levels of evaluation
+$(document).on "click", hook("score.trigger"), ->
+  t = $(this)
+  cls = "is-selected"
 
-  _H.addComponent "score", ( $el, settings = {} ) ->
-    if $.isPlainObject($el)
-      settings = $el
-      $el = settings.$el
-    else
-      settings.$el = $el
+  t.siblings(".#{cls}").removeClass(cls)
+  t.addClass cls
 
-    # Construct levels of evaluation
-    $el.each ->
-      initScore $(@), $.extend(true, {}, defaults, settings, nodeDataset(@))
+  t.siblings("[checked]").attr("checked", false)
+  t.prev(":radio").attr("checked", true)
 
-    $(".Score--selectable .Score-level").addClass(hook("score.trigger", true)) if needFix(9)
+  t.triggerHandler eventName("select")
 
-  # Scores / Levels of evaluation
-  $(document).on "click", hook("score.trigger"), ->
-    t = $(this)
-    cls = "is-selected"
-
-    t.siblings(".#{cls}").removeClass(cls)
-    t.addClass cls
-
-    t.siblings("[checked]").attr("checked", false)
-    t.prev(":radio").attr("checked", true)
-
-    t.triggerHandler eventName("select")
-
-    return false
+  return false
