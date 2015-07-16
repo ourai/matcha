@@ -1,8 +1,5 @@
-do ( _H ) ->
-  defaults =
-    $el: null
-
-  initDropdownList = ( $el, opts ) ->
+class DropdownList extends Component
+  initialize: ( $el, opts ) ->
     selected = $(":selected", $el)
     idx = $("option", $el).index selected
 
@@ -28,28 +25,20 @@ do ( _H ) ->
     $el.after ddl
     ddl.data dataFlag("DropListDummy"), $el
 
-  _H.addComponent "dropdown", ( $el, settings = {} ) ->
-    if $.isPlainObject($el)
-      settings = $el
-      $el = settings.$el
-    else
-      settings.$el = $el
+_H.addComponent "dropdown", initializer(DropdownList)
 
-    $el.each ->
-      initDropdownList $(@), $.extend(true, {}, defaults, settings, nodeDataset(@))
+$(document).on "click", hook("dropdown.trigger"), ->
+  t = $(@)
+  ddl = t.closest(".DropList")
+  lst = t.closest ".DropList-list"
+  idx = $("li", lst).index t
+  cls = "is-selected"
 
-  $(document).on "click", hook("dropdown.trigger"), ->
-    t = $(@)
-    ddl = t.closest(".DropList")
-    lst = t.closest ".DropList-list"
-    idx = $("li", lst).index t
-    cls = "is-selected"
+  $(".#{cls}", lst).removeClass cls
+  t.addClass cls
+  $(".DropList-label", ddl).text t.text()
 
-    $(".#{cls}", lst).removeClass cls
-    t.addClass cls
-    $(".DropList-label", ddl).text t.text()
-
-    sel = ddl.data dataFlag("DropListDummy")
-    $(":selected", sel).attr "selected", false
-    $("option:eq(#{idx})", sel).attr "selected", true
-    sel.trigger "change"
+  sel = ddl.data dataFlag("DropListDummy")
+  $(":selected", sel).attr "selected", false
+  $("option:eq(#{idx})", sel).attr "selected", true
+  sel.trigger "change"

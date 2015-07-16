@@ -1,54 +1,56 @@
 do ( _H ) ->
-  defaults =
-    # 目标元素（jQuery 对象）
-    $el: null
-    # 是否为垂直滑动
-    vertical: false
-    # 方向，0 代表上一个，1 代表下一个
-    dir: 1
-    # 动态效果，值可为 "fade"、"slide"，其他值时无效果
-    effect: "fade"
-    # 自动播放
-    auto: false
-    # 自动播放的时间间隔，以秒为单位
-    interval: 5
-    # 是否分页
-    pageable: false
-    # 本地化
-    locale:
-      prev: "Prev"
-      next: "Next"
+  class Slides extends Component
+    defaults:
+      # 目标元素（jQuery 对象）
+      $el: null
+      # 是否为垂直滑动
+      vertical: false
+      # 方向，0 代表上一个，1 代表下一个
+      dir: 1
+      # 动态效果，值可为 "fade"、"slide"，其他值时无效果
+      effect: "fade"
+      # 自动播放
+      auto: false
+      # 自动播放的时间间隔，以秒为单位
+      interval: 5
+      # 是否分页
+      pageable: false
+      # 本地化
+      locale:
+        prev: "Prev"
+        next: "Next"
 
-  # 初始化单个 slides
-  initSlides = ( $el, opts ) ->
-    effect = opts.effect
-    cls = "is-active"
+    # 初始化单个 slides
+    initialize: ( $el, opts ) ->
+      effect = opts.effect
+      cls = "is-active"
 
-    $el
-      .addClass "Slides"
-      .data dataFlag("SlidesEffect"), effect
-      .children "li"
-      .addClass "Slides-unit"
-      .eq 0
-      .addClass cls
-
-    wrapper = $el.parent()
-
-    # 可分页
-    if isTrue(opts.pageable)
-      $ "<div class=\"Slides-pagination\"><ol>#{pageNumHtml($el.children("li"))}</ol></div>"
-        .find "li:first"
+      $el
+        .wrap "<div class=\"Slides-wrapper\" />"
+        .addClass "Slides"
+        .data dataFlag("SlidesEffect"), effect
+        .children "li"
+        .addClass "Slides-unit"
+        .eq 0
         .addClass cls
-        .closest ".Slides-pagination"
-        .appendTo wrapper
 
-    # 自动切换
-    if isTrue(opts.auto)
-      autoSlide $el, (if $.isNumeric(opts.interval) then opts.interval else defaults.interval) * 1000, effect
-    else
-      wrapper.append "<div class=\"Slides-triggers\">#{triggerHtml("prev", opts.locale.prev)}#{triggerHtml("next", opts.locale.next)}</div>"
+      wrapper = $el.parent()
 
-    return wrapper
+      # 可分页
+      if isTrue(opts.pageable)
+        $ "<div class=\"Slides-pagination\"><ol>#{pageNumHtml($el.children("li"))}</ol></div>"
+          .find "li:first"
+          .addClass cls
+          .closest ".Slides-pagination"
+          .appendTo wrapper
+
+      # 自动切换
+      if isTrue(opts.auto)
+        autoSlide $el, (if $.isNumeric(opts.interval) then opts.interval else defaults.interval) * 1000, effect
+      else
+        wrapper.append "<div class=\"Slides-triggers\">#{triggerHtml("prev", opts.locale.prev)}#{triggerHtml("next", opts.locale.next)}</div>"
+
+      return wrapper
 
   # 页码的 HTML
   pageNumHtml = ( units ) ->
@@ -166,17 +168,7 @@ do ( _H ) ->
 
     return changeUnit curr, nextUnit(slides, dir, index), dir, slides.data(dataFlag("SlidesEffect"))
 
-  _H.addComponent "slides", ( $el, settings = {} ) ->
-    if $.isPlainObject($el)
-      settings = $el
-      $el = settings.$el
-    else
-      settings.$el = $el
-
-    $el
-      .wrap "<div class=\"Slides-wrapper\" />"
-      .each ->
-        initSlides $(@), $.extend true, {}, defaults, settings, nodeDataset(@)
+  _H.addComponent "slides", initializer(Slides)
 
   # 上一个/下一个
   $(document).on "click", ".Slides-trigger", ->

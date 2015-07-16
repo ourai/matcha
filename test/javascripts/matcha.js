@@ -16,7 +16,9 @@
 }(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
 
 "use strict";
-var $, Component, LIB_CONFIG, browser, dataFlag, eventName, getDatasetByAttrs, getDatasetByHTML, getStorageData, hasOwnProp, hook, isFalse, isTrue, needFix, nodeDataset, storage, _H;
+var $, Component, DataList, DropdownList, LIB_CONFIG, Score, browser, dataFlag, eventName, getDatasetByAttrs, getDatasetByHTML, getStorageData, hasOwnProp, hook, initializer, isFalse, isTrue, needFix, nodeDataset, storage, _H,
+  __hasProp = {}.hasOwnProperty,
+  __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
 LIB_CONFIG = {
   name: "Matcha",
@@ -249,8 +251,48 @@ isFalse = function(value) {
   return value === false || value === "false";
 };
 
+initializer = function(componentClass, callback) {
+  return function($el, settings) {
+    var inst;
+    inst = new componentClass($el, settings);
+    if (typeof callback === "function") {
+      callback();
+    }
+    return inst;
+  };
+};
+
+storage.modules.Component = (function() {
+  var savedComps, __Component;
+  savedComps = storage.components;
+  __Component = (function() {
+    function __Component(name, func) {
+      if (hasOwnProp(savedComps, name)) {
+        throw "The component '" + name + "' exists.";
+      } else if (hasOwnProp(_H, name)) {
+        throw "Wrong component's name!!!";
+      } else {
+        _H[name] = savedComps[name] = func;
+      }
+    }
+
+    return __Component;
+
+  })();
+  return __Component;
+})();
+
+_H.addComponent = function(name, func) {
+  return new storage.modules.Component(name, func);
+};
+
+$(document).ready(function() {
+  _H.score($(".Score--selectable[data-highest]"));
+  _H.dropdown($("select.DropList"));
+});
+
 Component = (function() {
-  var attr2dataset, convert, getMergedOption, getRawOption, html2dataset;
+  var attr2dataset, convert, html2dataset;
 
   convert = function(value) {
     if (value === "true") {
@@ -287,15 +329,31 @@ Component = (function() {
     return dataset;
   };
 
-  getRawOption = function() {};
-
-  getMergedOption = function() {};
-
-  function Component(el, opts) {
-    this.el = el;
-    this.$el = $(el);
-    this.__defaults = {};
+  function Component($el, opts) {
+    var _ref;
+    if ($el == null) {
+      $el = $();
+    }
+    if (opts == null) {
+      opts = {};
+    }
+    if ($.isPlainObject($el)) {
+      opts = $el;
+      $el = (_ref = opts.$el) != null ? _ref : $();
+    } else {
+      opts.$el = $el;
+    }
+    $el.each((function(_this) {
+      return function(idx, el) {
+        var _ref1;
+        _this.initialize($(el), $.extend(true, {}, (_ref1 = _this.defaults) != null ? _ref1 : {}, opts, _this.dataset(el)), opts);
+      };
+    })(this));
   }
+
+  Component.prototype.defaults = null;
+
+  Component.prototype.initialize = function($el, mergedOpts, rawOpts) {};
 
   Component.prototype.dataset = function(el) {
     var dataset;
@@ -314,60 +372,40 @@ Component = (function() {
     return dataset;
   };
 
-  Component.prototype.getOptions = function() {};
-
-  Component.prototype.getOption = function(optName) {};
-
   return Component;
 
 })();
 
-storage.modules.Component = (function() {
-  var savedComps, __Component;
-  savedComps = storage.components;
-  __Component = (function() {
-    function __Component(name, func) {
-      if (hasOwnProp(savedComps, name)) {
-        throw "The component '" + name + "' exists.";
-      } else if (hasOwnProp(_H, name)) {
-        throw "Wrong component's name!!!";
-      } else {
-        _H[name] = savedComps[name] = func;
-      }
-    }
+DropdownList = (function(_super) {
+  __extends(DropdownList, _super);
 
-    return __Component;
+  function DropdownList() {
+    return DropdownList.__super__.constructor.apply(this, arguments);
+  }
 
-  })();
-  return __Component;
-})();
-
-_H.addComponent = function(name, func) {
-  return new storage.modules.Component(name, func);
-};
-
-(function(_H) {
-  return $(function() {
-    return $("select.DropList").each(function() {
-      var ddl, idx, lst, sel, selected;
-      sel = $(this);
-      selected = $(":selected", sel);
-      idx = $("option", sel).index(selected);
-      sel.attr("tabindex", -1).removeClass("DropList").addClass("DropList--dummy");
-      ddl = $("<div>", {
-        "class": "DropList"
-      });
-      ddl.append("<div class=\"DropList-selected\"><span class=\"DropList-label\">" + (selected.text()) + "</span></div>\n<div class=\"DropList-dropdown\"><ul class=\"DropList-list\"></ul></div>");
-      lst = $(".DropList-list", ddl);
-      $("option", sel).each(function() {
-        return lst.append("<li class=\"" + (hook("dropdown.trigger", true)) + "\">" + ($(this).text()) + "</li>");
-      });
-      $("li:eq(" + idx + ")", lst).addClass("is-selected");
-      sel.after(ddl);
-      return ddl.data(dataFlag("DropListDummy"), sel);
+  DropdownList.prototype.initialize = function($el, opts) {
+    var ddl, idx, lst, selected;
+    selected = $(":selected", $el);
+    idx = $("option", $el).index(selected);
+    $el.attr("tabindex", -1).removeClass("DropList").addClass("DropList--dummy");
+    ddl = $("<div>", {
+      "class": "DropList"
     });
-  });
-})(_H);
+    ddl.append("<div class=\"DropList-selected\"><span class=\"DropList-label\">" + (selected.text()) + "</span></div>\n<div class=\"DropList-dropdown\"><ul class=\"DropList-list\"></ul></div>");
+    lst = $(".DropList-list", ddl);
+    $("option", $el).each(function() {
+      return lst.append("<li class=\"" + (hook("dropdown.trigger", true)) + "\">" + ($(this).text()) + "</li>");
+    });
+    $("li:eq(" + idx + ")", lst).addClass("is-selected");
+    $el.after(ddl);
+    return ddl.data(dataFlag("DropListDummy"), $el);
+  };
+
+  return DropdownList;
+
+})(Component);
+
+_H.addComponent("dropdown", initializer(DropdownList));
 
 $(document).on("click", hook("dropdown.trigger"), function() {
   var cls, ddl, idx, lst, sel, t;
@@ -385,13 +423,36 @@ $(document).on("click", hook("dropdown.trigger"), function() {
   return sel.trigger("change");
 });
 
-(function(_H) {
-  var defaults, initScore, scoreHtml;
-  defaults = {
-    $el: null,
+Score = (function(_super) {
+
+  /*
+   * Construct HTML string for score
+   *
+   * @private
+   * @method   scoreHtml
+   * @param    data {Object}
+   * @return   {String}
+   */
+  var scoreHtml;
+
+  __extends(Score, _super);
+
+  function Score() {
+    return Score.__super__.constructor.apply(this, arguments);
+  }
+
+  scoreHtml = function(data) {
+    var id, score;
+    score = data.score;
+    id = "" + data.name + "-" + score;
+    return "<input id=\"" + id + "\" class=\"Score-storage Score-storage-" + score + "\" type=\"radio\" name=\"" + data.name + "\" value=\"" + score + "\">\n<a class=\"Score-level Score-level-" + score + "\" href=\"javascript:void(0);\"><label for=\"" + id + "\">" + score + "</label></a>";
+  };
+
+  Score.prototype.defaults = {
     highest: 5
   };
-  initScore = function($el, opts) {
+
+  Score.prototype.initialize = function($el, opts) {
     var data, highest, lowest;
     highest = Number(opts.highest);
     lowest = 1;
@@ -409,49 +470,27 @@ $(document).on("click", hook("dropdown.trigger"), function() {
     }
   };
 
-  /*
-   * Construct HTML string for score
-   *
-   * @private
-   * @method   scoreHtml
-   * @param    data {Object}
-   * @return   {String}
-   */
-  scoreHtml = function(data) {
-    var id, score;
-    score = data.score;
-    id = "" + data.name + "-" + score;
-    return "<input id=\"" + id + "\" class=\"Score-storage Score-storage-" + score + "\" type=\"radio\" name=\"" + data.name + "\" value=\"" + score + "\">\n<a class=\"Score-level Score-level-" + score + "\" href=\"http://www.baidu.com/\">\n  <label for=\"" + id + "\">" + score + "</label>\n</a>";
-  };
-  _H.addComponent("score", function($el, settings) {
-    if (settings == null) {
-      settings = {};
-    }
-    if ($.isPlainObject($el)) {
-      settings = $el;
-      $el = settings.$el;
-    } else {
-      settings.$el = $el;
-    }
-    $el.each(function() {
-      return initScore($(this), $.extend(true, {}, defaults, settings, nodeDataset(this)));
-    });
-    if (needFix(9)) {
-      return $(".Score--selectable .Score-level").addClass(hook("score.trigger", true));
-    }
-  });
-  return $(document).on("click", hook("score.trigger"), function() {
-    var cls, t;
-    t = $(this);
-    cls = "is-selected";
-    t.siblings("." + cls).removeClass(cls);
-    t.addClass(cls);
-    t.siblings("[checked]").attr("checked", false);
-    t.prev(":radio").attr("checked", true);
-    t.triggerHandler(eventName("select"));
-    return false;
-  });
-})(_H);
+  return Score;
+
+})(Component);
+
+_H.addComponent("score", initializer(Score, function() {
+  if (needFix(9)) {
+    return $(".Score--selectable .Score-level").addClass(hook("score.trigger", true));
+  }
+}));
+
+$(document).on("click", hook("score.trigger"), function() {
+  var cls, t;
+  t = $(this);
+  cls = "is-selected";
+  t.siblings("." + cls).removeClass(cls);
+  t.addClass(cls);
+  t.siblings("[checked]").attr("checked", false);
+  t.prev(":radio").attr("checked", true);
+  t.triggerHandler(eventName("select"));
+  return false;
+});
 
 (function(_H) {
   return $(function() {
@@ -493,9 +532,14 @@ $(document).on("change", hook("uploader.trigger"), function() {
   return false;
 });
 
-(function(_H) {
-  var defaults;
-  defaults = {
+DataList = (function(_super) {
+  __extends(DataList, _super);
+
+  function DataList() {
+    return DataList.__super__.constructor.apply(this, arguments);
+  }
+
+  DataList.prototype.defaults = {
     source: [],
     data: "{%ROOT%}",
     template: function(itemData) {},
@@ -507,43 +551,56 @@ $(document).on("change", hook("uploader.trigger"), function() {
     },
     update: function() {}
   };
-  return _H.addComponent("dataList", function(settings) {
-    settings = $.extend(true, {}, defaults, settings);
-    return settings;
-  });
-})(_H);
+
+  return DataList;
+
+})(Component);
+
+_H.addComponent("dataList", initializer(DataList));
 
 (function(_H) {
-  var autoSlide, changeUnit, changeUnitTrigger, defaults, initSlides, nextUnit, pageNumHtml, slideToEffect, slidesEffect, triggerHtml;
-  defaults = {
-    $el: null,
-    vertical: false,
-    dir: 1,
-    effect: "fade",
-    auto: false,
-    interval: 5,
-    pageable: false,
-    locale: {
-      prev: "Prev",
-      next: "Next"
+  var Slides, autoSlide, changeUnit, changeUnitTrigger, nextUnit, pageNumHtml, slideToEffect, slidesEffect, triggerHtml;
+  Slides = (function(_super) {
+    __extends(Slides, _super);
+
+    function Slides() {
+      return Slides.__super__.constructor.apply(this, arguments);
     }
-  };
-  initSlides = function($el, opts) {
-    var cls, effect, wrapper;
-    effect = opts.effect;
-    cls = "is-active";
-    $el.addClass("Slides").data(dataFlag("SlidesEffect"), effect).children("li").addClass("Slides-unit").eq(0).addClass(cls);
-    wrapper = $el.parent();
-    if (isTrue(opts.pageable)) {
-      $("<div class=\"Slides-pagination\"><ol>" + (pageNumHtml($el.children("li"))) + "</ol></div>").find("li:first").addClass(cls).closest(".Slides-pagination").appendTo(wrapper);
-    }
-    if (isTrue(opts.auto)) {
-      autoSlide($el, ($.isNumeric(opts.interval) ? opts.interval : defaults.interval) * 1000, effect);
-    } else {
-      wrapper.append("<div class=\"Slides-triggers\">" + (triggerHtml("prev", opts.locale.prev)) + (triggerHtml("next", opts.locale.next)) + "</div>");
-    }
-    return wrapper;
-  };
+
+    Slides.prototype.defaults = {
+      $el: null,
+      vertical: false,
+      dir: 1,
+      effect: "fade",
+      auto: false,
+      interval: 5,
+      pageable: false,
+      locale: {
+        prev: "Prev",
+        next: "Next"
+      }
+    };
+
+    Slides.prototype.initialize = function($el, opts) {
+      var cls, effect, wrapper;
+      effect = opts.effect;
+      cls = "is-active";
+      $el.wrap("<div class=\"Slides-wrapper\" />").addClass("Slides").data(dataFlag("SlidesEffect"), effect).children("li").addClass("Slides-unit").eq(0).addClass(cls);
+      wrapper = $el.parent();
+      if (isTrue(opts.pageable)) {
+        $("<div class=\"Slides-pagination\"><ol>" + (pageNumHtml($el.children("li"))) + "</ol></div>").find("li:first").addClass(cls).closest(".Slides-pagination").appendTo(wrapper);
+      }
+      if (isTrue(opts.auto)) {
+        autoSlide($el, ($.isNumeric(opts.interval) ? opts.interval : defaults.interval) * 1000, effect);
+      } else {
+        wrapper.append("<div class=\"Slides-triggers\">" + (triggerHtml("prev", opts.locale.prev)) + (triggerHtml("next", opts.locale.next)) + "</div>");
+      }
+      return wrapper;
+    };
+
+    return Slides;
+
+  })(Component);
   pageNumHtml = function(units) {
     var html;
     html = [];
@@ -641,20 +698,7 @@ $(document).on("change", hook("uploader.trigger"), function() {
     dir = getDirection.call(curr);
     return changeUnit(curr, nextUnit(slides, dir, index), dir, slides.data(dataFlag("SlidesEffect")));
   };
-  _H.addComponent("slides", function($el, settings) {
-    if (settings == null) {
-      settings = {};
-    }
-    if ($.isPlainObject($el)) {
-      settings = $el;
-      $el = settings.$el;
-    } else {
-      settings.$el = $el;
-    }
-    return $el.wrap("<div class=\"Slides-wrapper\" />").each(function() {
-      return initSlides($(this), $.extend(true, {}, defaults, settings, nodeDataset(this)));
-    });
-  });
+  _H.addComponent("slides", initializer(Slides));
   $(document).on("click", ".Slides-trigger", function() {
     changeUnitTrigger(this, (function(_this) {
       return function() {
@@ -683,10 +727,6 @@ $(document).on("change", hook("uploader.trigger"), function() {
     return false;
   });
 })(_H);
-
-$(document).ready(function() {
-  return _H.score($(".Score--selectable[data-highest]"));
-});
 
 window[LIB_CONFIG.name] = _H;
 

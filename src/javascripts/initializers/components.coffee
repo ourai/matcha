@@ -17,3 +17,10 @@ storage.modules.Component = do ->
 # 添加 UI 组件
 _H.addComponent = ( name, func ) ->
   return new storage.modules.Component name, func
+
+# 初始化
+$(document).ready ->
+  _H.score $(".Score--selectable[data-highest]")
+  _H.dropdown $("select.DropList")
+
+  return
