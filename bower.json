@@ -21,7 +21,8 @@
   ],
   "dependencies": {
     "tangram": "https://github.com/ourai/tangram.git#0.1.0",
-    "painter": "https://github.com/ourai/painter.git#0.1.0"
+    "painter": "https://github.com/ourai/painter.git#0.1.0",
+    "CustomComponent": "https://github.com/ourai/CustomComponent.git#0.1.0"
   },
   "devDependencies": {
     "jquery": "https://github.com/jquery/jquery.git#1.8.3",

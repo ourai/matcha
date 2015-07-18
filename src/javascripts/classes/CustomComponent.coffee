@@ -1,19 +1,9 @@
-class Component
+class CustomComponent
   ##
   # Functions
   # ==========
   # for internal use
   #
-
-  convert = ( value ) ->
-    if value is "true"
-      value = true
-    else if value is "false"
-      value = false
-    else if $.isNumeric(value)
-      value = Number value
-
-    return value
 
   html2dataset = ( html ) ->
     dataset = {}
@@ -58,6 +48,9 @@ class Component
 
   # 默认配置
   defaults: null
+
+  # 最外层的包装
+  wrapper: null
 
   # 根据传入的配置参数对单个元素进行初始化
   initialize: ( $el, mergedOpts, rawOpts ) ->

@@ -16,7 +16,7 @@
 }(typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
 
 "use strict";
-var $, Component, DataList, DropdownList, LIB_CONFIG, Score, browser, dataFlag, eventName, getDatasetByAttrs, getDatasetByHTML, getStorageData, hasOwnProp, hook, initializer, isFalse, isTrue, needFix, nodeDataset, storage, _H,
+var $, CustomComponent, DataList, DropdownList, LIB_CONFIG, Score, browser, dataFlag, eventName, getDatasetByAttrs, getDatasetByHTML, getStorageData, hasOwnProp, hook, initializer, isFalse, isTrue, needFix, nodeDataset, storage, _H,
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -291,19 +291,8 @@ $(document).ready(function() {
   _H.dropdown($("select.DropList"));
 });
 
-Component = (function() {
-  var attr2dataset, convert, html2dataset;
-
-  convert = function(value) {
-    if (value === "true") {
-      value = true;
-    } else if (value === "false") {
-      value = false;
-    } else if ($.isNumeric(value)) {
-      value = Number(value);
-    }
-    return value;
-  };
+CustomComponent = (function() {
+  var attr2dataset, html2dataset;
 
   html2dataset = function(html) {
     var dataset, _ref;
@@ -329,7 +318,7 @@ Component = (function() {
     return dataset;
   };
 
-  function Component($el, opts) {
+  function CustomComponent($el, opts) {
     var _ref;
     if ($el == null) {
       $el = $();
@@ -351,11 +340,13 @@ Component = (function() {
     })(this));
   }
 
-  Component.prototype.defaults = null;
+  CustomComponent.prototype.defaults = null;
 
-  Component.prototype.initialize = function($el, mergedOpts, rawOpts) {};
+  CustomComponent.prototype.wrapper = null;
 
-  Component.prototype.dataset = function(el) {
+  CustomComponent.prototype.initialize = function($el, mergedOpts, rawOpts) {};
+
+  CustomComponent.prototype.dataset = function(el) {
     var dataset;
     if (el == null) {
       el = this.el;
@@ -372,7 +363,7 @@ Component = (function() {
     return dataset;
   };
 
-  return Component;
+  return CustomComponent;
 
 })();
 
@@ -403,7 +394,7 @@ DropdownList = (function(_super) {
 
   return DropdownList;
 
-})(Component);
+})(CustomComponent);
 
 _H.addComponent("dropdown", initializer(DropdownList));
 
@@ -472,7 +463,7 @@ Score = (function(_super) {
 
   return Score;
 
-})(Component);
+})(CustomComponent);
 
 _H.addComponent("score", initializer(Score, function() {
   if (needFix(9)) {
@@ -554,7 +545,7 @@ DataList = (function(_super) {
 
   return DataList;
 
-})(Component);
+})(CustomComponent);
 
 _H.addComponent("dataList", initializer(DataList));
 
@@ -600,7 +591,7 @@ _H.addComponent("dataList", initializer(DataList));
 
     return Slides;
 
-  })(Component);
+  })(CustomComponent);
   pageNumHtml = function(units) {
     var html;
     html = [];

@@ -18,8 +18,8 @@ module.exports = ( grunt ) ->
     pkg: pkg
     meta:
       script: "src/javascripts"
-      classes: "src/javascripts/classes"
       initializers: "src/javascripts/initializers"
+      classes: "src/javascripts/classes"
       components: "src/javascripts/components"
 
       temp: ".<%= pkg.name %>-cache"
@@ -29,9 +29,6 @@ module.exports = ( grunt ) ->
       dest_style: "stylesheets"
       dest_script: "javascripts"
       dest_image: "images"
-
-      painter: "vendors/painter"
-      tangram: "vendors/tangram"
     concat:
       coffee:
         options:
@@ -39,11 +36,14 @@ module.exports = ( grunt ) ->
             return src.replace /@(NAME|VERSION)/g, ( text, key ) ->
               return info[key.toLowerCase()]
         files:
+          "<%= meta.classes %>/CustomComponent.coffee": [
+              "vendors/CustomComponent/CustomComponent.coffee"
+            ]
           "<%= meta.temp %>/initializers.coffee": [
               "<%= meta.initializers %>/components.coffee"
             ]
           "<%= meta.temp %>/classes.coffee": [
-              "<%= meta.classes %>/Component.coffee"
+              "<%= meta.classes %>/CustomComponent.coffee"
             ]
           "<%= meta.temp %>/components.coffee": [
               "<%= meta.components %>/initializer.coffee"
@@ -73,8 +73,8 @@ module.exports = ( grunt ) ->
       matcha:
         files:
           "<%= meta.style %>/_vendors.scss": [
-              "<%= meta.painter %>/_painter.scss"
-              "<%= meta.tangram %>/_tangram.scss"
+              "vendors/painter/_painter.scss"
+              "vendors/tangram/_tangram.scss"
             ]
           "<%= meta.dest_style %>/<%= pkg.name %>/_helper.scss": [
               "<%= meta.style %>/_vendors.scss"

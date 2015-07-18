@@ -1,4 +1,4 @@
-class DataList extends Component
+class DataList extends CustomComponent
   defaults:
     source: []
     data: "{%ROOT%}"
