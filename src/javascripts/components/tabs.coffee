@@ -1,4 +1,4 @@
-do ( _H ) ->
+do ( __LIB ) ->
   # Set a default tab
   $ ->
     $(".Tabs[data-setdefault!='false'] > .Tabs-triggers").each ->

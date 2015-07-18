@@ -13,23 +13,39 @@ module.exports = ( grunt ) ->
       "grunt-contrib-clean"
     ]
 
+  preprocess = ( src, filepath ) ->
+    return src.replace /^/gm, "\x20\x20"
+
   grunt.initConfig
     repo: info
     pkg: pkg
     meta:
+      temp: ".<%= pkg.name %>-cache"
+
+      image: "src/images"
+      style: "src/stylesheets"
       script: "src/javascripts"
-      initializers: "src/javascripts/initializers"
       classes: "src/javascripts/classes"
       components: "src/javascripts/components"
 
-      temp: ".<%= pkg.name %>-cache"
-      style: "src/stylesheets"
-      image: "src/images"
-
+      dest_image: "images"
       dest_style: "stylesheets"
       dest_script: "javascripts"
-      dest_image: "images"
     concat:
+      miso_pre:
+        options:
+          process: preprocess
+        src: [
+            "vendors/miso/miso.coffee"
+          ]
+        dest: "<%= meta.temp %>/miso.coffee"
+      miso:
+        src: [
+            "build/miso_intro.coffee"
+            "<%= meta.temp %>/miso.coffee"
+            "build/miso_outro.coffee"
+          ]
+        dest: "<%= meta.script %>/miso.coffee"
       coffee:
         options:
           process: ( src, filepath ) ->
@@ -39,14 +55,10 @@ module.exports = ( grunt ) ->
           "<%= meta.classes %>/CustomComponent.coffee": [
               "vendors/CustomComponent/CustomComponent.coffee"
             ]
-          "<%= meta.temp %>/initializers.coffee": [
-              "<%= meta.initializers %>/components.coffee"
-            ]
           "<%= meta.temp %>/classes.coffee": [
               "<%= meta.classes %>/CustomComponent.coffee"
             ]
           "<%= meta.temp %>/components.coffee": [
-              "<%= meta.components %>/initializer.coffee"
               "<%= meta.components %>/drop-down_list.coffee"
               "<%= meta.components %>/score.coffee"
               "<%= meta.components %>/tabs.coffee"
@@ -56,17 +68,25 @@ module.exports = ( grunt ) ->
             ]
           "<%= meta.temp %>/<%= pkg.name %>.coffee": [
               "build/intro.coffee"
+              "<%= meta.script %>/miso.coffee"
               "<%= meta.script %>/variables.coffee"
               "<%= meta.script %>/functions.coffee"
-              "<%= meta.temp %>/initializers.coffee"
               "<%= meta.temp %>/classes.coffee"
+              "<%= meta.script %>/methods.coffee"
               "<%= meta.temp %>/components.coffee"
               "build/outro.coffee"
             ]
+      js_pre:
+        options:
+          process: preprocess
+        src: [
+            "<%= meta.temp %>/<%= pkg.name %>.js"
+          ]
+        dest: "<%= meta.temp %>/__<%= pkg.name %>.js"
       js_normal:
         src: [
             "build/intro.js"
-            "<%= meta.temp %>/<%= pkg.name %>.js"
+            "<%= meta.temp %>/__<%= pkg.name %>.js"
             "build/outro.js"
           ]
         dest: "<%= meta.dest_script %>/<%= pkg.name %>.js"
@@ -205,8 +225,11 @@ module.exports = ( grunt ) ->
     ]
   # Tasks about CoffeeScript
   grunt.registerTask "compile_coffee", [
+      "concat:miso_pre"
+      "concat:miso"
       "concat:coffee"
       "coffee:build_normal"
+      "concat:js_pre"
       "concat:js_normal"
       "uglify"
     ]

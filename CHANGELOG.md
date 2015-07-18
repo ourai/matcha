@@ -1,10 +1,11 @@
-# MATCHA CHANGELOG
+# Changes
 
 ## 0.5.1
 
 ### Features
-  * slides 组件
   * 页面布局部分的代码替换成 [Tangram](https://github.com/ourai/tangram)
+  * 引入 [Miso](https://github.com/ourai/miso) 并基于它进行开发
+  * slides 组件
   * 等比例缩放
     * mixin `aspect_ratio`
     * CSS class `.u-aspectRatio`

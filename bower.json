@@ -22,6 +22,7 @@
   "dependencies": {
     "tangram": "https://github.com/ourai/tangram.git#0.1.0",
     "painter": "https://github.com/ourai/painter.git#0.1.0",
+    "miso": "https://github.com/ourai/miso.git#0.4.1",
     "CustomComponent": "https://github.com/ourai/CustomComponent.git#0.1.0"
   },
   "devDependencies": {
