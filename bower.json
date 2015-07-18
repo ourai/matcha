@@ -4,7 +4,8 @@
   "main": [
     "javascripts/matcha.min.js",
     "stylesheets/matcha.min.css",
-    "images/**/*"],
+    "images/**/*"
+  ],
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -16,7 +17,7 @@
     "test",
     "*.json",
     "*.md",
-    "*.coffee"
+    "Gruntfile.coffee"
   ],
   "dependencies": {
     "tangram": "https://github.com/ourai/tangram.git#0.1.0",

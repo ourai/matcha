@@ -30,12 +30,14 @@ module.exports = ( grunt ) ->
       dest_script: "javascripts"
       dest_image: "images"
 
-      tests: "test"
-
       painter: "vendors/painter"
       tangram: "vendors/tangram"
     concat:
       coffee:
+        options:
+          process: ( src, filepath ) ->
+            return src.replace /@(NAME|VERSION)/g, ( text, key ) ->
+              return info[key.toLowerCase()]
         files:
           "<%= meta.temp %>/initializers.coffee": [
               "<%= meta.initializers %>/components.coffee"
@@ -53,19 +55,15 @@ module.exports = ( grunt ) ->
               "<%= meta.components %>/slides.coffee"
             ]
           "<%= meta.temp %>/<%= pkg.name %>.coffee": [
-              "<%= meta.script %>/intro.coffee"
+              "build/intro.coffee"
               "<%= meta.script %>/variables.coffee"
               "<%= meta.script %>/functions.coffee"
               "<%= meta.temp %>/initializers.coffee"
               "<%= meta.temp %>/classes.coffee"
               "<%= meta.temp %>/components.coffee"
-              "<%= meta.script %>/outro.coffee"
+              "build/outro.coffee"
             ]
       js_normal:
-        options:
-          process: ( src, filepath ) ->
-            return src.replace /@(NAME|VERSION)/g, ( text, key ) ->
-              return info[key.toLowerCase()]
         src: [
             "build/intro.js"
             "<%= meta.temp %>/<%= pkg.name %>.js"
@@ -134,13 +132,13 @@ module.exports = ( grunt ) ->
       matcha_for_test:
         options:
           sassDir: "build"
-          cssDir: "<%= meta.tests %>/stylesheets"
-          javascriptsDir: "<%= meta.tests %>/javascripts"
-          imagesDir: "<%= meta.tests %>/images"
+          cssDir: "test/stylesheets"
+          javascriptsDir: "test/javascripts"
+          imagesDir: "test/images"
       test:
         options:
-          sassDir: "<%= meta.tests %>"
-          cssDir: "<%= meta.tests %>"
+          sassDir: "test"
+          cssDir: "test"
     coffee:
       options:
         bare: true
@@ -149,8 +147,8 @@ module.exports = ( grunt ) ->
         src: "<%= meta.temp %>/<%= pkg.name %>.coffee"
         dest: "<%= meta.temp %>/<%= pkg.name %>.js"
       test:
-        src: "<%= meta.tests %>/test.coffee"
-        dest: "<%= meta.tests %>/test.js"
+        src: "test/test.coffee"
+        dest: "test/test.js"
     uglify:
       options:
         banner: "/*!\n" +
@@ -175,7 +173,7 @@ module.exports = ( grunt ) ->
         expand: true
         cwd: "."
         src: ["images/*", "javascripts/*"]
-        dest: "<%= meta.tests %>"
+        dest: "test"
     cssmin:
       minify:
         options:
