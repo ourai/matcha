@@ -17,6 +17,6 @@ defineProp = ( key, value ) ->
   
   return value
 
-defineProp "__class__", {Component: CustomComponent}
+defineProp "__class__", {Component}
 
 defineProp "__meta__", META

@@ -681,7 +681,7 @@
   
   (function() {
     "use strict";
-    var $, CustomComponent, DataList, DropdownList, LIB, META, Score, createComponent, dataFlag, defineProp, eventName, hook, isTrue, storage,
+    var $, Component, DataList, DropdownList, LIB, META, Score, createComponent, dataFlag, defineProp, eventName, hook, isTrue, storage,
       __hasProp = {}.hasOwnProperty,
       __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
   
@@ -777,7 +777,7 @@
       };
     };
   
-    CustomComponent = (function() {
+    Component = (function() {
       var attr2dataset, html2dataset;
   
       html2dataset = function(html) {
@@ -804,7 +804,7 @@
         return dataset;
       };
   
-      function CustomComponent($el, opts) {
+      function Component($el, opts) {
         var _ref;
         if ($el == null) {
           $el = $();
@@ -826,13 +826,13 @@
         })(this));
       }
   
-      CustomComponent.prototype.defaults = null;
+      Component.prototype.defaults = null;
   
-      CustomComponent.prototype.wrapper = null;
+      Component.prototype.wrapper = null;
   
-      CustomComponent.prototype.initialize = function($el, mergedOpts, rawOpts) {};
+      Component.prototype.initialize = function($el, mergedOpts, rawOpts) {};
   
-      CustomComponent.prototype.dataset = function(el) {
+      Component.prototype.dataset = function(el) {
         var dataset;
         if (el == null) {
           el = this.el;
@@ -849,7 +849,7 @@
         return dataset;
       };
   
-      return CustomComponent;
+      return Component;
   
     })();
   
@@ -911,7 +911,7 @@
   
       return DropdownList;
   
-    })(CustomComponent);
+    })(Component);
   
     LIB.addComponent("dropdown", createComponent(DropdownList));
   
@@ -980,7 +980,7 @@
   
       return Score;
   
-    })(CustomComponent);
+    })(Component);
   
     LIB.addComponent("score", createComponent(Score, function() {
       if (LIB.browser.msie && LIB.browser.version * 1 < 9) {
@@ -1000,7 +1000,7 @@
       return false;
     });
   
-    (function(LIB) {
+    (function() {
       return $(function() {
         $(".Tabs[data-setdefault!='false'] > .Tabs-triggers").each(function() {
           var group, selector;
@@ -1012,7 +1012,7 @@
         });
         return $(".Tabs-trigger.is-selected").trigger("click");
       });
-    })(LIB);
+    })();
   
     $(document).on("click", hook("tabs.trigger"), function() {
       var tabs, trigger, type;
@@ -1062,11 +1062,11 @@
   
       return DataList;
   
-    })(CustomComponent);
+    })(Component);
   
     LIB.addComponent("dataList", createComponent(DataList));
   
-    (function(LIB) {
+    (function() {
       var Slides, autoSlide, changeUnit, changeUnitTrigger, nextUnit, pageNumHtml, slideToEffect, slidesEffect, triggerHtml;
       Slides = (function(_super) {
         __extends(Slides, _super);
@@ -1108,7 +1108,7 @@
   
         return Slides;
   
-      })(CustomComponent);
+      })(Component);
       pageNumHtml = function(units) {
         var html;
         html = [];
@@ -1234,7 +1234,7 @@
         }
         return false;
       });
-    })(LIB);
+    })();
   
     LIB.mask(META.name);
   
@@ -1260,7 +1260,7 @@
     };
   
     defineProp("__class__", {
-      Component: CustomComponent
+      Component: Component
     });
   
     defineProp("__meta__", META);

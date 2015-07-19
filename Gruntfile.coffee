@@ -34,11 +34,10 @@ module.exports = ( grunt ) ->
       coffee:
         options:
           process: ( src, filepath ) ->
-            return src.replace /@(NAME|VERSION)/g, ( text, key ) ->
+            return src.replace("CustomComponent", "Component").replace /@(NAME|VERSION)/g, ( text, key ) ->
               return info[key.toLowerCase()]
         files:
-          "<%= meta.classes %>/CustomComponent.coffee": "vendors/CustomComponent/CustomComponent.coffee"
-          "<%= meta.temp %>/classes.coffee": "<%= meta.classes %>/CustomComponent.coffee"
+          "<%= meta.classes %>/Component.coffee": "vendors/CustomComponent/CustomComponent.coffee"
           "<%= meta.temp %>/components.coffee": [
               "<%= meta.components %>/drop-down_list.coffee"
               "<%= meta.components %>/score.coffee"
@@ -48,13 +47,13 @@ module.exports = ( grunt ) ->
               "<%= meta.components %>/slides.coffee"
             ]
           "<%= meta.temp %>/<%= pkg.name %>.coffee": [
-              "build/intro.coffee"
+              "<%= meta.script %>/intro.coffee"
               "<%= meta.script %>/variables.coffee"
               "<%= meta.script %>/functions.coffee"
-              "<%= meta.temp %>/classes.coffee"
+              "<%= meta.classes %>/Component.coffee"
               "<%= meta.script %>/methods.coffee"
               "<%= meta.temp %>/components.coffee"
-              "build/outro.coffee"
+              "<%= meta.script %>/outro.coffee"
             ]
       js_pre:
         options:

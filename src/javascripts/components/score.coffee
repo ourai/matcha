@@ -1,4 +1,4 @@
-class Score extends CustomComponent
+class Score extends Component
   ###
   # Construct HTML string for score
   #

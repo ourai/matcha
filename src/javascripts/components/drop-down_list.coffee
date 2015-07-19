@@ -1,4 +1,4 @@
-class DropdownList extends CustomComponent
+class DropdownList extends Component
   initialize: ( $el, opts ) ->
     selected = $(":selected", $el)
     idx = $("option", $el).index selected
