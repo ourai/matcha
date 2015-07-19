@@ -1,4 +1,4 @@
-class CustomComponent
+class Component
   ##
   # Functions
   # ==========

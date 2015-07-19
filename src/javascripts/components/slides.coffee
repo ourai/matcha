@@ -1,5 +1,5 @@
-do ( LIB ) ->
-  class Slides extends CustomComponent
+do ->
+  class Slides extends Component
     defaults:
       # 目标元素（jQuery 对象）
       $el: null
