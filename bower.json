@@ -1,15 +1,32 @@
 {
   "name": "matcha",
-  "version": "0.4.1",
+  "version": "0.5.1",
   "main": [
-    "dest/javascripts/matcha.min.js",
-    "dest/stylesheets/matcha.min.css"],
+    "javascripts/matcha.min.js",
+    "stylesheets/matcha.min.css",
+    "images/**/*"
+  ],
   "license": "MIT",
-  "ignore": ["**/*", "!dest/**/*"],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendors",
+    "backup",
+    "build",
+    "src",
+    "test",
+    "*.json",
+    "*.md",
+    "Gruntfile.coffee"
+  ],
   "dependencies": {
-    "jquery": "https://github.com/jquery/jquery.git#1.8.3"
+    "tangram": "https://github.com/ourai/tangram.git#0.1.0",
+    "painter": "https://github.com/ourai/painter.git#0.1.0",
+    "miso": "https://github.com/ourai/miso.git#0.4.1",
+    "CustomComponent": "https://github.com/ourai/CustomComponent.git#0.1.0"
   },
   "devDependencies": {
+    "jquery": "https://github.com/jquery/jquery.git#1.8.3",
     "normalize.css": "https://github.com/necolas/normalize.css.git#3.0.0"
   },
   "keywords": [

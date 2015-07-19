@@ -19,9 +19,7 @@ span.Typo-gu--wavy {
   text-align: center;
 }
 
-@supports (text-emphasis-style: dot) or
-          (-moz-text-emphasis-style: dot) or
-          (-webkit-text-emphasis-style: dot) {
+@include supports(text-emphasis-style, dot) {
   .Typo-em {
     @include experimental(text-emphasis-style, dot);
     @include experimental(text-emphasis-position, under);
@@ -37,14 +35,12 @@ span.Typo-gu--wavy {
 //====================
 
 .Typo-gu--wavy:after {
-  content: $UN-wavy_low_line;
+  content: $UN-wavy-low_line;
   top: auto;
   bottom: 0;
 }
 
-@supports (text-decoration-style: wavy) or
-          (-moz-text-decoration-style: wavy) or
-          (-webkit-text-decoration-style: wavy) {
+@include supports(text-decoration-style, wavy) {
   .Typo-gu--wavy {
     @include experimental(text-decoration-style, wavy);
     @include experimental(text-decoration-line, underline);

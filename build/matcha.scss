@@ -1,10 +1,10 @@
+@import "../src/stylesheets/vendors";
 // Core variables and mixins
 @import "../src/stylesheets/variables";
 @import "../src/stylesheets/functions";
 @import "../src/stylesheets/mixins";
 
-// Dependencies and reset
-@import "../src/stylesheets/normalize";
+// Reset
 @import "../src/stylesheets/reset";
 @import "../src/stylesheets/g11n";
 @import "../src/stylesheets/utilities";
@@ -15,8 +15,13 @@
 // Components
 @import "../src/stylesheets/button";
 @import "../src/stylesheets/dropdown";
+@import "../src/stylesheets/list";
 @import "../src/stylesheets/item";
 @import "../src/stylesheets/score";
 @import "../src/stylesheets/tabs";
 @import "../src/stylesheets/uploader";
-@import "../src/stylesheets/slide";
+@import "../src/stylesheets/slides";
+@import "../src/stylesheets/menu";
+
+@include layout-sandwich;
+@include layout-frameset;

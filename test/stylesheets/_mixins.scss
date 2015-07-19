@@ -1,0 +1,82 @@
+@mixin base-font( $font_size: $font_size ) {
+  font: {
+    style: normal;
+    weight: normal;
+    family: $font_family;
+    size: $font_size;
+  }
+
+  line-height: $line_height;
+}
+
+@mixin punc_under {
+  position: relative;
+  text-indent: 0;
+
+  &:after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    line-height: 1;
+  }
+}
+
+@mixin triangle( $width: 5px, $color: #000, $dir: top ) {
+  @include inline-block(none);
+  @include text-hide;
+  width: 0 !important;
+  height: 0 !important;
+  border: $width solid transparent;
+  border-#{$dir}-color: $color;
+}
+
+@mixin no_item {
+  list-style: none outside none;
+}
+
+@mixin no_gap {
+  margin: 0;
+  padding: 0;
+}
+
+// 渐变按钮
+@mixin gradient_button( $bg_color, $normal_start, $normal_end, $hover_start, $hover_end ) {
+  background-color: $bg_color;
+  @include linear-gradient($normal_start, $normal_end);
+
+  &:hover {
+    @include linear-gradient($hover_start, $hover_end);
+  }
+
+  &:active {
+    @include linear-gradient($hover_end, $hover_start);
+  }
+}
+
+@mixin dropdown-element( $target: "& > ul, & > ol", $alignment: left ) {
+  position: relative;
+
+  &:hover {
+    #{$target} {
+      display: block;
+    }
+  }
+
+  #{$target} {
+    display: none;
+    position: absolute;
+    top: 100%;
+    
+    @if $alignment == "right" {
+      right: 0;
+    }
+    @else {
+      left: 0;
+    }
+  }
+}
+
+@mixin special-list {
+  @include no_item;
+  @include no_gap;
+}
