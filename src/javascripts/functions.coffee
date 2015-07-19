@@ -8,19 +8,19 @@
 # @return   {String}
 ###
 hook = ( name, no_dot ) ->
-  return (if no_dot is true then "" else ".") + "js-" + __LIB.namespace(storage, "hook.#{name}")
+  return (if no_dot is true then "" else ".") + "js-" + LIB.namespace(storage, "hook.#{name}")
 
 ###
 # 获取事件名称
 ###
 eventName = ( event_name ) ->
-  return "#{event_name}.#{LIB_CONFIG.name}".toLowerCase()
+  return "#{event_name}.#{META.name}".toLowerCase()
 
 ###
 # 获取 data 的标识
 ###
 dataFlag = ( flag ) ->
-  return "#{LIB_CONFIG.name}.#{flag}"
+  return "#{META.name}.#{flag}"
 
 isTrue = ( value ) ->
   return value in [true, "true"]

@@ -10,7 +10,6 @@ module.exports = ( grunt ) ->
       "grunt-contrib-uglify"
       "grunt-contrib-concat"
       "grunt-contrib-copy"
-      "grunt-contrib-clean"
     ]
 
   preprocess = ( src, filepath ) ->
@@ -32,32 +31,14 @@ module.exports = ( grunt ) ->
       dest_style: "stylesheets"
       dest_script: "javascripts"
     concat:
-      miso_pre:
-        options:
-          process: preprocess
-        src: [
-            "vendors/miso/miso.coffee"
-          ]
-        dest: "<%= meta.temp %>/miso.coffee"
-      miso:
-        src: [
-            "build/miso_intro.coffee"
-            "<%= meta.temp %>/miso.coffee"
-            "build/miso_outro.coffee"
-          ]
-        dest: "<%= meta.script %>/miso.coffee"
       coffee:
         options:
           process: ( src, filepath ) ->
             return src.replace /@(NAME|VERSION)/g, ( text, key ) ->
               return info[key.toLowerCase()]
         files:
-          "<%= meta.classes %>/CustomComponent.coffee": [
-              "vendors/CustomComponent/CustomComponent.coffee"
-            ]
-          "<%= meta.temp %>/classes.coffee": [
-              "<%= meta.classes %>/CustomComponent.coffee"
-            ]
+          "<%= meta.classes %>/CustomComponent.coffee": "vendors/CustomComponent/CustomComponent.coffee"
+          "<%= meta.temp %>/classes.coffee": "<%= meta.classes %>/CustomComponent.coffee"
           "<%= meta.temp %>/components.coffee": [
               "<%= meta.components %>/drop-down_list.coffee"
               "<%= meta.components %>/score.coffee"
@@ -68,7 +49,6 @@ module.exports = ( grunt ) ->
             ]
           "<%= meta.temp %>/<%= pkg.name %>.coffee": [
               "build/intro.coffee"
-              "<%= meta.script %>/miso.coffee"
               "<%= meta.script %>/variables.coffee"
               "<%= meta.script %>/functions.coffee"
               "<%= meta.temp %>/classes.coffee"
@@ -79,13 +59,13 @@ module.exports = ( grunt ) ->
       js_pre:
         options:
           process: preprocess
-        src: [
-            "<%= meta.temp %>/<%= pkg.name %>.js"
-          ]
-        dest: "<%= meta.temp %>/__<%= pkg.name %>.js"
+        files:
+          "<%= meta.temp %>/__miso.js": "<%= meta.temp %>/miso.js"
+          "<%= meta.temp %>/__<%= pkg.name %>.js": "<%= meta.temp %>/<%= pkg.name %>.js"
       js_normal:
         src: [
             "build/intro.js"
+            "<%= meta.temp %>/__miso.js"
             "<%= meta.temp %>/__<%= pkg.name %>.js"
             "build/outro.js"
           ]
@@ -96,7 +76,7 @@ module.exports = ( grunt ) ->
               "vendors/painter/_painter.scss"
               "vendors/tangram/_tangram.scss"
             ]
-          "<%= meta.dest_style %>/<%= pkg.name %>/_helper.scss": [
+          "<%= meta.dest_style %>/_helper.scss": [
               "<%= meta.style %>/_vendors.scss"
               # Core variables, functions
               "<%= meta.style %>/_variables.scss"
@@ -106,7 +86,7 @@ module.exports = ( grunt ) ->
               "<%= meta.style %>/mixins/_utilities.scss"
               "<%= meta.style %>/mixins/_components.scss"
             ]
-          "<%= meta.dest_style %>/<%= pkg.name %>/_rules.scss": [
+          "<%= meta.dest_style %>/_rules.scss": [
               # Bridge
               "build/_bridge.scss"
               # Reset
@@ -128,15 +108,9 @@ module.exports = ( grunt ) ->
             ]
       matcha_helper:
         files:
-          "test/stylesheets/_vendors.scss": [
-              "src/stylesheets/_vendors.scss"
-            ]
-          "test/stylesheets/_variables.scss": [
-              "src/stylesheets/_variables.scss"
-            ]
-          "test/stylesheets/_functions.scss": [
-              "src/stylesheets/_functions.scss"
-            ]
+          "test/stylesheets/_vendors.scss": "src/stylesheets/_vendors.scss"
+          "test/stylesheets/_variables.scss": "src/stylesheets/_variables.scss"
+          "test/stylesheets/_functions.scss": "src/stylesheets/_functions.scss"
           "test/stylesheets/_mixins.scss": [
               "src/stylesheets/mixins/_typography.scss"
               "src/stylesheets/mixins/_utilities.scss"
@@ -160,13 +134,17 @@ module.exports = ( grunt ) ->
           sassDir: "test"
           cssDir: "test"
     coffee:
-      options:
-        bare: true
-        separator: "\x20"
       build_normal:
-        src: "<%= meta.temp %>/<%= pkg.name %>.coffee"
-        dest: "<%= meta.temp %>/<%= pkg.name %>.js"
+        options:
+          bare: false
+          separator: "\x20"
+        files:
+          "<%= meta.temp %>/miso.js": "vendors/miso/miso.coffee"
+          "<%= meta.temp %>/<%= pkg.name %>.js": "<%= meta.temp %>/<%= pkg.name %>.coffee"
       test:
+        options:
+          bare: true
+          separator: "\x20"
         src: "test/test.coffee"
         dest: "test/test.js"
     uglify:
@@ -208,12 +186,6 @@ module.exports = ( grunt ) ->
           keepSpecialComments: 0
         files:
           "<%= meta.dest_style %>/<%= pkg.name %>.min.css": "<%= meta.dest_style %>/<%= pkg.name %>.css"
-    clean:
-      compiled:
-        src: [
-            "<%= meta.dest_style %>/<%= pkg.name %>.css"
-            "<%= meta.dest_script %>/<%= pkg.name %>.js"
-          ]
 
   grunt.loadNpmTasks task for task in npmTasks
 
@@ -225,8 +197,6 @@ module.exports = ( grunt ) ->
     ]
   # Tasks about CoffeeScript
   grunt.registerTask "compile_coffee", [
-      "concat:miso_pre"
-      "concat:miso"
       "concat:coffee"
       "coffee:build_normal"
       "concat:js_pre"
@@ -246,5 +216,4 @@ module.exports = ( grunt ) ->
       "compile_coffee"
       "copy:image"
       "test"
-      "clean"
     ]

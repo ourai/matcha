@@ -39,8 +39,8 @@ class Score extends CustomComponent
 
     return
 
-__LIB.addComponent "score", createComponent Score, ->
-  $(".Score--selectable .Score-level").addClass(hook("score.trigger", true)) if __LIB.browser.msie and __LIB.browser.version * 1 < 9
+LIB.addComponent "score", createComponent Score, ->
+  $(".Score--selectable .Score-level").addClass(hook("score.trigger", true)) if LIB.browser.msie and LIB.browser.version * 1 < 9
 
 # Scores / Levels of evaluation
 $(document).on "click", hook("score.trigger"), ->

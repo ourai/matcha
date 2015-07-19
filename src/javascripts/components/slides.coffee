@@ -1,4 +1,4 @@
-do ( __LIB ) ->
+do ( LIB ) ->
   class Slides extends CustomComponent
     defaults:
       # 目标元素（jQuery 对象）
@@ -168,7 +168,7 @@ do ( __LIB ) ->
 
     return changeUnit curr, nextUnit(slides, dir, index), dir, slides.data(dataFlag("SlidesEffect"))
 
-  __LIB.addComponent "slides", createComponent(Slides)
+  LIB.addComponent "slides", createComponent(Slides)
 
   # 上一个/下一个
   $(document).on "click", ".Slides-trigger", ->

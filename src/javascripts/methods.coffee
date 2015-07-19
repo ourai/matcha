@@ -1,4 +1,4 @@
-__LIB.extend
+LIB.extend
   handlers: [
     {
       ###
@@ -19,7 +19,7 @@ __LIB.extend
         else if @hasProp(name)
           throw "Wrong component's name!!!"
         else
-          __LIB[name] = storage.components[name] = func
+          LIB[name] = storage.components[name] = func
 
         return func
 

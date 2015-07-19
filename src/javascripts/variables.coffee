@@ -1,3 +1,9 @@
+LIB = Miso
+
+META = 
+  name: "@NAME"
+  version: "@VERSION"
+
 $ = jQuery
 
 # 内部数据载体
