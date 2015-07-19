@@ -4,6 +4,8 @@
   "main": [
     "javascripts/matcha.min.js",
     "stylesheets/matcha.min.css",
+    "stylesheets/_helper.scss",
+    "stylesheets/_rules.scss",
     "images/**/*"
   ],
   "license": "MIT",

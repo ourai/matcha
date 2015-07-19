@@ -10,4 +10,4 @@ class DataList extends CustomComponent
       defaultPage: 0
     update: ->
 
-__LIB.addComponent "dataList", createComponent(DataList)
+LIB.addComponent "dataList", createComponent(DataList)

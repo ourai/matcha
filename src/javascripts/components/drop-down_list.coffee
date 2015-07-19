@@ -25,7 +25,7 @@ class DropdownList extends CustomComponent
     $el.after ddl
     ddl.data dataFlag("DropListDummy"), $el
 
-__LIB.addComponent "dropdown", createComponent(DropdownList)
+LIB.addComponent "dropdown", createComponent(DropdownList)
 
 $(document).on "click", hook("dropdown.trigger"), ->
   t = $(@)
