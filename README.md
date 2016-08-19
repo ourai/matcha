@@ -1,4 +1,4 @@
-# Matcha - Another UI Library
+# Matcha
 
 This is a Flexible, Responsive and Powerful UI framework, what I want it to be. ;-) However, it is only consist of some layouts, components and Sass helpers (variables, functions and mixins) now.
 
